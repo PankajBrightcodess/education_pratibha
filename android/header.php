@@ -39,7 +39,7 @@
 					<div class="logo">
 						<p>
 							<a href="#">
-								<label style="color: #171662;"><strong>Education Pratibha Darpan</strong></label>
+								<label style="color: #171662;"><strong>Educollection Pratibha Darpan</strong></label>
 							</a>
 						</p>
 					</div>
