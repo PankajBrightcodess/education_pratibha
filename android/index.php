@@ -2,7 +2,7 @@
 <?php include 'header.php'; ?>
 
 <section class="slider">
-	<img src="../data1/images/New/03.jpg" alt="Los Angeles">
+	<img src="../data1/images/New/banner.png" alt="Los Angeles">
     <hr>
 </section>
 <section class="banner-bottom" >
