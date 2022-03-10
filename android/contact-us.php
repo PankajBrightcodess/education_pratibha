@@ -29,8 +29,8 @@
                <p><span>Training Enquiry No. :</span><a href="tel:0000000000"  title="0000000000"> (+91) - 0000000000</a></p>
                 <p><span>Support No. :</span><a href="tel:0000000000"  title="0000000000"> (+91) - 0000000000</a></p>
               <!--   <p><strong><i class="fab fa-whatsapp text-success"></i></strong> <a href="tel:09703427163"  title="09703427163">+91 - 9852528104, </a></p> -->
-                <p><strong><i class="fas fa-envelope text-success"></i></strong> <a href="#">support@shivanyacomputer.com</a></p>
-                <p><strong><i class="fas fa-globe text-success"></i></strong> <a href="https://shivanyacomputer.com/">www.shivanyacomputer.com</a></p>
+                <p><strong><i class="fas fa-envelope text-success"></i></strong> <a href="#">support@pratibha.com</a></p>
+                <p><strong><i class="fas fa-globe text-success"></i></strong> <a href="https://shivanyacomputer.com/">www.pratibha.com</a></p>
             </div>
             <div class="col-md-12">
 <!--     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3655.476042260754!2d86.13541841538598!3d23.62311698465224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f42379b47dcc9f%3A0xcb08bfc6ca9ced8a!2sSHIVANYA%20COMPUTER%20EDUCATION%20PVT.LTD!5e0!3m2!1sen!2sin!4v1640603123250!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe> -->
