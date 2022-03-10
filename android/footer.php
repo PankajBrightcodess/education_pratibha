@@ -33,7 +33,7 @@
 			</div>
 			<div class="col-md-3 col-3 px-3">
 				<!--  <a href="https://api.whatsapp.com/send?phone=916206582247&text=&source=&data=" target="_blank" class="btn btn-danger" class="btn btn-warning"><i class="fab fa-whatsapp"></i> <br> Whatsapp</a> -->
-				<a href="https://api.whatsapp.com/send?phone=+91919852528104&text=&source=&data=" target="_blank">
+				<a href="https://api.whatsapp.com/send?phone=+910000000000&text=&source=&data=" target="_blank">
 					<div class="bottom-inner-menu">
 						<i class="fab fa-whatsapp" aria-hidden="true"></i>
 					</div>

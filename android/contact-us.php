@@ -24,9 +24,9 @@
             <div class="col-md-5">
             	<h2 class="text-center text-info">Official Address</h2><hr class="border-warning">
                 <p>EDUCATION PRATIBHA DARPAN</p>
-                <p>ADARSH CO OPERATIVE , SHOPPING CENTRE , SHOP NO - 24 , BOKARO</p>
+                <p>IT PARK NEAR RIYADA , RANCHI  , NO - 24 , RANCHI</p>
                 <p>Bokaro – 827012 (Jharkhand)</p>
-               <p><span>Training Enquiry No. :</span><a href="tel:0000000000"  title="0000000000"> (+91) - 9852528104</a></p>
+               <p><span>Training Enquiry No. :</span><a href="tel:0000000000"  title="0000000000"> (+91) - 0000000000</a></p>
                 <p><span>Support No. :</span><a href="tel:0000000000"  title="0000000000"> (+91) - 0000000000</a></p>
               <!--   <p><strong><i class="fab fa-whatsapp text-success"></i></strong> <a href="tel:09703427163"  title="09703427163">+91 - 9852528104, </a></p> -->
                 <p><strong><i class="fas fa-envelope text-success"></i></strong> <a href="#">support@shivanyacomputer.com</a></p>

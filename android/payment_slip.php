@@ -51,10 +51,10 @@ include('connection.php');
      <div class="row" style="margin-top:50px;">
        <div class="col-md-12 mb-5">
             <center>
-                <strong><font size="+2">Shivanya Computer Education</font></strong><br />
-                <strong><font size="+1">ADARSH CO OPERATIVE , SHOPPING CENTRE , SHOP NO - 24 , BOKARO</font></strong><br />
-                <strong><font size="+1">Bokaro – 827012(Jharkhand)</font></strong><br />
-                <strong><font size="+1">An ISO 9001:2015 Certified institute</font></strong><br />
+                <strong><font size="+2">Educollection Pratibha Darpan</font></strong><br />
+                <strong><font size="+1"></font></strong><br />
+                <strong><font size="+1"></font></strong><br />
+                <strong><font size="+1"></font></strong><br />
             </center>
        </div><!-- col-md-12 closed -->
      </div><!-- End of row-->

@@ -10,7 +10,7 @@
                     <label>Category<span style="color: Red;">*</span></label>
                     <select class="form-control" id="catg" name="category"required>
                          <option>----SELECT----</option>   
-                         <option value="franchise">Franchise</option>   
+                         <option value="feild_executive">Feild Executive</option>   
                          <option value="admission">Admission</option>   
                     </select>
                 </div>

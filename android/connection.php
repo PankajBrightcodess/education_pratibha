@@ -3,7 +3,7 @@ if(isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST']=='localhost'){
 	$conn=new mysqli("localhost","root","","db_pratibha");
 }
 else{
-	$conn=new MySQLi("localhost","softwarebss_pratibha","Pratibha@123#","softwarebss_pratibha");
+	$conn=new MySQLi("localhost","softwarebss_prathibha","Prathibha@123#","softwarebss_prathibha");
 }
 if($conn->connect_errno){
 	echo "connection failed";
