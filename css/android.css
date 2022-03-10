@@ -129,8 +129,8 @@ body{
     height: auto;
     top:0px;
     padding: 10px 0px 0px;
-    background: #594369;
-    color: #fff;
+    background: #FFFFFF;   /*#182458*/
+    color: #171662;
     text-align: center;
 }
 .header{
@@ -170,7 +170,7 @@ body{
     overflow-x: hidden;
     transition: 0.5s;
     background-color: #f7345b;
-    background: linear-gradient(-45deg,#856C96, #856C96);
+    background: linear-gradient(-45deg,#4b547e, #4b547e);
 }
 .overlay5 a {
     padding: 4px;
@@ -395,11 +395,11 @@ color:#D70104;
     border-radius: 20px 0 0 0;
 }
 .modal-header{
-    background: #856C96;
+    background: #7c7f8f;
     color: white;
 }
 .course{
-    background: #856C96;
+    background: #2659a2;
     color: white;
     border-radius: 10px;
     text-align: left;
@@ -451,7 +451,7 @@ color:#D70104;
     /*padding: 5px;*/
     width: 100%
     height: auto;
-    background-color: #594369;
+    background-color: #182458;
     box-shadow: 0 0 9px rgb(0 0 0 / 12%);
     }
 .bottom-inner-menu {

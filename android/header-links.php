@@ -13,5 +13,5 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700|Roboto:300,400,400i,500,700" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
     <link rel="shortcut icon" href="images/logo/logo.jpeg" type="image/png">
-    <title>Shivanya Computer Education</title>
+    <title>Education Pratibha Darpan</title>
 </head>

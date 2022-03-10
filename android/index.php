@@ -9,8 +9,8 @@
 	<div class="container">
         <div class="row">
             <div class="col-md-6	col-6">
-            	<a href="centerlogin.php"><img src="../images/fav/01.png" alt="Los Angeles" style="padding:25px;padding-bottom: 0px;" class="img-fluid">
-            	<label>Center Login</label></a>
+            	<a href="apply_feildexcutive.php"><img src="../images/fav/01.png" alt="Los Angeles" style="padding:25px;padding-bottom: 0px;" class="img-fluid">
+            	<label>Apply Field Executive</label></a>
             </div>
             <div class="col-md-6	col-6">
             	<a href="studentlogin.php"><img src="../images/fav/02.png" alt="Los Angeles" style="padding:25px;padding-bottom: 0px;" class="img-fluid">

@@ -1,6 +1,6 @@
 <?php 
 if(isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST']=='localhost'){
-	$conn=new mysqli("localhost","root","","db_shivanya");
+	$conn=new mysqli("localhost","root","","db_pratibha");
 }
 else{
 	$conn=new MySQLi("localhost","softwarebss_shivanya","Shivanya@123#","softwarebss_shivanya");

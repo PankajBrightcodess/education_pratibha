@@ -6,7 +6,7 @@
             <div class="row">
                 <div class="col-md-3"></div>
                 <div class="col-md-6">
-                    <div class="login-form" style="background: #46B353; padding:15px; border-radius: 15px;">
+                    <div class="login-form" style="background: #467eb3; padding:15px; border-radius: 15px;">
                         <div class="logo-section">
                             <h1 style="font-size: 35px; text-align:center; color: white;">Center Login</h1><hr>
                         </div>
