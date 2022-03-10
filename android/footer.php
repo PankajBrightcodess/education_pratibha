@@ -15,7 +15,7 @@
 				
 					<div class="bottom-inner-menu">
 					
-						<a href="tel:+91919852528104">
+						<a href="tel:+910000000000">
 						<i class="fa fa-phone" aria-hidden="true"></i>
 						</a>
 					</div>
