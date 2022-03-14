@@ -3,7 +3,7 @@ session_start();
 if($_SESSION['role']!='1'){
     header('location:index.php');
   }
-include'../connection.php';
+include'connection.php';
 $msg = "";
     if (isset($_SESSION['msg'])) {
         $msg = $_SESSION['msg'];
@@ -12,11 +12,11 @@ $msg = "";
     if ($msg != "") {
         echo "<script> alert('$msg')</script>";
     }
-    $query="SELECT * FROM `principal_notice` WHERE `status`='1' ORDER BY `id`  DESC;";
-    $run=mysqli_query($conn,$query);
-    while ($data=mysqli_fetch_assoc($run)) {
-      $principal_notice[]=$data;
-    }
+    // $query="SELECT * FROM `principal_notice` WHERE `status`='1' ORDER BY `id`  DESC;";
+    // $run=mysqli_query($conn,$query);
+    // while ($data=mysqli_fetch_assoc($run)) {
+    //   $principal_notice[]=$data;
+    // }
 
    
 ?>

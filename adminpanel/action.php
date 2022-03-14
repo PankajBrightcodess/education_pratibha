@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include '../connection.php';
+include 'connection.php';
 function Imageupload($dir,$inputname,$allext,$pass_width,$pass_height,$pass_size,$newname){
 	// print_r($inputname);
 	// print_r($_FILES["$inputname"]["tmp_name"]);die;
@@ -76,10 +76,11 @@ if(isset($_POST['studentregister'])){
 	}
 }
 if(isset($_POST['adminlogin'])){
-	
+	// echo '<pre>';
+	// print_r($_POST);die;
 	$email=$_POST['email'];
 	$pass=$_POST['pass'];
-	$query="SELECT * FROM `admin_login` WHERE `email`='$email' and `password`='$pass'";
+	$query="SELECT * FROM `admin` WHERE `email`='$email' and `password`='$pass'";
 	$run=mysqli_query($conn,$query);
 	$num=mysqli_num_rows($run);
 	if($num){
@@ -90,7 +91,7 @@ if(isset($_POST['adminlogin'])){
 		$_SESSION['name'] = $data['name'];
 		$_SESSION['email'] = $data['email'];
 		$_SESSION['password'] = $data['password'];
-		$_SESSION['mobile'] = $data['mobile'];
+		// $_SESSION['mobile'] = $data['mobile'];
 		$_SESSION['role'] = $data['role'];
 		header('location:dashboard.php');		
 	}

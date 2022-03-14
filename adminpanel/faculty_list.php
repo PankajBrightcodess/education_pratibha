@@ -3,7 +3,7 @@ session_start();
 if($_SESSION['role']!='1'){
     header('location:index.php');
   }
-include'../connection.php';
+include'connection.php';
 $msg = "";
     if (isset($_SESSION['msg'])) {
         $msg = $_SESSION['msg'];
@@ -12,11 +12,11 @@ $msg = "";
     if ($msg != "") {
         echo "<script> alert('$msg')</script>";
     }
-    $query="SELECT * FROM `faculty` WHERE `status`='1'";
-    $run=mysqli_query($conn,$query);
-    while ($data=mysqli_fetch_assoc($run)) {
-      $student[]=$data;
-    }
+    // $query="SELECT * FROM `faculty` WHERE `status`='1'";
+    // $run=mysqli_query($conn,$query);
+    // while ($data=mysqli_fetch_assoc($run)) {
+    //   $student[]=$data;
+    // }
 
    
 ?>
@@ -78,7 +78,7 @@ $msg = "";
                   </tr>
                   </thead>
                   <tbody>
-                   <?php 
+                  <!--  <?php 
                         $sql = "SELECT t1.*, t2.department FROM `faculty` as t1 INNER JOIN `department_master` as t2 ON t1.department_id=t2.id";
                         $res = mysqli_query($conn,$sql);
                         $sn=0;
@@ -94,11 +94,8 @@ $msg = "";
                           <td><?php echo $row['pan_no']; ?></td>
                           <td><?php echo $row['department']; ?></td>
                           <td><?php echo date('d-m-Y', strtotime($row['added_on'])); ?></td>
-                          <!-- <td>
-                            <button class="btn btn-sm btn-success editdepartment" data-toggle="modal" data-id="<?php echo $row['id']; ?>" data-department="<?php echo $row['department']; ?>" data-target="#departmentModal">&nbsp;&nbsp;<i class="far fa-edit nav-icon"></i>&nbsp;Edit</button>
-                          </td> -->
                         </tr>
-                      <?php } ?>
+                      <?php } ?> -->
                  
                 </table>
               </div>

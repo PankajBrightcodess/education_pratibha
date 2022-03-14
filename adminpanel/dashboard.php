@@ -1,6 +1,6 @@
 <?php
 session_start();
-include_once('../connection.php');
+include_once('connection.php');
 if($_SESSION['role']!='1'){
     header('location:index.php');
   }
@@ -41,14 +41,14 @@ if($_SESSION['role']!='1'){
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-                <?php 
+              <!--   <?php 
                   $sql1 = "select * from department_master where status = '1'";
                   $res1 = mysqli_query($conn, $sql1);
                   $row1 = mysqli_num_rows($res1);
-                  ?> 
-                <h3><?php echo $row1; ?></h3>
+                  ?>  -->
+                <h3>77</h3>
 
-                <p>Total Department</p>
+                <p>Total Exam</p>
               </div>
               <div class="icon">
                 <i class="ion ion-bag"></i>
@@ -61,12 +61,12 @@ if($_SESSION['role']!='1'){
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-                <?php 
+               <!--  <?php 
                   $sql1 = "select * from student where status = '1'";
                   $res1 = mysqli_query($conn, $sql1);
                   $row1 = mysqli_num_rows($res1);
-                  ?> 
-                <h3><?php echo $row1; ?></h3>
+                  ?>  -->
+                <h3>130</h3>
 
                 <p>Total Student</p>
               </div>
@@ -81,14 +81,14 @@ if($_SESSION['role']!='1'){
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-              <?php 
+            <!--   <?php 
                   $sql1 = "select * from faculty where status = '1'";
                   $res1 = mysqli_query($conn, $sql1);
                   $row1 = mysqli_num_rows($res1);
-                  ?> 
-                <h3><?php echo $row1; ?></h3>
+                  ?>  -->
+                <h3>20</h3>
 
-                <p>Total Faculty</p>
+                <p>Total Field Executive</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>

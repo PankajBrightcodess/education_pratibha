@@ -12,7 +12,7 @@
     <a href="" class="brand-link">
       <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
            style="opacity: .8">
-      <span class="brand-text font-weight-light">Ayurveda Collage</span>
+      <span class="brand-text font-weight-light">Pratibha Darpan</span>
     </a>
  <!-- Sidebar -->
     <div class="sidebar">
@@ -21,7 +21,7 @@
           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Ayurveda Collage</a>
+          <a href="#" class="d-block">Pratibha Darpan</a>
         </div>
       </div>
       <nav class="mt-2">

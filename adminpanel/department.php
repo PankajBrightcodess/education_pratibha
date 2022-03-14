@@ -3,7 +3,7 @@ session_start();
 if($_SESSION['role']!='1'){
     header('location:index.php');
   }
-include'../connection.php';
+include'connection.php';
 $msg = "";
     if (isset($_SESSION['msg'])) {
         $msg = $_SESSION['msg'];
@@ -78,7 +78,7 @@ $msg = "";
                   </tr>
                   </thead>
                   <tbody>
-                   <?php 
+                 <!--   <?php 
                         $sql = "select * from department_master where status = '1'";
                         $res = mysqli_query($conn,$sql);
                         $sn=0;
@@ -89,14 +89,10 @@ $msg = "";
                           <td><?php echo $row['department']; ?></td>
                           <td><?php echo $row['added_on']; ?></td>
                           <td>
-                            <!-- <form action="action.php" method="post">
-                                <input type="hidden" name="id" value="<?php //echo $row['id']; ?>">
-                                <button class="btn btn-danger" type="submit" name="delete-department"> Delete </button>
-                            </form> -->
                             <button class="btn btn-sm btn-success editdepartment" data-toggle="modal" data-id="<?php echo $row['id']; ?>" data-department="<?php echo $row['department']; ?>" data-target="#departmentModal">&nbsp;&nbsp;<i class="far fa-edit nav-icon"></i>&nbsp;Edit</button>
                           </td>
                         </tr>
-                      <?php } ?>
+                      <?php } ?> -->
                  
                 </table>
               </div>
