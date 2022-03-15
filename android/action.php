@@ -104,7 +104,7 @@ function videoupload($dir,$inputname,$allext,$pass_width,$pass_height,$pass_size
 }
 // '''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 if(isset($_POST['login'])){
-	// print_r($_POST);die;
+
 	$email=$_POST['email'];
 	$pass=$_POST['pass'];
 	$query="SELECT * FROM `admin` WHERE `email`='$email' and `password`='$pass' and `status`='1'";
@@ -124,6 +124,51 @@ if(isset($_POST['login'])){
 		$_SESSION['msg']='Invalid details !!!';
 		header("Location: " . $_SERVER['HTTP_REFERER']);
 	}
+}
+
+if(isset($_POST['field_excutive'])){
+	$name=$_POST['name'];
+	$gender=$_POST['gender'];
+	$dob=$_POST['dob'];
+	$mobile=$_POST['mobile'];
+	$email=$_POST['email'];
+	$location=$_POST['location'];
+	$city=$_POST['city'];
+	$state=$_POST['state'];
+	$pincode=$_POST['pincode'];
+	// $precenter=$_POST['precenter'];
+	$password=$_POST['password'];
+	$con_password=$_POST['con_password'];
+	$added_on=date('Y-m-d');
+	
+	if(!empty($email)){
+	   	$query="SELECT * FROM `field_excutive` WHERE `email`='$email'";
+	    $run=mysqli_query($conn,$query);
+	    $num=mysqli_num_rows($run);
+	    if($num==0){
+	    	if($password==$con_password){
+	    		$query="INSERT INTO `field_excutive`(`name`,`gender`,`dob`,`mobile`,`email`,`location`,`city`,`state`,`pincode`,`password`,`added_on`) VALUES ('$name','$gender','$dob','$mobile','$email','$location','$city','$state','$pincode','$password','$added_on')";
+	    		
+	    	    $sql=mysqli_query($conn,$query);
+	    	    if($sql){
+					echo $sql;
+				}
+				else{
+					$_SESSION['msg']="Center Not Added !!!";
+					header("location:$_SERVER[HTTP_REFERER]");
+				}
+	    	}
+	    	else{
+	    		$_SESSION['msg']='password Not Match !!!';
+		        header("Location: " . $_SERVER['HTTP_REFERER']);
+	    	}
+	    }
+	    else{
+	    	$_SESSION['msg']='Email Already Used !!!';
+		    header("Location: " . $_SERVER['HTTP_REFERER']);
+	    }
+	}
+
 }
 
 if(isset($_POST['add_center'])){

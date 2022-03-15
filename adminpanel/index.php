@@ -3,7 +3,7 @@ session_start();
 if(isset($_SESSION['adminemail'])){
   header('location:dashboard.php');
 }
-include'connection.php';
+include'../android/connection.php';
 $msg = "";
     if (isset($_SESSION['msg'])) {
         $msg = $_SESSION['msg'];
@@ -21,7 +21,7 @@ $msg = "";
   <title>Login Page</title>
   <?php include'includes/header-links.php'; ?>
 </head>
-<body class="hold-transition login-page" style="background-image: url('../images/backg.jpg');background-size: cover;">
+<body class="hold-transition login-page" style="background-image: url('../images/adminimage.jpg');background-size: cover;">
   <!-- Content Wrapper. Contains page content -->
 
   <div class="login-box">

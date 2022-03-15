@@ -9,8 +9,8 @@ $msg = "";
 		echo "<script> alert('$msg') </script>";
 	}
 	// print_r($_SESSION['role']);die;
-	if(empty($_SESSION['enroll_no'])){
-		header('location:../centrelogin.php');
+	if(empty($_SESSION['enroll_id'])){
+		header('location:../studentlogin.php');
 	}
 ?>
 <?php include 'header-links.php'; ?>

@@ -36,6 +36,43 @@ function Imageupload($dir,$inputname,$allext,$pass_width,$pass_height,$pass_size
 	}
 	return $error;
 }
+
+//////pdf upload
+function Pdfupload($dir,$inputname,$allext,$pass_width,$pass_height,$pass_size,$newname){
+	// print_r($inputname);
+	// print_r($_FILES["$inputname"]["tmp_name"]);die;
+	if(file_exists($_FILES["$inputname"]["tmp_name"])){
+		// do this contain any file check
+		$file_extension = strtolower( pathinfo($_FILES["$inputname"]["name"], PATHINFO_EXTENSION));
+		$error="";
+			// print_r($file_extension);die;
+		if(in_array($file_extension, $allext)){
+			// file extension check
+			list($width, $height, $type, $attr) = getimagesize($_FILES["$inputname"]["tmp_name"]);
+			$image_weight = $_FILES["$inputname"]["size"];
+			if($width <= "$pass_width" && $height <= "$pass_height" && $image_weight <= "$pass_size"){
+				// dimension check
+				$tmp = $_FILES["$inputname"]["tmp_name"];
+				$extension[1]="pdf";
+				$name=$newname.".".$extension[1];
+				if(move_uploaded_file($tmp, "$dir" .$name)){
+					return true;
+				}
+
+			}
+			else{
+				$error .="Please upload pdf size of $pass_width X $pass_height !!!";
+			}
+		}
+		else{
+			$error .="Please upload an pdf !!!";
+		}
+	}
+	else{
+		$error .="Please Select an pdf !!!";
+	}
+	return $error;
+}
 // '''''''''''''''''''''''''''''''''''''''
 if(isset($_POST['studentregister'])){
 	// echo '<pre>';
@@ -128,6 +165,38 @@ if(isset($_POST['add_notice'])){
 		header("Location: ".$_SERVER['HTTP_REFERER']);
 	}
 }
+
+if(isset($_POST['uploadfiles'])){
+	
+	$course=$_POST['course'];
+	$photo = $_FILES['upload_image']['name'];
+		$photo = explode('.',$photo);
+		$image= time().$photo[0];
+		$imagename = $_FILES['upload_image']['tmp_name'];
+			list($width,$height)=getimagesize($_FILES['upload_image']['tmp_name']);
+		$dir="uploads/";
+		$allext=array("pdf");
+		$check = Pdfupload($dir,'upload_image',$allext,"1800000","1800000",'100000000',$image);
+		if($check===true){
+			$pdf = $image.".pdf";	
+			$query="INSERT INTO `material_upload`(`course`,`upload_pdf`) VALUES ('$course','$pdf')";
+			$sql=mysqli_query($conn,$query);
+			if($sql){
+				 header("Location:$_SERVER[HTTP_REFERER]");
+				$_SESSION['msg']="Successfully Added!!!";	
+			}
+			else{
+				$_SESSION['msg']="Not added result !!!";
+				header("Location:$_SERVER[HTTP_REFERER]");
+			}
+		}
+		else{
+			$_SESSION['msg']=$check;
+			header("location:$_SERVER[HTTP_REFERER]");	
+		}
+
+}
+
 
 if(isset($_POST['update_notice'])){
 	// echo '<pre>';

@@ -38,18 +38,18 @@ function Imageupload($dir,$inputname,$allext,$pass_width,$pass_height,$pass_size
 }
 // '''''''''''''''''''''''''''''''''''''''
 if(isset($_POST['studentlogin'])){
-	// echo '<pre>';
-	// print_r($_POST);die;
+	
 	$email=$_POST['email'];
 	$pass=$_POST['pass'];
-	$query="SELECT * FROM `student` WHERE `email`='$email' and `pass`='$pass'";
+	$query="SELECT * FROM `student` WHERE `email`='$email' and `password`='$pass'";
 	$run=mysqli_query($conn,$query);
 	$num=mysqli_num_rows($run);
+	// print_r($num);die;
 	if($num){
 		$data=mysqli_fetch_assoc($run);
-		$_SESSION['enroll_no'] = $data['enroll_no'];
-		$_SESSION['id'] = $data['id'];
-		$_SESSION['name'] = $data['std_name'];
+		// $_SESSION['enroll_no'] = $data['enroll_no'];
+		$_SESSION['enroll_id'] = $data['id'];
+		$_SESSION['name'] = $data['name'];
 		$_SESSION['course'] = $data['course'];
 		header('location:dashboard.php');		
 	}

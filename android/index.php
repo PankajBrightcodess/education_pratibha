@@ -13,12 +13,12 @@
             	<label>Apply Field Executive</label></a>
             </div>
             <div class="col-md-6	col-6">
-            	<a href="studentlogin.php"><img src="../images/fav/02.png" alt="Los Angeles" style="padding:25px;padding-bottom: 0px;" class="img-fluid">
-            	<label>Student Login</label></a>
+            	<a href="student_reg.php"><img src="../images/fav/02.png" alt="Los Angeles" style="padding:25px;padding-bottom: 0px;" class="img-fluid">
+            	<label>Student Registration</label></a>
             </div>
             <div class="col-md-6	col-6">
-            	<a href="centerlist.php"><img src="../images/fav/031.png" alt="Los Angeles" style="padding:25px;padding-bottom: 0px;" class="img-fluid">
-            	<label>Center List</label></a>
+            	<a href="studentlogin.php"><img src="../images/fav/031.png" alt="Los Angeles" style="padding:25px;padding-bottom: 0px;" class="img-fluid">
+            	<label>Student Login</label></a>
 
             </div>
             <div class="col-md-6	col-6">

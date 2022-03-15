@@ -34,7 +34,7 @@
               </p>
             </a>
           </li>
-          <li class="nav-item has-treeview <?php if(in_array($page, $armkey)){echo 'menu-open';} ?>">
+          <!-- <li class="nav-item has-treeview <?php if(in_array($page, $armkey)){echo 'menu-open';} ?>">
             <a href="#" class="nav-link <?php if(in_array($page, $armkey)){echo 'active';} ?>">
               <i class="fas fa-key nav-icon"></i>
               <p>
@@ -56,12 +56,12 @@
                 </a>
               </li>
             </ul>
-          </li>
+          </li> -->
           <li class="nav-item has-treeview <?php if(in_array($page, $product)){echo 'menu-open';} ?>">
             <a href="#" class="nav-link <?php if(in_array($page, $product)){echo 'active';} ?>">
               <i class="fas fa-layer-group nav-icon"></i>
               <p>
-                Faculty
+                Feild Executive
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -73,9 +73,9 @@
                 </a>
               </li> -->
               <li class="nav-item">
-                <a href="faculty_list.php" class="nav-link  <?php if($page == 'product-list'){ echo 'active'; }?>">
+                <a href="feild_executive.php" class="nav-link  <?php if($page == 'product-list'){ echo 'active'; }?>">
                   <i class="fas fa-clipboard-list nav-icon"></i>
-                  <p>Faculty List</p>
+                  <p>Feild Executive List</p>
                 </a>
               </li>
             </ul>
@@ -89,12 +89,7 @@
               </p>
             </a>
             <ul class="nav nav-treeview">
-              <!-- <li class="nav-item">
-                <a href="add_student.php" class="nav-link  <?php if($page == 'add-product'){ echo 'active'; }?>">
-                  <i class="fas fa-plus-circle nav-icon"></i>
-                  <p>Add Student</p>
-                </a>
-              </li> -->
+            
               <li class="nav-item">
                 <a href="student_list.php" class="nav-link  <?php if($page == 'product-list'){ echo 'active'; }?>">
                   <i class="fas fa-clipboard-list nav-icon"></i>
@@ -103,22 +98,33 @@
               </li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a href="notice_list.php" class="nav-link <?php if($page == 'order'){ echo 'active';} ?>">
-              <i class="fas fa-list-alt nav-icon"></i>
+           <li class="nav-item has-treeview <?php if(in_array($page, $product)){echo 'menu-open';} ?>">
+            <a href="#" class="nav-link <?php if(in_array($page, $product)){echo 'active';} ?>">
+              <i class="fas fa-layer-group nav-icon"></i>
               <p>
-                View Notice
+                Upload File
+                <i class="right fas fa-angle-left"></i>
               </p>
             </a>
+            <ul class="nav nav-treeview">
+            
+              <li class="nav-item">
+                <a href="uploadfiles.php" class="nav-link  <?php if($page == 'product-list'){ echo 'active'; }?>">
+                  <i class="fas fa-clipboard-list nav-icon"></i>
+                  <p>Upload Study material</p>
+                </a>
+              </li>
+            </ul>
           </li>
-          <li class="nav-item">
+         
+         <!--  <li class="nav-item">
             <a href="view_assignment.php" class="nav-link <?php if($page == 'assignment'){ echo 'active';} ?>">
               <i class="fas fa-trophy nav-icon"></i>
               <p>
                 Assignment
               </p>
             </a>
-          </li>
+          </li> -->
           <!-- <li class="nav-item">
             <a href="gifted-winners.php" class="nav-link <?php if($page == 'gifted-winners'){ echo 'active';} ?>">
               <i class="fas fa-medal nav-icon"></i>

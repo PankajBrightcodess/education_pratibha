@@ -15,8 +15,8 @@
 	<!-- Required meta tags -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<?php include '../admin/header-links.php'; ?>
-	<title>Change Password | Shivanya Computer Education</title>
+	<?php include 'header-links.php'; ?>
+	<title>Change Password | Pratibha</title>
 </head>
 <body style="background:#e8e7e5; ">
 	<section class="login" style="margin-top: 15rem;">
@@ -26,7 +26,7 @@
 				<div class="col-md-6">
 					<div class="login-form" style="background: #B0B379; padding:15px; border-radius: 15px;">
 						<div class="logo-section">
-							<h1 style="font-size: 35px; text-align:center; color: white;">Center Change Password</h1><hr>
+							<h1 style="font-size: 35px; text-align:center; color: white;">Executive Change Password</h1><hr>
 						</div>
 						<form action="action.php" method="POST">
 							<div class="form-group">

@@ -12,11 +12,15 @@ $msg = "";
     if ($msg != "") {
         echo "<script> alert('$msg')</script>";
     }
-    // $query="SELECT * FROM `student` WHERE `status`='1'";
-    // $run=mysqli_query($conn,$query);
-    // while ($data=mysqli_fetch_assoc($run)) {
-    //   $student[]=$data;
-    // }
+
+   
+    $query="SELECT student.*, field_excutive.name AS exe_name FROM student INNER JOIN field_excutive ON student.executive_id=field_excutive.id WHERE student.status='1'";
+    $run=mysqli_query($conn,$query);
+    while ($data=mysqli_fetch_assoc($run)) {
+      $student[]=$data;
+    }
+    // echo '<pre>';
+    // print_r($student);die;
 
    
 ?>
@@ -66,41 +70,49 @@ $msg = "";
                   <tr>
                     <th>S. No.:</th>
                     <th>Name</th>
-                    <th>Father's Name</th>
-                    <th>Mother's Name</th>
+                    <th>DOB</th>
+                    <th>Address</th>
+                    <th>Feild Executive</th>
                     <th>Mobile Number</th>
-                    <th>Aadhar</th>
                     <th>Email Id</th>
-                    <th>Qualification</th>
-                    <th>Department</th>
+                    <th>Course</th>
                     <th>Addmission Date</th>
                     <!-- <th>Action</th> -->
                     
                   </tr>
                   </thead>
                   <tbody>
-                   <!-- <?php 
-                        $sql = "SELECT t1.*, t2.department FROM `student` as t1 INNER JOIN `department_master` as t2 ON t1.department_id=t2.id";
-                        $res = mysqli_query($conn,$sql);
-                        $sn=0;
-                        while($row = mysqli_fetch_assoc($res)){ $sn++;
-                      ?>
-                        <tr>
-                          <td><?php echo $sn; ?></td>
-                          <td><?php echo $row['name']; ?></td>
-                          <td><?php echo $row['father_name']; ?></td>
-                          <td><?php echo $row['mother_name']; ?></td>
-                          <td><?php echo $row['mobile_no']; ?></td>
-                          <td><?php echo $row['aadhar_no']; ?></td>
-                          <td><?php echo $row['email_id']; ?></td>
-                          <td><?php echo $row['heighest']; ?></td>
-                          <td><?php echo $row['department']; ?></td>
-                          <td><?php echo date('d-m-Y', strtotime($row['added_on'])); ?></td>
-                         <td>
-                            <button class="btn btn-sm btn-success editdepartment" data-toggle="modal" data-id="<?php echo $row['id']; ?>" data-department="<?php echo $row['department']; ?>" data-target="#departmentModal">&nbsp;&nbsp;<i class="far fa-edit nav-icon"></i>&nbsp;Edit</button>
-                          </td> 
-                        </tr>
-                      <?php } ?> -->
+
+                    <?php 
+                        if(!empty($student)){$sn=0;
+                          foreach ($student as $key => $value) {$sn++;
+                            ?>
+                             <tr>
+                                <td><?php echo $sn; ?></td>
+                                <td><?php echo $value['name']; ?></td>
+                                <td><?php echo date('d-m-Y', strtotime($value['dob'])); ?></td>
+                                <td><?php echo $value['address']; ?></td>
+                                <td><?php echo $value['exe_name']; ?></td>
+                                <td><?php echo $value['mobile']; ?></td>
+                                <td><?php echo $value['email']; ?></td>
+                                <td><?php echo $value['course']; ?></td>
+                                <td><?php echo date('d-m-Y', strtotime($value['added_on'])); ?></td>
+                                <!-- <td>
+                                  <button class="btn btn-sm btn-success editdepartment" data-toggle="modal" data-id="<?php echo $row['id']; ?>" data-department="<?php echo $row['department']; ?>" data-target="#departmentModal">&nbsp;&nbsp;<i class="far fa-edit nav-icon"></i>&nbsp;Edit</button>
+                                </td> --> 
+                            </tr>
+
+
+
+                            <?php
+                          }
+                        }
+
+
+                    ?>
+                
+                       
+                     
                  
                 </table>
               </div>

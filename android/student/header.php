@@ -1,4 +1,4 @@
-<body class="desktop" style="background: #B0E325;">
+<body class="desktop" style="background: #b6fff3;">
 	<section class="top-part">
 		<div class="container">
 			<div class="row header">
@@ -15,14 +15,15 @@
               				</div> -->
               				<div class="home2">
 								<a href="dashboard.php"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Dashboard</a><hr>
-								<a href="studymaterial.php"><i class="fa fa-sign-in-alt"></i>&nbsp;&nbsp;&nbsp;Study Material</a><hr>
-				                <a href="logout.php"><i class="fa fa-book" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Logout</a><hr>
+								<a href="user_profile.php"><i class="fa fa-sign-in-alt"></i>&nbsp;&nbsp;&nbsp;Profile</a><hr>
+								<a href="#"><i class="fa fa-book"></i>&nbsp;&nbsp;&nbsp;Paid Course</a><hr>
+				                <a href="logout.php"><i class="fa fa-star" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Logout</a><hr>
 							</div>
               			</div>
               		</div>
 					<div class="nav-menu">
 						<p style="cursor: pointer;" onclick="openNav()">
-							<i class="fas fa-bars" style="color: #fff;"></i>
+							<i class="fas fa-bars" style="color: #000;"></i>
 						</p>
 					</div>
 				</div>
