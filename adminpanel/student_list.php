@@ -19,8 +19,7 @@ $msg = "";
     while ($data=mysqli_fetch_assoc($run)) {
       $student[]=$data;
     }
-    echo '<pre>';
-    print_r($student);die;
+   
 
    
 ?>
