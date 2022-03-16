@@ -475,6 +475,56 @@ if(isset($_POST['del_result'])){
 			}
 	}
 	
+
+	if(isset($_POST['update_executive'])){
+		$id = $_POST['id'];
+		$name = $_POST['name'];
+		$gender = $_POST['gender'];
+		$dob = $_POST['dob'];
+		$mobile = $_POST['mobile'];
+		$email = $_POST['email'];
+		$location = $_POST['location'];
+		$city = $_POST['city'];
+		$state = $_POST['state'];
+		$pincode = $_POST['pincode'];
+		$password = $_POST['password'];
+		$query="UPDATE `field_excutive` SET `name`='$name',`gender`='$gender',`dob`='$dob',`mobile`='$mobile',`email`='$email',`location`='$location',`city`='$city',`state`='$state',`pincode`='$pincode',`password`='$password' WHERE `id`='$id'";
+				$run=mysqli_query($conn,$query);
+				if($run){
+					 header("Location:$_SERVER[HTTP_REFERER]");
+					$_SESSION['msg']="Executive Updated Successfully !!!";	
+				}
+				else{
+					$_SESSION['msg']="Executive Not Updated!!!";
+					header("location:$_SERVER[HTTP_REFERER]");
+				}
+
+	}
+
+	if(isset($_POST['update_student'])){
+		// echo '<pre>';
+		// print_r($_POST);die;
+		$id = $_POST['id'];
+		$name = $_POST['name'];
+		$dob = $_POST['dob'];
+		$mobile = $_POST['mobile'];
+		$email = $_POST['email'];
+		$address = $_POST['address'];
+		$executive_id = $_POST['executive_id'];
+		$password = $_POST['password'];
+		$query="UPDATE `student` SET `name`='$name',`dob`='$dob',`mobile`='$mobile',`email`='$email',`address`='$address',`executive_id`='$executive_id',`password`='$password' WHERE `id`='$id'";
+				$run=mysqli_query($conn,$query);
+				if($run){
+					 header("Location:$_SERVER[HTTP_REFERER]");
+					$_SESSION['msg']="Student Updated Successfully !!!";	
+				}
+				else{
+					$_SESSION['msg']="Student Not Updated!!!";
+					header("location:$_SERVER[HTTP_REFERER]");
+				}
+
+	}
+
    
 
 

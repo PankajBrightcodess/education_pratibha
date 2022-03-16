@@ -13,6 +13,12 @@ $msg = "";
         echo "<script> alert('$msg')</script>";
     }
 
+    $query="SELECT * FROM `field_excutive` WHERE `status`='1'";
+     $run=mysqli_query($conn,$query);
+      while ($data=mysqli_fetch_assoc($run)) {
+        $executive[]=$data;
+      }
+
    
     $query="SELECT student.*, field_excutive.name AS exe_name FROM student INNER JOIN field_excutive ON student.executive_id=field_excutive.id WHERE student.status='1'";
     $run=mysqli_query($conn,$query);
@@ -74,9 +80,9 @@ $msg = "";
                     <th>Feild Executive</th>
                     <th>Mobile Number</th>
                     <th>Email Id</th>
-                    <th>Course</th>
+                    <th>Password</th>
                     <th>Addmission Date</th>
-                    <!-- <th>Action</th> -->
+                    <th>Action</th>
                     
                   </tr>
                   </thead>
@@ -94,11 +100,10 @@ $msg = "";
                                 <td><?php echo $value['exe_name']; ?></td>
                                 <td><?php echo $value['mobile']; ?></td>
                                 <td><?php echo $value['email']; ?></td>
-                                <td><?php echo $value['course']; ?></td>
+                                <td><?php echo $value['password']; ?></td>
+                                <!-- <td><?php echo $value['course']; ?></td> -->
                                 <td><?php echo date('d-m-Y', strtotime($value['added_on'])); ?></td>
-                                <!-- <td>
-                                  <button class="btn btn-sm btn-success editdepartment" data-toggle="modal" data-id="<?php echo $row['id']; ?>" data-department="<?php echo $row['department']; ?>" data-target="#departmentModal">&nbsp;&nbsp;<i class="far fa-edit nav-icon"></i>&nbsp;Edit</button>
-                                </td> --> 
+                               <td> <button class="btn btn-sm btn-success editexecutive" data-toggle="modal" data-id="<?php echo $value['id']; ?>" data-name="<?php echo $value['name']; ?>"  data-dob="<?php echo $value['dob']; ?>" data-mobile="<?php echo $value['mobile']; ?>" data-email="<?php echo $value['email']; ?>" data-address="<?php echo $value['address']; ?>" data-executive_id="<?php echo $value['executive_id']; ?>"  data-password="<?php echo $value['password']; ?>" data-target="#departmentModal">&nbsp;&nbsp;<i class="far fa-edit nav-icon"></i>&nbsp;Edit</button></td>
                             </tr>
 
 
@@ -166,14 +171,45 @@ $msg = "";
       </div>
        <form action="action.php" method="post">
         <div class="modal-body">
-           <input type="hidden" name="cat_id" id="cat_id" class="form-control" value="1"> 
-           <label>Department <span style="color:red;">*</span></label>
-           <input type="text" name="department" id="department" class="form-control" required="" value="abc">
+           <input type="hidden" name="id" id="id" class="form-control" value="1"> 
+           <label>Name <span style="color:red;">*</span></label>
+           <input type="text" name="name" id="name" class="form-control" required="" value="abc">
+
+          
+
+           <label>DOB <span style="color:red;">*</span></label>
+           <input type="date" name="dob" id="dob" class="form-control" required="" >
+
+            <label>Address <span style="color:red;">*</span></label>
+           <input type="text" name="address" id="address" class="form-control" required="" >
+
+            <label>Feild Executive <span style="color:red;">*</span></label>
+           <select class="form-control" id="executive_id" name="executive_id">
+                <option>---SELECT---</option>
+                <?php 
+                    if(!empty($executive)){
+                        foreach ($executive as $key => $value) {
+                           ?><option value="<?php echo $value['id'];?>" ><?php echo $value['name'];?></option><?php
+                        }
+                    }
+
+
+                ?>
+            </select>
+
+           <label>Mobile Number <span style="color:red;">*</span></label>
+           <input type="text" name="mobile" id="mobile" class="form-control" required="" >
+
+            <label>Email Id <span style="color:red;">*</span></label>
+           <input type="text" name="email" id="email" class="form-control" required="" >
+
+           <label>Password <span style="color:red;">*</span></label>
+           <input type="text" name="password" id="password" class="form-control" required="" >
 
         </div>
         <div class="modal-footer">
           <!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button> -->
-          <button type="submit" name="change-department" class="btn btn-primary">Save changes</button>
+          <button type="submit" name="update_student" class="btn btn-primary">Save changes</button>
         </div>
        </form>
     </div>
@@ -181,9 +217,19 @@ $msg = "";
 </div>
  <script type="text/javascript">
    $(document).ready(function(){
-      $('body').on('click','.editdepartment',function(){
-        $('#cat_id').val($(this).data('id'));
-        $('#department').val($(this).data('department'));
+      $('body').on('click','.editexecutive',function(){
+        $('#id').val($(this).data('id'));
+        $('#name').val($(this).data('name'));
+        $('#gender').val($(this).data('gender'));
+        $('#dob').val($(this).data('dob'));
+        $('#mobile').val($(this).data('mobile'));
+        $('#email').val($(this).data('email'));
+        $('#address').val($(this).data('address'));
+        $('#city').val($(this).data('city'));
+        $('#state').val($(this).data('state'));
+        $('#executive_id').val($(this).data('executive_id'));
+        $('#pincode').val($(this).data('pincode'));
+        $('#password').val($(this).data('password'));
       });
    });
  </script>
