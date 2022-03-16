@@ -72,9 +72,9 @@ include('connection.php');
              </thead>
              <?php 
              include "connection.php";
-             $id = $_SESSION['last_inst_id'];
-              unset($_SESSION['last_inst_id']);
-             $ex=mysqli_query($conn,"select * from `addpayment` where id='$id'");
+             $id = $_SESSION['last_ins_id'];
+              unset($_SESSION['last_ins_id']);
+             $ex=mysqli_query($conn,"select * from `paid_student` where id='$id'");
               $resultset=mysqli_fetch_array($ex);
                   {
               ?>

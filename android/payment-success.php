@@ -14,9 +14,9 @@ $msg = "";
       $razorpay_payment_id = $_POST['razorpay_payment_id'];
       // $payment_date = date('Y/m/d');
       $payment_status = 1;
-      $id = $_SESSION['last_inst_id'];
+      $id = $_SESSION['last_ins_id'];
       // unset($_SESSION['last_inst_id']);
-      $sql="UPDATE addpayment SET payment_status = '$payment_status',payment_id = '$razorpay_payment_id', payment_details = '$payment_details' WHERE `id`='$id'";
+      $sql="UPDATE paid_student SET payment_status = '$payment_status',payment_id = '$razorpay_payment_id', payment_details = '$payment_details' WHERE `id`='$id'";
       $conn->query($sql);
     }
 ?>

@@ -3,9 +3,11 @@ session_start();
 
 include'connection.php';
 
- $sql = "select * from addpayment where id = '$_SESSION[last_inst_id]'";
+ $sql = "select * from paid_student where id = '$_SESSION[last_ins_id]'";
 $res = mysqli_query($conn, $sql);
 $row = mysqli_fetch_assoc($res);
+// echo '<pre>';
+// print_r($row);die;
 include 'payment_constant.php';
 $someprice = $row['amount'];
 $paisaprice = $someprice*100;
@@ -24,7 +26,7 @@ $length = 18;
 $merchant_order_id=substr(str_shuffle(str_repeat($x='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz', ceil($length/strlen($x)) )),1,$length);
 $card_holder_name = $custname;
 // $email =  $row['email'];
-$phone = $row['phone'];
+$phone = $row['mobile'];
 $name = "Customer of $custname - $orderno";
 ?>
 <?php include 'header-links.php'; ?>
@@ -42,7 +44,7 @@ $name = "Customer of $custname - $orderno";
                         <div class="col-12 col-md-6">
                             <h3><?php echo ucwords($row['name']);?></h3>
                             <!-- <p class='mb-0' style='font-size:14px'><?php echo $row['name'];?></p> -->
-                            <p class='mb-0' style='font-size:14px'>+91 <?php echo $row['phone'];?></p>
+                            <p class='mb-0' style='font-size:14px'>+91 <?php echo $row['mobile'];?></p>
                         </div>
                         
                     </div><hr/>

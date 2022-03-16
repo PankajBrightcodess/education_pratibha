@@ -34,7 +34,7 @@
               </p>
             </a>
           </li>
-          <!-- <li class="nav-item has-treeview <?php if(in_array($page, $armkey)){echo 'menu-open';} ?>">
+         <li class="nav-item has-treeview <?php if(in_array($page, $armkey)){echo 'menu-open';} ?>">
             <a href="#" class="nav-link <?php if(in_array($page, $armkey)){echo 'active';} ?>">
               <i class="fas fa-key nav-icon"></i>
               <p>
@@ -44,19 +44,19 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="department.php" class="nav-link <?php if($page == 'category'){ echo 'active';} ?>">
+                <a href="textmaster.php" class="nav-link <?php if($page == 'category'){ echo 'active';} ?>">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Department</p>
+                  <p>Test Master</p>
                 </a>
               </li>
-              <li class="nav-item">
+              <!-- <li class="nav-item">
                 <a href="deprt_duration.php" class="nav-link <?php if($page == 'subcategory'){ echo 'active';} ?>">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Course Duration</p>
                 </a>
-              </li>
+              </li> -->
             </ul>
-          </li> -->
+          </li> 
           <li class="nav-item has-treeview <?php if(in_array($page, $product)){echo 'menu-open';} ?>">
             <a href="#" class="nav-link <?php if(in_array($page, $product)){echo 'active';} ?>">
               <i class="fas fa-layer-group nav-icon"></i>
@@ -112,6 +112,24 @@
                 <a href="uploadfiles.php" class="nav-link  <?php if($page == 'product-list'){ echo 'active'; }?>">
                   <i class="fas fa-clipboard-list nav-icon"></i>
                   <p>Upload Study material</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+           <li class="nav-item has-treeview <?php if(in_array($page, $product)){echo 'menu-open';} ?>">
+            <a href="#" class="nav-link <?php if(in_array($page, $product)){echo 'active';} ?>">
+              <i class="fas fa-layer-group nav-icon"></i>
+              <p>
+                Online Exam
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+            
+              <li class="nav-item">
+                <a href="upload_online_question.php" class="nav-link  <?php if($page == 'product-list'){ echo 'active'; }?>">
+                  <i class="fas fa-clipboard-list nav-icon"></i>
+                  <p>Add Online Question</p>
                 </a>
               </li>
             </ul>

@@ -283,6 +283,25 @@ if(isset($_POST['del_result'])){
 	}
    }
 
+   if(isset($_POST['add_test'])){
+   	
+   	$test_name = $_POST['test_name'];
+   	$no_question = $_POST['no_question'];
+   	$total_marks = $_POST['total_marks'];
+   	$time_duration = $_POST['time_duration'];
+   	$added_on = date('Y-m-d');
+   	$query="INSERT INTO `test_master`(`test_name`,`no_question`,`total_marks`,`time_duration`,`added_on`) VALUES ('$test_name','$no_question','$total_marks','$time_duration','$added_on')";
+			$sql=mysqli_query($conn,$query);
+			if($sql){
+				 header("Location:$_SERVER[HTTP_REFERER]");
+				$_SESSION['msg']="Successfully Added!!!";	
+			}
+			else{
+				$_SESSION['msg']="Not added result !!!";
+				header("Location:$_SERVER[HTTP_REFERER]");
+			}
+   }
+
 
    if(isset($_POST['change_student_pass'])){
    	// print_r($_POST);die;
@@ -331,6 +350,33 @@ if(isset($_POST['del_result'])){
 				header("Location: " . $_SERVER['HTTP_REFERER']);
 			}
 	}
+
+
+
+    if(isset($_POST['submit_question'])){
+    	// echo '<pre>';
+    	// print_r($_POST);die;
+    	$course = $_POST['course'];
+    	$question = $_POST['question'];
+    	$option_a = $_POST['option_a'];
+    	$option_b = $_POST['option_b'];
+    	$option_c = $_POST['option_c'];
+    	$option_d = $_POST['option_d'];
+    	$correct_ans = $_POST['correct_ans'];
+    	$marks = $_POST['marks'];
+    	$added_on = date('Y-m-d');
+
+    	$query="INSERT INTO `online_question`(`course`,`question`,`option_a`,`option_b`,`option_c`,`option_d`,`correct_ans`,`marks`,`added_on`) VALUES ('$course','$question','$option_a','$option_b','$option_c','$option_d','$correct_ans','$marks','$added_on')";	
+			$sql=mysqli_query($conn,$query);
+			if($sql){
+				 header("Location:$_SERVER[HTTP_REFERER]");
+				$_SESSION['msg']="Question Successfully Added!!!";	
+			}
+			else{
+				$_SESSION['msg']="Not added Question !!!";
+				header("Location:$_SERVER[HTTP_REFERER]");
+			}
+    }
 
 
 	// '''''''''''''''''Department area start''''''''''''''''''''''

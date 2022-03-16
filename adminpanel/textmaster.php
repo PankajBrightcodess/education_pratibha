@@ -40,7 +40,7 @@ $msg = "";
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Master Key Department</h3>
+                <h3 class="card-title">Master Key Test</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -50,11 +50,23 @@ $msg = "";
                     <div class="card-body">
                       <div class="row">
                         <div class="col-md-12">
-                          <label>Department <span style="color:red;">*</span></label>
-                          <input type="text" name="department" class="form-control" required="" placeholder="department:">
+                          <label>Test Name <span style="color:red;">*</span></label>
+                          <input type="text" name="test_name" class="form-control" required="" placeholder="Test Name:">
+                        </div>
+                        <div class="col-md-12">
+                          <label>No. Of Questions<span style="color:red;">*</span></label>
+                          <input type="text" name="no_question" class="form-control" required="" placeholder="Test Name:">
+                        </div>
+                        <div class="col-md-12">
+                          <label>Total Marks<span style="color:red;">*</span></label>
+                          <input type="text" name="total_marks" class="form-control" required="" placeholder="Test Name:">
+                        </div>
+                        <div class="col-md-12">
+                          <label>Time Duration<span style="color:red;">*</span></label>
+                          <input type="text" name="time_duration" class="form-control" required="" placeholder="Test Name:">
                         </div>
                         <div class="col-md-4">
-                          <button class="btn btn-primary btn-sm btn-block" type="submit" name="add-department" style="margin-top: 10px;">Save</button>
+                          <button class="btn btn-primary btn-sm btn-block" type="submit" name="add_test" style="margin-top: 10px;">Save</button>
                         </div>
                       </div>
                     </div>
@@ -64,7 +76,7 @@ $msg = "";
                   <div class="department-list">
                      <div class="card">
               <div class="card-header">
-                <h5 style="font-weight: bold;">Department List</h5>
+                <h5 style="font-weight: bold;">Test List</h5>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -72,27 +84,33 @@ $msg = "";
                   <thead>
                   <tr>
                     <th>S. No.:</th>
-                    <th>Department</th>
-                    <th>Added Date</th>
+                    <th>Test Name</th>
+                    <th>No Of Question</th>
+                    <th>Total Marks</th>
+                    <th>Time Duration</th>
+                    <th>Added date</th>
                     <th>Action</th>
                   </tr>
                   </thead>
                   <tbody>
-                 <!--   <?php 
-                        $sql = "select * from department_master where status = '1'";
+                   <?php 
+                        $sql = "select * from test_master where status = '1'";
                         $res = mysqli_query($conn,$sql);
                         $sn=0;
                         while($row = mysqli_fetch_assoc($res)){ $sn++;
                       ?>
                         <tr>
                           <td><?php echo $sn; ?></td>
-                          <td><?php echo $row['department']; ?></td>
+                          <td><?php echo $row['test_name']; ?></td>
+                          <td><?php echo $row['no_question']; ?></td>
+                          <td><?php echo $row['total_marks']; ?></td>
+                          <td><?php echo $row['time_duration']; ?></td>
                           <td><?php echo $row['added_on']; ?></td>
                           <td>
                             <button class="btn btn-sm btn-success editdepartment" data-toggle="modal" data-id="<?php echo $row['id']; ?>" data-department="<?php echo $row['department']; ?>" data-target="#departmentModal">&nbsp;&nbsp;<i class="far fa-edit nav-icon"></i>&nbsp;Edit</button>
                           </td>
                         </tr>
-                      <?php } ?> -->
+                      <?php } ?>
                  
                 </table>
               </div>

@@ -51,11 +51,43 @@ if(isset($_POST['studentlogin'])){
 		$_SESSION['enroll_id'] = $data['id'];
 		$_SESSION['name'] = $data['name'];
 		$_SESSION['course'] = $data['course'];
+		$_SESSION['role'] = $data['role'];
 		header('location:dashboard.php');		
 	}
 	else{
 		// $_SESSION['msg']='Invalid details !!!';
 		header("Location: ".$_SERVER['HTTP_REFERER']);
+	}
+}
+
+if(isset($_POST['online_text_paid'])){
+	// $course = $_POST['course'];
+	$amount = $_POST['amount'];
+	$id = $_POST['id'];
+	if(!empty($id)){
+		$query="SELECT * FROM `student` WHERE `id`='$id'";
+        $run=mysqli_query($conn,$query);
+        $data=mysqli_fetch_assoc($run);
+        $name = $data['name'];
+        $mobile = $data['mobile'];
+        $email = $data['email'];
+        $student_id = $data['id'];
+        $added_on =date('Y-m-d');
+        $length = 15;
+        $request_no=substr(str_shuffle(str_repeat($x='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz', ceil($length/strlen($x)) )),1,$length);
+        $query="INSERT INTO `paid_student`(`name`,`student_id`,`mobile`,`email`,`added_on`,`amount`,`request_no`) VALUES ('$name','$student_id','$mobile','$email','$added_on','$amount','$request_no')";
+			if(mysqli_query($conn,$query)){
+			$_SESSION['last_ins_id']=$conn->insert_id; 
+				header('location:../payment.php');
+					
+			}
+			else{
+				$_SESSION['msg']="Not added result !!!";
+				header("Location:$_SERVER[HTTP_REFERER]");
+			}
+
+	}else{
+		header('Location:studentlogin.php');
 	}
 }
 
