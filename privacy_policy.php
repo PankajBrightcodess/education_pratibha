@@ -16,7 +16,7 @@
                 <div class="col-md-12"><h2>Privacy Policy for Pratibha Darpan private limited</h2><hr></div>
                 <div class="col-lg-12">
                     
-                    <p>At Pratibha Darpan private limited, accessible from http://shivanyacomputer.com/, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by Pratibha Darpan private limited and how we use it.</p>
+                    <p>At Pratibha Darpan private limited, accessible from https://demo.softwarebss.com/prathibha/android/, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by Pratibha Darpan private limited and how we use it.</p>
                     <p>If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us.</p>
                     <p>This Privacy Policy applies only to our online activities and is valid for visitors to our website with regards to the information that they shared and/or collect in Pratibha Darpan private limited. This policy is not applicable to any information collected offline or via channels other than this website. Our Privacy Policy was created with the help of the Free Privacy Policy Generator.</p>
                     <h5>Consent</h5>
