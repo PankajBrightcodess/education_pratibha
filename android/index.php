@@ -29,7 +29,7 @@
         </div>
     </div>
 </section>
-<section class="linkup"> 
+<!-- <section class="linkup"> 
     <div class="container">
         <div class="row">
             <div class="col-md-4 col-4"><a href="course.php"><img src="../images/fav/002s.png" alt="Los Angeles" class="img-fluid"></a></div>
@@ -37,9 +37,9 @@
             <div class="col-md-4 col-4"><a href="admission.php"><img src="../images/fav/001S.png" alt="Los Angeles" class="img-fluid"></a></div>
         </div>
     </div>
-</section>
+</section> -->
 
-<section class="linkup"> 
+<!-- <section class="linkup"> 
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center">
@@ -55,7 +55,7 @@
             <div class="col-md-2 col-2"></div>
         </div>
     </div>
-</section>
+</section> -->
 
 <!--  <section class="part">
     <div class="container-fluid">
