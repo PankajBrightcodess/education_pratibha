@@ -13,11 +13,11 @@
 						<form action="action.php" method="POST">
 							<div class="form-group">
 								<!-- <i class="fa fa-envelope-square fa-lg passkey"></i> -->
-								<input type="email" name="email" placeholder="Enter Valid Email Id:" class="form-control" required="">
+								<input type="email" name="email" id="email" placeholder="Enter Valid Email Id:" class="form-control" required="">
 							</div>
 							
 							<div class="form-group mb-5">
-								<input type="submit" class="btn btn-warning form-control" name="change_student_pass" value="Change Password">
+								<input type="button" class="btn btn-warning form-control check_id" name="change_student_pass" value="Change Password">
 							</div>
 						</form>
 
@@ -29,3 +29,32 @@
 	</section>
 	 <?php include 'footer.php';?>
 <?php include 'footer-links.php';?>
+<script type="text/javascript">
+     $('.check_id').click(function(e){
+            debugger;
+         var email=$('#email').val();
+        $.ajax({
+                type:'POST',
+                url:'student/action.php',
+                data:{email:email,change_student_exe:'change_student_exe'},
+                success: function(result){
+                	// window.open('');
+                		// alert(result);
+                    // console.log(result);
+                    if(result=='1'){
+                    	window.location.href = "new_password_student.php";
+                        // swal("Good job!", "Registered Successfully!", "success");
+                    }
+                    else{
+                        swal("Opps!", "Something Error!", "error");
+                      
+                    }
+                      
+                    },
+                    error: function(){ 
+                       alert("error");
+                    },
+        });
+    return false;  
+    });
+</script>

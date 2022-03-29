@@ -362,6 +362,8 @@ if(isset($_POST['del_result_admin'])){
 	
    }
 
+   if()
+
 
 
    if(isset($_POST['center_request'])){
