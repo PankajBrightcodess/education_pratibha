@@ -44,7 +44,7 @@ while ($data=mysqli_fetch_assoc($run)) {
         </div>
         <div class="col-md-6 col-12 mb-2">
             <label>Mobile<span style="color: Red;">*</span></label>
-            <input type="number" name="mobile" maxlength="10" minlength="10" id="mobile" placeholder="Active Mobile Number" class="form-control" required>
+            <input type="tel" name="mobile" maxlength="10" minlength="10" id="mobile" placeholder="Active Mobile Number" class="form-control" required>
         </div>
         <div class="col-md-6 col-12 mb-2">
             <label>Email<span style="color: Red;">*</span></label>
