@@ -44,7 +44,7 @@ while ($data=mysqli_fetch_assoc($run)) {
         </div>
         <div class="col-md-6 col-12 mb-2">
             <label>Mobile<span style="color: Red;">*</span></label>
-            <input type="text" name="mobile" id="mobile" placeholder="Active Mobile Number" class="form-control" required>
+            <input type="number" name="mobile" maxlength="10" minlength="10" id="mobile" placeholder="Active Mobile Number" class="form-control" required>
         </div>
         <div class="col-md-6 col-12 mb-2">
             <label>Email<span style="color: Red;">*</span></label>
@@ -54,7 +54,7 @@ while ($data=mysqli_fetch_assoc($run)) {
             <label>Academic Qualification<span style="color: Red;">*</span></label>
             <input type="text" name="ac_qualify" id="ac_qualify" placeholder="Enter Academic Qualification" class="form-control" required>
         </div>
-        <div class="col-md-6 col-12  mb-2">
+     <!--    <div class="col-md-6 col-12  mb-2">
             <label>Course<span style="color: Red;">*</span></label>
             <select class="form-control" id="course" name="course">
                 <option>---SELECT---</option>
@@ -83,7 +83,7 @@ while ($data=mysqli_fetch_assoc($run)) {
                 <option value="CT">Certificate in Tally</option>
                 <option value="CBP">Certificate in Basic Programming</option>
             </select>
-        </div>
+        </div> -->
         <div class="col-md-6 col-12 mb-2">
              <label>Feild Executive<span style="color: Red;">*</span></label>
             <select class="form-control" id="executive_id" name="executive_id">
@@ -100,7 +100,7 @@ while ($data=mysqli_fetch_assoc($run)) {
             </select>
         </div>
          
-         <div class="col-md-6 col-12 mb-2">
+         <!-- <div class="col-md-6 col-12 mb-2">
             <label>Training Mode<span style="color: Red;">*</span></label>
             <select class="form-control" id="mode" name="mode">
                 <option>---SELECT---</option>
@@ -108,7 +108,7 @@ while ($data=mysqli_fetch_assoc($run)) {
                 <option value="online">Online</option>
                 <option value="correspondence">Correspondence</option>
             </select>
-        </div>
+        </div> -->
         <div class="col-md-6 col-12 mb-5">
             <label>Password<span style="color: Red;">*</span></label>
             <input type="text" name="password" id="password" placeholder="Enter Academic Qualification" class="form-control" required>
