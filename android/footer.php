@@ -32,7 +32,7 @@
 			</div> -->
 			<div class="col-md-4 col-4 px-3">
 				<div class="bottom-inner-menu" >
-				 <a href="https://api.whatsapp.com/send?phone=918235346530&text=&source=&data=" target="_blank"><i class="fab fa-whatsapp" style="float:right!important;"></i></a>
+				 <a href="https://api.whatsapp.com/send?phone=918235346530&text=&source=&data=" target="_blank"><i class="fab fa-whatsapp" aria-hidden="true" style="float:right!important;"></i></a>
 				<!-- <a href="https://api.whatsapp.com/send?phone=+918235346530&text=&source=&data=" target="_blank">
 					<div class="bottom-inner-menu" >
 						<i class="fab fa-whatsapp" aria-hidden="true" style="float:right!important;"></i>
