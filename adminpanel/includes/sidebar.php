@@ -134,6 +134,42 @@
               </li>
             </ul>
           </li>
+          <li class="nav-item has-treeview <?php if(in_array($page, $product)){echo 'menu-open';} ?>">
+            <a href="#" class="nav-link <?php if(in_array($page, $product)){echo 'active';} ?>">
+              <i class="fas fa-layer-group nav-icon"></i>
+              <p>
+                Fee Details
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+            
+              <li class="nav-item">
+                <a href="fee_details.php" class="nav-link  <?php if($page == 'product-list'){ echo 'active'; }?>">
+                  <i class="fas fa-clipboard-list nav-icon"></i>
+                  <p>Fee Details Statement</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item has-treeview <?php if(in_array($page, $product)){echo 'menu-open';} ?>">
+            <a href="#" class="nav-link <?php if(in_array($page, $product)){echo 'active';} ?>">
+              <i class="fas fa-layer-group nav-icon"></i>
+              <p>
+                Winner list
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+            
+              <li class="nav-item">
+                <a href="winner-list.php" class="nav-link  <?php if($page == 'product-list'){ echo 'active'; }?>">
+                  <i class="fas fa-clipboard-list nav-icon"></i>
+                  <p>Student Winner List</p>
+                </a>
+              </li>
+            </ul>
+          </li>
          
          <!--  <li class="nav-item">
             <a href="view_assignment.php" class="nav-link <?php if($page == 'assignment'){ echo 'active';} ?>">

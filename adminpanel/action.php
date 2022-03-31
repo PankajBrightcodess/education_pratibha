@@ -165,6 +165,53 @@ if(isset($_POST['add_notice'])){
 		header("Location: ".$_SERVER['HTTP_REFERER']);
 	}
 }
+if(isset($_POST['add_winner'])){
+	echo '<pre>';
+	$name = $_POST['name'];
+	$father_name = $_POST['father_name'];
+	$mother_name = $_POST['mother_name'];
+	$percentage= $_POST['percentage'];
+	$year= $_POST['year'];
+	$rank= $_POST['rank'];
+	$date = date('Y-m-d');
+	$query="INSERT INTO `winner`(`name`,`father_name`,`mother_name`,`percentage`,`year`,`Rank`,`date`) VALUES ('$name','$father_name','$mother_name','$percentage','$year','$rank','$date')";
+	
+		$sql=mysqli_query($conn,$query);
+		// print_r($sql);die;
+		if($sql){
+			 header("Location:$_SERVER[HTTP_REFERER]");
+			$_SESSION['msg']="Successfully Added!!!";	
+		}
+		else{
+			
+			header("Location:$_SERVER[HTTP_REFERER]");
+			$_SESSION['msg']="Not added result !!!";
+		}
+	
+}
+
+if(isset($_POST['update_winner'])){
+	  $id = $_POST['snoEdit'];
+	$name = $_POST['name-edit'];
+	$father_name = $_POST['father_name-edit'];
+	$mother_name = $_POST['mother_name-edit'];
+	$percentage= $_POST['percenyear-edit'];
+	$year= $_POST['year-edit'];
+	$rank= $_POST['rank-edit'];
+	  $query = "UPDATE `winner` SET `name` = '$name',`father_name` = '$father_name',`mother_name` = '$mother_name',`percentage` = '$percentage',`year` = '$year',`Rank` = '$rank' WHERE `winner`.`pid`='$id'";
+	  
+	  $sql =  mysqli_query($conn,$query);
+	  if($sql){
+	  	$_SESSION['msg']="Winner List updated Successfully";
+	  	header('Location:content-list.php');
+	  }
+	  else{
+	  	$_SESSION['msg']="Winner List not updated !!!";
+	  	header("location:$_SERVER[HTTP_REFERER]");
+	  }
+
+}
+
 
 if(isset($_POST['uploadfiles'])){
 	
