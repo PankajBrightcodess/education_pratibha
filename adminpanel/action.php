@@ -191,13 +191,15 @@ if(isset($_POST['add_winner'])){
 }
 
 if(isset($_POST['update_winner'])){
+	echo '<pre>';
+	print_r($_POST);die;
 	  $id = $_POST['snoEdit'];
 	$name = $_POST['name-edit'];
 	$father_name = $_POST['father_name-edit'];
 	$mother_name = $_POST['mother_name-edit'];
-	$percentage= $_POST['percenyear-edit'];
+	$percentage= $_POST['percentage-edit'];
 	$year= $_POST['year-edit'];
-	$rank= $_POST['rank-edit'];
+	$rank= $_POST['Rank-edit'];
 	  $query = "UPDATE `winner` SET `name` = '$name',`father_name` = '$father_name',`mother_name` = '$mother_name',`percentage` = '$percentage',`year` = '$year',`Rank` = '$rank' WHERE `winner`.`pid`='$id'";
 	  
 	  $sql =  mysqli_query($conn,$query);
@@ -211,7 +213,19 @@ if(isset($_POST['update_winner'])){
 	  }
 
 }
-
+if(isset($_GET['deletewinner'])){
+	$id=$_GET['delete'];
+	$query="DELETE FROM `news` WHERE `pid` = $id";
+	// echo $query;die;	
+	$run=mysqli_query($conn,$query);
+	if($run===true){
+		$_SESSION['msg']="news Deleted Successfully !!!";
+	}
+	else{
+		$_SESSION['msg']="news Deletion Cancel !!!";
+	}
+	header("location:$_SERVER[HTTP_REFERER]");
+} 
 
 if(isset($_POST['uploadfiles'])){
 	

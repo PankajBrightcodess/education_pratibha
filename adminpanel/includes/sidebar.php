@@ -61,7 +61,7 @@
             <a href="#" class="nav-link <?php if(in_array($page, $product)){echo 'active';} ?>">
               <i class="fas fa-layer-group nav-icon"></i>
               <p>
-                Feild Executive
+                Field Executive
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>

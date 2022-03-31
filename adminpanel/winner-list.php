@@ -138,7 +138,7 @@ $msg = "";
                         <td><button class="btn btn-sm btn-success editwinner" data-pid="<?php echo $row['pid']; ?>" data-name="<?php echo $row['name']; ?>"
                            data-father_name="<?php echo $row['father_name']; ?>"
                            data-mother_name="<?php echo $row['mother_name']; ?>"
-                           data-Rank="<?php echo $row['Rank']; ?>"
+                           data-rank="<?php echo $row['Rank']; ?>"
                            data-percentage="<?php echo $row['percentage']; ?>"
                            data-year="<?php echo $row['year']; ?>"
                           
@@ -214,7 +214,7 @@ $msg = "";
        </div>
        <div class="col-md-12 col-lg-12 col-12 mb-2">
           <label>Rank<span style="color:red;">*</span></label>
-          <input type="number" name="Rank-edit" id="Rank-edit"class="form-control" >
+          <input type="number" name="Rank-edit" id="Rank-edit" class="form-control" >
        </div>
       
 
@@ -354,8 +354,9 @@ $msg = "";
         $('#father_name-edit').val($(this).data('father_name'));
         $('#mother_name-edit').val($(this).data('mother_name'));
         $('#percentage-edit').val($(this).data('percentage'));
-        $('#Rank-edit').val($(this).data('Rank'));
         $('#year-edit').val($(this).data('year'));
+        $('#Rank-edit').val($(this).data('rank'));
+        
       
       
        
