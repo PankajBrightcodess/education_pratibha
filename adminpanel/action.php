@@ -214,15 +214,15 @@ if(isset($_POST['update_winner'])){
 
 }
 if(isset($_GET['deletewinner'])){
-	$id=$_GET['delete'];
-	$query="DELETE FROM `news` WHERE `pid` = $id";
+	$id=$_GET['deletewinner'];
+	$query="DELETE FROM `winner` WHERE `pid` = $id";
 	// echo $query;die;	
 	$run=mysqli_query($conn,$query);
 	if($run===true){
-		$_SESSION['msg']="news Deleted Successfully !!!";
+		$_SESSION['msg']="Winner list Deleted Successfully !!!";
 	}
 	else{
-		$_SESSION['msg']="news Deletion Cancel !!!";
+		$_SESSION['msg']="Winner list Deletion Cancel !!!";
 	}
 	header("location:$_SERVER[HTTP_REFERER]");
 } 
