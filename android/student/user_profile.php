@@ -72,10 +72,10 @@ $msg = "";
                             <th>Email</th>
                             <td><?php echo $data['email'];?></td>
                         </tr>
-                        <tr>
+                        <!-- <tr>
                             <th>Password</th>
                             <td><?php echo $data['password'];?></td>
-                        </tr>
+                        </tr> -->
                     </thead>
                     
                 </table>

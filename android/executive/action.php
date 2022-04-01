@@ -233,7 +233,7 @@ if(isset($_POST['change_center_exe'])){
 		$assessement= time().$assessement[0];
 		$dir="uploads/homework/";
 		$allext=array("pdf","PDF");
-		$check = Pdfupload($dir,'assessement',$allext,'10000000',$assessement); 
+		$check = Fileupload($dir,'assessement',$allext,'10000000',$assessement); 
 		if($check===true){
 			$assessement .= ".pdf";	
 			$query="INSERT INTO `homework`(`executive_id`,`assessment`,`date`) VALUES ('$executive_id','$assessement','$date')";

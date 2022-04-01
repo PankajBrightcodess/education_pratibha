@@ -75,7 +75,7 @@
               <li class="nav-item">
                 <a href="feild_executive.php" class="nav-link  <?php if($page == 'product-list'){ echo 'active'; }?>">
                   <i class="fas fa-clipboard-list nav-icon"></i>
-                  <p>Feild Executive List</p>
+                  <p>Field Executive List</p>
                 </a>
               </li>
             </ul>

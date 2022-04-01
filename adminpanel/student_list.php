@@ -77,7 +77,7 @@ $msg = "";
                     <th>Name</th>
                     <th>DOB</th>
                     <th>Address</th>
-                    <th>Feild Executive</th>
+                    <th>Field Executive</th>
                     <th>Mobile Number</th>
                     <th>Email Id</th>
                     <th>Password</th>
