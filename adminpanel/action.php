@@ -192,7 +192,7 @@ if(isset($_POST['add_winner'])){
 
 if(isset($_POST['update_winner'])){
 	echo '<pre>';
-	print_r($_POST);die;
+	
 	  $id = $_POST['snoEdit'];
 	$name = $_POST['name-edit'];
 	$father_name = $_POST['father_name-edit'];
@@ -200,12 +200,15 @@ if(isset($_POST['update_winner'])){
 	$percentage= $_POST['percentage-edit'];
 	$year= $_POST['year-edit'];
 	$rank= $_POST['Rank-edit'];
-	  $query = "UPDATE `winner` SET `name` = '$name',`father_name` = '$father_name',`mother_name` = '$mother_name',`percentage` = '$percentage',`year` = '$year',`Rank` = '$rank' WHERE `winner`.`pid`='$id'";
+	  $query = "UPDATE `winner` SET `name` = '$name',`father_name` = '$father_name',`mother_name` = '$mother_name',
+	  `percentage` = '$percentage',`year` = '$year',`Rank` = '$rank' WHERE `winner`.`pid`='$id'";
+	  // print_r($query);die;
 	  
 	  $sql =  mysqli_query($conn,$query);
+	  // print_r($sql);die;
 	  if($sql){
 	  	$_SESSION['msg']="Winner List updated Successfully";
-	  	header('Location:content-list.php');
+	  	header('Location:winner-list.php');
 	  }
 	  else{
 	  	$_SESSION['msg']="Winner List not updated !!!";

@@ -16,7 +16,7 @@
               				<div class="home2">
 								<a href="index.php"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Home</a><hr>
 								<a href="about-us.php"><i class="fa fa-sign-in-alt"></i>&nbsp;&nbsp;&nbsp;About Us</a><hr>
-				                <!-- <a href="course.php"><i class="fa fa-book" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Courses</a><hr> -->
+				                <a href="winner-list.php"><i class="fa fa-medal" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Winner List</a><hr>
 				                <!-- <a href="facility.php"><i class="fas fa-heart"></i>&nbsp;&nbsp;&nbsp;Facilities</a><hr> -->
 				            <!--   <a href="executivelogin.php"><i class="fas fa-user"></i>&nbsp;&nbsp;&nbsp;Excutive</a><hr> -->  
 				                <!-- <a href="certificate.php"><i class="fas fa-coins"></i>&nbsp;&nbsp;&nbsp;Certificarte</a><hr> -->

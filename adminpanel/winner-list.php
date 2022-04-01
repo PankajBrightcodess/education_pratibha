@@ -142,7 +142,7 @@ $msg = "";
                            data-percentage="<?php echo $row['percentage']; ?>"
                            data-year="<?php echo $row['year']; ?>"
                           
-                           data-toggle="modal" data-target="#exampleModal" >&nbsp;&nbsp;<i class="far fa-edit nav-icon" ></i> &nbsp;Edit</button> <a href="action.php?deletecontact_us=<?php echo $row['pid']; ?>" class="btn btn-sm btn-danger" >Delete</a></td>
+                           data-toggle="modal" data-target="#exampleModal" >&nbsp;&nbsp;<i class="far fa-edit nav-icon" ></i> &nbsp;Edit</button> <a href="action.php?deletewinner=<?php echo $row['pid']; ?>" class="btn btn-sm btn-danger" >Delete</a></td>
                          
 
                     <?php
@@ -204,7 +204,7 @@ $msg = "";
        </div>
         <div class="col-md-12 col-lg-12 col-12 mb-2">
             <label>Percentage<span style="color:red;">*</span></label>
-            <input class="form-control" type="text" name="Percentage-edit" id="percentage-edit">
+            <input class="form-control" type="text" name="percentage-edit" id="percentage-edit">
             
        </div>
         <div class="col-md-12 col-lg-12 col-12 mb-2">
@@ -223,7 +223,7 @@ $msg = "";
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" name="update_contact_us" class="btn btn-info updatedata">Update</button>
+        <button type="submit" name="update_winner" class="btn btn-info updatedata">Update</button>
       </div>
       </form>
     </div>
