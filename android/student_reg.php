@@ -111,7 +111,7 @@ while ($data=mysqli_fetch_assoc($run)) {
         </div> -->
         <div class="col-md-6 col-12 mb-5">
             <label>Password<span style="color: Red;">*</span></label>
-            <input type="text" name="password" id="password" placeholder="Enter password" class="form-control" required>
+            <input type="text" name="password" id="password" placeholder="Enter Academic Qualification" class="form-control" required>
         </div>
         <div class="col-md-4 col-4"></div>
         <div class="col-md-4 col-4"><input type="button" name="student_reg" class="btn btn-sm btn-success form-control student_reg" value="Submit"></div>
@@ -125,7 +125,7 @@ while ($data=mysqli_fetch_assoc($run)) {
 <?php include 'footer-links.php';?>
 <script type="text/javascript">
      $('.student_reg').click(function(e){
-            // debugger;
+            debugger;
          var name=$('#name').val();
          var mobile=$('#mobile').val();
          var email=$('#email').val();
@@ -143,6 +143,7 @@ while ($data=mysqli_fetch_assoc($run)) {
                     console.log(result);
                     if(result=='1'){
                         swal("Good job!", "Registered Successfully!", "success");
+                        window.location = "studentlogin.php";
                     }
                     else{
                         swal("Opps!", "Something Error!", "error");
