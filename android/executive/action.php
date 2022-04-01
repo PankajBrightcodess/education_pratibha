@@ -1,6 +1,39 @@
 <?php 
 session_start();
 include '../connection.php';
+function Pdfupload($dir,$inputname,$allext,$pass_width,$pass_height,$pass_size,$newname){
+	if(file_exists($_FILES["$inputname"]["tmp_name"])){
+		// do this contain any file check
+		$file_extension = strtolower(pathinfo($_FILES["$inputname"]["name"], PATHINFO_EXTENSION));
+		$error="";
+		if(in_array($file_extension, $allext)){
+			// file extension check
+			list($width, $height, $type, $attr) = getimagesize($_FILES["$inputname"]["tmp_name"]);
+			$pdf_weight = $_FILES["$inputname"]["size"];
+			if($width <= "$pass_width" && $height <= "$pass_height" && $pdf_weight <= "$pass_size"){
+				// dimension check
+				$tmp = $_FILES["$inputname"]["tmp_name"];
+				// print_r($extension);die;
+				$extension[1]="pdf";
+				
+				$name=$newname.".".$extension[1];
+				if(move_uploaded_file($tmp, "$dir" .$name)){
+					return true;
+				}
+			}
+			else{
+				$error .="Please upload Pdf size of $pass_width X $pass_height !!!";
+			}
+		}
+		else{
+			$error .="Please upload an Pdf !!!";
+		}
+	}
+	else{
+		$error .="Please Select an Pdf !!!";
+	}
+	return $error;
+}
 
 function Fileupload($dir,$inputname,$allext,$pass_size,$newname){
             //print_r($_FILES);
@@ -200,7 +233,7 @@ if(isset($_POST['change_center_exe'])){
 		$assessement= time().$assessement[0];
 		$dir="uploads/homework/";
 		$allext=array("pdf","PDF");
-		$check = Fileupload($dir,'assessement',$allext,'10000000',$assessement); 
+		$check = Pdfupload($dir,'assessement',$allext,'10000000',$assessement); 
 		if($check===true){
 			$assessement .= ".pdf";	
 			$query="INSERT INTO `homework`(`executive_id`,`assessment`,`date`) VALUES ('$executive_id','$assessement','$date')";

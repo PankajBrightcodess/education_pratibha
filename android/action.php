@@ -670,7 +670,7 @@ if(isset($_POST['add_student'])){
 	$query="INSERT INTO `student`(`enroll_no`,`std_name`,`dob`,`cntr_name`,`course`,`address`,`mobile`,`email`,`pass`,`added_on`) VALUES ('$enroll_no','$std_name','$dob','$cntr_name','$course','$address','$mobile','$email','$pass','$added_on')";
 			$sql=mysqli_query($conn,$query);
 		if($sql){
-			 header('Location:add_student.php');
+			 header('Location:studentlogin.php');
 			// $_SESSION['msg']="Student added Successfully !!!";	
 		}
 		else{
