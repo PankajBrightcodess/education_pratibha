@@ -17,7 +17,7 @@ $msg = "";
 <?php include 'header-links.php'; ?>
 <?php include 'header.php'; ?>
 <section class="blank-course "></section>
-<?php 
+<?php             
                  // $sql = "SELECT * FROM `homework` WHERE `status`='1'";
                  $sql = "SELECT `homework`.`pid`, `field_excutive`.`name`, `homework`.`assessment`,`homework`.`date` 
                  FROM `homework`
@@ -48,9 +48,9 @@ $msg = "";
                        	<a href="../executive/uploads/homework/<?php echo $value['assessment']; ?>" class="btn"><i class="fa fa-file-pdf-o" style="font-size:48px;color:red"></i></a>
                           
                       </div>
-                         <!--  <div class="col-4" style="font-size: 10px;"><strong>10 Questions</strong></div>
-                          <div class="col-4" style="font-size: 10px;"><strong>20 Marks</strong></div>
-                          <div class="col-4" style="font-size: 10px;"><strong>10 Minutes</strong></div> -->
+                          <div class="col-3" style="font-size: 10px;"><strong></strong></div>
+                          <div class="col-6" style="font-size: 10px;"><strong>Student Name: <?= $_SESSION['name']; ?></strong></div>
+                          <div class="col-2" style="font-size: 10px;"><strong></strong></div>
                     </div>
                   </div>
 
