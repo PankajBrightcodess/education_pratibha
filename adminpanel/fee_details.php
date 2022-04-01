@@ -63,6 +63,7 @@ $msg = "";
               </div>
               <!-- /.card-header -->
               <div class="card-body">
+                <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
@@ -107,6 +108,7 @@ $msg = "";
                         }
                     ?>
                 </table>
+                </div>
               </div>
               <!-- /.card-body -->
             </div>

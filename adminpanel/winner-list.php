@@ -95,11 +95,11 @@ $msg = "";
                   <div class="department-list">
                      <div class="card">
               <div class="card-header">
-                <h5 style="font-weight: bold;">contact_us List</h5>
+                <h5 style="font-weight: bold;">Winner List</h5>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <div class="table-responsive">
+                <div id="example1_wrapper" class="table-responsive">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
@@ -111,8 +111,7 @@ $msg = "";
                     <th>Winner Year</th>
                     <th>Rank</th>
                     <th>Date</th>
-                    
-                    
+                    <th>Action</th>
                   </tr>
                   </thead>
                   <tbody >

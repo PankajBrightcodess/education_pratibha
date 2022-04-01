@@ -37,7 +37,7 @@ $msg = "";
                     <div class="card-body">
                       <div class="row">
                        <div class="col-md-9 col-9 mb-5">
-                          <h6><?php echo $value['name'];?> <br>(<?php echo $value['year'];?>)</h6>
+                          <h6><?php echo $value['name'];?> <br>(<?php echo date('Y',strtotime($value['year']));?>)</h6>
                        </div>
                        
                        <div class="col-md-3 col-3"> 
