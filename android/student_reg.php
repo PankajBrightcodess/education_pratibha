@@ -125,7 +125,7 @@ while ($data=mysqli_fetch_assoc($run)) {
 <?php include 'footer-links.php';?>
 <script type="text/javascript">
      $('.student_reg').click(function(e){
-            debugger;
+            // debugger;
          var name=$('#name').val();
          var mobile=$('#mobile').val();
          var email=$('#email').val();
