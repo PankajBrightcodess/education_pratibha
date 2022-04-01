@@ -45,7 +45,7 @@ $msg = "";
                        </div>
                        
                        <div class="col-md-3 col-3"> 
-                       	<a href="../executive/uploads/homework/<?php echo $value['assessment']; ?>" class="btn"><i class="fa fa-file-pdf-o" style="font-size:48px;color:red"></i></a>
+                       	<a href="../executive/uploads/homework/<?php echo $value['assessment']; ?>"><i class="fa fa-file-pdf-o" style="font-size:48px;color:red"></i></a>
                           
                       </div>
                           <div class="col-3" style="font-size: 10px;"><strong></strong></div>
