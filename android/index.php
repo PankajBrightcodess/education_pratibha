@@ -23,7 +23,7 @@
             </div>
             <div class="col-md-6	col-6">
             	<a href="executivelogin.php"><img src="../images/fav/04.png" alt="Los Angeles" style="padding:25px;padding-bottom: 0px;" class="img-fluid">
-            	<label>Feild Executive Login</label></a> <!--  Online Examination -->
+            	<label>Field Executive Login</label></a> <!--  Online Examination -->
 
            </div>
         </div>
