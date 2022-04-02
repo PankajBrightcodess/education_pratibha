@@ -46,8 +46,10 @@ $msg = "";
                        
                        <div class="col-md-3 col-3"> 
 
-                     <a href="../executive/uploads/homework/<?php echo @readfile($value['assessment']); ?>" target="_blank"><i class="fa fa-file-pdf-o" style="font-size:24px;color:red"></i> </a>
-                 
+                     
+                     <iframe style="background-image: url('pdf.png'); background-size: cover;" src="../executive/uploads/homework/<?php echo $value['assessment']; ?>" width="100%" height="50" name="pdf">
+                     	Pdf
+                     </iframe>
                           
                       </div>
                           <div class="col-3" style="font-size: 10px;"><strong></strong></div>
