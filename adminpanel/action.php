@@ -230,6 +230,9 @@ if(isset($_GET['deletewinner'])){
 	header("location:$_SERVER[HTTP_REFERER]");
 } 
 
+
+
+
 if(isset($_POST['uploadfiles'])){
 	
 	$course=$_POST['course'];
