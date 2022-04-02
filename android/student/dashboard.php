@@ -47,8 +47,7 @@ $msg = "";
                        <div class="col-md-3 col-3"> 
 
                      
-                     <iframe style="background-image: url('pdf.png'); background-size: cover;" 
-                     src="../executive/uploads/homework/<?php echo $value['assessment']; ?>" width="100%" height="50">
+                     <iframe src="../executive/uploads/homework/<?php echo $value['assessment']; ?>" width="100%" height="50" style="background-image: url('pdf.png'); background-size: cover;">
                      	
                      </iframe>
                           
