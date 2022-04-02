@@ -6,7 +6,7 @@
         <form method="post" action="#">
        <div class="row enqueryform">
         <div class="col-lg-12 col-12 mb-3">
-            <h2 class="text-center text-info">Feild Executive Form</h2><hr class="border-warning">
+            <h2 class="text-center text-info">Field Executive Form</h2><hr class="border-warning">
         </div>
 
         <div class="col-md-6 col-12 mb-2">
