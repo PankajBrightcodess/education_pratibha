@@ -45,9 +45,9 @@ $msg = "";
                        </div>
                        
                        <div class="col-md-3 col-3"> 
-                          
-                      <i class="fa fa-file-pdf-o" style="font-size:48px;color:red"><source src="../executive/uploads/homework/<?php echo $value['assessment']; ?>" type="text/pdf"></i>
-                    <!--  <i class="fa fa-file-pdf-o" style="font-size:48px;color:red"><iframe style="height:50px;width:100%" src="../executive/uploads/homework/<?php echo $value['assessment']; ?>"></iframe></i> -->
+
+                     
+                     <iframe src="../executive/uploads/homework/<?php echo $value['assessment']; ?>" style="width: 100%; height: 50px; background-color:green ; color: black;">PDF</iframe>
                           
                       </div>
                           <div class="col-3" style="font-size: 10px;"><strong></strong></div>
