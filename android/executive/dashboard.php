@@ -40,7 +40,7 @@ $msg = "";
       <div class="col-4"><a href="studentlist.php"><i class="fa fa-sign-in-alt"></i>Student</a></div>
       <div class="col-4"><a href="logout.php"><i class="fa fa-book" aria-hidden="true"></i> <br>Logout</a></div>
     </div>
-		<div class="row">
+		<!-- <div class="row">
 			<div class="col-md-12 dashboard mb-3">
 				<h4 style="color:#403226; margin-top: 2rem; text-align: center;"><?php print_r($_SESSION['name'])?>
 					
@@ -60,7 +60,7 @@ $msg = "";
                 </form>
 
 			</div>
-		</div>
+		</div> -->
 
    
 		

@@ -222,38 +222,38 @@ if(isset($_POST['change_center_exe'])){
 
 
 
-	if(isset($_POST['add_homework'])){
-		// echo '<pre>';
-		// print_r($_POST);die;
-		$executive_id=$_POST['executive_id'];
-		$date = date('Y-m-d');
-		$assessement = $_FILES['assessement']['name'];
-		$assessement = explode('.',$assessement);
+// 	if(isset($_POST['add_homework'])){
+// 		// echo '<pre>';
+// 		// print_r($_POST);die;
+// 		$executive_id=$_POST['executive_id'];
+// 		$date = date('Y-m-d');
+// 		$assessement = $_FILES['assessement']['name'];
+// 		$assessement = explode('.',$assessement);
 
-		$assessement= time().$assessement[0];
-		$dir="uploads/homework/";
-		$allext=array("pdf","PDF");
-		$check = Fileupload($dir,'assessement',$allext,'10000000',$assessement); 
-		if($check===true){
-			$assessement .= ".pdf";	
-			$query="INSERT INTO `homework`(`executive_id`,`assessment`,`date`) VALUES ('$executive_id','$assessement','$date')";
-			$sql=mysqli_query($conn,$query);
-			if($sql){
-				 header("Location:$_SERVER[HTTP_REFERER]");
-				  $_SESSION['msg']="Successfully Added!!!";	
-			}
-			else{
-				 // $_SESSION['msg']="Not added result !!!";
-				header("Location:$_SERVER[HTTP_REFERER]");
-				$_SESSION['msg']="Not added result !!!";
-			}
-		}
-		else{
-			 // $_SESSION['msg']=$check;
-			header("location:$_SERVER[HTTP_REFERER]");	
-			$_SESSION['msg']=$check;
-		}
-}
+// 		$assessement= time().$assessement[0];
+// 		$dir="uploads/homework/";
+// 		$allext=array("pdf","PDF");
+// 		$check = Fileupload($dir,'assessement',$allext,'10000000',$assessement); 
+// 		if($check===true){
+// 			$assessement .= ".pdf";	
+// 			$query="INSERT INTO `homework`(`executive_id`,`assessment`,`date`) VALUES ('$executive_id','$assessement','$date')";
+// 			$sql=mysqli_query($conn,$query);
+// 			if($sql){
+// 				 header("Location:$_SERVER[HTTP_REFERER]");
+// 				  $_SESSION['msg']="Successfully Added!!!";	
+// 			}
+// 			else{
+// 				 // $_SESSION['msg']="Not added result !!!";
+// 				header("Location:$_SERVER[HTTP_REFERER]");
+// 				$_SESSION['msg']="Not added result !!!";
+// 			}
+// 		}
+// 		else{
+// 			 // $_SESSION['msg']=$check;
+// 			header("location:$_SERVER[HTTP_REFERER]");	
+// 			$_SESSION['msg']=$check;
+// 		}
+// }
 
 
 if(isset($_POST['resultupload'])){

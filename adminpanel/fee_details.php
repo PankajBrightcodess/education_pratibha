@@ -98,15 +98,30 @@ $msg = "";
                                   <?php    }
 
 
+
+         
                               ?>
                              </td>
                               
                              
                            </tr>
                           <?php
+                          if($status == 1){
+                             $rowcount = mysqli_num_rows( $result );
+                             echo $rowcount;
+
+                          }
+                          elseif(($status == 0) && ($status == 0)){
+                            
+                          }
+
+
+
+
                           }
                         }
                     ?>
+
                 </table>
                 </div>
               </div>

@@ -12,7 +12,7 @@ $msg = "";
     if ($msg != "") {
         echo "<script> alert('$msg')</script>";
     }
-    $query="SELECT * FROM `material_upload` WHERE `status`='1'";
+    $query="SELECT * FROM `homework` WHERE `status`='1'";
     $run=mysqli_query($conn,$query);
     while ($data=mysqli_fetch_assoc($run)) {
       $material[]=$data;
@@ -46,7 +46,7 @@ $msg = "";
           <div class="col-md-6">
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">PDF Upload</h3>
+                <h3 class="card-title">Homework Upload</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -61,44 +61,19 @@ $msg = "";
               <!-- /.card-header -->
               <div class="card-body">
                 <div class="row">
-                  <form method="POST" action="action.php" enctype="multipart/form-data">
+                  <form method="post" action="action.php" enctype="multipart/form-data">
                   <div class="col-md-12">
-                    <div class="col-md-12 col-12  mb-3">
-                      <label>Course<span style="color: Red;">*</span></label>
-                      <select class="form-control" id="course" name="course">
-                          <option>---SELECT---</option>
-                          <option value="DNITC">Diploma in Nursery teacher training Course (DNITC)</option>
-                          <option value="DCITC">Diploma in Computer Teacher Training Course (DCITC)</option>
-                          <option value="PG-DCC">PG-Diploma in Computer Course (PG-DCC)</option>
-                          <option value="MDCC">Marter Diploma in Computer Course (MDCC)</option>
-                          <option value="ADCPC">Advance Diploma in Computer Programming Course (ADCPC)</option>
-                          <option value="DCOMPC">Diploma in Computer Office Management & Publishing Course (DCOMPC)</option>
-                          <option value="ADCC">Advance Diploma in Computer Course (ADCC)</option>
-                          <option value="DCOAC">Diploma in Computer Office & Accounting Course (DCOAC)</option>
-                          <option value="MCCC">Master Certificate in Computer Course (MCCC)</option>
-                          <option value="DCFAC">Diploma in Computer Financial Accounting Course (DCFAC)</option>
-                          <option value="DDTPC">Diploma in Desktop Publishing Course (DDTPC)</option>
-                          <option value="DWDC">Diploma in Web Designing Course (DWDC)</option>
-                          <option value="DCC">Diploma in Computer Course (DCC)</option>
-                          <option value="CCC">Certificate in Computer Course (CCC)</option>
-                          <option value="CBCC">Certificate in Basic Computer Course (CBCC)</option>
-                          <option value="CCFAC">Certificate in Computer Financial Accounting Course (CCFAC)</option>
-                          <option value="CCET">Certificate in Computer English Typing</option>
-                          <option value="CCHT">Certificate in Computer Hindi Typing</option>
-                          <option value="CCEHT">Certificate in Computer Eng/Hindi Typing</option>
-                          <option value="CBC">Certificate in Basic Computer</option>
-                          <option value="CESPD">Certificate in English Speaking & PD</option>
-                          <option value="CDTP">Certificate in DTP</option>
-                          <option value="CT">Certificate in Tally</option>
-                          <option value="CBP">Certificate in Basic Programming</option>
-                      </select>
+                        
+                <div class="col-md-12 mb-5">
+                    <label>Homework Name<span style="color: Red;">*</span></label>
+                  <input type="text" name="name" id="name" class="form-control">
                 </div>
                 <div class="col-md-12 mb-5">
-                    <label>Upload Material<span style="color: Red;">*</span></label>
-                  <input type="file" name="upload_image" accept="pdf" class="form-control">
+                    <label>Upload Homework<span style="color: Red;">*</span></label>
+                  <input type="file" name="assessement" accept="pdf" class="form-control">
                 </div>
                   </div>
-                  <div class="col-md-12"><input type="submit" name="uploadfiles" class="btn btn-sm btn-success"></div>
+                  <div class="col-md-12"><input type="submit" name="add_homework" class="btn btn-sm btn-success"></div>
                   </form>
                 </div>
               </div>
@@ -124,7 +99,7 @@ $msg = "";
                   <div class="department-list">
                      <div class="card">
               <div class="card-header">
-                <h5 style="font-weight: bold;">Study Material List</h5>
+                <h5 style="font-weight: bold;">Homework List</h5>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -132,8 +107,9 @@ $msg = "";
                   <thead>
                   <tr>
                     <th>S. No.:</th>
-                    <th>Course</th>
-                    <th>Material</th>
+                    <th>Homework</th>
+                    <th>Date</th>
+                    <th>Action</th>
                     
                     <!-- <th>Action</th> -->
                   </tr>
@@ -145,9 +121,9 @@ $msg = "";
                             ?>
                              <tr>
                               <td><?php echo $sn; ?></td>
-                              <td><?php echo $value['course']; ?></td>
-                              <td><a href="uploads/<?php echo $value['upload_pdf']?>">View</a></td>
-                              
+                              <td><a href="uploads/homework/<?php echo $value['assessment']; ?>"><?php echo  $value['name']; ?></a></td>
+                              <td><?php echo $value['date']; ?></td>
+                              <td> <a href="action.php?homeworkdelete=<?php echo $value['pid']; ?>" class="btn btn-sm btn-danger" >Delete</a></td>
                             </tr>
                             <?php
                           }

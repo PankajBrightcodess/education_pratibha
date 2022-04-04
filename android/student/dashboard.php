@@ -36,13 +36,24 @@ $msg = "";
 <section class="blank-course "></section>
 <?php             
                  // $sql = "SELECT * FROM `homework` WHERE `status`='1'";
-                 $sql = "SELECT `homework`.`pid`, `field_excutive`.`name`, `homework`.`assessment`,`homework`.`date` 
-                 FROM `homework`
-                  INNER JOIN `field_excutive` ON `homework`.`executive_id`=`field_excutive`.`id`;";
-                  $res = mysqli_query($conn,$sql);
-                  while($data = mysqli_fetch_assoc($res)){
-                    $homework[]=$data;
-                  } ?>
+                 // $sql = "SELECT `homework`.`pid`, `field_excutive`.`name`, `homework`.`assessment`,`homework`.`date` 
+                 // FROM `homework`
+                 //  INNER JOIN `field_excutive` ON `homework`.`executive_id`=`field_excutive`.`id`;";
+                 //  $res = mysqli_query($conn,$sql);
+                 //  while($data = mysqli_fetch_assoc($res)){
+                 //    $homework[]=$data;
+                 //  } 
+             $sql = "SELECT * FROM `homework` WHERE `status`='1'";
+             $res = mysqli_query($conn, $sql);
+             while($data = mysqli_fetch_assoc($res)){
+              $homework[] = $data;
+             }
+
+
+
+
+
+?>
 
  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">                 
 <section class="page">
@@ -71,11 +82,11 @@ $msg = "";
                     <div class="card-body">
                       <div class="row">
                        <div class="col-md-9 col-9 mb-5">
-                          <h6>Teacher Name: <?php echo $value['name'];?> <br>(<?php echo $value['date'];?>)</h6>
+                          <h6>Homework Name: <?php echo $value['name'];?> <br>(<?php echo $value['date'];?>)</h6>
                        </div>
                        
                        <div class="col-md-3 col-3"> 
-                    	<a href="../executive/uploads/homework/<?php echo $value['assessment']; ?>" target="_blank">
+                    	<a href="../../adminpanel/uploads/homework/<?php echo $value['assessment']; ?>" target="_blank">
                     		<i class="fa fa-file-pdf-o" style="font-size:48px;color:red"></i></a>
                       <!--  <iframe src="../executive/uploads/homework/<?php echo $value['assessment']; ?>"><i class="fa fa-file-pdf-o" style="font-size:48px;color:red"></i></iframe> -->
                           

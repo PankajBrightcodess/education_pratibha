@@ -36,6 +36,44 @@ function Imageupload($dir,$inputname,$allext,$pass_width,$pass_height,$pass_size
 	}
 	return $error;
 }
+function Fileupload($dir,$inputname,$allext,$pass_size,$newname){
+            //print_r($_FILES);
+            if (file_exists($_FILES["$inputname"]["tmp_name"])) {
+                //do this contain any file check
+                $file_extension = strtolower( pathinfo($_FILES["$inputname"]["name"], PATHINFO_EXTENSION));
+                $error = "";
+               if( in_array($file_extension, $allext)){
+                   //file extension check
+                $size = $_FILES["$inputname"]["size"];
+                
+                if ($size <= "$pass_size") {
+                        //dimension check
+                        $tmp=$_FILES["$inputname"]["tmp_name"];
+                        
+                        $extension = end(explode(".", $_FILES["$inputname"]["name"]));                      
+                        $name=$newname.".".$extension;
+                        //$extension[1] ="jpg";               
+                        if(move_uploaded_file($tmp, "$dir"."$name")){
+                            return true;
+                            //echo "$dir $newname.$extension[1]";
+                        }
+                    } 
+                    else{
+                        $error .= "Please upload file size must be less than 30MB";
+                        //echo $error;
+                    }
+               } else{
+                $error .="Please Upload a PDF";
+                //echo $error;
+               }
+            } else{
+                //print_r($_FILES);
+                $error .="Please Select an Document";
+                // $error;
+            }
+            return $error;
+        }
+
 
 //////pdf upload
 function Pdfupload($dir,$inputname,$allext,$pass_width,$pass_height,$pass_size,$newname){
@@ -74,6 +112,55 @@ function Pdfupload($dir,$inputname,$allext,$pass_width,$pass_height,$pass_size,$
 	return $error;
 }
 // '''''''''''''''''''''''''''''''''''''''
+
+
+	if(isset($_POST['add_homework'])){
+		// echo '<pre>';
+		// print_r($_POST);die;
+		// $executive_id=$_POST['executive_id'];
+		$name = $_POST['name'];
+		$date = date('Y-m-d');
+		$assessement = $_FILES['assessement']['name'];
+		$assessement = explode('.',$assessement);
+
+		$assessement= time().$assessement[0];
+		$dir="uploads/homework/";
+		$allext=array("pdf","PDF");
+		$check = Fileupload($dir,'assessement',$allext,'10000000',$assessement); 
+		if($check===true){
+			$assessement .= ".pdf";	
+			$query="INSERT INTO `homework`(`name`,`assessment`,`date`) VALUES ('$name','$assessement','$date')";
+			$sql=mysqli_query($conn,$query);
+			if($sql){
+				 header("Location:$_SERVER[HTTP_REFERER]");
+				  $_SESSION['msg']="Successfully Added!!!";	
+			}
+			else{
+				 // $_SESSION['msg']="Not added result !!!";
+				header("Location:$_SERVER[HTTP_REFERER]");
+				$_SESSION['msg']="Not added result !!!";
+			}
+		}
+		else{
+			 // $_SESSION['msg']=$check;
+			header("location:$_SERVER[HTTP_REFERER]");	
+			$_SESSION['msg']=$check;
+		}
+}
+if(isset($_GET['homeworkdelete'])){
+	$id=$_GET['homeworkdelete'];
+	$query="DELETE FROM `homework` WHERE `pid` = $id";
+	// echo $query;die;	
+	$run=mysqli_query($conn,$query);
+	if($run===true){
+		$_SESSION['msg']="homework Deleted Successfully !!!";
+	}
+	else{
+		$_SESSION['msg']="homework  Deletion Cancel !!!";
+	}
+	header("location:$_SERVER[HTTP_REFERER]");
+} 
+
 if(isset($_POST['studentregister'])){
 	// echo '<pre>';
 	// print_r($_POST);die;
