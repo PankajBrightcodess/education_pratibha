@@ -518,9 +518,11 @@ if(isset($_POST['del_result'])){
     	$option_d = $_POST['option_d'];
     	$correct_ans = $_POST['correct_ans'];
     	$marks = $_POST['marks'];
+    	$timer = $_POST['timer'];
     	$added_on = date('Y-m-d');
 
-    	$query="INSERT INTO `online_question`(`course`,`question`,`option_a`,`option_b`,`option_c`,`option_d`,`correct_ans`,`marks`,`added_on`) VALUES ('$course','$question','$option_a','$option_b','$option_c','$option_d','$correct_ans','$marks','$added_on')";	
+    	$query="INSERT INTO `online_question`(`course`,`question`,`option_a`,`option_b`,`option_c`,`option_d`,`correct_ans`,`marks`,`timer`,`added_on`) VALUES ('$course','$question','$option_a','$option_b','$option_c','$option_d','$correct_ans'
+    		,'$marks','$timer','$added_on')";	
 			$sql=mysqli_query($conn,$query);
 			if($sql){
 				 header("Location:$_SERVER[HTTP_REFERER]");

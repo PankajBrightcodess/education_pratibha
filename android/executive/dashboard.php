@@ -36,8 +36,8 @@ $msg = "";
 <section>
 	<div class="container">
      <div class="row menu">
-      <div class="col-4"><a href="dashboard.php"><i class="fa fa-home" aria-hidden="true"></i>Dashboard</a></div>
-      <div class="col-4"><a href="studentlist.php"><i class="fa fa-sign-in-alt"></i>Student</a></div>
+      <div class="col-4"><a href="dashboard.php"><i class="fa fa-home" aria-hidden="true"></i><br>Dashboard</a></div>
+      <div class="col-4"><a href="studentlist.php"><i class="fa fa-sign-in-alt"></i><br>Student</a></div>
       <div class="col-4"><a href="logout.php"><i class="fa fa-book" aria-hidden="true"></i> <br>Logout</a></div>
     </div>
 		<!-- <div class="row">

@@ -12,11 +12,11 @@ $msg = "";
     if ($msg != "") {
         echo "<script> alert('$msg')</script>";
     }
-    // $query="SELECT * FROM `material_upload` WHERE `status`='1'";
-    // $run=mysqli_query($conn,$query);
-    // while ($data=mysqli_fetch_assoc($run)) {
-    //   $material[]=$data;
-    // }
+    $query="SELECT * FROM `online_question` WHERE `status`='1'";
+    $run=mysqli_query($conn,$query);
+    while ($data=mysqli_fetch_assoc($run)) {
+      $material[]=$data;
+    }
 
    
 ?>
@@ -95,6 +95,10 @@ $msg = "";
                    <label>Marks<span style="color: Red;">*</span></label>
                      <input type="text" name="marks" placeholder="Enter Marks" class="form-control">
                 </div>
+                                   <div class="col-md-12 mb-5">
+                   <label>Timer<span style="color: Red;">*</span></label>
+                     <input type="time" name="timer" class="form-control">
+                </div>
                   <!-- </div> -->
                   <div class="col-md-12"><input type="submit" name="submit_question" class="btn btn-sm btn-success"></div>
                 </div>
@@ -130,8 +134,11 @@ $msg = "";
                   <thead>
                   <tr>
                     <th>S. No.:</th>
-                    <th>Course</th>
-                    <th>Material</th>
+                    <th>Test Name</th>
+                    <th>Questions</th>
+                    <th>Marks</th>
+                    <th>Timer</th>
+                    <th>upload date</th>
                     
                     <!-- <th>Action</th> -->
                   </tr>
@@ -144,7 +151,11 @@ $msg = "";
                              <tr>
                               <td><?php echo $sn; ?></td>
                               <td><?php echo $value['course']; ?></td>
-                              <td><a href="uploads/<?php echo $value['upload_pdf']?>">View</a></td>
+                               <td><?php echo $value['question']; ?></td>
+                                <td><?php echo $value['marks']; ?></td>
+                                 <td><?php echo $value['timer']; ?></td>
+                                  <td><?php echo $value['added_on']; ?></td>
+                              
                               
                             </tr>
                             <?php

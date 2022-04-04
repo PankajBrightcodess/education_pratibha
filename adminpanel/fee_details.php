@@ -63,6 +63,20 @@ $msg = "";
               </div>
               <!-- /.card-header -->
               <div class="card-body">
+                <?php
+                  $sql0="select * from addpayment where payment_status='0'"; 
+                  $sqll="select * from addpayment where payment_status='1'";
+                  $res1=mysqli_query($conn,$sqll);
+                  $res0=mysqli_query($conn,$sql0);
+                  $nm1=mysqli_num_rows($res1);
+                   $nm0=mysqli_num_rows($res0); ?>
+                 
+               <div class="row">
+                     <div class="col-md-3"></div>
+                     <div class="col-md-3 " ><button class="btn btn-sm btn-success">Paid Student:<?php echo $nm1 ; ?></button></div>
+                     <div class="col-md-3" ><button class="btn btn-sm btn-danger">Unpaid Student:<?php echo $nm0 ; ?></button></div>
+                     <div class="col-md-3"></div>
+                </div>
                 <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
@@ -98,6 +112,17 @@ $msg = "";
                                   <?php    }
 
 
+                          //            if($status == 1){
+                          //            $rowcount = count( $status );
+                          //            echo '<pre>';
+                          //            print_r($rowcount);die;
+
+                          // }
+                          // elseif(($status == 0) && ($status == null)){
+
+                          //     $rowcount = count( $status );
+                          //     echo $rowcount;
+                          // }
 
          
                               ?>
@@ -106,17 +131,6 @@ $msg = "";
                              
                            </tr>
                           <?php
-                          if($status == 1){
-                             $rowcount = mysqli_num_rows( $result );
-                             echo $rowcount;
-
-                          }
-                          elseif(($status == 0) && ($status == 0)){
-                            
-                          }
-
-
-
 
                           }
                         }

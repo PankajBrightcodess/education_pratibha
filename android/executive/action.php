@@ -125,7 +125,7 @@ if(isset($_POST['executive_login'])){
 		$data=mysqli_fetch_assoc($run);
 
 		$_SESSION['role'] = $data['role'];
-		$_SESSION['id'] = $data['id'];
+		$_SESSION['exe_id'] = $data['id'];
 		$_SESSION['name'] = $data['name'];
 		if($_SESSION['role']==2){
 			header('location:dashboard.php');

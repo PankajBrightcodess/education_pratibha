@@ -13,36 +13,31 @@ include '../connection.php';
           <div class="card">
             <div class="card-header bg-secondary text-light"><h4>Student List</h4></div>
             <div class="card-body">
+                  <?php
+                  $sql0="select * from addpayment where payment_status='0'"; 
+                   $res0=mysqli_query($conn,$sql0);
+                   $nm0=mysqli_num_rows($res0);
+                  $sqll="select * from addpayment where payment_status='1'";
+                  $res1=mysqli_query($conn,$sqll);
+                  $nm1=mysqli_num_rows($res1);
+                    ?>
+                 
+               <div class="row">
+                    
+                     <div class="col-4 " ><button class="btn btn-sm btn-success">Paid Student:<?php echo $nm1 ; ?></button></div>
+                     <div class="col-1"></div>
+                     <div class="col-4" ><button class="btn btn-sm btn-danger">Unpaid Student:<?php echo $nm0 ; ?></button></div>
+                    
+                </div>
+                   
+
+
+
+
+
               <div class="row">
-               <div class="col-md-5 mb-5">
-          <!-- <div class="col-md-12 dashboard mb-3">
-            <h1 style="color:#403226; margin-top: 2rem; text-align: center;"><?php print_r($_SESSION['id'])?></h1>
-          </div> -->
-         <!--  <form method="POST" action="action.php" enctype="multipart/form-data"> 
-            <div class="col-md-12">
-              <label>Enroll. No. </label>
-              <input type="text" name="enroll" class="form-control">
-            </div>
-            <div class="col-md-12 mb-3">
-              <label>Course </label>
-              <input type="text" name="course" class="form-control">
-            </div>
-            <div class="col-md-12 mb-3">
-              <label>Name </label>
-              <input type="text" name="name" class="form-control">
-              <input type="hidden" name="center_id" value="<?php echo $_SESSION['cent_id']?>" class="form-control">
-            </div>
-            <div class="col-md-12 mb-3">
-              <label>Upload Result </label>
-              <input type="file" name="upload_image" class="form-control">
-            </div>
-            <div class="col-md-12">
-              <input type="submit" name="resultupload" class="btn btn-sm btn-success">
-            </div>
-          </form> -->
-          
-        </div>
-        <div class="col-md-7">
+               
+        <div class="col-md-12">
                   <table id="datatable" class="table table-hovered table-responsive table-bordered">
                       <thead>
                         <tr class="bg-dark text-light">
@@ -56,9 +51,7 @@ include '../connection.php';
                         </tr>
                       </thead>
                       <tbody>
-                        <?php $id=$_SESSION['id'];
-                              echo '<pre>';
-                                // print_r($id);die;
+                        <?php $id=$_SESSION['exe_id'];
                             $query="SELECT * FROM `student` WHERE `executive_id`='$id'";
                             $run=mysqli_query($conn,$query);
                             while ($data=mysqli_fetch_assoc($run)) {
