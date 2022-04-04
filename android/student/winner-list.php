@@ -1,6 +1,6 @@
 <?php 
 session_start();
-include '../adminpanel/connection.php';
+include '../../adminpanel/connection.php';
 $msg = "";
   if (isset($_SESSION['msg'])) {
     $msg = $_SESSION['msg'];

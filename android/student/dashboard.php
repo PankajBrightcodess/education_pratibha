@@ -15,6 +15,23 @@ $msg = "";
 	}
 ?>
 <?php include 'header-links.php'; ?>
+<style type="text/css">
+  .menu {
+    margin-top: -28px;
+    padding: 20px;
+    margin-left: 0px;
+    width: 100%;
+    height: 106px;
+    background-color: #fff;
+    border-radius: 50px;
+    box-shadow: 1px 3px 5px 0px;
+    margin-bottom: 48px;
+  }
+  .menu a{
+  text-decoration: none;
+  color: black;
+ }
+</style>
 <?php include 'header.php'; ?>
 <section class="blank-course "></section>
 <?php             
@@ -30,6 +47,19 @@ $msg = "";
  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">                 
 <section class="page">
     <div class="container-fluid">
+      <div class="row menu">
+        <div class="col-6"><a href="dashboard.php"><i class="fa fa-home" aria-hidden="true"></i>Dashboard</a></div>
+        <div class="col-6"><a href="user_profile.php"><i class="fa fa-sign-in-alt"></i>Profile</a></div>
+        <div class="row" style="margin-left: 3px;">
+          <div class="col-6"><a href="paid_course.php"><i class="fa fa-book"></i>Online Test</a></div>
+           <div class="col-6"><a href="winner-list.php"><i class="fa fa-medal"></i>Winner List</a></div>
+            <div class="row">
+          <div class="col-12" style="margin-left: 15px;"><a href="logout.php"><i class="fa fa-star" aria-hidden="true"></i>Logout</a></div>
+        </div>
+        </div>
+       
+     
+    </div>
       <div class="row">
         <?php 
           if(!empty($homework)){
@@ -142,5 +172,6 @@ $msg = "";
         </div>
 	</div>
 </section> -->
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 <?php include 'footer.php'; ?>
 <?php include 'footer-links.php'; ?>

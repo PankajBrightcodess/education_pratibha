@@ -1,24 +1,8 @@
 <?php 
 session_start();
-include_once('../connection.php');
-$msg = "";
-  if (isset($_SESSION['msg'])) {
-    $msg=$_SESSION['msg'];
-    unset($_SESSION['msg']);
-  }
-  if ($msg != "") {
-    echo "<script> alert('$msg') </script>";
-  }
-  if($_SESSION['role']!='2'){
-    header('location:index.php');
-  }
-  // $id = $_SESSION['cent_id'];
-// $query="SELECT * FROM `result` WHERE `center_id`=$id";
-// $run=mysqli_query($conn,$query);
-// while ($data=mysqli_fetch_assoc($run)) {
-//   $center[]=$data;
-// }
+include '../connection.php';
 ?>
+  
 <?php include 'header-links.php'; ?>
 <?php include 'header.php'; ?>
 <section class="blank-course "></section>
@@ -62,24 +46,33 @@ $msg = "";
                   <table id="datatable" class="table table-hovered table-responsive table-bordered">
                       <thead>
                         <tr class="bg-dark text-light">
-                          <th>#</th>
-                          <th>Enorll No</th>
-                          <th>Course</th>
+                          <th>Sno</th>
                           <th>Student's Name</th>
-                          <!-- <th>Result</th>
-                          <th>Action</th> -->
+                          <th>Qualifaction</th>
+                          <th>D O B</th>
+                          <th>Mobile No</th>
+                          <th>Email</th>
+                          <th>Address</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <?php if(!empty($center)){ $i=0;  foreach ($center as $uploadresult) { ++$i; ?>
+                        <?php $id=$_SESSION['id'];
+                              echo '<pre>';
+                                // print_r($id);die;
+                            $query="SELECT * FROM `student` WHERE `executive_id`='$id'";
+                            $run=mysqli_query($conn,$query);
+                            while ($data=mysqli_fetch_assoc($run)) {
+                                  $result[]=$data;
+                                }
+                            if(!empty($result)){ $i=0;  foreach ($result as $uploadresult) { $i++; ?>
                         <tr>
                           <td><?php echo $i; ?></td>
-                          <td><?php echo $uploadresult['enroll']; ?></td>
-                          <td><?php echo $uploadresult['course']; ?></td>
-                          <td><?php echo $uploadresult['name']; ?></td>
-                         <!--  <td><img src="../../upload/<?php echo $uploadresult['upload_image']; ?>" height="100" width="100" class="img-fluid"></td>
-                          <td>
-                             <a class=" btn btn-sm btn-danger delete" data-id="<?php echo $uploadresult['id'] ?>"><i class="fa fa-trash-alt btn btn-sm btn-danger"></i></a></td> -->
+                          <td><?php echo $uploadresult['name']; ?></td>  
+                          <td><?php echo $uploadresult['ac_qualify']; ?></td>
+                          <td><?php echo $uploadresult['dob']; ?></td>
+                          <td><?php echo $uploadresult['mobile']; ?></td>
+                           <td><?php echo $uploadresult['email']; ?></td>
+                           <td><?php echo $uploadresult['address']; ?></td>
                         </tr>  
                         <?php } }?>
                       </tbody>

@@ -87,7 +87,7 @@ while ($data=mysqli_fetch_assoc($run)) {
         <div class="col-md-6 col-12 mb-2">
              <label>Feild Executive<span style="color: Red;">*</span></label>
             <select class="form-control" id="executive_id" name="executive_id">
-                <option>---SELECT---</option>
+                <option>Search</option>
                 <?php 
                     if(!empty($executive)){
                         foreach ($executive as $key => $value) {
