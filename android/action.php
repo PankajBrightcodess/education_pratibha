@@ -135,8 +135,12 @@ if(isset($_POST['field_excutive'])){
 	$location=$_POST['location'];
 	$city=$_POST['city'];
 	$state=$_POST['state'];
+	$fathername=$_POST['fathername'];
+	$aadhaar=$_POST['aadhaar'];
+	$bankname=$_POST['bankname'];
+	$bankaccount=$_POST['bankaccount'];
+	$ifsc=$_POST['ifsc'];
 	$pincode=$_POST['pincode'];
-	// $precenter=$_POST['precenter'];
 	$password=$_POST['password'];
 	$con_password=$_POST['con_password'];
 	$added_on=date('Y-m-d');
@@ -147,7 +151,7 @@ if(isset($_POST['field_excutive'])){
 	    $num=mysqli_num_rows($run);
 	    if($num==0){
 	    	if($password==$con_password){
-	    		$query="INSERT INTO `field_excutive`(`name`,`gender`,`dob`,`mobile`,`email`,`location`,`city`,`state`,`pincode`,`password`,`added_on`) VALUES ('$name','$gender','$dob','$mobile','$email','$location','$city','$state','$pincode','$password','$added_on')";
+	    		$query="INSERT INTO `field_excutive`(`name`,`gender`,`dob`,`mobile`,`email`,`location`,`city`,`state`,`fathername`,`aadhaar`,`bankname`,`bankaccount`,`ifsc`,`pincode`,`password`,`added_on`) VALUES ('$name','$gender','$dob','$mobile','$email','$location','$city','$state','$fathername','$aadhaar','$bankname','$bankaccount','$ifsc','$pincode','$password','$added_on')";
 	    		
 	    	    $sql=mysqli_query($conn,$query);
 	    	    if($sql){

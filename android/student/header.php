@@ -1,4 +1,9 @@
 <body class="desktop" style="background: #b6fff3;">
+	<style type="text/css">
+		.home2 a{
+			text-align: center;
+		}
+	</style>
 	<section class="top-part">
 		<div class="container">
 			<div class="row header">
@@ -14,11 +19,12 @@
               					</div>
               				</div> -->
               				<div class="home2">
-								<a href="dashboard.php"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Dashboard</a><hr>
-								<a href="user_profile.php"><i class="fa fa-sign-in-alt"></i>&nbsp;&nbsp;&nbsp;Profile</a><hr>
-								<a href="paid_course.php"><i class="fa fa-book"></i>&nbsp;&nbsp;&nbsp;Online Test</a><hr>
-								<a href="winner-list.php"><i class="fa fa-medal"></i>&nbsp;&nbsp;&nbsp;Winner List</a><hr>
-				                <a href="logout.php"><i class="fa fa-star" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Logout</a><hr>
+								<a href="dashboard.php"><i class="fa fa-home" aria-hidden="true" style="color:blue; font-size:15px;"></i>&nbsp;&nbsp;&nbsp;Dashboard</a><hr>
+								
+								<a href="paid_course.php"><i class="fa fa-book" style=" color:brown; font-size:15px;"></i>&nbsp;&nbsp;&nbsp;Online Test</a><hr>
+								<a href="winner-list.php"><i class="fa fa-medal" style="color:gold; font-size:15px;"></i>&nbsp;&nbsp;&nbsp;Winner List</a><hr>
+								<a href="user_profile.php"><i class="fa fa-user" style=" font-size:15px;"></i>&nbsp;&nbsp;&nbsp;Profile</a><hr>
+				                <a href="logout.php"><i class="fa fa-star" aria-hidden="true" style="color:red;"></i>&nbsp;&nbsp;&nbsp;Logout</a><hr>
 							</div>
               			</div>
               		</div>

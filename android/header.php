@@ -1,4 +1,9 @@
 <body class="desktop" style="background: #c4dee9;">
+	<style type="text/css">
+		.home2 a{
+			text-align: center;
+		}
+	</style>
 	<section class="top-part">
 		<div class="container">
 			<div class="row header">

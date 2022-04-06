@@ -76,9 +76,14 @@ $msg = "";
                     <th>City</th>
                     <th>State</th>
                     <th>Pincode</th>
+                    <th>Father Name</th>
+                    <th>Aadhaar No</th>
+                    <th>Bank Name</th>
+                    <th>Bank Accoutn</th>
+                    <th>IFSC</th>
                     <th>Password</th>
-                    <th>Reg Date</th>                    <!-- <th>Action</th> -->
-                    <th>Action</th>                    <!-- <th>Action</th> -->
+                    <th>Reg Date</th>                  
+                    <th>Action</th>                  
                     
                   </tr>
                   </thead>
@@ -98,9 +103,14 @@ $msg = "";
                               <td><?php echo $value['city']; ?></td>
                               <td><?php echo $value['state']; ?></td>
                               <td><?php echo $value['pincode']; ?></td>
+                              <td><?php echo $value['fathername']; ?></td>
+                              <td><?php echo $value['aadhaar']; ?></td>
+                               <td><?php echo $value['bankname']; ?></td>
+                                <td><?php echo $value['bankaccount']; ?></td>
+                                 <td><?php echo $value['ifsc']; ?></td>
                               <td><?php echo $value['password']; ?></td>
                               <td><?php echo date('d-m-Y', strtotime($value['added_on'])); ?></td>
-                              <td> <button class="btn btn-sm btn-success editexecutive" data-toggle="modal" data-id="<?php echo $value['id']; ?>" data-name="<?php echo $value['name']; ?>" data-gender="<?php echo $value['gender']; ?>" data-dob="<?php echo $value['dob']; ?>" data-mobile="<?php echo $value['mobile']; ?>" data-email="<?php echo $value['email']; ?>" data-location="<?php echo $value['location']; ?>" data-city="<?php echo $value['city']; ?>" data-state="<?php echo $value['state']; ?>" data-pincode="<?php echo $value['pincode']; ?>" data-password="<?php echo $value['password']; ?>" data-target="#departmentModal">&nbsp;&nbsp;<i class="far fa-edit nav-icon"></i>&nbsp;Edit</button> <a href="executive-student-list.php?executice_student_list=<?php echo $value['id']; ?>" class="btn btn-sm btn-success">Student view</a> </td>
+                              <td> <button class="btn btn-sm btn-success editexecutive" data-toggle="modal" data-id="<?php echo $value['id']; ?>" data-name="<?php echo $value['name']; ?>" data-gender="<?php echo $value['gender']; ?>" data-dob="<?php echo $value['dob']; ?>" data-mobile="<?php echo $value['mobile']; ?>" data-email="<?php echo $value['email']; ?>" data-location="<?php echo $value['location']; ?>" data-city="<?php echo $value['city']; ?>" data-state="<?php echo $value['state']; ?>"data-fathername="<?php echo $value['fathername']; ?>" data-aadhaar="<?php echo $value['aadhaar']; ?>" data-bankname="<?php echo $value['bankname']; ?>" data-bankaccount="<?php echo $value['bankaccount']; ?>" data-ifsc="<?php echo $value['ifsc']; ?>" data-pincode="<?php echo $value['pincode']; ?>" data-password="<?php echo $value['password']; ?>" data-target="#departmentModal">&nbsp;&nbsp;<i class="far fa-edit nav-icon"></i>&nbsp;Edit</button> <a href="executive-student-list.php?executice_student_list=<?php echo $value['id']; ?>" class="btn btn-sm btn-success">Student view</a> </td>
                            </tr>
                           <?php
                           }
@@ -175,6 +185,21 @@ $msg = "";
             <label>Email Id <span style="color:red;">*</span></label>
            <input type="text" name="email" id="email" class="form-control" required="" >
 
+            <label>Father Name<span style="color:red;">*</span></label>
+           <input type="text" name="fathername" id="fathername" class="form-control" required="" >
+
+            <label>Aadhaar No<span style="color:red;">*</span></label>
+           <input type="text" name="aadhaar" id="aadhaar" class="form-control" required="" >
+
+            <label>Bank Name<span style="color:red;">*</span></label>
+           <input type="text" name="bankname" id="bankname" class="form-control" required="" >
+
+            <label>Bank Account<span style="color:red;">*</span></label>
+           <input type="text" name="bankaccount" id="bankaccount" class="form-control" required="" >
+
+            <label>IFSC<span style="color:red;">*</span></label>
+           <input type="text" name="ifsc" id="ifsc" class="form-control" required="" >
+
            <label>Location <span style="color:red;">*</span></label>
            <input type="text" name="location" id="location" class="form-control" required="" >
 
@@ -208,6 +233,11 @@ $msg = "";
         $('#dob').val($(this).data('dob'));
         $('#mobile').val($(this).data('mobile'));
         $('#email').val($(this).data('email'));
+        $('#fathername').val($(this).data('fathername'));
+        $('#aadhaar').val($(this).data('aadhaar'));
+        $('#bankname').val($(this).data('bankname'));
+        $('#bankaccount').val($(this).data('bankaccount'));
+        $('#ifsc').val($(this).data('ifsc'));
         $('#location').val($(this).data('location'));
         $('#city').val($(this).data('city'));
         $('#state').val($(this).data('state'));

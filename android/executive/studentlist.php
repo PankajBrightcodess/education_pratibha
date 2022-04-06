@@ -48,6 +48,7 @@ include '../connection.php';
                           <th>Mobile No</th>
                           <th>Email</th>
                           <th>Address</th>
+                         <!--  <th>payment Status</th> -->
                         </tr>
                       </thead>
                       <tbody>
@@ -66,6 +67,7 @@ include '../connection.php';
                           <td><?php echo $uploadresult['mobile']; ?></td>
                            <td><?php echo $uploadresult['email']; ?></td>
                            <td><?php echo $uploadresult['address']; ?></td>
+                          <!--  <td><?php echo $uploadresult['payment_status']; ?></td> -->
                         </tr>  
                         <?php } }?>
                       </tbody>

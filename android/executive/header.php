@@ -1,4 +1,10 @@
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 <body class="desktop" style="background: #e9ebfb;">
+	<style type="text/css">
+		.home2 a{
+			text-align: center;
+		}
+	</style>
 	<section class="top-part">
 		<div class="container">
 			<div class="row header">
@@ -15,8 +21,8 @@
               				</div> -->
               				<div class="home2">
 								<a href="dashboard.php"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Dashboard</a><hr>
-								<a href="studentlist.php"><i class="fa fa-sign-in-alt"></i>&nbsp;&nbsp;&nbsp;Student List</a><hr>
-				                <a href="logout.php"><i class="fa fa-book" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Logout</a><hr>
+								<a href="studentlist.php"><i class="far fa-address-book" style="color:blue;"></i>&nbsp;&nbsp;&nbsp;Student List</a><hr>
+				                <a href="logout.php"><i class="fa fa-sign-in-alt" style="color:red;"aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Logout</a><hr>
 							</div>
               			</div>
               		</div>

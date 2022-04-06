@@ -15,23 +15,7 @@ $msg = "";
 	}
 ?>
 <?php include 'header-links.php'; ?>
-<style type="text/css">
-  .menu {
-    margin-top: -28px;
-    padding: 20px;
-    margin-left: 0px;
-    width: 100%;
-    height: 106px;
-    background-color: #fff;
-    border-radius: 50px;
-    box-shadow: 1px 3px 5px 0px;
-    margin-bottom: 48px;
-  }
-  .menu a{
-  text-decoration: none;
-  color: black;
- }
-</style>
+
 <?php include 'header.php'; ?>
 <section class="blank-course "></section>
 <?php             
@@ -54,11 +38,50 @@ $msg = "";
 
 
 ?>
+<style type="text/css">
+  .banner-bottom i{
+    font-size:30px;
+   
+    text-shadow:2px 2px 4px #000000;"
+  }
+  
+</style>
 
- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">                 
+ <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<section class="banner-bottom" >
+  <div class="container">
+        <div class="row">
+            <div class="col-md-6  col-6">
+              <a href="dashboard.php"><i class="fa fa-home" style="padding:25px;padding-bottom: 0px;" aria-hidden="true"></i><!-- <img src="../images/fav/01.png" alt="Los Angeles" style="padding:25px;padding-bottom: 0px;" class="img-fluid"> -->
+              <label>Dashboard</label></a>
+            </div>
+            <div class="col-md-6  col-6">
+              <a href="user_profile.php"><i class="fa fa-user" style="padding:25px;padding-bottom: 0px; color: black;" aria-hidden="true"></i><!-- <img src="../images/fav/02.png" alt="Los Angeles" style="padding:25px;padding-bottom: 0px;" class="img-fluid"> -->
+              <br><label>Profile</label></a>
+            </div>
+            <div class="col-md-6  col-6">
+              <a href="paid_course.php"><i class="fa fa-book" style="padding:25px;padding-bottom: 0px; color:brown;"></i><!-- <img src="../images/fav/031.png" alt="Los Angeles" style="padding:25px;padding-bottom: 0px;" class="img-fluid"> -->
+              <label>Online Test</label></a>
+
+            </div>
+            <div class="col-md-6  col-6">
+              <a href="winner-list.php"><i class="fa fa-medal" style="color:gold;padding:25px;padding-bottom: 0px;"></i><!-- <img src="../images/fav/04.png" alt="Los Angeles" style="padding:25px;padding-bottom: 0px;" class="img-fluid"> -->
+              <label>Winner List</label></a>
+
+           </div>
+           <div class="col-md-12 col-12">
+             <a href="logout.php"><i class="fa fa-sign-in-alt" style="color:red;padding:25px;padding-bottom: 0px;"></i> <br><label>Logout</label></a>
+           </div>
+        </div>
+    </div>
+</section>
+               
 <section class="page">
     <div class="container-fluid">
-      <div class="row menu">
+
+     <!--  <div class="row menu">
         <div class="col-6"><a href="dashboard.php"><i class="fa fa-home" aria-hidden="true"></i>Dashboard</a></div>
         <div class="col-6"><a href="user_profile.php"><i class="fa fa-sign-in-alt"></i>Profile</a></div>
         <div class="row" style="margin-left: 3px;">
@@ -70,7 +93,7 @@ $msg = "";
         </div>
        
      
-    </div>
+    </div> -->
       <div class="row">
         <?php 
           if(!empty($homework)){
@@ -92,7 +115,7 @@ $msg = "";
                           
                       </div>
                           <div class="col-3" style="font-size: 10px;"><strong></strong></div>
-                          <div class="col-6" style="font-size: 10px;"><strong>Student Name: <?= $_SESSION['name']; ?></strong></div>
+                          <div class="col-6" style="font-size: 10px; margin-bottom: -50px;"><strong >Student Name: <?= $_SESSION['name']; ?></strong></div>
                           <div class="col-2" style="font-size: 10px;"><strong></strong></div>
                     </div>
                   </div>

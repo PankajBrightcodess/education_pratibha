@@ -34,6 +34,26 @@
             <input type="mail" name="email" id="email" placeholder="Active Email" class="form-control" required>
         </div>
         <div class="col-md-6 col-12 mb-2">
+            <label>Father Name<span style="color: Red;">*</span></label>
+            <input type="text" name="fathername" id="fathername" placeholder="Enter Father Name" class="form-control" required>
+        </div>
+        <div class="col-md-6 col-12 mb-2">
+            <label>Aadhaar no<span style="color: Red;">*</span></label>
+            <input type="text" name="aadhaar" id="aadhaar" placeholder="Active Email" class="form-control" required>
+        </div>
+        <div class="col-md-6 col-12 mb-2">
+            <label>Bank Name<span style="color: Red;">*</span></label>
+            <input type="text" name="bankname" id="bankname" placeholder="Active Email" class="form-control" required>
+        </div>
+        <div class="col-md-6 col-12 mb-2">
+            <label>Bank Account No<span style="color: Red;">*</span></label>
+            <input type="text" name="bankaccount" id="bankaccount" placeholder="Active Email" class="form-control" required>
+        </div>
+        <div class="col-md-6 col-12 mb-2">
+            <label>IFSC CODE<span style="color: Red;">*</span></label>
+            <input type="text" name="ifsc" id="ifsc" placeholder="Active Email" class="form-control" required>
+        </div>
+        <div class="col-md-6 col-12 mb-2">
             <label>Location Address<span style="color: Red;">*</span></label>
             <input type="text" name="location" id="location" placeholder="Address" class="form-control" required>
         </div>
@@ -71,12 +91,17 @@
 
 <script type="text/javascript">
      $('.feild_ex').click(function(e){
-            debugger;
+            // debugger;
          var name=$('#name').val();
          var gender=$('#gender').val();
          var dob=$('#dob').val();
          var mobile=$('#mobile').val();
          var email=$('#email').val();
+         var fathername=$('#fathername').val();
+         var aadhaar=$('#aadhaar').val();
+         var bankname=$('#bankname').val();
+         var bankaccount=$('#bankaccount').val();
+         var ifsc=$('#ifsc').val();
          var location=$('#location').val();
          var city=$('#city').val();
          var state=$('#state').val();
@@ -86,7 +111,7 @@
         $.ajax({
                 type:'POST',
                 url:'action.php',
-                data:{name:name,gender:gender,dob:dob,mobile:mobile,email:email,location:location,city:city,state:state,pincode:pincode,password:password,con_password:con_password,field_excutive:'field_excutive'},
+                data:{name:name,gender:gender,dob:dob,mobile:mobile,email:email,fathername:fathername,aadhaar:aadhaar,bankname:bankname,bankaccount:bankaccount,ifsc:ifsc,location:location,city:city,state:state,pincode:pincode,password:password,con_password:con_password,field_excutive:'field_excutive'},
                 success: function(data){
                     console.log(data);
                     if(data=='center_login1'){
