@@ -39,6 +39,22 @@ while ($data=mysqli_fetch_assoc($run)) {
             <input type="date" name="dob" id="dob" placeholder="Enter Your Name" class="form-control" required>
         </div>
         <div class="col-md-6 col-12 mb-2">
+            <label>Father Name<span style="color: Red;">*</span></label>
+            <input type="text" name="fathername" id="fathername" placeholder="Enter Father Name" class="form-control" required>
+        </div>
+        <div class="col-md-6 col-12 mb-2">
+            <label>Bank Name<span style="color: Red;">*</span></label>
+            <input type="text" name="bankname" id="bankname" placeholder="Enter Your Name" class="form-control" required>
+        </div>
+        <div class="col-md-6 col-12 mb-2">
+            <label>Bank Account<span style="color: Red;">*</span></label>
+            <input type="text" name="bankaccount" id="bankaccount" placeholder="Enter Your Name" class="form-control" required>
+        </div>
+        <div class="col-md-6 col-12 mb-2">
+            <label>IFSC<span style="color: Red;">*</span></label>
+            <input type="text" name="ifsc" id="ifsc" placeholder="Enter Your Name" class="form-control" required>
+        </div>
+        <div class="col-md-6 col-12 mb-2">
             <label>Address<span style="color: Red;">*</span></label>
             <input type="text" name="address" id="address" placeholder="Enter Your Address" class="form-control" required>
         </div>
@@ -91,7 +107,7 @@ while ($data=mysqli_fetch_assoc($run)) {
                 <?php 
                     if(!empty($executive)){
                         foreach ($executive as $key => $value) {
-                           ?><option value="<?php echo $value['id'];?>" ><?php echo $value['name'];?></option><?php
+                           ?><option value="<?php echo $value['id'];?>" ><?php echo $value['email'];?></option><?php
                         }
                     }
 
@@ -134,11 +150,15 @@ while ($data=mysqli_fetch_assoc($run)) {
          var executive_id=$('#executive_id').val();
          var password=$('#password').val();
          var dob=$('#dob').val();
+         var fathernames=$('#fathername').val();
+         var banknames=$('#bankname').val();
+         var bankaccounts=$('#bankaccount').val();
+         var ifscs=$('#ifsc').val();
          var address=$('#address').val();
         $.ajax({
                 type:'POST',
                 url:'executive/action.php',
-                data:{name:name,mobile:mobile,email:email,ac_qualify:ac_qualify,course:course,executive_id:executive_id,password:password,dob:dob,address:address,student_reg:'student_reg'},
+                data:{name:name,mobile:mobile,email:email,ac_qualify:ac_qualify,course:course,executive_id:executive_id,password:password,dob:dob,fathernames:fathername,banknames:bankname,bankaccounts:bankaccount,ifscs:ifsc,address:address,student_reg:'student_reg'},
                 success: function(result){
                     console.log(result);
                     if(result=='1'){

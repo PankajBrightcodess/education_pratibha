@@ -639,12 +639,18 @@ if(isset($_POST['del_result'])){
 		$dob = $_POST['dob'];
 		$mobile = $_POST['mobile'];
 		$email = $_POST['email'];
+		$fathername = $_POST['fathername'];
+		$aadhaar = $_POST['aadhaar'];
+		$bankname = $_POST['bankname'];
+		$bankaccount = $_POST['bankaccount'];
+		$ifsc = $_POST['ifsc'];
 		$location = $_POST['location'];
 		$city = $_POST['city'];
 		$state = $_POST['state'];
 		$pincode = $_POST['pincode'];
 		$password = $_POST['password'];
-		$query="UPDATE `field_excutive` SET `name`='$name',`gender`='$gender',`dob`='$dob',`mobile`='$mobile',`email`='$email',`location`='$location',`city`='$city',`state`='$state',`pincode`='$pincode',`password`='$password' WHERE `id`='$id'";
+		$query="UPDATE `field_excutive` SET `name`='$name',`gender`='$gender',`dob`='$dob',`mobile`='$mobile',
+		`email`='$email',`fathername`='$fathername',`aadhaar`='$aadhaar',`bankname`='$bankname',`bankaccount`='$bankaccount',`ifsc`='$ifsc',`location`='$location',`city`='$city',`state`='$state',`pincode`='$pincode',`password`='$password' WHERE `id`='$id'";
 				$run=mysqli_query($conn,$query);
 				if($run){
 					 header("Location:$_SERVER[HTTP_REFERER]");

@@ -76,6 +76,10 @@ $msg = "";
                     <th>S. No.:</th>
                     <th>Name</th>
                     <th>DOB</th>
+                    <th>Father Name</th>
+                    <th>Bank Name</th>
+                    <th>Bank Account</th>
+                    <th>IFSC</th>
                     <th>Address</th>
                     <th>Field Executive</th>
                     <th>Mobile Number</th>
@@ -96,6 +100,10 @@ $msg = "";
                                 <td><?php echo $sn; ?></td>
                                 <td><?php echo $value['name']; ?></td>
                                 <td><?php echo date('d-m-Y', strtotime($value['dob'])); ?></td>
+                                <td><?php echo $value['fathername']; ?></td>
+                                <td><?php echo $value['bankname']; ?></td>
+                                <td><?php echo $value['bankaccount']; ?></td>
+                                <td><?php echo $value['ifsc']; ?></td>
                                 <td><?php echo $value['address']; ?></td>
                                 <td><?php echo $value['exe_name']; ?></td>
                                 <td><?php echo $value['mobile']; ?></td>
@@ -103,7 +111,11 @@ $msg = "";
                                 <td><?php echo $value['password']; ?></td>
                                 <!-- <td><?php echo $value['course']; ?></td> -->
                                 <td><?php echo date('d-m-Y', strtotime($value['added_on'])); ?></td>
-                               <td> <button class="btn btn-sm btn-success editexecutive" data-toggle="modal" data-id="<?php echo $value['id']; ?>" data-name="<?php echo $value['name']; ?>"  data-dob="<?php echo $value['dob']; ?>" data-mobile="<?php echo $value['mobile']; ?>" data-email="<?php echo $value['email']; ?>" data-address="<?php echo $value['address']; ?>" data-executive_id="<?php echo $value['executive_id']; ?>"  data-password="<?php echo $value['password']; ?>" data-target="#departmentModal">&nbsp;&nbsp;<i class="far fa-edit nav-icon"></i>&nbsp;Edit</button></td>
+                               <td> <button class="btn btn-sm btn-success editexecutive" data-toggle="modal" data-id="<?php echo $value['id']; ?>" data-name="<?php echo $value['name']; ?>"  data-dob="<?php echo $value['dob']; ?>" 
+                               data-fathername="<?php echo $value['fathername']; ?>"
+                               data-bankname="<?php echo $value['bankname']; ?>"
+                               data-bankaccount="<?php echo $value['bankaccount']; ?>"
+                               data-ifsc="<?php echo $value['ifsc']; ?>" data-mobile="<?php echo $value['mobile']; ?>" data-email="<?php echo $value['email']; ?>" data-address="<?php echo $value['address']; ?>" data-executive_id="<?php echo $value['executive_id']; ?>"  data-password="<?php echo $value['password']; ?>" data-target="#departmentModal">&nbsp;&nbsp;<i class="far fa-edit nav-icon"></i>&nbsp;Edit</button></td>
                             </tr>
 
 
@@ -180,6 +192,18 @@ $msg = "";
            <label>DOB <span style="color:red;">*</span></label>
            <input type="date" name="dob" id="dob" class="form-control" required="" >
 
+            <label>Father Name<span style="color:red;">*</span></label>
+           <input type="text" name="fathername" id="fathername" class="form-control" required="" >
+
+           <label>Bank Name<span style="color:red;">*</span></label>
+           <input type="text" name="bankname" id="bankname" class="form-control" required="" >
+
+           <label>Bank Account<span style="color:red;">*</span></label>
+           <input type="text" name="bankaccount" id="bankaccount" class="form-control" required="" >
+
+           <label>IFSC<span style="color:red;">*</span></label>
+           <input type="text" name="ifsc" id="ifsc" class="form-control" required="" >
+
             <label>Address <span style="color:red;">*</span></label>
            <input type="text" name="address" id="address" class="form-control" required="" >
 
@@ -222,6 +246,10 @@ $msg = "";
         $('#name').val($(this).data('name'));
         $('#gender').val($(this).data('gender'));
         $('#dob').val($(this).data('dob'));
+        $('#fathername').val($(this).data('fathername'));
+        $('#bankname').val($(this).data('bankname'));
+        $('#bankaccount').val($(this).data('bankaccount'));
+        $('#ifsc').val($(this).data('ifsc'));
         $('#mobile').val($(this).data('mobile'));
         $('#email').val($(this).data('email'));
         $('#address').val($(this).data('address'));

@@ -13,20 +13,23 @@ include '../connection.php';
           <div class="card">
             <div class="card-header bg-secondary text-light"><h4>Student List</h4></div>
             <div class="card-body">
+             
                   <?php
-                  $sql0="select * from addpayment where payment_status='0'"; 
-                   $res0=mysqli_query($conn,$sql0);
-                   $nm0=mysqli_num_rows($res0);
-                  $sqll="select * from addpayment where payment_status='1'";
-                  $res1=mysqli_query($conn,$sqll);
-                  $nm1=mysqli_num_rows($res1);
+
+                  // $sql0="select * from addpayment where payment_status='0'"; 
+                  //  $res0=mysqli_query($conn,$sql0);
+                  //  $nm0=mysqli_num_rows($res0);
+                  // $sqll="select * from addpayment where payment_status='1'";
+                  // $res1=mysqli_query($conn,$sqll);
+                  // $nm1=mysqli_num_rows($res1);
                     ?>
                  
                <div class="row">
                     
                      <div class="col-4 " ><button class="btn btn-sm btn-success">Paid Student:<?php echo $nm1 ; ?></button></div>
                      <div class="col-1"></div>
-                     <div class="col-4" ><button class="btn btn-sm btn-danger">Unpaid Student:<?php echo $nm0 ; ?></button></div>
+                     <div class="col-4"
+                     ><button class="btn btn-sm btn-danger">Unpaid Student:<?php echo $nm0 ; ?></button></div>
                     
                 </div>
                    
@@ -48,12 +51,13 @@ include '../connection.php';
                           <th>Mobile No</th>
                           <th>Email</th>
                           <th>Address</th>
-                         <!--  <th>payment Status</th> -->
+                          <th>payment Status</th>
                         </tr>
                       </thead>
                       <tbody>
                         <?php $id=$_SESSION['exe_id'];
-                            $query="SELECT * FROM `student` WHERE `executive_id`='$id'";
+                        $query="SELECT student.*, addpayment.payment_status AS exe_name FROM student INNER JOIN addpayment ON student.email=addpayment.email WHERE student.executive_id='$id'";
+                            // $query="SELECT * FROM `student` WHERE `executive_id`='$id'";
                             $run=mysqli_query($conn,$query);
                             while ($data=mysqli_fetch_assoc($run)) {
                                   $result[]=$data;
@@ -67,7 +71,15 @@ include '../connection.php';
                           <td><?php echo $uploadresult['mobile']; ?></td>
                            <td><?php echo $uploadresult['email']; ?></td>
                            <td><?php echo $uploadresult['address']; ?></td>
-                          <!--  <td><?php echo $uploadresult['payment_status']; ?></td> -->
+                          <td><?php
+                             $status= $uploadresult['payment_status'];
+                                      if( $status == 1){ ?>
+                                          <button class="btn btn-sm btn-success">Paid</button>
+                                    <?php   }
+
+                                      else{ ?>
+                                        <button class="btn btn-sm btn-danger">Unpaid</button>
+                                  <?php    } ?></td>
                         </tr>  
                         <?php } }?>
                       </tbody>

@@ -144,7 +144,6 @@ if(isset($_POST['field_excutive'])){
 	$password=$_POST['password'];
 	$con_password=$_POST['con_password'];
 	$added_on=date('Y-m-d');
-	
 	if(!empty($email)){
 	   	$query="SELECT * FROM `field_excutive` WHERE `email`='$email'";
 	    $run=mysqli_query($conn,$query);
@@ -365,8 +364,6 @@ if(isset($_POST['del_result_admin'])){
 	$sql=mysqli_query($conn,$query);
 	
    }
-
-   if()
 
 
 
@@ -663,7 +660,11 @@ if(isset($_POST['del_result_admin'])){
 if(isset($_POST['add_student'])){
 	$enroll_no = $_POST['enroll_no'];	
 	$std_name = $_POST['std_name'];	
-	$dob = $_POST['dob'];	
+	$dob = $_POST['dob'];
+	$fathername = $_POST['fathername'];
+	$bankname = $_POST['bankname'];
+	$bankaccount = $_POST['bankaccount'];
+	$ifsc = $_POST['ifsc'];	
 	$cntr_name = $_POST['cntr_name'];	
 	$course = $_POST['course'];	
 	$address = $_POST['address'];	
@@ -671,7 +672,10 @@ if(isset($_POST['add_student'])){
 	$email = $_POST['email'];	
 	$pass = $_POST['pass'];
 	$added_on = date('Y-m-d');
-	$query="INSERT INTO `student`(`enroll_no`,`std_name`,`dob`,`cntr_name`,`course`,`address`,`mobile`,`email`,`pass`,`added_on`) VALUES ('$enroll_no','$std_name','$dob','$cntr_name','$course','$address','$mobile','$email','$pass','$added_on')";
+	$query="INSERT INTO `student`(`enroll_no`,`std_name`,`dob`,`fathername`,`bankname`,`bankaccount`,`ifsc`,`cntr_name`,`course`,`address`,`mobile`,`email`,`pass`,`added_on`) VALUES ('$enroll_no','$std_name','$dob'
+		,'$fathername','$bankname','$bankaccount','$ifsc','$cntr_name','$course','$address','$mobile','$email','$pass','$added_on')";
+	echo '<pre>';
+	print_r($query);die;
 			$sql=mysqli_query($conn,$query);
 		if($sql){
 			 header('Location:studentlogin.php');
@@ -687,14 +691,18 @@ if(isset($_POST['update_student'])){
 	$id = $_POST['id'];	
 	$enroll_no = $_POST['enroll_no'];	
 	$std_name = $_POST['std_name'];	
-	$dob = $_POST['dob'];	
+	$dob = $_POST['dob'];
+	$fathername = $_POST['fathername'];
+	$bankname = $_POST['bankname'];
+	$bankaccount = $_POST['bankaccount'];	
+	$ifsc = $_POST['ifsc'];
 	$cntr_name = $_POST['cntr_name'];	
 	$course = $_POST['course'];	
 	$address = $_POST['address'];	
 	$mobile = $_POST['mobile'];	
 	$email = $_POST['email'];	
 	$pass = $_POST['pass'];
-	$query="UPDATE `student` SET `enroll_no`='$enroll_no',`std_name`='$std_name',`dob`='$dob',`cntr_name`='$cntr_name',`course`='$course',`address`='$address',`mobile`='$mobile',`email`='$email',`pass`='$pass' WHERE `id`='$id'";
+	$query="UPDATE `student` SET `enroll_no`='$enroll_no',`std_name`='$std_name',`dob`='$dob',`fathername`='$fathername',`bankname`='$bankname,`bankaccount`='$bankaccount',`ifsc`='$ifsc',`cntr_name`='$cntr_name',`course`='$course',`address`='$address',`mobile`='$mobile',`email`='$email',`pass`='$pass' WHERE `id`='$id'";
 	$run=mysqli_query($conn,$query);
 	if($run){
 		 header('Location:add_student.php');

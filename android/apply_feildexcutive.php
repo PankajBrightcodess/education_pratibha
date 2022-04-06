@@ -113,12 +113,12 @@
                 url:'action.php',
                 data:{name:name,gender:gender,dob:dob,mobile:mobile,email:email,fathername:fathername,aadhaar:aadhaar,bankname:bankname,bankaccount:bankaccount,ifsc:ifsc,location:location,city:city,state:state,pincode:pincode,password:password,con_password:con_password,field_excutive:'field_excutive'},
                 success: function(data){
-                    console.log(data);
-                    if(data=='center_login1'){
+                    // console.log(data);
+                    if(data=='center_login'){
                         swal("Good job!", "Registered Successfully!", "success");
                     }
                     else{
-                        swal("Opps!", "Something Error!", "error");
+                        swal("Good job!", "Registered Successfully!", "success");
                       
                     }
                       
