@@ -48,9 +48,11 @@ function Imageupload($dir,$inputname,$allext,$pass_width,$pass_height,$pass_size
    	 $istname = $_POST['istname'];
    	 $amount = $_POST['amount'];
    	 $added_on = date('Y-m-d');
+   	 $student_id = $_SESSION['enroll_id'];
+   	 $executive_id = $_SESSION['executive_id'];
    	 $length = 15;
 	 $request_no=substr(str_shuffle(str_repeat($x='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz', ceil($length/strlen($x)) )),1,$length);
-	 $sql = "INSERT INTO  `addpayment` (`category`,`name`,`email`,`phone`,`ins_name`,`course`,`amount`,`request_no`,`added_on`)VALUES ('$category','$name','$email','$phone','$istname','$course','$amount','$request_no','$added_on')";
+	 $sql = "INSERT INTO  `addpayment` (`category`,`name`,`email`,`phone`,`ins_name`,`course`,`amount`,`request_no`,`student_id`,`added_on`)VALUES ('$category','$name','$email','$phone','$istname','$course','$amount','$request_no','$student_id','$added_on')";
 	 // print_r($sql);die;
 	 if (mysqli_query($conn,$sql)) {
 		// $_SESSION['msg']="Records Added Successfully !!!";

@@ -56,8 +56,8 @@ include '../connection.php';
                       </thead>
                       <tbody>
                         <?php $id=$_SESSION['exe_id'];
-                        $query="SELECT student.*, addpayment.payment_status AS exe_name FROM student INNER JOIN addpayment ON student.email=addpayment.email WHERE student.executive_id='$id'";
-                            // $query="SELECT * FROM `student` WHERE `executive_id`='$id'";
+                        // $query="SELECT student.*, addpayment.payment_status AS exe_name FROM student INNER JOIN addpayment ON student.email=addpayment.email WHERE student.executive_id='$id'";
+                            $query="SELECT * FROM `student` WHERE `executive_id`='$id'";
                             $run=mysqli_query($conn,$query);
                             while ($data=mysqli_fetch_assoc($run)) {
                                   $result[]=$data;

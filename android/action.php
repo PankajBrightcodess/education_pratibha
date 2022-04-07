@@ -126,6 +126,7 @@ if(isset($_POST['login'])){
 	}
 }
 
+
 if(isset($_POST['field_excutive'])){
 	$name=$_POST['name'];
 	$gender=$_POST['gender'];
@@ -656,36 +657,81 @@ if(isset($_POST['del_result_admin'])){
 	}
 	
    }
-   
-if(isset($_POST['add_student'])){
-	$enroll_no = $_POST['enroll_no'];	
-	$std_name = $_POST['std_name'];	
-	$dob = $_POST['dob'];
-	$fathername = $_POST['fathername'];
-	$bankname = $_POST['bankname'];
-	$bankaccount = $_POST['bankaccount'];
-	$ifsc = $_POST['ifsc'];	
-	$cntr_name = $_POST['cntr_name'];	
-	$course = $_POST['course'];	
-	$address = $_POST['address'];	
-	$mobile = $_POST['mobile'];	
-	$email = $_POST['email'];	
-	$pass = $_POST['pass'];
-	$added_on = date('Y-m-d');
-	$query="INSERT INTO `student`(`enroll_no`,`std_name`,`dob`,`fathername`,`bankname`,`bankaccount`,`ifsc`,`cntr_name`,`course`,`address`,`mobile`,`email`,`pass`,`added_on`) VALUES ('$enroll_no','$std_name','$dob'
-		,'$fathername','$bankname','$bankaccount','$ifsc','$cntr_name','$course','$address','$mobile','$email','$pass','$added_on')";
+   if(isset($_POST['student_reg'])){   
+ //   	echo "hii"; die;
 	echo '<pre>';
-	print_r($query);die;
-			$sql=mysqli_query($conn,$query);
-		if($sql){
-			 header('Location:studentlogin.php');
-			// $_SESSION['msg']="Student added Successfully !!!";	
-		}
-		else{
-			// $_SESSION['msg']="Student Not added!!!";
-			header("location:$_SERVER[HTTP_REFERER]");
-		}		
-}
+	print_r($_POST);die;
+		$name =$_POST['name'];
+		$mobile =$_POST['mobile'];
+		$email =$_POST['email'];
+		$fathername =$_POST['fathername'];
+		$bankname =$_POST['bankname'];
+		$bankaccount =$_POST['bankaccount'];
+		$ifsc =$_POST['ifsc'];
+		$ac_qualify =$_POST['ac_qualify'];
+		$course =$_POST['course'];
+		$executive_id =$_POST['executive_id'];
+		$password =$_POST['password'];
+		$dob =$_POST['dob'];
+		$address =$_POST['address'];
+		$added_on =date('Y-m-d');
+		if(!empty($email)){
+	   	$query="SELECT * FROM `student` WHERE `email`='$email'";
+	    $run=mysqli_query($conn,$query);
+	    $num=mysqli_num_rows($run);
+	    if($num==0){
+	    		$query="INSERT INTO `student`(`name`,`mobile`,`email`,`fathername`,`bankname`,`bankaccount`,`ifsc`,`ac_qualify`,`course`,`executive_id`,`password`,`dob`,`address`,`added_on`) VALUES ('$name','$mobile','$email','$fathername'
+	    			,'$bankname','$bankaccount','$ifsc','$ac_qualify','$course','$executive_id','$password','$dob','$address',
+	    			'$added_on')";
+	    		// print_r($query);die;
+	    		
+	    	    $sql=mysqli_query($conn,$query);
+	    	    if($sql){
+					$_SESSION['msg']="Student Added !!!";
+				}
+				else{
+					$_SESSION['msg']="Student Not Added !!!";
+				}
+	    	
+	    	
+	    }
+	    else{
+	    	$_SESSION['msg']='Email Already Used !!!';
+		    header("Location: " . $_SERVER['HTTP_REFERER']);
+	    }
+	}
+	}
+
+   
+// if(isset($_POST['add_student'])){
+// 	$enroll_no = $_POST['enroll_no'];	
+// 	$std_name = $_POST['std_name'];	
+// 	$dob = $_POST['dob'];
+// 	$fathername = $_POST['fathername'];
+// 	$bankname = $_POST['bankname'];
+// 	$bankaccount = $_POST['bankaccount'];
+// 	$ifsc = $_POST['ifsc'];	
+// 	$cntr_name = $_POST['cntr_name'];	
+// 	$course = $_POST['course'];	
+// 	$address = $_POST['address'];	
+// 	$mobile = $_POST['mobile'];	
+// 	$email = $_POST['email'];	
+// 	$pass = $_POST['pass'];
+// 	$added_on = date('Y-m-d');
+// 	$query="INSERT INTO `student`(`enroll_no`,`std_name`,`dob`,`fathername`,`bankname`,`bankaccount`,`ifsc`,`cntr_name`,`course`,`address`,`mobile`,`email`,`pass`,`added_on`) VALUES ('$enroll_no','$std_name','$dob'
+// 		,'$fathername','$bankname','$bankaccount','$ifsc','$cntr_name','$course','$address','$mobile','$email','$pass','$added_on')";
+// 	echo '<pre>';
+// 	print_r($query);die;
+// 			$sql=mysqli_query($conn,$query);
+// 		if($sql){
+// 			 header('Location:studentlogin.php');
+// 			// $_SESSION['msg']="Student added Successfully !!!";	
+// 		}
+// 		else{
+// 			// $_SESSION['msg']="Student Not added!!!";
+// 			header("location:$_SERVER[HTTP_REFERER]");
+// 		}		
+// }
 
 if(isset($_POST['update_student'])){
 	$id = $_POST['id'];	
@@ -782,30 +828,5 @@ if(isset($_POST['update_student'])){
 
 
 // '''''''''''''''''''''''''''''''''''''''''''''Payment'''''''''''''''''''''''''''''''''''''''''''''
-	 if(isset($_POST['payment']))
-   {
-
-   	$category = $_POST['category'];
-   	 $name = $_POST['name'];
-   	 $email = $_POST['email'];
-   	 $phone = $_POST['phone'];
-   	 $course = $_POST['course'];
-   	 $istname = $_POST['istname'];
-   	 $amount = $_POST['amount'];
-   	 $added_on = date('Y-m-d');
-   	 $length = 15;
-	 $request_no=substr(str_shuffle(str_repeat($x='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz', ceil($length/strlen($x)) )),1,$length);
-	 $sql = "INSERT INTO  `addpayment` (`category`,`name`,`email`,`phone`,`ins_name`,`course`,`amount`,`request_no`,`added_on`)VALUES ('$category','$name','$email','$phone','$istname','$course','$amount','$request_no','$added_on')";
-	 // print_r($sql);die;
-	 if (mysqli_query($conn,$sql)) {
-		// $_SESSION['msg']="Records Added Successfully !!!";
-		$_SESSION['last_inst_id']=$conn->insert_id; 
-		// print_r($_SESSION['last_inst_id']);die;
-       header('location:payment.php');
-	 } else {
-		// $_SESSION['msg']="Records Not Added !!!";
-       header('header:registrationform.php');
-	 }
-   		
-  }
+	
 ?>

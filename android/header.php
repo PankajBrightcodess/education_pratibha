@@ -29,7 +29,7 @@
 								<a href="contact-us.php"><i class="far fa-building"></i>&nbsp;&nbsp;&nbsp;Contact Us</a><hr>
 			          		<!-- 	<a href="admission.php"><i class="fas fa-id-card-alt"></i>&nbsp;&nbsp;&nbsp;Admission Now</a><hr> -->
 								<!-- <a href="result.php"><i class="fas fa-info-circle"></i>&nbsp;&nbsp;&nbsp;Results</a><hr> -->
-								<a href="pay.php"><i class="fa fa-credit-card" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Pay Now</a><hr>
+								<!-- <a href="pay.php"><i class="fa fa-credit-card" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Pay Now</a><hr> -->
 								
 							</div>
               			</div>

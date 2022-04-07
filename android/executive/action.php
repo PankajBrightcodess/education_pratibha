@@ -184,42 +184,7 @@ if(isset($_POST['change_center_exe'])){
 			}
 	}
 
-	if(isset($_POST['student_reg'])){
-		$name =$_POST['name'];
-		$mobile =$_POST['mobile'];
-		$email =$_POST['email'];
-		$ac_qualify =$_POST['ac_qualify'];
-		$course =$_POST['course'];
-		$executive_id =$_POST['executive_id'];
-		$password =$_POST['password'];
-		$dob =$_POST['dob'];
-		$address =$_POST['address'];
-		$added_on =date('Y-m-d');
-		if(!empty($email)){
-	   	$query="SELECT * FROM `student` WHERE `email`='$email'";
-	    $run=mysqli_query($conn,$query);
-	    $num=mysqli_num_rows($run);
-	    if($num==0){
-	    		$query="INSERT INTO `student`(`name`,`mobile`,`email`,`ac_qualify`,`course`,`executive_id`,`password`,`dob`,`address`,`added_on`) VALUES ('$name','$mobile','$email','$ac_qualify','$course','$executive_id','$password','$dob','$address','$added_on')";
-	    		// print_r($query);die;
-	    		
-	    	    $sql=mysqli_query($conn,$query);
-	    	    if($sql){
-					echo $sql;
-				}
-				else{
-					$_SESSION['msg']="Student Not Added !!!";
-				}
-	    	
-	    	
-	    }
-	    else{
-	    	$_SESSION['msg']='Email Already Used !!!';
-		    header("Location: " . $_SERVER['HTTP_REFERER']);
-	    }
-	}
-	}
-
+	
 
 
 // 	if(isset($_POST['add_homework'])){

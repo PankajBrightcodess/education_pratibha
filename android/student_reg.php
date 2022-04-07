@@ -130,7 +130,7 @@ while ($data=mysqli_fetch_assoc($run)) {
             <input type="text" name="password" id="password" placeholder="Enter Academic Qualification" class="form-control" required>
         </div>
         <div class="col-md-4 col-4"></div>
-        <div class="col-md-4 col-4"><input type="button" name="student_reg" class="btn btn-sm btn-success form-control student_reg" value="Submit"></div>
+        <div class="col-md-4 col-4"><input type="button" name="student_reg" id="student_reg" class="btn btn-sm btn-success form-control" value="Submit"></div>
         <div class="col-md-4 col-4"></div>
 
       </div> 
@@ -140,25 +140,28 @@ while ($data=mysqli_fetch_assoc($run)) {
  <?php include 'footer.php';?>
 <?php include 'footer-links.php';?>
 <script type="text/javascript">
-     $('.student_reg').click(function(e){
-            // debugger;
+    $(document).ready(function(e) {
+    $('body').on('click','#student_reg',function(){
+     // $('.student_reg').click(function(e){
+            debugger;
          var name=$('#name').val();
          var mobile=$('#mobile').val();
          var email=$('#email').val();
+         var fathername=$('#fathername').val();
+         var bankname=$('#bankname').val();
+         var bankaccount=$('#bankaccount').val();
+         var ifsc=$('#ifsc').val();
          var ac_qualify=$('#ac_qualify').val();
          var course=$('#course').val();
          var executive_id=$('#executive_id').val();
          var password=$('#password').val();
          var dob=$('#dob').val();
-         var fathernames=$('#fathername').val();
-         var banknames=$('#bankname').val();
-         var bankaccounts=$('#bankaccount').val();
-         var ifscs=$('#ifsc').val();
          var address=$('#address').val();
         $.ajax({
                 type:'POST',
-                url:'executive/action.php',
-                data:{name:name,mobile:mobile,email:email,ac_qualify:ac_qualify,course:course,executive_id:executive_id,password:password,dob:dob,fathernames:fathername,banknames:bankname,bankaccounts:bankaccount,ifscs:ifsc,address:address,student_reg:'student_reg'},
+                url:'action.php',
+                data:{name:name,mobile:mobile,email:email,ac_qualify:ac_qualify,course:course,executive_id:executive_id,password:password,dob:dob,fathername:fathername,bankname:bankname,bankaccount:bankaccount,ifsc:ifsc,address:address
+                    ,student_reg:'student_reg'},
                 success: function(result){
                     console.log(result);
                     if(result=='1'){
@@ -177,4 +180,5 @@ while ($data=mysqli_fetch_assoc($run)) {
         });
     return false;  
     });
+});
 </script>
