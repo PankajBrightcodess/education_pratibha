@@ -143,7 +143,7 @@ while ($data=mysqli_fetch_assoc($run)) {
     $(document).ready(function(e) {
     $('body').on('click','#student_reg',function(){
      // $('.student_reg').click(function(e){
-            debugger;
+            // debugger;
          var name=$('#name').val();
          var mobile=$('#mobile').val();
          var email=$('#email').val();
