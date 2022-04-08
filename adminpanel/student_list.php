@@ -111,7 +111,8 @@ $msg = "";
                                 <td><?php echo $value['password']; ?></td>
                                 <!-- <td><?php echo $value['course']; ?></td> -->
                                 <td><?php echo date('d-m-Y', strtotime($value['added_on'])); ?></td>
-                               <td> <button class="btn btn-sm btn-success editexecutive" data-toggle="modal" data-id="<?php echo $value['id']; ?>" data-name="<?php echo $value['name']; ?>"  data-dob="<?php echo $value['dob']; ?>" 
+                               <td> <button class="btn btn-sm btn-success editexecutive" data-toggle="modal" data-id="<?php echo $value['id']; ?>" data-name="<?php echo $value['name']; ?>"  
+                                data-dob="<?php echo $value['dob']; ?>" 
                                data-fathername="<?php echo $value['fathername']; ?>"
                                data-bankname="<?php echo $value['bankname']; ?>"
                                data-bankaccount="<?php echo $value['bankaccount']; ?>"
