@@ -39,25 +39,12 @@ function Imageupload($dir,$inputname,$allext,$pass_width,$pass_height,$pass_size
 // '''''''''''''''''''''''''''''''''''''''
  if(isset($_POST['payment']))
    {
-
-   	$category = $_POST['category'];
-   	 $name = $_POST['name'];
-   	 $email = $_POST['email'];
-   	 $phone = $_POST['phone'];
-   	 $course = $_POST['course'];
-   	 $istname = $_POST['istname'];
    	 $amount = $_POST['amount'];
    	 $added_on = date('Y-m-d');
-   	 $student_id = $_SESSION['enroll_id'];
-   	 $executive_id = $_SESSION['executive_id'];
-   	 $length = 15;
-	 $request_no=substr(str_shuffle(str_repeat($x='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz', ceil($length/strlen($x)) )),1,$length);
-	 $sql = "INSERT INTO  `addpayment` (`category`,`name`,`email`,`phone`,`ins_name`,`course`,`amount`,`request_no`,`student_id`,`added_on`)VALUES ('$category','$name','$email','$phone','$istname','$course','$amount','$request_no','$student_id','$added_on')";
-	 // print_r($sql);die;
+	 $sql = "INSERT INTO  `student` (`amount`,`pay-date`)VALUES ('$amount','$added_on')";
+	
 	 if (mysqli_query($conn,$sql)) {
-		// $_SESSION['msg']="Records Added Successfully !!!";
-		$_SESSION['last_inst_id']=$conn->insert_id; 
-		// print_r($_SESSION['last_inst_id']);die;
+		
        header('location:payment.php');
 	 } else {
 		// $_SESSION['msg']="Records Not Added !!!";
@@ -80,6 +67,8 @@ if(isset($_POST['studentlogin'])){
 		$_SESSION['name'] = $data['name'];
 		$_SESSION['course'] = $data['course'];
 		$_SESSION['role'] = $data['role'];
+		$_SESSION['executive_id'] = $data['executive_id'];
+
 		header('location:dashboard.php');		
 	}
 	else{

@@ -6,27 +6,27 @@
         <form action="action.php" method="post">
             <div class="row ">
                 <div class="col-md-12"><h5 class="text-center text-info">Payment</h5><hr class="border-warning"></div>
-                <div class="col-md-6 mb-3">
+               <!--  <div class="col-md-6 mb-3">
                     <label>Category<span style="color: Red;">*</span></label>
                     <select class="form-control" id="catg" name="category"required>
                          <option>----SELECT----</option>   
                          <option value="feild_executive">Feild Executive</option>   
                          <option value="admission">Admission</option>   
                     </select>
-                </div>
-                <div class="col-md-6 mb-3">
+                </div> -->
+                <!-- <div class="col-md-6 mb-3">
                     <label>Name<span style="color: Red;">*</span></label>
                     <input type="text" name="name" class="form-control" required> 
-                </div>
-                <div class="col-md-6 mb-3">
+                </div> -->
+               <!--  <div class="col-md-6 mb-3">
                     <label>Email <span style="color: Red;">*</span></label>
                     <input type="email" name="email" class="form-control" required> 
                 </div>
                 <div class="col-md-6 mb-3">
                     <label>Phone<span style="color: Red;">*</span></label>
                     <input type="text" name="phone" class="form-control" required> 
-                </div>
-                <div class="col-md-6  mb-3 " id="course">
+                </div> -->
+               <!--  <div class="col-md-6  mb-3 " id="course">
                 <label>Course<span style="color: Red;">*</span></label>
                 <select class="form-control" name="course">
                     <option value="0">---SELECT---</option>
@@ -55,11 +55,11 @@
                     <option value="CT">Certificate in Tally</option>
                     <option value="CBP">Certificate in Basic Programming</option>
                 </select>
-            </div>
-             <div class="col-md-6 mb-3 institute">
+            </div> -->
+             <!-- <div class="col-md-6 mb-3 institute">
                     <label>Institute Name<span style="color: Red;">*</span></label>
                     <input type="text" name="istname" id="istnme" class="form-control"> 
-                </div>
+                </div> -->
           
             <div class="col-md-6 mb-5">
                 <label >Amount<span style="color: Red;">*</span></label>

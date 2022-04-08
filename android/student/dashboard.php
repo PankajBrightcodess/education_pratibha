@@ -13,6 +13,7 @@ $msg = "";
 	if(empty($_SESSION['enroll_id'])){
 		header('location:../studentlogin.php');
 	}
+  
 ?>
 <?php include 'header-links.php'; ?>
 

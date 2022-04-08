@@ -15,22 +15,22 @@ include '../connection.php';
             <div class="card-body">
              
                   <?php
-
-                  // $sql0="select * from addpayment where payment_status='0'"; 
-                  //  $res0=mysqli_query($conn,$sql0);
-                  //  $nm0=mysqli_num_rows($res0);
-                  // $sqll="select * from addpayment where payment_status='1'";
-                  // $res1=mysqli_query($conn,$sqll);
-                  // $nm1=mysqli_num_rows($res1);
-                    ?>
-                 
-               <div class="row">
-                    
-                     <div class="col-4 " ><button class="btn btn-sm btn-success">Paid Student:<?php echo $nm1 ; ?></button></div>
-                     <div class="col-1"></div>
-                     <div class="col-4"
-                     ><button class="btn btn-sm btn-danger">Unpaid Student:<?php echo $nm0 ; ?></button></div>
-                    
+                   $ids=$_SESSION['exe_id'];
+                  $sql0="SELECT * FROM `student` WHERE `executive_id`='$ids' AND `payment_status` = '0'";
+                  $res0=mysqli_query($conn,$sql0);
+                  $nm0=mysqli_num_rows($res0);
+                  $sqll="SELECT * FROM `student` WHERE `executive_id`='$ids' AND `payment_status` = '1'";
+                  $res1=mysqli_query($conn,$sqll);
+                  $nm1=mysqli_num_rows($res1);
+                  ?>
+               <div class="row" style="padding:19px;">
+                    <div class="col-6" style="background-color: #6893cb; color: white; text-align: center;">
+                      Paid Student: <h3><br><?php echo $nm1 ; ?></h3>
+                    </div>
+                     
+                     <div class="col-6" style="background-color:#4767a7; color:white; text-align: center;">
+                      Unpaid Student: <h3> <br><?php echo $nm0 ; ?></h3>
+                    </div>
                 </div>
                    
 
@@ -56,12 +56,15 @@ include '../connection.php';
                       </thead>
                       <tbody>
                         <?php $id=$_SESSION['exe_id'];
-                        // $query="SELECT student.*, addpayment.payment_status AS exe_name FROM student INNER JOIN addpayment ON student.email=addpayment.email WHERE student.executive_id='$id'";
+                        // $query = "SELECT student.*, addpayment.payment_status FROM addpayment LEFT JOIN student ON addpayment.student_id=student.id WHERE addpayment.executive_id='$id'";
+                                  // print_r($query);die;
                             $query="SELECT * FROM `student` WHERE `executive_id`='$id'";
                             $run=mysqli_query($conn,$query);
+                            // print_r($run);die;
                             while ($data=mysqli_fetch_assoc($run)) {
                                   $result[]=$data;
                                 }
+                                // print_r($result);die;
                             if(!empty($result)){ $i=0;  foreach ($result as $uploadresult) { $i++; ?>
                         <tr>
                           <td><?php echo $i; ?></td>
@@ -74,11 +77,11 @@ include '../connection.php';
                           <td><?php
                              $status= $uploadresult['payment_status'];
                                       if( $status == 1){ ?>
-                                          <button class="btn btn-sm btn-success">Paid</button>
+                                          <center  style="background-color: #6893cb; color: white; text-align: center;">Paid</center>
                                     <?php   }
 
                                       else{ ?>
-                                        <button class="btn btn-sm btn-danger">Unpaid</button>
+                                        <center style="background-color:#4767a7; color:white; text-align: center;">Unpaid</center>
                                   <?php    } ?></td>
                         </tr>  
                         <?php } }?>

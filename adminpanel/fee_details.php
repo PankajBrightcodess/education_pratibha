@@ -12,7 +12,7 @@ $msg = "";
     if ($msg != "") {
         echo "<script> alert('$msg')</script>";
     }
-    $query="SELECT * FROM `addpayment` WHERE `status`='1'";
+    $query="SELECT * FROM `student` WHERE `status`='1'";
     $run=mysqli_query($conn,$query);
     while ($data=mysqli_fetch_assoc($run)) {
       $details_payment[]=$data;
@@ -64,18 +64,23 @@ $msg = "";
               <!-- /.card-header -->
               <div class="card-body">
                 <?php
-                  $sql0="select * from addpayment where payment_status='0'"; 
-                  $sqll="select * from addpayment where payment_status='1'";
-                  $res1=mysqli_query($conn,$sqll);
+                  
+                  $sql0="SELECT * FROM `student` WHERE `payment_status` = '0'";
                   $res0=mysqli_query($conn,$sql0);
+                  $nm0=mysqli_num_rows($res0);
+                  $sqll="SELECT * FROM `student` WHERE `payment_status` = '1'";
+                  $res1=mysqli_query($conn,$sqll);
                   $nm1=mysqli_num_rows($res1);
-                   $nm0=mysqli_num_rows($res0); ?>
+                  ?>
                  
-               <div class="row">
-                     <div class="col-md-3"></div>
-                     <div class="col-md-3 " ><button class="btn btn-sm btn-success">Paid Student:<?php echo $nm1 ; ?></button></div>
-                     <div class="col-md-3" ><button class="btn btn-sm btn-danger">Unpaid Student:<?php echo $nm0 ; ?></button></div>
-                     <div class="col-md-3"></div>
+               <div class="row" style="padding:19px;">
+                    <div class="col-6" style="background-color: #6893cb; color: white; text-align: center;">
+                      Paid Student: <h3><br><?php echo $nm1 ; ?></h3>
+                    </div>
+                     
+                     <div class="col-6" style="background-color:#4767a7; color:white; text-align: center;">
+                      Unpaid Student: <h3> <br><?php echo $nm0 ; ?></h3>
+                    </div>
                 </div>
                 <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                 <table id="example1" class="table table-bordered table-striped">
@@ -96,19 +101,19 @@ $msg = "";
                             <tr>
                               <td><?php echo $sn; ?></td>
                               <td><?php echo $value['name']; ?></td>
-                              <td><?php echo $value['phone']; ?></td>
+                              <td><?php echo $value['mobile']; ?></td>
                               <td><?php echo $value['amount']; ?></td>
                               <td><?php echo date('d-m-Y', strtotime($value['added_on'])); ?></td>
-                             <!--  <td><?php echo $value['added_on']; ?></td> -->
+                             <!--  <td><?php echo $value['pay_date']; ?></td> -->
                              <td>
                              <?php
                              $status= $value['payment_status'];
                                       if( $status == 1){ ?>
-                                          <button class="btn btn-sm btn-success">Paid</button>
+                                          <center style="background-color: #6893cb; color: white; text-align: center;">Paid</center>
                                     <?php   }
 
                                       else{ ?>
-                                        <button class="btn btn-sm btn-danger">Unpaid</button>
+                                        <center style="background-color:#4767a7; color:white; text-align: center;">Unpaid</center>
                                   <?php    }
 
 

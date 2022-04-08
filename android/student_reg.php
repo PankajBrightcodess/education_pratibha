@@ -36,7 +36,7 @@ while ($data=mysqli_fetch_assoc($run)) {
         </div>
         <div class="col-md-6 col-12 mb-2">
             <label>DOB<span style="color: Red;">*</span></label>
-            <input type="date" name="dob" id="dob" placeholder="Enter Your Name" class="form-control" required>
+            <input type="date" name="dob" id="dob" placeholder="D-O-B" class="form-control" required>
         </div>
         <div class="col-md-6 col-12 mb-2">
             <label>Father Name<span style="color: Red;">*</span></label>
@@ -44,15 +44,15 @@ while ($data=mysqli_fetch_assoc($run)) {
         </div>
         <div class="col-md-6 col-12 mb-2">
             <label>Bank Name<span style="color: Red;">*</span></label>
-            <input type="text" name="bankname" id="bankname" placeholder="Enter Your Name" class="form-control" required>
+            <input type="text" name="bankname" id="bankname" placeholder="Bank Name" class="form-control" required>
         </div>
         <div class="col-md-6 col-12 mb-2">
             <label>Bank Account<span style="color: Red;">*</span></label>
-            <input type="text" name="bankaccount" id="bankaccount" placeholder="Enter Your Name" class="form-control" required>
+            <input type="text" name="bankaccount" id="bankaccount" placeholder="Bank Account No" class="form-control" required>
         </div>
         <div class="col-md-6 col-12 mb-2">
             <label>IFSC<span style="color: Red;">*</span></label>
-            <input type="text" name="ifsc" id="ifsc" placeholder="Enter Your Name" class="form-control" required>
+            <input type="text" name="ifsc" id="ifsc" placeholder="Bank IFSC" class="form-control" required>
         </div>
         <div class="col-md-6 col-12 mb-2">
             <label>Address<span style="color: Red;">*</span></label>
