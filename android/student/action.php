@@ -229,8 +229,8 @@ if(isset($_POST['del_result'])){
 			$id = $_SESSION['id'];
 			if(!empty($_SESSION['id'])){
 				$from = "hupukumar395@gmail.com";
-				$name = "Education Pratibha"
-				$message = "your one time email verification" . $otp;
+				$name = "Education Pratibha";
+				$message = "your one time email verification ".$otp."";
 				$sub = "Forget Password From Pratibha Darpan";
 				$headers  = 'MIME-Version: 1.0' . "\r\n";
         $headers .= 'Content-type:text/html;charset=UTF-8' . "\r\n";
@@ -241,7 +241,7 @@ if(isset($_POST['del_result'])){
 
 	        if(@mail($email, $subject, $message, $headers)){
 	             $_SESSION['msg']="Otp Sent On Email Succesfully!!! Thank You "; 
-		                  header("location:newpassword_student.php");
+		                  header("location:new_password_student.php");
 	         }
 	            else{
 	                 $_SESSION['msg']="Otp Not Sent !!!";
@@ -256,7 +256,7 @@ if(isset($_POST['del_result'])){
 					// 	echo "1";
 				}
 				else{
-			     $_SESSION['msg']="Otp Not Sent On Mail!!!";
+			     $_SESSION['msg']="Otp Not Sent On Mailed!!!";
 
 			     header("location:$_SERVER[HTTP_REFERER]");
 			     echo '0';
