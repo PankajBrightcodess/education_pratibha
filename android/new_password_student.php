@@ -62,10 +62,24 @@ function timer(remaining) {
   if(!timerOn) {
     // Do validate stuff here
     return;
+    deletedata();
+
   }
   
   // Do timeout stuff here
   alert('Timeout for otp');
+}
+
+function deletedata(){
+
+	$.ajax({
+                    url:"student/action.php",
+                    method:"POST",
+                    data:{deleteotp:"deleteotp"},
+                    success:function(data){
+                        console.log(data);
+                    }
+                });
 }
 
 timer(600);

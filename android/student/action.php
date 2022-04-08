@@ -38,11 +38,11 @@ function Imageupload($dir,$inputname,$allext,$pass_width,$pass_height,$pass_size
 }
 // '''''''''''''''''''''''''''''''''''''''
  if(isset($_POST['payment']))
-   {
+   {  $id = $_SESSION['enroll_id']
    	 $amount = $_POST['amount'];
    	 $added_on = date('Y-m-d');
-	 $sql = "INSERT INTO  `student` (`amount`,`pay-date`)VALUES ('$amount','$added_on')";
-	
+	 $sql="UPDATE `student` SET `amount`='$amount',`pay-date`='$added_on' WHERE `id`='$id'";
+				// print_r($query);die;
 	 if (mysqli_query($conn,$sql)) {
 		
        header('location:payment.php');
@@ -136,9 +136,12 @@ if(isset($_POST['change_student_exe'])){
 		   if($_POST['new_pass']==$_POST['con_pass']){
 		   	   $pass = $_POST['con_pass'];
 				$id = $_SESSION['id'];
+				$otp ='';
 				$query="UPDATE `student` SET `password`='$pass' WHERE `id`='$id'";
 				// print_r($query);die;
 				$run=mysqli_query($conn,$query);
+				$query="UPDATE `student` SET `otp`='$otp' WHERE `id`='$id'";
+		    $sql=mysqli_query($conn,$query);
 				if($run){
 					echo '1';	 
 				}
@@ -152,6 +155,12 @@ if(isset($_POST['change_student_exe'])){
 					echo $msg; 
 				// header("Location: " . $_SERVER['HTTP_REFERER']);
 			}
+	}
+	if(isset($_POST['deleteotp'])){
+		$id = $_SESSION['id'];
+		$otp ='';
+		$query="UPDATE `student` SET `otp`='$otp' WHERE `id`='$id'";
+		$sql=mysqli_query($conn,$query);
 	}
 
 
@@ -211,7 +220,6 @@ if(isset($_POST['del_result'])){
    	// print_r($_POST);die;
    	   $email = $_POST['email'];
    	   $otp = rand(100000, 999999);
-   	  
 	$query="SELECT * FROM `student` WHERE `email`='$email'";
 	$run=mysqli_query($conn,$query);
 		$num=mysqli_num_rows($run);
@@ -219,14 +227,17 @@ if(isset($_POST['del_result'])){
 		$data=mysqli_fetch_assoc($run);
 		$_SESSION['id'] = $data['id'];
 		$_SESSION['enroll_no'] = $data['enroll_no'];
+		$id = $_SESSION['id'];
 		if(!empty($_SESSION['enroll_no'])){
 			$message = "your one time email verification" . $otp;
 			$sub = "Forget Password From Pratibha Darpan";
-			$headers = "From : ". "hupukumar399@gmail.com";
-			$retval = mail($email,$sub,$message);
-      $query="INSERT INTO `student`(`otp`) VALUES ('$otp')";
+			$headers = "From: hupukumar395@gmail.com" . "\r\n" .
+                 "CC: hupukumar395@gmail.com";
+			
+      $query="UPDATE `student` SET `otp`='$otp' WHERE `id`='$id'";
 			    $sql=mysqli_query($conn,$query);   
 			if($sql){
+				$retval = mail($email,$sub,$message,$headers);
 				header('location:newpassword_student.php');
 				$_SESSION['msg']="Otp Send On Mail !";	
 			}
