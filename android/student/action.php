@@ -226,36 +226,53 @@ if(isset($_POST['del_result'])){
 		if($num){
 			$data=mysqli_fetch_assoc($run);
 			$_SESSION['id'] = $data['id'];
-			$_SESSION['enroll_no'] = $data['enroll_no'];
 			$id = $_SESSION['id'];
 			if(!empty($_SESSION['id'])){
+				$from = "hupukumar395@gmail.com";
+				$name = "Education Pratibha"
 				$message = "your one time email verification" . $otp;
 				$sub = "Forget Password From Pratibha Darpan";
-				$headers = "From: hupukumar395@gmail.com" . "\r\n" .
-	                 "CC: hupukumar395@gmail.com";
-				
+				$headers  = 'MIME-Version: 1.0' . "\r\n";
+        $headers .= 'Content-type:text/html;charset=UTF-8' . "\r\n";
+        $headers .= "From: $name <$from>  \r\n"."Cc: $to \r\n"."Bcc: $to \r\n"."Reply-To: $name <$from>\r\n" ."Return-Path:  <$email>\r\n" .'X-Mailer: PHP/' . phpversion();
 	      $query="UPDATE `student` SET `otp`='$otp' WHERE `id`='$id'";
-				    $sql=mysqli_query($conn,$query);   
+				    $sql=mysqli_query($conn,$query);
 				if($sql){
-					$retval = mail($email,$sub,$message,$headers);
-					$_SESSION['msg']="Otp Send On Mail !";
-					// header('location:newpassword_student.php');
-						echo "1";
+
+	        if(@mail($email, $subject, $message, $headers)){
+	             $_SESSION['msg']="Otp Sent On Email Succesfully!!! Thank You "; 
+		                  header("location:newpassword_student.php");
+	         }
+	            else{
+	                 $_SESSION['msg']="Otp Not Sent !!!";
+	                 header("location:$_SERVER[HTTP_REFERER]");
+	        }
+
+
+					// $retval = @mail($email,$sub,$message,$headers);
+
+					// $_SESSION['msg']="Otp Send On Mail !";
+					// // header('location:newpassword_student.php');
+					// 	echo "1";
 				}
 				else{
 			     $_SESSION['msg']="Otp Not Sent On Mail!!!";
+
 			     header("location:$_SERVER[HTTP_REFERER]");
+			     echo '0';
 				}
 				
 			}
 			else{
 				$_SESSION['msg']="Please Enter Correct Email id";
 				header("Location: " . $_SERVER['HTTP_REFERER']);
+				echo '0';
 			}
 		 }	
 		else{
 			$_SESSION['msg']="Please Enter Correct Email id";
 			header("Location: " . $_SERVER['HTTP_REFERER']);
+			echo '0';
 		}
    }
 
