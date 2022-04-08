@@ -242,10 +242,12 @@ if(isset($_POST['del_result'])){
 	        if(@mail($email, $subject, $message, $headers)){
 	             $_SESSION['msg']="Otp Sent On Email Succesfully!!! Thank You "; 
 		                  header("location:new_password_student.php");
+		                  echo "1";
 	         }
 	            else{
 	                 $_SESSION['msg']="Otp Not Sent !!!";
 	                 header("location:$_SERVER[HTTP_REFERER]");
+	                 echo "0";
 	        }
 
 
