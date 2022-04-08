@@ -39,8 +39,9 @@
                 data:{email:email,change_student_pass:'change_student_pass'},
                 success: function(result){
                 	// window.open('');
-                		// alert(result);
+                		alert(result);
                     // console.log(result);
+                    
                     if(result=='1'){
                     	window.location.href = "new_password_student.php";
                         // swal("Good job!", "Registered Successfully!", "success");
@@ -50,10 +51,10 @@
                       
                     }
                       
-                    },
-                    error: function(){ 
-                       alert("error");
-                    },
+                },
+                error: function(){ 
+                   alert("error");
+                },
         });
     return false;  
     });

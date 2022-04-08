@@ -38,7 +38,7 @@ function Imageupload($dir,$inputname,$allext,$pass_width,$pass_height,$pass_size
 }
 // '''''''''''''''''''''''''''''''''''''''
  if(isset($_POST['payment']))
-   {  $id = $_SESSION['enroll_id']
+   {  $id = $_SESSION['enroll_id'];
    	 $amount = $_POST['amount'];
    	 $added_on = date('Y-m-d');
 	 $sql="UPDATE `student` SET `amount`='$amount',`pay-date`='$added_on' WHERE `id`='$id'";
@@ -224,33 +224,34 @@ if(isset($_POST['del_result'])){
 	$run=mysqli_query($conn,$query);
 		$num=mysqli_num_rows($run);
 		if($num){
-		$data=mysqli_fetch_assoc($run);
-		$_SESSION['id'] = $data['id'];
-		$_SESSION['enroll_no'] = $data['enroll_no'];
-		$id = $_SESSION['id'];
-		if(!empty($_SESSION['enroll_no'])){
-			$message = "your one time email verification" . $otp;
-			$sub = "Forget Password From Pratibha Darpan";
-			$headers = "From: hupukumar395@gmail.com" . "\r\n" .
-                 "CC: hupukumar395@gmail.com";
-			
-      $query="UPDATE `student` SET `otp`='$otp' WHERE `id`='$id'";
-			    $sql=mysqli_query($conn,$query);   
-			if($sql){
-				$retval = mail($email,$sub,$message,$headers);
-				header('location:newpassword_student.php');
-				$_SESSION['msg']="Otp Send On Mail !";	
+			$data=mysqli_fetch_assoc($run);
+			$_SESSION['id'] = $data['id'];
+			$_SESSION['enroll_no'] = $data['enroll_no'];
+			$id = $_SESSION['id'];
+			if(!empty($_SESSION['id'])){
+				$message = "your one time email verification" . $otp;
+				$sub = "Forget Password From Pratibha Darpan";
+				$headers = "From: hupukumar395@gmail.com" . "\r\n" .
+	                 "CC: hupukumar395@gmail.com";
+				
+	      $query="UPDATE `student` SET `otp`='$otp' WHERE `id`='$id'";
+				    $sql=mysqli_query($conn,$query);   
+				if($sql){
+					$retval = mail($email,$sub,$message,$headers);
+					$_SESSION['msg']="Otp Send On Mail !";
+					// header('location:newpassword_student.php');
+						echo "1";
+				}
+				else{
+			     $_SESSION['msg']="Otp Not Sent On Mail!!!";
+			     header("location:$_SERVER[HTTP_REFERER]");
+				}
+				
 			}
 			else{
-		     $_SESSION['msg']="Otp Not Sent On Mail!!!";
-		     header("location:$_SERVER[HTTP_REFERER]");
-	}
-			
-		}
-		else{
-			$_SESSION['msg']="Please Enter Correct Email id";
-			header("Location: " . $_SERVER['HTTP_REFERER']);
-		}
+				$_SESSION['msg']="Please Enter Correct Email id";
+				header("Location: " . $_SERVER['HTTP_REFERER']);
+			}
 		 }	
 		else{
 			$_SESSION['msg']="Please Enter Correct Email id";
