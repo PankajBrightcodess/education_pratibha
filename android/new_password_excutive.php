@@ -11,17 +11,24 @@
 						</div>
 						<form action="#" method="POST">
 							<div class="form-group">
-								<!-- <i class="fa fa-envelope-square fa-lg passkey"></i> -->
-								<input type="password" name="new_pass" id="new_pass" placeholder="Enter New Password:" class="form-control" required="">
+								<label>Enter Otp</label>
+								<input type="number" name="otp" id="otp" placeholer="Enter your otp" class="form-control" required="" >
 							</div>
 							<div class="form-group">
-								<!-- <i class="fa fa-key fa-lg passkey"></i> -->
+								<label>New Password</label>
+								<input type="password" name="new_pass" id="new_pass" placeholder="Enter New Password:" 
+								class="form-control" required="">
+							</div>
+							<div class="form-group">
+								<label>Confirm Password</label>
 								<input type="password" name="con_pass" id="con_pass" placeholder="Enter Confirm Password:" class="form-control" required="" >
 							</div>
+							 
 							<div class="form-group mb-5">
 								<input type="button" name="update_executive" class="btn btn-warning form-control updt"  value="Update Password">
 								
 							</div>
+							<div><h4 style="color: white;">Otp Time left = <span id="timer"></span></h3></div>
 						</form>
 
 					</div>
@@ -34,13 +41,43 @@
 <?php include 'footer-links.php';?>
 
 <script type="text/javascript">
+let timerOn = true;
+
+function timer(remaining) {
+  var m = Math.floor(remaining / 60);
+  var s = remaining % 60;
+  
+  m = m < 10 ? '0' + m : m;
+  s = s < 10 ? '0' + s : s;
+  document.getElementById('timer').innerHTML = m + ':' + s;
+  remaining -= 1;
+  
+  if(remaining >= 0 && timerOn) {
+    setTimeout(function() {
+        timer(remaining);
+    }, 1000);
+    return;
+  }
+
+  if(!timerOn) {
+    // Do validate stuff here
+    return;
+  }
+  
+  // Do timeout stuff here
+  alert('Timeout for otp');
+}
+
+timer(600);
+
+	// timer script out
      $('.updt').click(function(e){
          var new_pass=$('#new_pass').val();
          var con_pass=$('#con_pass').val();
         $.ajax({
                 type:'POST',
                 url:'executive/action.php',
-                data:{new_pass:new_pass,con_pass:con_pass,update_password_executive:'update_password_executive'},
+                data:{otp:otp,new_pass:new_pass,con_pass:con_pass,update_password_executive:'update_password_executive'},
                 success: function(result){
                 	
                     if(result=='1'){

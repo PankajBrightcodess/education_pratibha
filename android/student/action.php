@@ -209,7 +209,9 @@ if(isset($_POST['del_result'])){
 
    if(isset($_POST['change_student_pass'])){
    	// print_r($_POST);die;
-   	$email = $_POST['email'];
+   	   $email = $_POST['email'];
+   	   $otp = rand(100000, 999999);
+   	  
 	$query="SELECT * FROM `student` WHERE `email`='$email'";
 	$run=mysqli_query($conn,$query);
 		$num=mysqli_num_rows($run);
@@ -218,7 +220,21 @@ if(isset($_POST['del_result'])){
 		$_SESSION['id'] = $data['id'];
 		$_SESSION['enroll_no'] = $data['enroll_no'];
 		if(!empty($_SESSION['enroll_no'])){
-			header('location:newpassword_student.php');
+			$message = "your one time email verification" . $otp;
+			$sub = "Forget Password From Pratibha Darpan";
+			$headers = "From : ". "hupukumar399@gmail.com";
+			$retval = mail($email,$sub,$message);
+      $query="INSERT INTO `student`(`otp`) VALUES ('$otp')";
+			    $sql=mysqli_query($conn,$query);   
+			if($sql){
+				header('location:newpassword_student.php');
+				$_SESSION['msg']="Otp Send On Mail !";	
+			}
+			else{
+		     $_SESSION['msg']="Otp Not Sent On Mail!!!";
+		     header("location:$_SERVER[HTTP_REFERER]");
+	}
+			
 		}
 		else{
 			$_SESSION['msg']="Please Enter Correct Email id";

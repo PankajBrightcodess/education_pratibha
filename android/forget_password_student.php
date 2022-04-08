@@ -36,7 +36,7 @@
         $.ajax({
                 type:'POST',
                 url:'student/action.php',
-                data:{email:email,change_student_exe:'change_student_exe'},
+                data:{email:email,change_student_pass:'change_student_pass'},
                 success: function(result){
                 	// window.open('');
                 		// alert(result);
