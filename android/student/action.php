@@ -238,7 +238,6 @@ if(isset($_POST['del_result'])){
 	      $query="UPDATE `student` SET `otp`='$otp' WHERE `id`='$id'";
 				    $sql=mysqli_query($conn,$query);
 				if($sql){
-
 	        if(@mail($email, $subject, $message, $headers)){
 	             $_SESSION['msg']="Otp Sent On Email Succesfully!!! Thank You "; 
 		                  header("location:new_password_student.php");

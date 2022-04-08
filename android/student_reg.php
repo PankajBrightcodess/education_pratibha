@@ -48,7 +48,7 @@ while ($data=mysqli_fetch_assoc($run)) {
         </div>
         <div class="col-md-6 col-12 mb-2">
             <label>Bank Account<span style="color: Red;">*</span></label>
-            <input type="text" name="bankaccount" id="bankaccount" placeholder="Bank Account No" class="form-control" required>
+            <input type="number" maxlength="10" minlength="3" title="Please enter exactly 10 digits" name="bankaccount" id="bankaccount" placeholder="Bank Account No" class="form-control" required>
         </div>
         <div class="col-md-6 col-12 mb-2">
             <label>IFSC<span style="color: Red;">*</span></label>
@@ -60,7 +60,8 @@ while ($data=mysqli_fetch_assoc($run)) {
         </div>
         <div class="col-md-6 col-12 mb-2">
             <label>Mobile<span style="color: Red;">*</span></label>
-            <input type="tel" name="mobile" maxlength="10" minlength="10" id="mobile" placeholder="Active Mobile Number" class="form-control" required>
+            <input type="tel" pattern="[789][0-9]{9}"
+           required="required" id="mobile" placeholder="Active Mobile Number" class="form-control">
         </div>
         <div class="col-md-6 col-12 mb-2">
             <label>Email<span style="color: Red;">*</span></label>
@@ -127,7 +128,7 @@ while ($data=mysqli_fetch_assoc($run)) {
         </div> -->
         <div class="col-md-6 col-12 mb-5">
             <label>Password<span style="color: Red;">*</span></label>
-            <input type="text" name="password" id="password" placeholder="Enter Academic Qualification" class="form-control" required>
+            <input type="text" name="password" id="password" placeholder="Enter Password" class="form-control" required>
         </div>
         <div class="col-md-4 col-4"></div>
         <div class="col-md-4 col-4"><input type="button" name="student_reg" id="student_reg" class="btn btn-sm btn-success form-control" value="Submit"></div>
