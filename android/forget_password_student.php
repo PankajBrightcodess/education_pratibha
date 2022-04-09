@@ -42,7 +42,7 @@
                 		
                     // console.log(result);
                     
-                    if(result=='1'){
+                    if(result){
                     	window.location.href = "new_password_student.php";
                         // swal("Good job!", "Registered Successfully!", "success");
                     }

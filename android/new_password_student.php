@@ -99,7 +99,7 @@ timer(600);
                 data:{otp:otp,new_pass:new_pass,con_pass:con_pass,update_password_student:'update_password_student'},
                 success: function(result){
                 	
-                    if(result=='1'){
+                    if(result){
                     	// window.location.href = "new_password_excutive.php";
                         swal("Good job!", "Updated Successfully!", "success");
                         window.location.href = "studentlogin.php";
