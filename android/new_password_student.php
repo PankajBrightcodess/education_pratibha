@@ -69,20 +69,31 @@ function timer(remaining) {
   // Do timeout stuff here
   alert('Timeout for otp');
 }
+timer(600);
 
 function deletedata(){
 
 	$.ajax({
+                    type:"POST",
                     url:"student/action.php",
-                    method:"POST",
                     data:{deleteotp:"deleteotp"},
                     success:function(data){
-                        console.log(data);
-                    }
+                       if(data == 1){
+                       	window.location.href = "studentlogin.php";
+                       }
+                       else{
+                       
+                        window.location.href = "new_password_student.php";
+                       }
+                    },
+                     error: function(){ 
+                      return false;
+                    },
                 });
+	return false;
 }
 
-timer(600);
+
 
 
 
@@ -106,6 +117,7 @@ timer(600);
                     }
                     else{
                         swal("Opps!", "Something Error!", "error");
+                        window.location.href = "new_password_student.php";
                     }
                       
                     },
