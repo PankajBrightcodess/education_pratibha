@@ -102,6 +102,7 @@ timer(600);
                     if(result=='1'){
                     	// window.location.href = "new_password_excutive.php";
                         swal("Good job!", "Updated Successfully!", "success");
+                        window.location.href = "studentlogin.php";
                     }
                     else{
                         swal("Opps!", "Something Error!", "error");

@@ -143,7 +143,8 @@ if(isset($_POST['change_student_exe'])){
 				$query="UPDATE `student` SET `otp`='$otp' WHERE `id`='$id'";
 		    $sql=mysqli_query($conn,$query);
 				if($run){
-					echo '1';	 
+					
+					 header('Location:studentlogin.php');
 				}
 				else{
 					$msg = "Not updated !";
@@ -152,7 +153,7 @@ if(isset($_POST['change_student_exe'])){
 			}
 			else{
 				    $msg = "Password Not Match !";
-					echo $msg; 
+					
 				// header("Location: " . $_SERVER['HTTP_REFERER']);
 			}
 	}
