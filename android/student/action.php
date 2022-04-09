@@ -233,7 +233,8 @@ if(isset($_POST['del_result'])){
         $headers .= "From: $name <$from>  \r\n"."Cc: $to \r\n"."Bcc: $to \r\n"."Reply-To: $name <$from>\r\n" ."Return-Path:  <$email>\r\n" .'X-Mailer: PHP/' . phpversion();
         $mail = @mail($email, $subject, $message, $headers);
        if($mail){
-        	$query="UPDATE `student` SET `otp`='$otp' WHERE `id`='$id'";
+        	// $query="UPDATE `student` SET `otp`='$otp' WHERE `id`='$id'";
+       	$query="UPDATE `student` SET `otp`='$otp' WHERE `email`='$email'";
 				  $sql=mysqli_query($conn,$query);
 				  if($sql){
 				 		return $sql;
