@@ -148,14 +148,14 @@ if(isset($_POST['online_text_paid'])){
 					// $query="UPDATE `student` SET  WHERE `id`='$id'";
 			  //   $sql=mysqli_query($conn,$query);
 					if($run){
-						 return true;
+						 echo "1";
 					}
 					else{
-						return false;
+						echo "0";
 					}
         }
         else{
-        	return false;
+        	echo "0"
         }
 				
 			}
@@ -166,6 +166,12 @@ if(isset($_POST['online_text_paid'])){
 		$otp ='';
 		$query="UPDATE `student` SET `otp`='$otp' WHERE `id`='$id'";
 		$sql=mysqli_query($conn,$query);
+		if(!empty($sql)){
+			echo "1";
+		}
+		else{
+			echo "0";
+		}
 	}
 
 

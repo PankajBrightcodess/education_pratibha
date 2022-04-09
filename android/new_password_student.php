@@ -101,15 +101,16 @@ function deletedata(){
 
  $('body').on('click','.updt',function(){
      	debugger;
+     	 var otp=$('#otp').val();
          var new_pass=$('#new_pass').val();
          var con_pass=$('#con_pass').val();
-          var otp=$('#otp').val();
+         
         $.ajax({
                 type:'POST',
                 url:'student/action.php',
                 data:{otp:otp,new_pass:new_pass,con_pass:con_pass,update_password_student:'update_password_student'},
                 success: function(result){
-                		// console.log(result);
+                		console.log(result);
                     if(result == 1){
                     	// window.location.href = "new_password_excutive.php";
                         swal("Good job!", "Updated Successfully!", "success");
