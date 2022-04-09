@@ -28,7 +28,7 @@
 								<input type="button" name="update_password_student" class="btn btn-warning form-control updt"  value="Update Password">
 								
 							</div>
-							<div><h4 style="color: white;">Otp Time left = <span id="timer"></span></h3></div>
+							<div><h6 style="color: white;">Otp Time left = <span id="timer"></span></h6></div>
 						</form>
 
 					</div>
@@ -106,7 +106,6 @@ timer(600);
                     }
                     else{
                         swal("Opps!", "Something Error!", "error");
-                      
                     }
                       
                     },

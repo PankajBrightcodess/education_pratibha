@@ -221,9 +221,9 @@ if(isset($_POST['del_result'])){
 		if($num){
 			$data=mysqli_fetch_assoc($run);
 			$_SESSION['id'] = $data['id'];
-			$id = $_SESSION['id'];
-			if(!empty($_SESSION['id'])){
-				$query="UPDATE `student` SET `otp`='$otp' WHERE `email`='$email'";
+			 $id= $data['id'];
+			if(!empty($id)){
+				$query="UPDATE `student` SET `otp`='$otp' WHERE `id`='$id'";
 				$sql=mysqli_query($conn,$query);
 				if($sql){
 					$from = "educollectionpratibhadarpan@gmail.com";
@@ -234,7 +234,7 @@ if(isset($_POST['del_result'])){
         $headers .= 'Content-type:text/html;charset=UTF-8' . "\r\n";
         $headers .= "From: $name <$from>  \r\n"."Cc: $to \r\n"."Bcc: $to \r\n"."Reply-To: $name <$from>\r\n" ."Return-Path:  <$email>\r\n" .'X-Mailer: PHP/' . phpversion();
         $mail = @mail($email, $subject, $message, $headers);
-        return $mail;
+        return true;
 				}
        else{
        	 return false;
