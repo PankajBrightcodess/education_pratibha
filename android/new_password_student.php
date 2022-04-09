@@ -111,7 +111,7 @@ timer(600);
                       
                     },
                     error: function(){ 
-                       alert("error");
+                       swal("Opps!", "Something Error!", "error");
                     },
         });
     return false;  

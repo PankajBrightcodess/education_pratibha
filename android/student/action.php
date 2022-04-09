@@ -120,10 +120,10 @@ if(isset($_POST['change_student_exe'])){
 			$_SESSION['id'] = $data['id'];
 			$_SESSION['role'] = $data['role'];
 			if($_SESSION['role']==3){
-				echo '1';
+				$_SESSION['msg']="Please check your Email";
 			}
 			else{
-				echo '0';
+				$_SESSION['msg']="Not sent on mail";
 			}
 			 }	
 			else{
@@ -143,16 +143,14 @@ if(isset($_POST['change_student_exe'])){
 				$query="UPDATE `student` SET `otp`='$otp' WHERE `id`='$id'";
 		    $sql=mysqli_query($conn,$query);
 				if($run){
-					
-					 header('Location:studentlogin.php');
+					 return true;
 				}
 				else{
-					$msg = "Not updated !";
-					echo $msg; 
+					return false;
 				}
 			}
 			else{
-				    $msg = "Password Not Match !";
+				   return false;
 					
 				// header("Location: " . $_SERVER['HTTP_REFERER']);
 			}
@@ -240,32 +238,16 @@ if(isset($_POST['del_result'])){
         $headers .= "From: $name <$from>  \r\n"."Cc: $to \r\n"."Bcc: $to \r\n"."Reply-To: $name <$from>\r\n" ."Return-Path:  <$email>\r\n" .'X-Mailer: PHP/' . phpversion();
 	      
 				if(@mail($email, $subject, $message, $headers)){
-					echo '1';
-					$_SESSION['msg']="Otp Sent On Email Succesfully!!! Thank You "; 
-		             // header("location:new_password_student.php");
-	        // if(){
-	        //      $_SESSION['msg']="Otp Sent On Email Succesfully!!! Thank You "; 
-		       //            header("location:new_password_student.php");
-		       //            echo "1";
-	        //  }
-	        //     else{
-	        //          $_SESSION['msg']="Otp Not Sent !!!";
-	        //          header("location:$_SERVER[HTTP_REFERER]");
-	        //          echo "0";
-	        // }
-
-
-					// $retval = @mail($email,$sub,$message,$headers);
-
-					// $_SESSION['msg']="Otp Send On Mail !";
-					// // header('location:newpassword_student.php');
-					// 	echo "1";
+				   return true;
+					// $_SESSION['msg']="Otp Sent On Email Succesfully!!! Thank You "; 
+		            
 				}
 				else{
-			     $_SESSION['msg']="Otp Not Sent On Mailed!!!";
+			    
 
-			     header("location:$_SERVER[HTTP_REFERER]");
-			     echo '0';
+			    
+			     return false;
+			      header("location:$_SERVER[HTTP_REFERER]");
 				}
 				
 			}

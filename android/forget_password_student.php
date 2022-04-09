@@ -39,7 +39,7 @@
                 data:{email:email,change_student_pass:'change_student_pass'},
                 success: function(result){
                 	// window.open('');
-                		alert(result);
+                		
                     // console.log(result);
                     
                     if(result=='1'){
@@ -53,7 +53,7 @@
                       
                 },
                 error: function(){ 
-                   alert("error");
+                   swal("Opps!", "Something Error!", "internet problem");
                 },
         });
     return false;  
