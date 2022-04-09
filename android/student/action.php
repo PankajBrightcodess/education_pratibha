@@ -216,10 +216,10 @@ if(isset($_POST['del_result'])){
    }
 
 
-   if(isset($_POST['change_student_pass'])){
+  if(isset($_POST['change_student_pass'])){
    	// print_r($_POST);die;
-   	   $email = $_POST['email'];
-   	   $otp = rand(100000, 999999);
+  $email = $_POST['email'];
+  $otp = rand(100000, 999999);
 	$query="SELECT * FROM `student` WHERE `email`='$email'";
 	$run=mysqli_query($conn,$query);
 		$num=mysqli_num_rows($run);
@@ -240,7 +240,7 @@ if(isset($_POST['del_result'])){
 	      
 				if(@mail($email, $subject, $message, $headers)){
 					$_SESSION['msg']="Otp Sent On Email Succesfully!!! Thank You "; 
-		                  header("location:new_password_student.php");
+		             header("location:new_password_student.php");
 	        // if(){
 	        //      $_SESSION['msg']="Otp Sent On Email Succesfully!!! Thank You "; 
 		       //            header("location:new_password_student.php");
