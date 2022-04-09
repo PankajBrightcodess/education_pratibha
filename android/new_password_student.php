@@ -90,7 +90,7 @@ timer(600);
 
 
      $('.updt').click(function(e){
-     	debugger;
+     	// debugger;
          var new_pass=$('#new_pass').val();
          var con_pass=$('#con_pass').val();
         $.ajax({
