@@ -44,15 +44,15 @@ while ($data=mysqli_fetch_assoc($run)) {
         </div>
         <div class="col-md-6 col-12 mb-2">
             <label>Bank Name<span style="color: Red;">*</span></label>
-            <input type="text" name="bankname" id="bankname" placeholder="Bank Name" class="form-control" required>
-        </div>
+            <input type="text" name="bankname" id="bankname" pattern="[A-Z]" title="Enter capital letter" placeholder="Bank Name" class="form-control" required>
+        </div> 
         <div class="col-md-6 col-12 mb-2">
             <label>Bank Account<span style="color: Red;">*</span></label>
-            <input type="number" maxlength="10" minlength="3" title="Please enter exactly 10 digits" name="bankaccount" id="bankaccount" placeholder="Bank Account No" class="form-control" required>
+            <input type="number" maxlength="10" minlength="3" pattern="[789][0-9]{9}" title="Please enter exactly 10 digits" name="bankaccount" id="bankaccount" placeholder="Bank Account No" class="form-control" required>
         </div>
         <div class="col-md-6 col-12 mb-2">
             <label>IFSC<span style="color: Red;">*</span></label>
-            <input type="text" name="ifsc" id="ifsc" placeholder="Bank IFSC" class="form-control" required>
+            <input type="text" name="ifsc" id="ifsc" pattern="[a-z0-9][A-Z0-9][a-z]" title="must use alphabhet and number" placeholder="Bank IFSC" class="form-control" required>
         </div>
         <div class="col-md-6 col-12 mb-2">
             <label>Address<span style="color: Red;">*</span></label>
@@ -60,12 +60,12 @@ while ($data=mysqli_fetch_assoc($run)) {
         </div>
         <div class="col-md-6 col-12 mb-2">
             <label>Mobile<span style="color: Red;">*</span></label>
-            <input type="tel" pattern="[789][0-9]{9}"
+            <input type="tel" maxlength="10" minlength="3" pattern="[789][0-9]{9}"
            required="required" id="mobile" placeholder="Active Mobile Number" class="form-control">
         </div>
         <div class="col-md-6 col-12 mb-2">
             <label>Email<span style="color: Red;">*</span></label>
-            <input type="mail" name="email" id="email" placeholder="Active Email" class="form-control" required>
+            <input type="mail" name="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="always use correct email id" placeholder="Active Email" class="form-control" required>
         </div>
         <div class="col-md-6 col-12 mb-2">
             <label>Academic Qualification<span style="color: Red;">*</span></label>
@@ -128,7 +128,8 @@ while ($data=mysqli_fetch_assoc($run)) {
         </div> -->
         <div class="col-md-6 col-12 mb-5">
             <label>Password<span style="color: Red;">*</span></label>
-            <input type="text" name="password" id="password" placeholder="Enter Password" class="form-control" required>
+            <input type="text" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+  title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="Enter Password" class="form-control" required>
         </div>
         <div class="col-md-4 col-4"></div>
         <div class="col-md-4 col-4"><input type="button" name="student_reg" id="student_reg" class="btn btn-sm btn-success form-control" value="Submit"></div>

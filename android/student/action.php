@@ -228,26 +228,30 @@ if(isset($_POST['del_result'])){
 			$_SESSION['id'] = $data['id'];
 			$id = $_SESSION['id'];
 			if(!empty($_SESSION['id'])){
-				$from = "hupukumar395@gmail.com";
+				$query="UPDATE `student` SET `otp`='$otp' WHERE `id`='$id'";
+				$sql=mysqli_query($conn,$query);
+				$from = "pmt.pankaj29@gmail.com";
 				$name = "Education Pratibha";
 				$message = "your one time email verification ".$otp."";
 				$sub = "Forget Password From Pratibha Darpan";
 				$headers  = 'MIME-Version: 1.0' . "\r\n";
         $headers .= 'Content-type:text/html;charset=UTF-8' . "\r\n";
         $headers .= "From: $name <$from>  \r\n"."Cc: $to \r\n"."Bcc: $to \r\n"."Reply-To: $name <$from>\r\n" ."Return-Path:  <$email>\r\n" .'X-Mailer: PHP/' . phpversion();
-	      $query="UPDATE `student` SET `otp`='$otp' WHERE `id`='$id'";
-				    $sql=mysqli_query($conn,$query);
+        @mail($email, $subject, $message, $headers);
+	      
 				if($sql){
-	        if(@mail($email, $subject, $message, $headers)){
-	             $_SESSION['msg']="Otp Sent On Email Succesfully!!! Thank You "; 
+					$_SESSION['msg']="Otp Sent On Email Succesfully!!! Thank You "; 
 		                  header("location:new_password_student.php");
-		                  echo "1";
-	         }
-	            else{
-	                 $_SESSION['msg']="Otp Not Sent !!!";
-	                 header("location:$_SERVER[HTTP_REFERER]");
-	                 echo "0";
-	        }
+	        // if(){
+	        //      $_SESSION['msg']="Otp Sent On Email Succesfully!!! Thank You "; 
+		       //            header("location:new_password_student.php");
+		       //            echo "1";
+	        //  }
+	        //     else{
+	        //          $_SESSION['msg']="Otp Not Sent !!!";
+	        //          header("location:$_SERVER[HTTP_REFERER]");
+	        //          echo "0";
+	        // }
 
 
 					// $retval = @mail($email,$sub,$message,$headers);

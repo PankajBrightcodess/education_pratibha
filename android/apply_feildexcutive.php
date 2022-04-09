@@ -27,11 +27,11 @@
         </div>
         <div class="col-md-6 col-12 mb-2">
             <label>Mobile<span style="color: Red;">*</span></label>
-            <input type="text" name="mobile" id="mobile" placeholder="Active Mobile Number" class="form-control" required>
+            <input type="tel"  pattern="[789][0-9]{9}" maxlength="10" minlength="3" name="mobile" id="mobile" placeholder="Active Mobile Number" class="form-control" required>
         </div>
         <div class="col-md-6 col-12 mb-2">
             <label>Email<span style="color: Red;">*</span></label>
-            <input type="mail" name="email" id="email" placeholder="Active Email" class="form-control" required>
+            <input type="mail" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="always use correct email id" id="email" placeholder="Active Email" class="form-control" required>
         </div>
         <div class="col-md-6 col-12 mb-2">
             <label>Father Name<span style="color: Red;">*</span></label>
@@ -39,19 +39,19 @@
         </div>
         <div class="col-md-6 col-12 mb-2">
             <label>Aadhaar no<span style="color: Red;">*</span></label>
-            <input type="text" name="aadhaar" id="aadhaar" placeholder="Active Email" class="form-control" required>
+            <input type="text" name="aadhaar" id="aadhaar" maxlength="12" pattern="[789][0-9]{9}"  title="always put 12 digit number"placeholder="Active Email" class="form-control" required>
         </div>
         <div class="col-md-6 col-12 mb-2">
             <label>Bank Name<span style="color: Red;">*</span></label>
-            <input type="text" name="bankname" id="bankname" placeholder="Active Email" class="form-control" required>
+            <input type="text" name="bankname" id="bankname" pattern="[A-Z]" title="Enter capital letter" placeholder="Active Email" class="form-control" required>
         </div>
         <div class="col-md-6 col-12 mb-2">
             <label>Bank Account No<span style="color: Red;">*</span></label>
-            <input type="text" name="bankaccount" id="bankaccount" placeholder="Active Email" class="form-control" required>
+            <input type="text" name="bankaccount" id="bankaccount" maxlength="10" minlength="3" pattern="[789][0-9]{9}" title="Please enter exactly 10 digits"  placeholder="Active Email" class="form-control" required>
         </div>
         <div class="col-md-6 col-12 mb-2">
             <label>IFSC CODE<span style="color: Red;">*</span></label>
-            <input type="text" name="ifsc" id="ifsc" placeholder="Active Email" class="form-control" required>
+            <input type="text" name="ifsc" id="ifsc" pattern="[a-z0-9][A-Z0-9][a-z]" title="must use alphabhet and number"  placeholder="Active Email" class="form-control" required>
         </div>
         <div class="col-md-6 col-12 mb-2">
             <label>Location Address<span style="color: Red;">*</span></label>
@@ -72,11 +72,13 @@
         </div>
      <div class="col-md-6 col-12 mb-2">
         <label>Password</label>
-        <input type="password" name="password" id="password" placeholder="Enter Password" class="form-control">
+        <input type="password" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+  title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="Enter Password" class="form-control">
     </div>
     <div class="col-md-6 col-12 mb-2">
         <label>Confirm Password</label>
-        <input type="password" name="con_password" id="con_password" placeholder="Enter Confirm Password" class="form-control">
+        <input type="password" name="con_password" id="con_password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+  title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="Enter Confirm Password" class="form-control">
     </div>
     <div class="col-md-4 col-4"></div>
     <div class="col-md-4 col-4"><input type="submit" name="field_excutive"  class="btn btn-sm btn-warning form-control feild_ex" value="Submit"></div>
