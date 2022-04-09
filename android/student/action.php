@@ -228,6 +228,7 @@ if(isset($_POST['del_result'])){
 	$query="SELECT * FROM `student` WHERE `email`='$email'";
 	$run=mysqli_query($conn,$query);
 		$num=mysqli_num_rows($run);
+		print_r($num);die;
 		if($num){
 			$data=mysqli_fetch_assoc($run);
 			$_SESSION['id'] = $data['id'];
