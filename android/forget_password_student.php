@@ -38,7 +38,8 @@
                 url:'student/action.php',	
                 data:{email:email,change_student_pass:'change_student_pass'},
                 success: function(result){
-                    if(result){
+                	// alert(result);
+                    if(result==1){
                     	swal("Sent!", "Otp on email!", "success");
                     	window.location.href = "new_password_student.php";
                     }

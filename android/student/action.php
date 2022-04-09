@@ -223,12 +223,12 @@ if(isset($_POST['del_result'])){
 
   if(isset($_POST['change_student_pass'])){
    	// print_r($_POST);die;
-  $email = $_POST['email'];
-  $otp = rand(100000, 999999);
-	$query="SELECT * FROM `student` WHERE `email`='$email'";
-	$run=mysqli_query($conn,$query);
+	  $email = $_POST['email'];
+	  $otp = rand(100000, 999999);
+		$query="SELECT * FROM `student` WHERE `email`='$email'";
+		$run=mysqli_query($conn,$query);
 		$num=mysqli_num_rows($run);
-		
+
 		if($num){
 			$data=mysqli_fetch_assoc($run);
 			$_SESSION['id'] = $data['id'];
@@ -238,41 +238,37 @@ if(isset($_POST['del_result'])){
 				$sql=mysqli_query($conn,$query);
 				if($sql){
 					$from = "educollectionpratibhadarpan@gmail.com";
-				$name = "Education Pratibha";
-				$message = "your one time email verification ".$otp."";
-				$subject = "Forget Password From Pratibha Darpan";
-				$headers  = 'MIME-Version: 1.0' . "\r\n";
-        $headers .= 'Content-type:text/html;charset=UTF-8' . "\r\n";
-        $headers .= "From: $name <$from>  \r\n"."Cc: $to \r\n"."Bcc: $to \r\n"."Reply-To: $name <$from>\r\n" ."Return-Path:  <$email>\r\n" .'X-Mailer: PHP/' . phpversion();
-        $mail = @mail($email, $subject, $message, $headers);
-        return true;
+					$name = "Education Pratibha";
+					$message = "your one time email verification ".$otp."";
+					$subject = "Forget Password From Pratibha Darpan";
+					$headers  = 'MIME-Version: 1.0' . "\r\n";
+	        $headers .= 'Content-type:text/html;charset=UTF-8' . "\r\n";
+	        $headers .= "From: $name <$from>  \r\n"."Cc: $email \r\n"."Bcc: $email \r\n"."Reply-To: $name <$from>\r\n" ."Return-Path:  <$email>\r\n" .'X-Mailer: PHP/' . phpversion();
+	        $mail = @mail($email, $subject, $message, $headers);
+	        if($mail){
+	        	echo "1";
+	        }
+	        else{
+	        	echo "0";
+	        }
+        
 				}
        else{
-       	 return false;
+       	 echo "0";
        }
 
-        // return $mail;
-	      
-				// if(){
-				//    return true;
-		            
-				// }
-				// else{
-			 //     return false;
-			 //      header("location:$_SERVER[HTTP_REFERER]");
-				// }
-				
+        
 			}
 			else{
-				return false;
+				echo "0";
 			}
 			
-		 }	
-		 else{
-		 	return false;
-		 }
+		}	
+		else{
+		 	echo "0";
+		}
 		
-   }
+  }
 
  //   if(isset($_POST['update_password_student'])){
  //   	// echo '<pre>';
