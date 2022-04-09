@@ -44,6 +44,7 @@
                     }
                     else{
                         swal("Opps!", "Something Error!", "error");
+                        window.location.href = "forget_password_student.php";
                     }
                       
                 },
