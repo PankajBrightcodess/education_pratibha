@@ -142,18 +142,14 @@ if(isset($_POST['change_student_exe'])){
 				$run=mysqli_query($conn,$query);
 				$query="UPDATE `student` SET `otp`='$otp' WHERE `id`='$id'";
 		    $sql=mysqli_query($conn,$query);
-				if($run){
+				if($sql){
 					 return true;
 				}
 				else{
 					return false;
 				}
 			}
-			else{
-				   return false;
-					
-				// header("Location: " . $_SERVER['HTTP_REFERER']);
-			}
+			
 	}
 	if(isset($_POST['deleteotp'])){
 		$id = $_SESSION['id'];

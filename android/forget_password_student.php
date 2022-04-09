@@ -38,9 +38,7 @@
                 url:'student/action.php',
                 data:{email:email,change_student_pass:'change_student_pass'},
                 success: function(result){
-                	// window.open('');
-                		
-                    // console.log(result);
+                	swal("Sent!", "Otp on email!", "success");
                     
                     if(result){
                     	window.location.href = "new_password_student.php";
@@ -53,7 +51,7 @@
                       
                 },
                 error: function(){ 
-                   swal("Opps!", "Something Error!", "internet problem");
+                   swal("Opps!", "Not sent on Mail!", "internet problem");
                 },
         });
     return false;  

@@ -111,7 +111,7 @@ timer(600);
                       
                     },
                     error: function(){ 
-                       swal("Opps!", "Something Error!", "error");
+                       swal("Opps!", " updated Error!", "error");
                     },
         });
     return false;  
