@@ -223,8 +223,10 @@ if(isset($_POST['del_result'])){
 			$_SESSION['id'] = $data['id'];
 			$id = $_SESSION['id'];
 			if(!empty($_SESSION['id'])){
-				
-				$from = "educollectionpratibhadarpan@gmail.com";
+				$query="UPDATE `student` SET `otp`='$otp' WHERE `email`='$email'";
+				$sql=mysqli_query($conn,$query);
+				if($sql){
+					$from = "educollectionpratibhadarpan@gmail.com";
 				$name = "Education Pratibha";
 				$message = "your one time email verification ".$otp."";
 				$subject = "Forget Password From Pratibha Darpan";
@@ -232,18 +234,8 @@ if(isset($_POST['del_result'])){
         $headers .= 'Content-type:text/html;charset=UTF-8' . "\r\n";
         $headers .= "From: $name <$from>  \r\n"."Cc: $to \r\n"."Bcc: $to \r\n"."Reply-To: $name <$from>\r\n" ."Return-Path:  <$email>\r\n" .'X-Mailer: PHP/' . phpversion();
         $mail = @mail($email, $subject, $message, $headers);
-       if($mail){
-        	// $query="UPDATE `student` SET `otp`='$otp' WHERE `id`='$id'";
-       	$query="UPDATE `student` SET `otp`='$otp' WHERE `email`='$email'";
-				  $sql=mysqli_query($conn,$query);
-				  if($sql){
-				 		return $sql;
-				  }
-				  else{
-				  	return false;
-				  }
-
-       }
+        return $mail;
+				}
        else{
        	 return false;
        }
