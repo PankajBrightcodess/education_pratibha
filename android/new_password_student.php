@@ -100,7 +100,7 @@ function deletedata(){
 
 
  $('body').on('click','.updt',function(){
-     	debugger;
+     	// debugger;
      	 var otp=$('#otp').val();
          var new_pass=$('#new_pass').val();
          var con_pass=$('#con_pass').val();
@@ -121,7 +121,7 @@ function deletedata(){
                         window.location.href = "new_password_student.php";
                     }
                       
-                    },
+                 },
                     error: function(){ 
                        swal("Opps!", " updated Error!", "error");
                     },

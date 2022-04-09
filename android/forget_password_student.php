@@ -31,7 +31,7 @@
 <?php include 'footer-links.php';?>
 <script type="text/javascript">
      $('.check_id').click(function(e){
-            debugger;
+            // debugger;
          var email=$('#email').val();
         $.ajax({
                 type:'POST',
