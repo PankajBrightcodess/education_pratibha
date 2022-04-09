@@ -155,7 +155,7 @@ if(isset($_POST['change_student_exe'])){
 					}
         }
         else{
-        	echo "0"
+        	echo "0";
         }
 				
 			}
