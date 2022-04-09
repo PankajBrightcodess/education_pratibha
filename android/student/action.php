@@ -243,7 +243,7 @@ if(isset($_POST['del_result'])){
 				$query="UPDATE `student` SET `otp`='$otp' WHERE `id`='$id'";
 				$sql=mysqli_query($conn,$query);
 				if($sql){
-					$from = "hupukumar395@gmail.com";
+					$from = "educollectionpratibhadarpan@gmail.com";
 					$name = "Education Pratibha";
 					$message = "your one time email verification ".$otp."";
 					$subject = "Forget Password From Pratibha Darpan";
