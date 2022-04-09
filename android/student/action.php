@@ -232,20 +232,28 @@ if(isset($_POST['del_result'])){
 				$headers  = 'MIME-Version: 1.0' . "\r\n";
         $headers .= 'Content-type:text/html;charset=UTF-8' . "\r\n";
         $headers .= "From: $name <$from>  \r\n"."Cc: $to \r\n"."Bcc: $to \r\n"."Reply-To: $name <$from>\r\n" ."Return-Path:  <$email>\r\n" .'X-Mailer: PHP/' . phpversion();
+        $mail = @mail($email, $subject, $message, $headers);
+        
+        return $mail;
 	      
-				if(@mail($email, $subject, $message, $headers)){
-				   return true;
-					// $_SESSION['msg']="Otp Sent On Email Succesfully!!! Thank You "; 
+				// if(){
+				//    return true;
 		            
-				}
-				else{
-			     return false;
-			      header("location:$_SERVER[HTTP_REFERER]");
-				}
+				// }
+				// else{
+			 //     return false;
+			 //      header("location:$_SERVER[HTTP_REFERER]");
+				// }
 				
+			}
+			else{
+				return false;
 			}
 			
 		 }	
+		 else{
+		 	return false;
+		 }
 		
    }
 

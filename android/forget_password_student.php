@@ -35,18 +35,15 @@
          var email=$('#email').val();
         $.ajax({
                 type:'POST',
-                url:'student/action.php',
+                url:'student/action.php',	
                 data:{email:email,change_student_pass:'change_student_pass'},
                 success: function(result){
-                	swal("Sent!", "Otp on email!", "success");
-                    
                     if(result){
+                    	swal("Sent!", "Otp on email!", "success");
                     	window.location.href = "new_password_student.php";
-                        // swal("Good job!", "Registered Successfully!", "success");
                     }
                     else{
                         swal("Opps!", "Something Error!", "error");
-                      
                     }
                       
                 },
