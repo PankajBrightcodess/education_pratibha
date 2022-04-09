@@ -239,8 +239,9 @@ if(isset($_POST['del_result'])){
         $headers .= "From: $name <$from>  \r\n"."Cc: $to \r\n"."Bcc: $to \r\n"."Reply-To: $name <$from>\r\n" ."Return-Path:  <$email>\r\n" .'X-Mailer: PHP/' . phpversion();
 	      
 				if(@mail($email, $subject, $message, $headers)){
+					echo '1';
 					$_SESSION['msg']="Otp Sent On Email Succesfully!!! Thank You "; 
-		             header("location:new_password_student.php");
+		             // header("location:new_password_student.php");
 	        // if(){
 	        //      $_SESSION['msg']="Otp Sent On Email Succesfully!!! Thank You "; 
 		       //            header("location:new_password_student.php");
