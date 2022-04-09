@@ -633,6 +633,8 @@ if(isset($_POST['del_result'])){
 	
 
 	if(isset($_POST['update_executive'])){
+		// echo '<pre>';
+		// print_r($_POST);die;
 		$id = $_POST['id'];
 		$name = $_POST['name'];
 		$gender = $_POST['gender'];
@@ -650,7 +652,8 @@ if(isset($_POST['del_result'])){
 		$pincode = $_POST['pincode'];
 		$password = $_POST['password'];
 		$query="UPDATE `field_excutive` SET `name`='$name',`gender`='$gender',`dob`='$dob',`mobile`='$mobile',
-		`email`='$email',`fathername`='$fathername',`aadhaar`='$aadhaar',`bankname`='$bankname',`bankaccount`='$bankaccount',`ifsc`='$ifsc',`location`='$location',`city`='$city',`state`='$state',`pincode`='$pincode',`password`='$password' WHERE `id`='$id'";
+		`email`='$email',`fathername`='$fathername',`aadhaar`='$aadhaar',`bankname`='$bankname',
+		`bankaccount`='$bankaccount',`ifsc`='$ifsc',`location`='$location',`city`='$city',`state`='$state',`pincode`='$pincode',`password`='$password' WHERE `id`='$id'";
 				$run=mysqli_query($conn,$query);
 				if($run){
 					 header("Location:$_SERVER[HTTP_REFERER]");
@@ -664,17 +667,21 @@ if(isset($_POST['del_result'])){
 	}
 
 	if(isset($_POST['update_student'])){
-		// echo '<pre>';
+		
 		// print_r($_POST);die;
 		$id = $_POST['id'];
 		$name = $_POST['name'];
 		$dob = $_POST['dob'];
+		$fathername = $_POST['fathername'];
+		$bankname = $_POST['bankname'];
+		$bankaccount = $_POST['bankaccount'];
+		$ifsc = $_POST['ifsc'];
 		$mobile = $_POST['mobile'];
 		$email = $_POST['email'];
 		$address = $_POST['address'];
 		$executive_id = $_POST['executive_id'];
 		$password = $_POST['password'];
-		$query="UPDATE `student` SET `name`='$name',`dob`='$dob',`mobile`='$mobile',`email`='$email',`address`='$address',`executive_id`='$executive_id',`password`='$password' WHERE `id`='$id'";
+		$query="UPDATE `student` SET `name`='$name',`dob`='$dob',`fathername`='$fathername',`bankname`='$bankname',`bankaccount`='$bankaccount',`ifsc`='$ifsc',`mobile`='$mobile',`email`='$email',`address`='$address',`executive_id`='$executive_id',`password`='$password' WHERE `id`='$id'";
 				$run=mysqli_query($conn,$query);
 				if($run){
 					 header("Location:$_SERVER[HTTP_REFERER]");

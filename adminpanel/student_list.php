@@ -184,7 +184,7 @@ $msg = "";
       </div>
        <form action="action.php" method="post">
         <div class="modal-body">
-           <input type="hidden" name="id" id="id" class="form-control" value="1"> 
+           <input type="hidden" name="id" id="id" class="form-control"> 
            <label>Name <span style="color:red;">*</span></label>
            <input type="text" name="name" id="name" class="form-control" required="" value="abc">
 
@@ -198,7 +198,7 @@ $msg = "";
 
            <label>Bank Name<span style="color:red;">*</span></label>
            <input type="text" name="bankname" id="bankname" class="form-control" required="" >
-
+           
            <label>Bank Account<span style="color:red;">*</span></label>
            <input type="text" name="bankaccount" id="bankaccount" class="form-control" required="" >
 
