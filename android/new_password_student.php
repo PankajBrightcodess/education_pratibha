@@ -23,7 +23,7 @@
 								<label>Confirm Password</label>
 								<input type="password" name="con_pass" id="con_pass" placeholder="Enter Confirm Password:" class="form-control" required="" >
 							</div>
-							 <div>Time left = <span id="timer"></span></div>
+							 
 							<div class="form-group mb-5">
 								<input type="button" name="update_password_student" class="btn btn-warning form-control updt"  value="Update Password">
 								
