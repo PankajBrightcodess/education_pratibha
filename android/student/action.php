@@ -134,20 +134,30 @@ if(isset($_POST['online_text_paid'])){
 
    if(isset($_POST['update_password_student'])){
 		   if($_POST['new_pass']==$_POST['con_pass']){
+		   	$otp =$_POST['otp'];
 		   	   $pass = $_POST['con_pass'];
 				$id = $_SESSION['id'];
-				$otp ='';
-				$query="UPDATE `student` SET `password`='$pass' WHERE `id`='$id'";
-				// print_r($query);die;
-				$run=mysqli_query($conn,$query);
-				$query="UPDATE `student` SET `otp`='$otp' WHERE `id`='$id'";
-		    $sql=mysqli_query($conn,$query);
-				if($sql){
-					 return true;
-				}
-				else{
-					return false;
-				}
+				$query="SELECT * FROM `student` WHERE `id`='$id' AND `otp`='$otp'";
+        $run=mysqli_query($conn,$query);
+        $data=mysqli_num_rows($run);
+        if($data>0){
+        	$otps ='';
+				  $query="UPDATE `student` SET `password`='$pass',`otp`='$otps' WHERE `id`='$id'";
+					// print_r($query);die;
+					$run=mysqli_query($conn,$query);
+					// $query="UPDATE `student` SET  WHERE `id`='$id'";
+			  //   $sql=mysqli_query($conn,$query);
+					if($run){
+						 return true;
+					}
+					else{
+						return false;
+					}
+        }
+        else{
+        	return false;
+        }
+				
 			}
 			
 	}
