@@ -108,29 +108,29 @@ if(isset($_POST['online_text_paid'])){
 	}
 }
 
-// if(isset($_POST['change_student_exe'])){
-// 	    // print_r($_POST);die;
-// 	   	$email = $_POST['email'];
-// 		$query="SELECT * FROM `student` WHERE `email`='$email' AND `role`='3'";
-// 	// print_r($quy);die;
-// 		$run=mysqli_query($conn,$query);
-// 			$num=mysqli_num_rows($run);
-// 			if($num){
-// 			$data=mysqli_fetch_assoc($run);
-// 			$_SESSION['id'] = $data['id'];
-// 			$_SESSION['role'] = $data['role'];
-// 			if($_SESSION['role']==3){
-// 				$_SESSION['msg']="Please check your Email";
-// 			}
-// 			else{
-// 				$_SESSION['msg']="Not sent on mail";
-// 			}
-// 			 }	
-// 			else{
-// 				 // $_SESSION['msg']="Please Enter Correct Email id";
-// 				header("Location: " . $_SERVER['HTTP_REFERER']);
-// 			}
-//    }
+if(isset($_POST['change_student_exe'])){
+	    // print_r($_POST);die;
+	   	$email = $_POST['email'];
+		$query="SELECT * FROM `student` WHERE `email`='$email' AND `role`='3'";
+	// print_r($quy);die;
+		$run=mysqli_query($conn,$query);
+			$num=mysqli_num_rows($run);
+			if($num){
+			$data=mysqli_fetch_assoc($run);
+			$_SESSION['id'] = $data['id'];
+			$_SESSION['role'] = $data['role'];
+			if($_SESSION['role']==3){
+				$_SESSION['msg']="Please check your Email";
+			}
+			else{
+				$_SESSION['msg']="Not sent on mail";
+			}
+			 }	
+			else{
+				 // $_SESSION['msg']="Please Enter Correct Email id";
+				header("Location: " . $_SERVER['HTTP_REFERER']);
+			}
+   }
 
    if(isset($_POST['update_password_student'])){
 		   if($_POST['new_pass']==$_POST['con_pass']){
