@@ -61,12 +61,12 @@ if($_SESSION['role']!='1'){
             <!-- small box -->
             <div class="small-box bg-success">
               <div class="inner">
-               <!--  <?php 
+                <?php 
                   $sql1 = "select * from student where status = '1'";
                   $res1 = mysqli_query($conn, $sql1);
                   $row1 = mysqli_num_rows($res1);
-                  ?>  -->
-                <h3>130</h3>
+                  ?>
+                <h3><?= $row1 ?></h3>
 
                 <p>Total Student</p>
               </div>
@@ -81,19 +81,19 @@ if($_SESSION['role']!='1'){
             <!-- small box -->
             <div class="small-box bg-warning">
               <div class="inner">
-            <!--   <?php 
-                  $sql1 = "select * from faculty where status = '1'";
+            <?php 
+                  $sql1 = "select * from field_excutive where status = '1'";
                   $res1 = mysqli_query($conn, $sql1);
                   $row1 = mysqli_num_rows($res1);
-                  ?>  -->
-                <h3>20</h3>
+                  ?>
+                <h3><?= $row1 ?></h3>
 
                 <p>Total Field Executive</p>
               </div>
               <div class="icon">
                 <i class="ion ion-person-add"></i>
               </div>
-              <a href="faculty_list.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="feild_executive.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->

@@ -12,6 +12,9 @@ $msg = "";
     if ($msg != "") {
         echo "<script> alert('$msg')</script>";
     }
+
+
+     
 ?>
 <!DOCTYPE html>
 <html>
@@ -40,7 +43,7 @@ $msg = "";
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Master Key Test</h3>
+                <h3 class="card-title">Master Test key</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -53,17 +56,17 @@ $msg = "";
                           <label>Test Name <span style="color:red;">*</span></label>
                           <input type="text" name="test_name" class="form-control" required="" placeholder="Test Name:">
                         </div>
-                        <div class="col-md-12">
+                        <!-- <div class="col-md-12">
                           <label>No. Of Questions<span style="color:red;">*</span></label>
-                          <input type="text" name="no_question" class="form-control" required="" placeholder="Test Name:">
-                        </div>
+                          <input type="text" name="no_question" class="form-control" required="">
+                        </div> -->
                         <div class="col-md-12">
                           <label>Total Marks<span style="color:red;">*</span></label>
-                          <input type="text" name="total_marks" class="form-control" required="" placeholder="Test Name:">
+                          <input type="text" name="total_marks" class="form-control" required="" placeholder="Test Total Marks:">
                         </div>
                         <div class="col-md-12">
                           <label>Time Duration<span style="color:red;">*</span></label>
-                          <input type="text" name="time_duration" class="form-control" required="" placeholder="Test Name:">
+                          <input type="time" name="time_duration" id="time_duration" class="form-control" required="" >
                         </div>
                         <div class="col-md-4">
                           <button class="btn btn-primary btn-sm btn-block" type="submit" name="add_test" style="margin-top: 10px;">Save</button>
@@ -96,21 +99,34 @@ $msg = "";
                    <?php 
                         $sql = "select * from test_master where status = '1'";
                         $res = mysqli_query($conn,$sql);
-                        $sn=0;
-                        while($row = mysqli_fetch_assoc($res)){ $sn++;
-                      ?>
+                         while ($data=mysqli_fetch_assoc($res)) {
+                                            $master[]=$data;
+                                       }
+                                       $sn=0;
+                                       foreach ($master as $key => $value) { ++$sn;
+                                        $id = $value['id'];
+                                        $query=" SELECT test_master.*, online_question.test_id AS test_id FROM test_master inner JOIN online_question ON online_question.test_id=test_master.id WHERE online_question.test_id=$id";
+                                 $run=mysqli_query($conn,$query);
+                                  $nmq=mysqli_num_rows($run);
+                                     ?>
+                               
+                
                         <tr>
                           <td><?php echo $sn; ?></td>
-                          <td><?php echo $row['test_name']; ?></td>
-                          <td><?php echo $row['no_question']; ?></td>
-                          <td><?php echo $row['total_marks']; ?></td>
-                          <td><?php echo $row['time_duration']; ?></td>
-                          <td><?php echo $row['added_on']; ?></td>
+                          <td><?php echo $value['test_name']; ?></td>
+                          <td><?php echo $nmq; ?></td>
+                          <td><?php echo $value['total_marks']; ?></td>
+                          <td><?php echo $value['time_duration']; ?></td>
+                          <td><?php echo $value['added_on']; ?></td>
                           <td>
-                            <button class="btn btn-sm btn-success editdepartment" data-toggle="modal" data-id="<?php echo $row['id']; ?>" data-department="<?php echo $row['department']; ?>" data-target="#departmentModal">&nbsp;&nbsp;<i class="far fa-edit nav-icon"></i>&nbsp;Edit</button>
+                            <button class="btn btn-sm btn-success editdepartment" data-toggle="modal" data-id="<?php echo $value['id']; ?>" data-department="<?php echo $value['department']; ?>" data-target="#departmentModal">&nbsp;&nbsp;<i class="far fa-edit nav-icon"></i>&nbsp;Edit</button>
                           </td>
                         </tr>
-                      <?php } ?>
+                      <?php
+                       }
+
+                   
+              ?>
                  
                 </table>
               </div>

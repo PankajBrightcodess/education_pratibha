@@ -384,7 +384,51 @@ if(isset($_POST['del_notice'])){
 		header("location:$_SERVER[HTTP_REFERER]");
 	}
 }
+// update test and delete
 
+if(isset($_POST['update_question'])){
+	echo '<pre>';
+	// print_r($_POST);die;
+	$id = $_POST['snoEdit'];
+	$test_id = $_POST['test_name-edit'];
+	$question = $_POST['question-edit'];
+	$option_a = $_POST['option_a-edit'];
+	$option_b = $_POST['option_b-edit'];
+	$option_c = $_POST['option_c-edit'];
+	$option_d = $_POST['option_d-edit'];
+	$correct_ans = $_POST['correct_ans-edit'];
+	$marks = $_POST['marks-edit'];
+	$date = date('Y-m-d');
+	$query="UPDATE `online_question` SET `test_id`='$test_id',`question`='$question',`option_a`='$option_a',`option_b`='$option_b',
+	`option_c`='$option_c',`option_d`='$option_d',`correct_ans`='$correct_ans',`marks`='$marks',`added_on`='$date' WHERE `id`='$id'";
+				$run=mysqli_query($conn,$query);
+				// print_r($run);die;
+				if($run){
+					 header('Location:upload_online_question.php');
+					$_SESSION['msg']="Updated question Successfully !!!";	
+				}
+				else{
+					$_SESSION['msg']="Updated queston Not Updated!!!";
+					header("location:$_SERVER[HTTP_REFERER]");
+				}
+}
+
+if(isset($_GET['deletequestion'])){
+	$id = $_GET['deletequestion'];	
+	// echo '<pre>';
+	// print_r($id);die;
+	$query="DELETE FROM `online_question` WHERE `id`='$id'";
+	$sql=mysqli_query($conn,$query);
+	if($sql){
+		$_SESSION['msg']="question Deleted Successfully !!!";	
+		header("location:$_SERVER[HTTP_REFERER]");
+	}
+	else{
+		$_SESSION['msg']="question Not Deleted!!!";
+		header("location:$_SERVER[HTTP_REFERER]");
+	}
+}
+//update test and delete
 
 if(isset($_POST['resultupload'])){
 	
@@ -440,11 +484,11 @@ if(isset($_POST['del_result'])){
    if(isset($_POST['add_test'])){
    	
    	$test_name = $_POST['test_name'];
-   	$no_question = $_POST['no_question'];
+   	// $no_question = $_POST['no_question'];
    	$total_marks = $_POST['total_marks'];
    	$time_duration = $_POST['time_duration'];
    	$added_on = date('Y-m-d');
-   	$query="INSERT INTO `test_master`(`test_name`,`no_question`,`total_marks`,`time_duration`,`added_on`) VALUES ('$test_name','$no_question','$total_marks','$time_duration','$added_on')";
+   	$query="INSERT INTO `test_master`(`test_name`,`total_marks`,`time_duration`,`added_on`) VALUES ('$test_name','$total_marks','$time_duration','$added_on')";
 			$sql=mysqli_query($conn,$query);
 			if($sql){
 				 header("Location:$_SERVER[HTTP_REFERER]");
@@ -510,7 +554,7 @@ if(isset($_POST['del_result'])){
     if(isset($_POST['submit_question'])){
     	// echo '<pre>';
     	// print_r($_POST);die;
-    	$course = $_POST['course'];
+    	$test_id = $_POST['test'];
     	$question = $_POST['question'];
     	$option_a = $_POST['option_a'];
     	$option_b = $_POST['option_b'];
@@ -518,11 +562,9 @@ if(isset($_POST['del_result'])){
     	$option_d = $_POST['option_d'];
     	$correct_ans = $_POST['correct_ans'];
     	$marks = $_POST['marks'];
-    	$timer = $_POST['timer'];
     	$added_on = date('Y-m-d');
 
-    	$query="INSERT INTO `online_question`(`course`,`question`,`option_a`,`option_b`,`option_c`,`option_d`,`correct_ans`,`marks`,`timer`,`added_on`) VALUES ('$course','$question','$option_a','$option_b','$option_c','$option_d','$correct_ans'
-    		,'$marks','$timer','$added_on')";	
+    	$query="INSERT INTO `online_question`(`test_id`,`question`,`option_a`,`option_b`,`option_c`,`option_d`,`correct_ans`,`marks`,`added_on`) VALUES ('$test_id','$question','$option_a','$option_b','$option_c','$option_d','$correct_ans','$marks','$added_on')";	
 			$sql=mysqli_query($conn,$query);
 			if($sql){
 				 header("Location:$_SERVER[HTTP_REFERER]");
