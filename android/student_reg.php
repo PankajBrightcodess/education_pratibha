@@ -61,7 +61,7 @@ while ($data=mysqli_fetch_assoc($run)) {
         <div class="col-md-6 col-12 mb-2">
             <label>Mobile<span style="color: Red;">*</span></label>
             <input type="tel" maxlength="10" minlength="3" pattern="[789][0-9]{9}"
-           required="required" id="mobile" placeholder="Active Mobile Number" class="form-control">
+           required="required" id="mobile" placeholder="Active Mobile Number" class="form-control" name="mobile">
         </div>
         <div class="col-md-6 col-12 mb-2">
             <label>Email<span style="color: Red;">*</span></label>
@@ -162,11 +162,11 @@ while ($data=mysqli_fetch_assoc($run)) {
         $.ajax({
                 type:'POST',
                 url:'action.php',
-                data:{name:name,mobile:mobile,email:email,ac_qualify:ac_qualify,course:course,executive_id:executive_id,password:password,dob:dob,fathername:fathername,bankname:bankname,bankaccount:bankaccount,ifsc:ifsc,address:address
-                    ,student_reg:'student_reg'},
+                data:{name:name,mobile:mobile,email:email,ac_qualify:ac_qualify,course:course,executive_id:executive_id,password:password,dob:dob,fathername:fathername,bankname:bankname,bankaccount:bankaccount,ifsc:ifsc,address:address,dob:dob,student_reg:'student_reg'},
                 success: function(result){
-                    console.log(result);
-                    if(result=='1'){
+                    // alert(result);
+                    // console.log(result);
+                    if(result==1){
                         swal("Good job!", "Registered Successfully!", "success");
                         window.location = "studentlogin.php";
                     }

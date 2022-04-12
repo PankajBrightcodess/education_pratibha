@@ -66,7 +66,17 @@ $msg = "";
                         </div>
                         <div class="col-md-12">
                           <label>Time Duration<span style="color:red;">*</span></label>
-                          <input type="time" name="time_duration" id="time_duration" class="form-control" required="" >
+                         <select name="time_duration" id="time_duration" class="form-control">
+                            <option value="10">10 minutes</option>
+                            <option value="20">20 minutes</option>
+                            <option value="30">30 minutes</option>
+                            <option value="35">35 minutes</option>
+                            <option value="40">40 minutes</option>
+                            <option value="45">45 minutes</option>
+                            <option value="50">50 minutes</option>
+                            <option value="60">60 minutes</option>
+                          </select>
+                          <!-- <input type="time" name="time_duration" id="time_duration" class="form-control" required="" > -->
                         </div>
                         <div class="col-md-4">
                           <button class="btn btn-primary btn-sm btn-block" type="submit" name="add_test" style="margin-top: 10px;">Save</button>
@@ -107,16 +117,21 @@ $msg = "";
                                         $id = $value['id'];
                                         $query=" SELECT test_master.*, online_question.test_id AS test_id FROM test_master inner JOIN online_question ON online_question.test_id=test_master.id WHERE online_question.test_id=$id";
                                  $run=mysqli_query($conn,$query);
-                                  $nmq=mysqli_num_rows($run);
+                                 $nmq=mysqli_num_rows($run);
+                                 $numques="UPDATE `test_master` SET `no_question`='$nmq' WHERE `id`='$id'";
+                                 $run1=mysqli_query($conn,$numques);
+                                   // echo '<pre>';
+                                   // print_r($run1);
+
                                      ?>
-                               
+
                 
                         <tr>
                           <td><?php echo $sn; ?></td>
                           <td><?php echo $value['test_name']; ?></td>
                           <td><?php echo $nmq; ?></td>
                           <td><?php echo $value['total_marks']; ?></td>
-                          <td><?php echo $value['time_duration']; ?></td>
+                          <td><?php echo $value['time_duration']; ?>Minutes</td>
                           <td><?php echo $value['added_on']; ?></td>
                           <td>
                             <button class="btn btn-sm btn-success editdepartment" data-toggle="modal" data-id="<?php echo $value['id']; ?>" data-department="<?php echo $value['department']; ?>" data-target="#departmentModal">&nbsp;&nbsp;<i class="far fa-edit nav-icon"></i>&nbsp;Edit</button>

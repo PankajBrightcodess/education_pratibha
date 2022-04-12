@@ -29,7 +29,7 @@ $msg = "";
           if(!empty($onlinetest)){
             foreach ($onlinetest as $key => $value) {
                 ?>
-                <a href="exam_instruction.php/?id=<?php echo $value['id'];?>" style="color: black;"><div class="col-md-9 mb-3">
+                <a href="onlineexam.php?id=<?php echo $value['id'];?>" style="color: black;"><div class="col-md-9 mb-3">
                   <div class="card">
                    <div class="card-header bg-secondary text-light text-center"><span><strong>Attempt</strong></span></div>
                     <div class="card-body">
@@ -41,9 +41,9 @@ $msg = "";
                        <div class="col-md-3 col-3">
                           <img src="../../images/logo/logo.png" class="img-fluid">
                       </div>
-                          <div class="col-4" style="font-size: 10px;"><strong>10 Questions</strong></div>
-                          <div class="col-4" style="font-size: 10px;"><strong>20 Marks</strong></div>
-                          <div class="col-4" style="font-size: 10px;"><strong>10 Minutes</strong></div>
+                          <div class="col-4" style="font-size: 10px;"><strong><?= $value['no_question']; ?> Questions</strong></div>
+                          <div class="col-4" style="font-size: 10px;"><strong><?= $value['total_marks']; ?> Marks</strong></div>
+                          <div class="col-4" style="font-size: 10px;"><strong><?= $value['time_duration']; ?> Minutes</strong></div>
                     </div>
                   </div>
 

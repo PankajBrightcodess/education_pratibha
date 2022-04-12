@@ -12,14 +12,15 @@ $msg = "";
   if($_SESSION['role']!='3'){
     header('location:index.php');
   }
-  $id = $_GET['id'];
+  // $id = $_GET['id'];
+  $id = $_SESSION['enroll_id'];
   // $id = $_SESSION['cent_id'];
     $sql = "select * from test_master where id='$id' AND status = '1'";
     $res = mysqli_query($conn,$sql);
-    $onlinetest=mysqli_fetch_assoc($res)
-    // while () {
-    //   $onlinetest[]=$data;
-    // }
+    
+    while ($onlinetest=mysqli_fetch_assoc($res)) {
+      $onlinetest[]=$data;
+    }
     // print_r($onlinetest);die;
 ?>
 <?php include 'header-links.php'; ?>

@@ -63,7 +63,7 @@ $msg = "";
               <br><label>Profile</label></a>
             </div>
             <div class="col-md-6  col-6">
-              <a href="paid_course.php"><i class="fa fa-book" style="padding:25px;padding-bottom: 0px; color:brown;"></i><!-- <img src="../images/fav/031.png" alt="Los Angeles" style="padding:25px;padding-bottom: 0px;" class="img-fluid"> -->
+              <a href="onlineexamlist.php"><i class="fa fa-book" style="padding:25px;padding-bottom: 0px; color:brown;"></i><!-- <img src="../images/fav/031.png" alt="Los Angeles" style="padding:25px;padding-bottom: 0px;" class="img-fluid"> -->
               <label>Online Test</label></a>
 
             </div>
