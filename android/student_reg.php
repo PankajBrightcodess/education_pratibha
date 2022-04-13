@@ -162,22 +162,23 @@ while ($data=mysqli_fetch_assoc($run)) {
         $.ajax({
                 type:'POST',
                 url:'action.php',
-                data:{name:name,mobile:mobile,email:email,ac_qualify:ac_qualify,course:course,executive_id:executive_id,password:password,dob:dob,fathername:fathername,bankname:bankname,bankaccount:bankaccount,ifsc:ifsc,address:address,dob:dob,student_reg:'student_reg'},
+                data:{name:name,mobile:mobile,email:email,ac_qualify:ac_qualify,course:course,executive_id:executive_id,password:password,dob:dob,fathername:fathername,bankname:bankname,bankaccount:bankaccount,ifsc:ifsc,address:address,student_reg:'student_reg'},
                 success: function(result){
                     // alert(result);
                     // console.log(result);
-                    if(result==1){
+                    if(result){
                         swal("Good job!", "Registered Successfully!", "success");
                         window.location = "studentlogin.php";
                     }
                     else{
                         swal("Opps!", "Something Error!", "error");
+                        window.location = "student_reg.php";
                       
                     }
                       
                     },
                     error: function(){ 
-                       alert("error");
+                       alert("email already used");
                     },
         });
     return false;  

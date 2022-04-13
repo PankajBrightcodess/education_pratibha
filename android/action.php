@@ -688,17 +688,17 @@ if(isset($_POST['del_result_admin'])){
 	    		
 	    	    $sql=mysqli_query($conn,$query);
 	    	    if($sql){
-					$_SESSION['msg']="Student Added !!!";
+					echo "1";
 				}
 				else{
-					$_SESSION['msg']="Student Not Added !!!";
+					echo "0";
 				}
 	    	
 	    	
 	    }
 	    else{
-	    	$_SESSION['msg']='Email Already Used !!!';
-		    header("Location: " . $_SERVER['HTTP_REFERER']);
+	    	 echo "0";
+		    // header("Location: " . $_SERVER['HTTP_REFERER']);
 	    }
 	}
 	}

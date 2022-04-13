@@ -46,34 +46,36 @@ include '../connection.php';
                             <p><b><?php echo $i ; ?> .) <?php echo $value['question']; ?></b></p>
                             <div class="col-md-4 float-left">
                               <div class="form-group pl-4 ">
-                                <input name="answer" value="<?php echo $value['option_a']; ?>" class="form-check-input" type="radio" value="" id="invalidCheck" required >
-                               
-                                <label class="form-check-label" for="invalidCheck">
+                                <input name="answer[]" value="<?php echo $value['option_a']; ?>" class="form-check-input" type="radio" value="" id="invalidCheck1" required >
+                                <label class="form-check-label" for="invalidCheck1">
                                     <?php echo $value['option_a']; ?>
                                 </label>
+                                <input name="correct_ans[]" value="<?php echo $value['correct_ans']; ?>" class="form-check-input" type="hidden" value="" id="invalidCheck0" required >
+                                 <input name="ques_id[]" value="<?php echo $value['id']; ?>" class="form-check-input" type="hidden" value="" id="invalidCheck" required >
+                                
                               </div>  
 
                               <div class="form-group pl-4">
-                                <input name="answer" value="<?php echo $value['option_b']; ?>" class="form-check-input" type="radio" value="" id="invalidCheck" required >
+                                <input name="answer[]" value="<?php echo $value['option_b']; ?>" class="form-check-input" type="radio" value="" id="invalidCheck2" required >
                                
-                                <label class="form-check-label" for="invalidCheck">
+                                <label class="form-check-label" for="invalidCheck2">
                                     <?php echo $value['option_b']; ?>
                                 </label>
                               </div>   
                             </div>
                             <div class="col-md-8 float-left">
                              <div class="form-group pl-4">
-                                <input name="answer" value="<?php echo $value['option_c']; ?>" class="form-check-input" type="radio" value="" id="invalidCheck" required >
+                                <input name="answer[]" value="<?php echo $value['option_c']; ?>" class="form-check-input" type="radio" value="" id="invalidCheck3" required >
                                
-                                <label class="form-check-label" for="invalidCheck">
+                                <label class="form-check-label" for="invalidCheck3">
                                     <?php echo $value['option_c']; ?>
                                 </label>
                               </div>  
 
                               <div class="form-group pl-4">
-                                <input name="answer" value="<?php echo $value['option_d']; ?>" class="form-check-input" type="radio" value="" id="invalidCheck" required >
+                                <input name="answer[]" value="<?php echo $value['option_d']; ?>" class="form-check-input" type="radio" value="" id="invalidCheck4" required >
                                
-                                <label class="form-check-label" for="invalidCheck">
+                                <label class="form-check-label" for="invalidCheck4">
                                     <?php echo $value['option_d']; ?>
                                 </label>
                               </div>   
@@ -90,8 +92,8 @@ include '../connection.php';
                 ?>
                        <tr>
                              <td style="padding: 20px;">
-                               <a href="#" class="btn btn-sm btn-warning">&laquo; Previous</a>
-                     <a href="#" class="btn btn-sm btn-success">Next &raquo;</a>
+                              <!--  <a href="#" class="btn btn-sm btn-warning">&laquo; Previous</a>
+                     <a href="#" class="btn btn-sm btn-success">Next &raquo;</a> -->
                                  <button type="button" class="btn btn-xlg btn-warning p-3 pl-4 pr-4" id="resetExamFrm">Reset</button>
                                  <input name="submit" type="submit" value="Submit" class="btn btn-xlg btn-primary p-3 pl-4 pr-4 float-right" id="submitAnswerFrmBtn">
                              </td>
