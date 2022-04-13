@@ -37,6 +37,55 @@ function Imageupload($dir,$inputname,$allext,$pass_width,$pass_height,$pass_size
 	return $error;
 }
 // '''''''''''''''''''''''''''''''''''''''
+
+
+if(isset($_POST['submitAnswer'])){
+	  echo "<pre>";
+	  // print_r($_POST);die;
+
+		$data['ques_id']= $_POST['ques_id'];
+		$data['candidate_id']= $_POST['candidate_id'];
+		$data['exam_id']= $_POST['exam_id'];
+		$data['correct_ans']= $_POST['correct_ans'];
+		$data['answer']= $_POST['answer'];
+		$data['added_on']= date('Y-m-d');
+		$count = count($data['ques_id']);
+		// print_r($count);die;
+		for ($i=0; $i < $count; $i++) { 
+			// code...
+			$arr = array('ques_id'=>$data['ques_id'][$i],'candidate_id'=>$data['candidate_id'],'exam_id'=>$data['exam_id'],'correct_ans'=>$data['correct_ans'][$i],'answer'=>$data['answer'][$data['ques_id'][$i]],'added_on'=>$data['added_on']);
+			$testarray[]=$arr;
+		}
+		// print_r($revenuearray);die;
+     foreach ($testarray as $key => $value) {
+     	  $exam_id =$value['exam_id'];
+     	  $candidate_id = $value['candidate_id'];
+     	  $ques_id =$value['ques_id'];
+     	  $answer= $value['answer'];
+     	  $correct_ans=$value['correct_ans'];
+     	  $added_on=$value['added_on'];
+
+		  $query="INSERT INTO `test_result`(`exam_id`,`candidate_id`,`ques_id`,`answer`,`correct_ans`,`added_on`) VALUES ('$exam_id','$candidate_id','$ques_id','$answer',
+		  	'$correct_ans','$added_on')";
+		  $run=mysqli_query($conn,$query);
+		  // print_r($run);die;
+		}
+		if($run){
+			$_SESSION['msg']="exam Submitted !!!";
+			header('location:exam_result.php');
+		}
+		else{
+			$_SESSION['msg']="exam not Submitted !!!";
+			header('location:onlineexam.php');
+		}
+
+
+
+
+	}
+
+
+
  if(isset($_POST['payment']))
    {  $id = $_SESSION['enroll_id'];
    	 $amount = $_POST['amount'];

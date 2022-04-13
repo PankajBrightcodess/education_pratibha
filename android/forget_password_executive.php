@@ -30,29 +30,27 @@
 <?php include 'footer-links.php';?>
 <script type="text/javascript">
      $('.check_id').click(function(e){
-            debugger;
+            // debugger;
          var email=$('#email').val();
         $.ajax({
                 type:'POST',
-                url:'executive/action.php',
+                url:'executive/action.php',	
                 data:{email:email,change_center_exe:'change_center_exe'},
                 success: function(result){
-                	// window.open('');
-                		// alert(result);
-                    // console.log(result);
-                    if(result=='1'){
+                	// alert(result);
+                    if(result==1){
+                    	swal("Sent!", "Otp on email!", "success");
                     	window.location.href = "new_password_excutive.php";
-                        // swal("Good job!", "Registered Successfully!", "success");
                     }
                     else{
                         swal("Opps!", "Something Error!", "error");
-                      
+                        window.location.href = "forget_password_excutive.php";
                     }
                       
-                    },
-                    error: function(){ 
-                       alert("error");
-                    },
+                },
+                error: function(){ 
+                   swal("Opps!", "Not sent on Mail!", "internet problem");
+                },
         });
     return false;  
     });
