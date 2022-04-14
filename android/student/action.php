@@ -48,7 +48,7 @@ if(isset($_POST['submitAnswer'])){
 		$data['exam_id']= $_POST['exam_id'];
 		$data['correct_ans']= $_POST['correct_ans'];
 		$data['answer']= $_POST['answer'];
-		$data['added_on']= date('Y-m-d');
+		$data['added_on']= date('Y-m-d H');
 		$count = count($data['ques_id']);
 		// print_r($count);die;
 		for ($i=0; $i < $count; $i++) { 

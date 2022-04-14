@@ -123,7 +123,7 @@ body{
 /*============================================== Pankaj css end =========================*/
 /*----------header---------*/
 .top-part {
-    position: fixed;
+   /* position: fixed;*/
     z-index: 99;
     width: 100%;
     height: auto;
