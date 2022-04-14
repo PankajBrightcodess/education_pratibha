@@ -62,6 +62,7 @@ function timer(remaining) {
   if(!timerOn) {
     // Do validate stuff here
     return;
+     deletedata();
   }
   
   // Do timeout stuff here
@@ -69,6 +70,29 @@ function timer(remaining) {
 }
 
 timer(600);
+
+
+function deletedata(){
+
+	$.ajax({
+                    type:"POST",
+                    url:"executive/action.php",
+                    data:{deleteotp:"deleteotp"},
+                    success:function(data){
+                       if(data == 1){
+                       	window.location.href = "executivelogin.php";
+                       }
+                       else{
+                       
+                        window.location.href = "new_password_excutive.php";
+                       }
+                    },
+                     error: function(){ 
+                      return false;
+                    },
+                });
+	return false;
+}
 
 	// timer script out
      $('.updt').click(function(e){

@@ -164,27 +164,40 @@ if(isset($_POST['change_center_exe'])){
    }
    if(isset($_POST['update_password_executive'])){
 		   if($_POST['new_pass']==$_POST['con_pass']){
+		   	   $otp  = $_POST['otp'];
 		   	   $pass = $_POST['con_pass'];
 				$id = $_SESSION['id'];
-				$query="UPDATE `field_excutive` SET `password`='$pass' WHERE `id`='$id'";
+				$query="UPDATE `field_excutive` SET `password`='$pass',`otp`='$otp' WHERE `id`='$id'";
 				// print_r($query);die;
 				$run=mysqli_query($conn,$query);
 				if($run){
 					echo '1';	 
 				}
 				else{
-					$msg = "Not updated !";
-					echo $msg; 
+					
+					echo '0'; 
 				}
 			}
 			else{
-				    $msg = "Password Not Match !";
-					echo $msg; 
+				    
+					echo '0'; 
 				// header("Location: " . $_SERVER['HTTP_REFERER']);
 			}
 	}
 
 	
+	if(isset($_POST['deleteotp'])){
+		$id = $_SESSION['id'];
+		$otp ='';
+		$query="UPDATE `field_excutive` SET `otp`='$otp' WHERE `id`='$id'";
+		$sql=mysqli_query($conn,$query);
+		if(!empty($sql)){
+			echo "1";
+		}
+		else{
+			echo "0";
+		}
+	}
 
 
 // 	if(isset($_POST['add_homework'])){
