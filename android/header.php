@@ -1,4 +1,4 @@
-<body class="desktop" style="background: #c4dee9;">
+<body class="desktop" style="background: #929cd1;">
 	<style type="text/css">
 		.home2 a{
 			text-align: center;

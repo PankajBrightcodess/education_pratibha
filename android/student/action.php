@@ -84,12 +84,39 @@ if(isset($_POST['submitAnswer'])){
 
 	}
 
+// if(isset($_POST['payment']))
+//    {
 
+//    	$category = $_POST['category'];
+//    	 $name = $_POST['name'];
+//    	 $email = $_POST['email'];
+//    	 $phone = $_POST['phone'];
+//    	 $course = $_POST['course'];
+//    	 $istname = $_POST['istname'];
+//    	 $amount = $_POST['amount'];
+//    	 $added_on = date('Y-m-d');
+//    	 $length = 15;
+// 	 $request_no=substr(str_shuffle(str_repeat($x='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz', ceil($length/strlen($x)) )),1,$length);
+// 	 $sql = "INSERT INTO  `addpayment` (`category`,`name`,`email`,`phone`,`ins_name`,`course`,`amount`,`request_no`,`added_on`)VALUES ('$category','$name','$email','$phone','$istname','$course','$amount','$request_no','$added_on')";
+// 	 // print_r($sql);die;
+// 	 if (mysqli_query($conn,$sql)) {
+// 		$_SESSION['msg']="Records Added Successfully !!!";
+// 		$_SESSION['last_inst_id']=$conn->insert_id; 
+// 		// print_r($_SESSION['last_inst_id']);die;
+//         header('location:payment.php');
+// 	 } else {
+// 		$_SESSION['msg']="Records Not Added !!!";
+//        // header('header:registrationform.php');
+// 	 }
+   		
+//   }
 
  if(isset($_POST['payment']))
    {  $id = $_SESSION['enroll_id'];
    	 $amount = $_POST['amount'];
    	 $added_on = date('Y-m-d');
+   	  $length = 15;
+   	  $request_no=substr(str_shuffle(str_repeat($x='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz', ceil($length/strlen($x)) )),1,$length);
 	 $sql="UPDATE `student` SET `amount`='$amount',`pay-date`='$added_on' WHERE `id`='$id'";
 				// print_r($query);die;
 	 if (mysqli_query($conn,$sql)) {
@@ -99,7 +126,7 @@ if(isset($_POST['submitAnswer'])){
 		// $_SESSION['msg']="Records Not Added !!!";
        header('header:registrationform.php');
 	 }
-   		
+   		// 
   }
 if(isset($_POST['studentlogin'])){
 	

@@ -50,7 +50,7 @@ include 'header.php';
 ?>
 <style>
     .box1{
-        background-color: #de7812!important;
+        background-color: #ff7f00!important;
         box-shadow: 0 0 1px rgb(0 0 0 / 13%), 0 1px 3px rgb(0 0 0 / 20%);
         /*display: block;*/
         margin-bottom: 20px;
@@ -71,21 +71,21 @@ include 'header.php';
         /*position: relative;*/
     }
      .box4{
-        background-color: #c2312f!important;
+        background-color: #1f78a2!important;
         box-shadow: 0 0 1px rgb(0 0 0 / 13%), 0 1px 3px rgb(0 0 0 / 20%);
         /*display: block;*/
        /* margin-bottom: 20px;*/
         /*position: relative;*/
     }
     .abc{
-        margin-top: 25px;
+        margin-top: 120px;
     }
     #container {
-    background-color: #F00;
-    height: 100px;
+    background-color: #ff7f00;
+    height: 300px;
     overflow-x: hidden;
     overflow-y: scroll;
-    width: 200px;
+    width: 300px;
 }
 
 
@@ -122,20 +122,20 @@ include 'header.php';
         </div>
    </div>
 </section>
-<section>
+<section style="margin-top: 25px;">
 <div class="container">
 <div class="row">
     <div class="col-8">
         <div id="container">
             
-<div class="row col-md-6 float-left">
+<div class="row col-md-6">
             <div class="main-card mb-3 card">
                 <div class="card-body">
-                    <h5 class="card-title">Your Answer's</h5>
+                   
                     <table class="align-middle mb-0 table table-borderless table-striped table-hover" id="tableList">
                      <?php 
                      // "SELECT student.*, field_excutive.name AS exe_name FROM student INNER JOIN field_excutive ON student.executive_id=field_excutive.id WHERE student.status='1'";
-                        $selQuest = "SELECT test_result.*, online_question.question, online_question.marks FROM test_result INNER JOIN online_question ON test_result.ques_id=online_question.id WHERE test_result.candidate_id='$cand_id' AND test_result.exam_id ='$examid' ORDER BY `pid` DESC";
+                        $selQuest = "SELECT test_result.*, online_question.question, online_question.marks FROM test_result INNER JOIN online_question ON test_result.ques_id=online_question.id WHERE test_result.candidate_id='$cand_id' AND test_result.exam_id ='$examid' AND test_result.added_on = '$date' ORDER BY `pid` DESC";
                          $run=mysqli_query($conn,$selQuest);
                           while ($data=mysqli_fetch_assoc($run)) {
                                    $quesres[] = $data;  
@@ -145,7 +145,7 @@ include 'header.php';
                               <tr>
                                 <td>
                                     <b><p><?php echo $i ; ?> .) <?php echo $value['question']; ?></p></b>
-                                    <label class="pl-4 text-success">
+                                    <label class="pl-4">
                                         Answer : 
                                         <?php 
                                             if($value['answer'] != $value['correct_ans'])
@@ -158,7 +158,7 @@ include 'header.php';
                                             <?php }
                                          ?>
                                     </label>
-                                    <label class="pl-4">Correct Answer:<?php echo $value['correct_ans']; ?></label>
+                                    <label class="pl-4">Correct:<span class="text-success"><?php echo $value['correct_ans']; ?></span></label>
                                 </td>
                             </tr>
                     <?php        }
@@ -166,28 +166,42 @@ include 'header.php';
                               ?>
                      </table>
                 </div>
+                
             </div>
         </div>
+  
 
 
 
 
 
 
-                        
 </div>
     </div>
     <div class="col-4">
              <div class="box4">  
-               <span style="color:white">Correct question:</span> 
-               <h3 style="color:white"><?php echo $correct;  ?></h3>  
+               <span style="color:white">Results</span> 
+             <?php 
+                                   $total = 0;
+                                   $marks = 0;
+                                  if (!empty($quesres)) {
+                                  foreach ($quesres as $key => $row) {
+                                    $total = $total + $row['marks'];
+
+                                     if($row['answer'] == $row['correct_ans']){
+                                        $marks = $marks + $row['marks'];
+
+                                     }
+                                 }
+                             }
+
+                            ?>
+                       <h3 style="color:white">   <?php echo $marks; ?>   / <?php echo $total; ?></h3>     
              </div> 
     </div>
 </div>   
 </div>  
 </section>
-
-
-
+<h4 style="color:white; margin-top: 12px;" class="text-center "> Retake Exam After One Hour!</h4>
 <?php include 'footer.php'; ?>
 <?php include 'footer-links.php'; ?>

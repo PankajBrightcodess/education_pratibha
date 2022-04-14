@@ -1,5 +1,6 @@
 <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
-<body class="desktop" style="background: #e9ebfb;">
+<!-- <body class="desktop" style="background: #e9ebfb;"> -->
+<body class="desktop" style="background: #929cd1;">
 	<style type="text/css">
 		.home2 a{
 			text-align: center;
