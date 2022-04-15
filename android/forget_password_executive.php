@@ -37,20 +37,21 @@
                 url:'executive/action.php',	
                 data:{email:email,change_center_exe:'change_center_exe'},
                 success: function(result){
+                	// console.log(result);
                 	// alert(result);
-                    if(result==1){
-                    	swal("Sent!", "Otp on email!", "success");
-                    	window.location.href = "new_password_excutive.php";
-                    }
-                    else{
+                     if(result==1){
+                     	swal("Sent!", "Otp on email!", "success");
+                     	window.location.href = "new_password_excutive.php";
+                     }
+                     else{
                         swal("Opps!", "Something Error!", "error");
-                        window.location.href = "forget_password_executive.php";
-                    }
+                         window.location.href = "forget_password_executive.php";
+                     }
                       
                 },
-                error: function(){ 
-                   swal("Opps!", "Not sent on Mail!", "internet problem");
-                },
+                 error: function(){ 
+                    swal("Opps!", "Not sent on Mail!", "internet problem");
+                 },
         });
     return false;  
     });

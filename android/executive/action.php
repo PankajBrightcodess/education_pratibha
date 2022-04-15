@@ -140,9 +140,11 @@ if(isset($_POST['executive_login'])){
 	}
 }
 if(isset($_POST['change_center_exe'])){
-	     	$email = $_POST['email'];
+	echo '<pre>';
+	  $email = $_POST['email'];
 	  $otp = rand(100000, 999999);
 		$query="SELECT * FROM `field_excutive` WHERE `email`='$email'";
+		// print_r($query);die;
 		$run=mysqli_query($conn,$query);
 		$num=mysqli_num_rows($run);
 
