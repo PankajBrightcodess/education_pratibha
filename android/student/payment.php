@@ -34,7 +34,7 @@ $name = "Customer of $custname - $orderno";
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Make Payment</title>
-    <?php  include 'main-head-links.php'; ?>
+    <?php  include 'header-links.php'; ?>
   </head>
   <body style="background: #009740;">
 <section class="payment-page">  
@@ -49,7 +49,7 @@ $name = "Customer of $custname - $orderno";
                         <div class="col-6 col-md-6">
                             <h3><?php echo ucwords($row['name']);?></h3>
                             <!-- <p class='mb-0' style='font-size:14px'><?php echo $row['name'];?></p> -->
-                            <p class='mb-0' style='font-size:14px'>+91 <?php echo $row['phone'];?></p>
+                            <p class='mb-0' style='font-size:14px'>+91 <?php echo $row['mobile'];?></p>
                         </div>
                         
                     </div><hr/>

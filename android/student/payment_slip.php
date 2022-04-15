@@ -1,18 +1,11 @@
 <?php
 error_reporting(0);
 session_start();
-  // if(isset($_SESSION['user'])){
-  //     $role=$_SESSION['role'];
-  //   $user=$_SESSION['user'];
-  //     $admission_no=$_GET['admission_no'];
-  //     $pre=$_GET['page']; 
-  //     $caste=$_GET['caste'];
-  // }
-  // else{
-  //     header("Location:index.php");
-  // }
-  
-include('admin/connection.php');
+include '../connection.php';
+    if(empty($_SESSION['enroll_id'])){
+    header('location:../studentlogin.php');
+  }  
+  $id=$_SESSION['enroll_id'];
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -51,9 +44,9 @@ include('admin/connection.php');
      <div class="row" style="margin-top:50px;">
        <div class="col-md-12 mb-5">
             <center>
-                <strong><font size="+2">Shivanya Computer Education</font></strong><br />
-                <strong><font size="+1">ADARSH CO OPERATIVE , SHOPPING CENTRE , SHOP NO - 24 , BOKARO</font></strong><br />
-                <strong><font size="+1">Bokaro – 827012(Jharkhand)</font></strong><br />
+                <strong><font size="+2">Pratibha Darpan</font></strong><br />
+                <strong><font size="+1">Ranchi , SHOPPING CENTRE , SHOP NO - 24 , jharkhand</font></strong><br />
+                <strong><font size="+1">Ranchi – 827012(Jharkhand)</font></strong><br />
                 <strong><font size="+1">An ISO 9001:2015 Certified institute</font></strong><br />
             </center>
        </div><!-- col-md-12 closed -->
@@ -71,22 +64,33 @@ include('admin/connection.php');
                     
              </thead>
              <?php 
-             include "admin/connection.php";
-             $id = $_SESSION['last_inst_id'];
-              unset($_SESSION['last_inst_id']);
-             $ex=mysqli_query($conn,"select * from `addpayment` where id='$id'");
-              $resultset=mysqli_fetch_array($ex);
-                  {
+            
+              $query="SELECT * FROM `student` WHERE `id`='$id'";
+              $run=mysqli_query($conn,$query);
+              // echo '<pre>';
+              // print_r($);die;
+             
+              while ($data=mysqli_fetch_assoc($run)) {
+                         $onlinetest[]=$data;
+                   }
+                   if(!empty($onlinetest)){
+                    foreach ($onlinetest as $key => $value) {
+                        // code...
+                   
+   
               ?>
+
              <tr style="text-align:start;" valign="middle">
-               <td style="text-align:center;"><?php echo $resultset['name'];?></td>
-               <td style="text-align:center"><?php echo $resultset['payment_id'];?></td>
-               <td style="text-align:center"><?php echo $resultset['amount'].'/-';?></td>
+               <td style="text-align:center;"><?php echo $value['name'];?></td>
+               <td style="text-align:center"><?php echo $value['payment_id'];?></td>
+               <td style="text-align:center"><?php echo $value['amount'].'/-';?></td>
                <td style="text-align:center"><?php echo 'Success';?></td>
              </tr>
-                <?php 
-                 }
-                ?>
+        <?php
+         }
+                   }
+                   ?>
+               
            </table></center>
        </div><!-- col-md-12 closed -->
 

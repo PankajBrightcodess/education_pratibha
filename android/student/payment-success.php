@@ -17,7 +17,7 @@ $msg = "";
       $razorpay_payment_id = $_POST['razorpay_payment_id'];
       // $payment_date = date('Y/m/d');
       $payment_status = 1;
-      $id = $_SESSION['last_inst_id'];
+      $id = $_SESSION['enroll_id'];
       // unset($_SESSION['last_inst_id']);
       $sql="UPDATE student SET payment_status = '$payment_status',payment_id = '$razorpay_payment_id', payment_details = '$payment_details' WHERE `id`='$id'";
      $run=mysqli_query($conn,$sql);
@@ -29,7 +29,7 @@ $msg = "";
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Payment Success</title>
-        <?php  include 'main-head-links.php'; ?>
+        <?php  include 'header-links.php'; ?>
   </head>
   <body style="background: #dff5df;">
     <section class="payment-success">

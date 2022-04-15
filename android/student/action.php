@@ -117,15 +117,15 @@ if(isset($_POST['submitAnswer'])){
    	 $added_on = date('Y-m-d');
    	  $length = 15;
    	  $request_no=substr(str_shuffle(str_repeat($x='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz', ceil($length/strlen($x)) )),1,$length);
-	 $sql="UPDATE `student` SET `amount`='$amount',`pay-date`='$added_on',`request_no` = '$request_no' 
-	 WHERE `id`='$id'";
-	 $run = mysqli_query($conn,$sql)
-	 echo '<pre>';
-				print_r($run);die;
-	 if (run) {
+	 $sql="UPDATE `student` SET `amount`='$amount',`pay_date`='$added_on',`request_no`='$request_no' WHERE `id`='$id'";
+	 $run = mysqli_query($conn,$sql);
+	//  echo '<pre>';
+	// print_r($run);die;
+	 if ($run) {
 		
        header('location:payment.php');
-	 } else {
+	 } 
+	 else {
 		// $_SESSION['msg']="Records Not Added !!!";
        header('header:pay.php');
 	 }
