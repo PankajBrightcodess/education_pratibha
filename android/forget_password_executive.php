@@ -44,7 +44,7 @@
                     }
                     else{
                         swal("Opps!", "Something Error!", "error");
-                        window.location.href = "forget_password_excutive.php";
+                        window.location.href = "forget_password_executive.php";
                     }
                       
                 },
