@@ -187,12 +187,13 @@ if(isset($_POST['change_center_exe'])){
 		 	echo "0";
 		}
    }
+
    if(isset($_POST['update_password_executive'])){
 		   if($_POST['new_pass']==$_POST['con_pass']){
-		   	$otp =$_POST['otp'];
+		   	  $otp =$_POST['otp'];
 		   	   $pass = $_POST['con_pass'];
-				$id = $_SESSION['id'];
-				$query="SELECT * FROM `field_excutive` WHERE `id`='$id' AND `otp`='$otp'";
+			   $id = $_SESSION['id'];
+			   $query="SELECT * FROM `field_excutive` WHERE `id`='$id' AND `otp`='$otp'";
         $run=mysqli_query($conn,$query);
         $data=mysqli_num_rows($run);
         if($data>0){
