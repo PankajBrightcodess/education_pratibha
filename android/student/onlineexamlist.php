@@ -12,12 +12,27 @@ $msg = "";
   if($_SESSION['role']!='3'){
     header('location:index.php');
   }
-  // $id = $_SESSION['cent_id'];
-    $sql = "select * from test_master where status = '1'";
+  $id = $_SESSION['enroll_id'];
+   
+
+$query="SELECT * FROM `student` WHERE `id`='$id'";
+$run=mysqli_query($conn,$query);
+$check=mysqli_fetch_assoc($run);
+// echo '<pre>';
+// print_r($check);die;
+if($check['payment_status'] == '1'){
+  $sql = "select * from test_master where status = '1'";
     $res = mysqli_query($conn,$sql);
     while ($data=mysqli_fetch_assoc($res)) {
       $onlinetest[]=$data;
     }
+  
+}
+else{
+
+header('location:pay.php');
+}
+
 ?>
 <?php include 'header-links.php'; ?>
 <?php include 'header.php'; ?>
@@ -26,6 +41,7 @@ $msg = "";
     <div class="container-fluid">
       <div class="row">
         <?php 
+
           if(!empty($onlinetest)){
             foreach ($onlinetest as $key => $value) {
                 ?>

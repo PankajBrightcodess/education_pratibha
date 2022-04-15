@@ -102,6 +102,24 @@
             <a href="#" class="nav-link <?php if(in_array($page, $product)){echo 'active';} ?>">
               <i class="fas fa-layer-group nav-icon"></i>
               <p>
+                About
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+            
+              <li class="nav-item">
+                <a href="about-list.php" class="nav-link  <?php if($page == 'product-list'){ echo 'active'; }?>">
+                  <i class="fas fa-clipboard-list nav-icon"></i>
+                  <p>About List</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+           <li class="nav-item has-treeview <?php if(in_array($page, $product)){echo 'menu-open';} ?>">
+            <a href="#" class="nav-link <?php if(in_array($page, $product)){echo 'active';} ?>">
+              <i class="fas fa-layer-group nav-icon"></i>
+              <p>
                 Upload File
                 <i class="right fas fa-angle-left"></i>
               </p>
