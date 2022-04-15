@@ -148,16 +148,16 @@ if(isset($_POST['change_center_exe'])){
 		$run=mysqli_query($conn,$query);
 		// print_r($run);die;
 		$num=mysqli_num_rows($run);
-		print_r($num);die;
+		// print_r($num);die;
 
 		if($num){
 			$data=mysqli_fetch_assoc($run);
 			$_SESSION['id'] = $data['id'];
 			 $id= $data['id'];
-			 print_r($id);die;
 			if(!empty($id)){
 				$query="UPDATE `field_excutive` SET `otp`='$otp' WHERE `id`='$id'";
 				$sql=mysqli_query($conn,$query);
+				 // print_r($sql);die;
 				if($sql){
 					$from = "educollectionpratibhadarpan@gmail.com";
 					$name = "Education Pratibha";
