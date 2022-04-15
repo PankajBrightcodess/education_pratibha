@@ -80,10 +80,12 @@ function deletedata(){
                     data:{deleteotp:"deleteotp"},
                     success:function(data){
                        if(data == 1){
+                        swal("Opps", "Otp time out", "error");
                        	window.location.href = "executivelogin.php";
+
                        }
                        else{
-                       
+                        
                         window.location.href = "new_password_excutive.php";
                        }
                     },
@@ -105,17 +107,19 @@ function deletedata(){
                 success: function(result){
                 	
                     if(result=='1'){
-                    	// window.location.href = "new_password_excutive.php";
                         swal("Good job!", "Updated Successfully!", "success");
+                    	window.location.href = "executivelogin.php";
+                        
                     }
                     else{
                         swal("Opps!", "Something Error!", "error");
+                        window.location.href = "new_password_excutive.php";
                       
                     }
                       
                     },
                     error: function(){ 
-                       alert("error");
+                      swal("Opps!", " updated Error!", "error");
                     },
         });
     return false;  

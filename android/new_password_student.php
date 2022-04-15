@@ -79,6 +79,7 @@ function deletedata(){
                     data:{deleteotp:"deleteotp"},
                     success:function(data){
                        if(data == 1){
+                        swal("Opps", "Otp time out", "error");
                        	window.location.href = "studentlogin.php";
                        }
                        else{

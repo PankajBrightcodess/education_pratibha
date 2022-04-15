@@ -151,7 +151,7 @@ if(isset($_POST['change_center_exe'])){
 			$_SESSION['id'] = $data['id'];
 			 $id= $data['id'];
 			if(!empty($id)){
-				$query="UPDATE `student` SET `otp`='$otp' WHERE `id`='$id'";
+				$query="UPDATE `field_excutive` SET `otp`='$otp' WHERE `id`='$id'";
 				$sql=mysqli_query($conn,$query);
 				if($sql){
 					$from = "educollectionpratibhadarpan@gmail.com";
@@ -188,24 +188,30 @@ if(isset($_POST['change_center_exe'])){
    }
    if(isset($_POST['update_password_executive'])){
 		   if($_POST['new_pass']==$_POST['con_pass']){
-		   	   $otp  = $_POST['otp'];
+		   	$otp =$_POST['otp'];
 		   	   $pass = $_POST['con_pass'];
 				$id = $_SESSION['id'];
-				$query="UPDATE `field_excutive` SET `password`='$pass',`otp`='$otp' WHERE `id`='$id'";
-				// print_r($query);die;
-				$run=mysqli_query($conn,$query);
-				if($run){
-					echo '1';	 
-				}
-				else{
-					
-					echo '0'; 
-				}
-			}
-			else{
-				    
-					echo '0'; 
-				// header("Location: " . $_SERVER['HTTP_REFERER']);
+				$query="SELECT * FROM `field_excutive` WHERE `id`='$id' AND `otp`='$otp'";
+        $run=mysqli_query($conn,$query);
+        $data=mysqli_num_rows($run);
+        if($data>0){
+        	$otps ='';
+				  $query="UPDATE `field_excutive` SET `password`='$pass',`otp`='$otps' WHERE `id`='$id'";
+					// print_r($query);die;
+					$run=mysqli_query($conn,$query);
+					// $query="UPDATE `student` SET  WHERE `id`='$id'";
+			  //   $sql=mysqli_query($conn,$query);
+					if($run){
+						 echo "1";
+					}
+					else{
+						echo "0";
+					}
+        }
+        else{
+        	echo "0";
+        }
+				
 			}
 	}
 
