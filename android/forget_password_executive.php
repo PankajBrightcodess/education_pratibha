@@ -37,7 +37,7 @@
                 url:'executive/action.php',	
                 data:{email:email,change_center_exe:'change_center_exe'},
                 success: function(result){
-                	console.log(result);
+                	// console.log(result);
                 	alert(result);
                      if(result==1){
                      	swal("Sent!", "Otp on email!", "success");
