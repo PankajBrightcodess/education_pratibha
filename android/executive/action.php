@@ -140,27 +140,51 @@ if(isset($_POST['executive_login'])){
 	}
 }
 if(isset($_POST['change_center_exe'])){
-	    // print_r($_POST);die;
-	   	$email = $_POST['email'];
-		$query="SELECT * FROM `field_excutive` WHERE `email`='$email' AND `role`='2'";
-	// print_r($quy);die;
+	    $email = $_POST['email'];
+	    $otp = rand(100000, 999999);
+		$query="SELECT * FROM `field_excutive` WHERE `email`='$email'";
 		$run=mysqli_query($conn,$query);
-			$num=mysqli_num_rows($run);
-			if($num){
+		$num=mysqli_num_rows($run);
+
+		if($num){
 			$data=mysqli_fetch_assoc($run);
 			$_SESSION['id'] = $data['id'];
-			$_SESSION['role'] = $data['role'];
-			if($_SESSION['role']==2){
-				echo '1';
+			 $id= $data['id'];
+			if(!empty($id)){
+				$query="UPDATE `student` SET `otp`='$otp' WHERE `id`='$id'";
+				$sql=mysqli_query($conn,$query);
+				if($sql){
+					$from = "educollectionpratibhadarpan@gmail.com";
+					$name = "Education Pratibha";
+					$message = "your one time email verification change password".$otp."";
+					$subject = "Forget Password From Pratibha Darpan";
+					$headers  = 'MIME-Version: 1.0' . "\r\n";
+	        $headers .= 'Content-type:text/html;charset=UTF-8' . "\r\n";
+	        $headers .= "From: $name <$from>  \r\n"."Cc: $email \r\n"."Bcc: $email \r\n"."Reply-To: $name <$from>\r\n" ."Return-Path:  <$email>\r\n" .'X-Mailer: PHP/' . phpversion();
+	        $mail = @mail($email, $subject, $message, $headers);
+	        if($mail){
+	        	echo "1";
+	        }
+	        else{
+	        	echo "0";
+	        }
+        
+				}
+       else{
+       	 echo "0";
+       }
+
+        
 			}
 			else{
-				echo '0';
+				echo "0";
 			}
-			 }	
-			else{
-				 // $_SESSION['msg']="Please Enter Correct Email id";
-				header("Location: " . $_SERVER['HTTP_REFERER']);
-			}
+			
+		}	
+		else{
+		 	echo "0";
+		}
+		
    }
    if(isset($_POST['update_password_executive'])){
 		   if($_POST['new_pass']==$_POST['con_pass']){
