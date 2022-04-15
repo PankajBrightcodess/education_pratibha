@@ -384,10 +384,48 @@ if(isset($_POST['del_notice'])){
 		header("location:$_SERVER[HTTP_REFERER]");
 	}
 }
+
+// update master
+if(isset($_POST['update_master'])){
+	// echo '<pre>';
+	// print_r($_POST);die;
+	$id = $_POST['SnoEdit'];
+	$test_name = $_POST['test_name'];
+	$total_marks = $_POST['total_marks'];
+	$time_duration = $_POST['time_duration'];
+	$query="UPDATE `test_master` SET `id`='$id',`test_name`='$test_name',`total_marks`='$total_marks',`time_duration`='$time_duration' WHERE `id`='$id'";
+				$run=mysqli_query($conn,$query);
+				if($run){
+					 header('Location:textmaster.php');
+					$_SESSION['msg']="Test Master Update Successfully !!!";	
+				}
+				else{
+					$_SESSION['msg']="Test Master Not Updated!!!";
+					header("location:$_SERVER[HTTP_REFERER]");
+				}
+}
+
+if(isset($_GET['deletemaster'])){
+	$id=$_GET['deletemaster'];	
+	$query="DELETE FROM `test_master` WHERE `id` = $id";
+	// echo '<pre>';
+	// print_r($query);die;
+	// // echo $query;die;	
+	$run=mysqli_query($conn,$query);
+	if($run===true){
+		header('Location:testmaster.php');
+		$_SESSION['msg']="Test Master list Deleted Successfully !!!";
+	}
+	else{
+		$_SESSION['msg']="Test Master list Deletion Cancel !!!";
+		header("location:$_SERVER[HTTP_REFERER]");
+	}
+	header("location:$_SERVER[HTTP_REFERER]");
+}
 // update test and delete
 
 if(isset($_POST['update_question'])){
-	echo '<pre>';
+	// echo '<pre>';
 	// print_r($_POST);die;
 	$id = $_POST['snoEdit'];
 	$test_id = $_POST['test_name-edit'];

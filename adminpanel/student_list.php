@@ -185,30 +185,30 @@ $msg = "";
        <form action="action.php" method="post">
         <div class="modal-body">
            <input type="hidden" name="id" id="id" class="form-control"> 
-           <label>Name <span style="color:red;">*</span></label>
+           <label>Name </label>
            <input type="text" name="name" id="name" class="form-control" required="" value="abc">
 
           
 
-           <label>DOB <span style="color:red;">*</span></label>
+           <label>DOB </label>
            <input type="date" name="dob" id="dob" class="form-control" required="" >
 
-            <label>Father Name<span style="color:red;">*</span></label>
+            <label>Father Name</label>
            <input type="text" name="fathername" id="fathername" class="form-control" required="" >
 
-           <label>Bank Name<span style="color:red;">*</span></label>
+           <label>Bank Name</label>
            <input type="text" name="bankname" id="bankname" class="form-control" required="" >
            
-           <label>Bank Account<span style="color:red;">*</span></label>
+           <label>Bank Account</label>
            <input type="text" name="bankaccount" id="bankaccount" class="form-control" required="" >
 
-           <label>IFSC<span style="color:red;">*</span></label>
+           <label>IFSC</label>
            <input type="text" name="ifsc" id="ifsc" class="form-control" required="" >
 
-            <label>Address <span style="color:red;">*</span></label>
+            <label>Address </label>
            <input type="text" name="address" id="address" class="form-control" required="" >
 
-            <label>Feild Executive <span style="color:red;">*</span></label>
+            <label>Feild Executive </label>
            <select class="form-control" id="executive_id" name="executive_id">
                 <option>---SELECT---</option>
                 <?php 
@@ -222,13 +222,13 @@ $msg = "";
                 ?>
             </select>
 
-           <label>Mobile Number <span style="color:red;">*</span></label>
+           <label>Mobile Number </label>
            <input type="text" name="mobile" id="mobile" class="form-control" required="" >
 
-            <label>Email Id <span style="color:red;">*</span></label>
+            <label>Email Id </label>
            <input type="text" name="email" id="email" class="form-control" required="" >
 
-           <label>Password <span style="color:red;">*</span></label>
+           <label>Password </label>
            <input type="text" name="password" id="password" class="form-control" required="" >
 
         </div>

@@ -65,11 +65,11 @@ $msg = "";
                   <div class="col-md-12">
                         
                 <div class="col-md-12 mb-5">
-                    <label>Homework Name<span style="color: Red;">*</span></label>
+                    <label>Homework Name<!-- <span style="color: Red;">*</span> --></label>
                   <input type="text" name="name" id="name" class="form-control">
                 </div>
                 <div class="col-md-12 mb-5">
-                    <label>Upload Homework<span style="color: Red;">*</span></label>
+                    <label>Upload Homework<!-- <span style="color: Red;">*</span> --></label>
                   <input type="file" name="assessement" accept="pdf" class="form-control">
                 </div>
                   </div>

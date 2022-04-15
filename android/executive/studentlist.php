@@ -24,11 +24,11 @@ include '../connection.php';
                   $nm1=mysqli_num_rows($res1);
                   ?>
                <div class="row" style="padding:19px;">
-                    <div class="col-6" style="background-color: #6893cb; color: white; text-align: center;">
+                    <div class="col-6" style="background-color: #20c997; color: white; text-align: center;">
                       Paid Student: <h3><br><?php echo $nm1 ; ?></h3>
                     </div>
                      
-                     <div class="col-6" style="background-color:#4767a7; color:white; text-align: center;">
+                     <div class="col-6" style="background-color:#ca4653; color:white; text-align: center;">
                       Unpaid Student: <h3> <br><?php echo $nm0 ; ?></h3>
                     </div>
                 </div>
@@ -77,11 +77,11 @@ include '../connection.php';
                           <td><?php
                              $status= $uploadresult['payment_status'];
                                       if( $status == 1){ ?>
-                                          <center  style="background-color: #6893cb; color: white; text-align: center;">Paid</center>
+                                          <center  style="background-color: #20c997; color: white; text-align: center;">Paid</center>
                                     <?php   }
 
                                       else{ ?>
-                                        <center style="background-color:#4767a7; color:white; text-align: center;">Unpaid</center>
+                                        <center style="background-color:#ca4653; color:white; text-align: center;">Unpaid</center>
                                   <?php    } ?></td>
                         </tr>  
                         <?php } }?>

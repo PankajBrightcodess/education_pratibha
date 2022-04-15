@@ -58,29 +58,29 @@ $msg = "";
                     <div class="card-body">
                       <div class="row">
                         <div class="col-md-12 mb-2">
-                         <label>Student Name<span style="color:red;">*</span></label>
+                         <label>Student Name</label>
                         <input type="text" name="name" id="name" placeholder="Enter student name" class="form-control">
                         </div>
                         <div class="col-md-12 mb-2">
-                         <label>Father Name<span style="color:red;">*</span></label>
+                         <label>Father Name</label>
                         <input type="text" name="father_name" id="father_name" placeholder="Enter father name" class="form-control">
                         </div>
                         <div class="col-md-12 mb-2">
-                         <label>Mother Name<span style="color:red;">*</span></label>
+                         <label>Mother Name</label>
                         <input type="text" name="mother_name" id="father_name" placeholder="Enter mother name" class="form-control">
                         </div>
                     
 
                          <div class="col-md-12 mb-2">
-                          <label>percentage<span style="color:red;">*</span></label>
+                          <label>percentage</label>
                          <input type="text" name="percentage" id="percentage"class="form-control" placeholder="Enter the percentage">
                         </div>
                         <div class="col-md-12 mb-2">
-                          <label>Winner Year<span style="color:red;">*</span></label>
+                          <label>Winner Year</label>
                          <input type="date" name="year" id="year"class="form-control" placeholder="Y-M-D">
                         </div>
                           <div class="col-md-12 mb-2">
-                          <label>Rank<span style="color:red;">*</span></label>
+                          <label>Rank</label>
                          <input type="number" name="rank" id="rank"class="form-control" placeholder="Enter rank no">
                         </div>
                           <button class="btn btn-info btn-sm btn-block formdata" type="submit" name="add_winner" style="margin-top: 10px;">Save</button>
@@ -188,31 +188,31 @@ $msg = "";
            
        </div>
        <div class="col-md-12 col-lg-12 col-12 mb-2">
-            <label>Name<span style="color:red;">*</span></label>
+            <label>Name</label>
             <input class="form-control" type="text" name="name-edit" id="name-edit">
        </div>
         <div class="col-md-12 col-lg-12 col-12 mb-2">
-            <label>Father Name<span style="color:red;">*</span></label>
+            <label>Father Name</label>
             <input class="form-control" type="text" name="father_name-edit" id="father_name-edit">
             
        </div>
         <div class="col-md-12 col-lg-12 col-12 mb-2">
-            <label>Mother mother-Name<span style="color:red;">*</span></label>
+            <label>Mother mother-Name</label>
             <input class="form-control" type="text" name="mother_name-edit" id="mother_name-edit">
             
        </div>
         <div class="col-md-12 col-lg-12 col-12 mb-2">
-            <label>Percentage<span style="color:red;">*</span></label>
+            <label>Percentage</label>
             <input class="form-control" type="text" name="percentage-edit" id="percentage-edit">
             
        </div>
         <div class="col-md-12 col-lg-12 col-12 mb-2">
-            <label>Winner year<span style="color:red;">*</span></label>
+            <label>Winner year</label>
             <input class="form-control" type="date" name="year-edit" id="year-edit">
             
        </div>
        <div class="col-md-12 col-lg-12 col-12 mb-2">
-          <label>Rank<span style="color:red;">*</span></label>
+          <label>Rank</label>
           <input type="number" name="Rank-edit" id="Rank-edit" class="form-control" >
        </div>
       

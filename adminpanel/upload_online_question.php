@@ -78,7 +78,7 @@ $msg = "";
                 <div class="row">
                   <!-- <div class="col-md-12"> -->
                     <div class="col-md-12 mb-3">
-                       <label>Test<span style="color: Red;">*</span></label>
+                       <label>Test</label>
                        <select name="test" id="test" class="form-control">
                       <?php
                             if($testmaster){
@@ -93,31 +93,31 @@ $msg = "";
                      </select>
                 </div>
                 <div class="col-md-12 mb-3  ">
-                   <label>Question<span style="color: Red;">*</span></label>
+                   <label>Question</label>
                      <textarea name="question" placeholder="Enter Question" class="form-control" id="editor" rows="4"></textarea>
                 </div>
                 <div class="col-md-6">
-                   <label>a)<span style="color: Red;">*</span></label>
+                   <label>a)</label>
                      <input type="text" name="option_a" placeholder="Enter Option A" class="form-control">
                 </div>
                 <div class="col-md-6 mb-3">
-                   <label>b)<span style="color: Red;">*</span></label>
+                   <label>b)</label>
                      <input type="text" name="option_b" placeholder="Enter Option B" class="form-control">
                 </div>
                 <div class="col-md-6">
-                   <label>c)<span style="color: Red;">*</span></label>
+                   <label>c)</label>
                      <input type="text" name="option_c" placeholder="Enter Option C" class="form-control">
                 </div>
                 <div class="col-md-6 mb-3">
-                   <label>d)<span style="color: Red;">*</span></label>
+                   <label>d)</label>
                      <input type="text" name="option_d" placeholder="Enter Option D"  class="form-control">
                 </div>
                 <div class="col-md-12 mb-3">
-                   <label>Correct Answer<span style="color: Red;">*</span></label>
+                   <label>Correct Answer</label>
                      <input type="text" name="correct_ans" placeholder="Enter Correct Answer" class="form-control">
                 </div>
                    <div class="col-md-12 mb-5">
-                   <label>Marks<span style="color: Red;">*</span></label>
+                   <label>Marks</label>
                      <input type="text" name="marks" placeholder="Enter Marks" class="form-control">
                 </div>
                   <!-- </div> -->
@@ -187,7 +187,7 @@ $msg = "";
                                   <td><?php echo $value['added_on']; ?></td>
                                 <td><button class="btn btn-sm btn-success editquestion" 
                            data-id="<?php echo $value['id']; ?>" 
-                           data-test_name="<?php echo $value['test_name']; ?>"
+                           data-test_id="<?php echo $value['test_id']; ?>"
                            data-question="<?php echo $value['question']; ?>"
                            data-option_a="<?php echo $value['option_a']; ?>"
                            data-option_b="<?php echo $value['option_b']; ?>"
@@ -195,7 +195,7 @@ $msg = "";
                            data-option_d="<?php echo $value['option_d']; ?>"
                            data-correct_ans="<?php echo $value['correct_ans']; ?>"
                            data-marks="<?php echo $value['marks']; ?>"
-                           data-toggle="modal" data-target="#exampleModal" >&nbsp;&nbsp;<i class="far fa-edit nav-icon" ></i> &nbsp;Edit</button> <a href="action.php?deletequestion=<?php echo $value['id']; ?>" class="btn btn-sm btn-danger" >Delete</a></td>
+                           data-toggle="modal" data-target="#exampleModal" >&nbsp;&nbsp;<i class="far fa-edit nav-icon btn-success" ></i> &nbsp;Edit</button> <a href="action.php?deletequestion=<?php echo $value['id']; ?>" class="btn btn-sm btn-danger" >Delete</a></td>
                             </tr>
                             <?php
                           }
@@ -231,7 +231,7 @@ $msg = "";
 
                     <input type="hidden" name="snoEdit" id="snoEdit">
                     <div class="col-md-12 mb-3">
-                       <label>Test<span style="color: Red;">*</span></label>
+                       <label>Test</label>
                        <select name="test_name-edit" id="test_name-edit" class="form-control">
                       <?php
                             if($testmaster){
@@ -246,31 +246,31 @@ $msg = "";
                      </select>
                 </div>
                 <div class="col-md-12 mb-3  ">
-                   <label>Question<span style="color: Red;">*</span></label>
+                   <label>Question</label>
                      <textarea name="question-edit" placeholder="Enter Question" class="form-control" id="question-edit" rows="4"></textarea>
                 </div>
                 <div class="col-md-6">
-                   <label>a)<span style="color: Red;">*</span></label>
+                   <label>a)</label>
                      <input type="text" name="option_a-edit" id="option_a-edit" placeholder="Enter Option A" class="form-control">
                 </div>
                 <div class="col-md-6 mb-3">
-                   <label>b)<span style="color: Red;">*</span></label>
+                   <label>b)</label>
                      <input type="text" name="option_b-edit" id="option_b-edit" placeholder="Enter Option B" class="form-control">
                 </div>
                 <div class="col-md-6">
-                   <label>c)<span style="color: Red;">*</span></label>
+                   <label>c)</label>
                      <input type="text" name="option_c-edit" id="option_c-edit" placeholder="Enter Option C" class="form-control">
                 </div>
                 <div class="col-md-6 mb-3">
-                   <label>d)<span style="color: Red;">*</span></label>
+                   <label>d)</label>
                      <input type="text" name="option_d-edit" id="option_d-edit" placeholder="Enter Option D"  class="form-control">
                 </div>
                 <div class="col-md-12 mb-3">
-                   <label>Correct Answer<span style="color: Red;">*</span></label>
+                   <label>Correct Answer</label>
                      <input type="text" name="correct_ans-edit" id="correct_ans-edit" placeholder="Enter Correct Answer" class="form-control">
                 </div>
                    <div class="col-md-12 mb-5">
-                   <label>Marks<span style="color: Red;">*</span></label>
+                   <label>Marks</label>
                      <input type="text" name="marks-edit" id="marks-edit" placeholder="Enter Marks" class="form-control">
                 </div>
                   <!-- </div> -->
@@ -364,7 +364,7 @@ $msg = "";
       $('body').on('click','.editquestion',function(){
         //debugger;
         $('#snoEdit').val($(this).data('id'));
-        $('#test_name-edit').val($(this).data('test_name'));
+        $('#test_name-edit').val($(this).data('test_id'));
         $('#question-edit').val($(this).data('question'));
         $('#option_a-edit').val($(this).data('option_a'));
         $('#option_b-edit').val($(this).data('option_b'));

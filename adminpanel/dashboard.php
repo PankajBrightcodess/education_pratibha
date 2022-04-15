@@ -41,12 +41,12 @@ if($_SESSION['role']!='1'){
             <!-- small box -->
             <div class="small-box bg-info">
               <div class="inner">
-              <!--   <?php 
-                  $sql1 = "select * from department_master where status = '1'";
+              <?php 
+                  $sql1 = "select * from test_master where status = '1'";
                   $res1 = mysqli_query($conn, $sql1);
                   $row1 = mysqli_num_rows($res1);
-                  ?>  -->
-                <h3>77</h3>
+                  ?>
+                <h3><?= $row1 ?></h3>
 
                 <p>Total Exam</p>
               </div>

@@ -38,7 +38,7 @@
             <a href="#" class="nav-link <?php if(in_array($page, $armkey)){echo 'active';} ?>">
               <i class="fas fa-key nav-icon"></i>
               <p>
-                Master Key
+               Test Master
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
