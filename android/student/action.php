@@ -324,7 +324,7 @@ if(isset($_POST['del_result'])){
 				if($sql){
 					$from = "educollectionpratibhadarpan@gmail.com";
 					$name = "Education Pratibha";
-					$message = "your one time email verification change password".$otp."";
+					$message = "your one time otp change password: ".$otp."";
 					$subject = "Forget Password From Pratibha Darpan";
 					$headers  = 'MIME-Version: 1.0' . "\r\n";
 	        $headers .= 'Content-type:text/html;charset=UTF-8' . "\r\n";

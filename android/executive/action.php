@@ -140,8 +140,8 @@ if(isset($_POST['executive_login'])){
 	}
 }
 if(isset($_POST['change_center_exe'])){
-	    $email = $_POST['email'];
-	    $otp = rand(100000, 999999);
+	     	$email = $_POST['email'];
+	  $otp = rand(100000, 999999);
 		$query="SELECT * FROM `field_excutive` WHERE `email`='$email'";
 		$run=mysqli_query($conn,$query);
 		$num=mysqli_num_rows($run);
@@ -156,7 +156,7 @@ if(isset($_POST['change_center_exe'])){
 				if($sql){
 					$from = "educollectionpratibhadarpan@gmail.com";
 					$name = "Education Pratibha";
-					$message = "your one time email verification change password".$otp."";
+					$message = "your one time otp change password: ".$otp."";
 					$subject = "Forget Password From Pratibha Darpan";
 					$headers  = 'MIME-Version: 1.0' . "\r\n";
 	        $headers .= 'Content-type:text/html;charset=UTF-8' . "\r\n";
@@ -184,7 +184,6 @@ if(isset($_POST['change_center_exe'])){
 		else{
 		 	echo "0";
 		}
-		
    }
    if(isset($_POST['update_password_executive'])){
 		   if($_POST['new_pass']==$_POST['con_pass']){

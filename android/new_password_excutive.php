@@ -86,7 +86,9 @@ function deletedata(){
                        }
                        else{
                         
-                        window.location.href = "new_password_excutive.php";
+                       swal("Opps", "Otp time out", "error");
+                        window.location.href = "executivelogin.php";
+
                        }
                     },
                      error: function(){ 

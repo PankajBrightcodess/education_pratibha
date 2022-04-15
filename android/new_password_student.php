@@ -83,8 +83,8 @@ function deletedata(){
                        	window.location.href = "studentlogin.php";
                        }
                        else{
-                       
-                        window.location.href = "new_password_student.php";
+                       swal("Opps", "Otp time out", "error");
+                       window.location.href = "studentlogin.php";
                        }
                     },
                      error: function(){ 
