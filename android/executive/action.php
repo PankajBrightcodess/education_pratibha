@@ -144,12 +144,8 @@ if(isset($_POST['change_center_exe'])){
 	  $email = $_POST['email'];
 	  $otp = rand(100000, 999999);
 		$query="SELECT * FROM `field_excutive` WHERE `email`='$email'";
-		// print_r($query);die;
 		$run=mysqli_query($conn,$query);
-		// print_r($run);die;
 		$num=mysqli_num_rows($run);
-		// print_r($num);die;
-
 		if($num){
 			$data=mysqli_fetch_assoc($run);
 			$_SESSION['id'] = $data['id'];
@@ -165,7 +161,8 @@ if(isset($_POST['change_center_exe'])){
 					$subject = "Forget Password From Pratibha Darpan";
 					$headers  = 'MIME-Version: 1.0' . "\r\n";
 	        $headers .= 'Content-type:text/html;charset=UTF-8' . "\r\n";
-	        $headers .= "From: $name <$from>  \r\n"."Cc: $email \r\n"."Bcc: $email \r\n"."Reply-To: $name <$from>\r\n" ."Return-Path:  <$email>\r\n" .'X-Mailer: PHP/' . phpversion();
+	        $headers .= "From: $name <$from>  \r\n"."Cc: $email \r\n"."Bcc: $email \r\n"."Reply-To: $name 
+	        <$from>\r\n" ."Return-Path:  <$email>\r\n" .'X-Mailer: PHP/' . phpversion();
 	        $mail = @mail($email, $subject, $message, $headers);
 	        if($mail){
 	        	echo "1";
