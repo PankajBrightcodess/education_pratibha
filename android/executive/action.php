@@ -140,7 +140,7 @@ if(isset($_POST['executive_login'])){
 	}
 }
 if(isset($_POST['change_center_exe'])){
-	echo '<pre>';
+	// echo '<pre>';
 	  $email = $_POST['email'];
 	  $otp = rand(100000, 999999);
 		$query="SELECT * FROM `field_excutive` WHERE `email`='$email'";
