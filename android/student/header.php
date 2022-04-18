@@ -40,7 +40,7 @@
 					<div class="logo">
 						<p>
 							<a href="#">
-								<label style="color: #171662;"><strong>Educollection Pratibha Darpan</strong></label>
+								<label style="color: #171662;"><strong><img src="../../images/logo/logo.png" height="30px" width="40px"> Educational Pratibha Darpan</strong></label>
 							</a>
 						</p>
 					</div>

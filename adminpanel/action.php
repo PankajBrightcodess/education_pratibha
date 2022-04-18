@@ -114,6 +114,122 @@ function Pdfupload($dir,$inputname,$allext,$pass_width,$pass_height,$pass_size,$
 // '''''''''''''''''''''''''''''''''''''''
 
 
+
+if(isset($_POST['add_about'])){
+	echo '<pre>';
+	//  print_r($_FILES);die;
+	$about_text = $_POST['about'];	
+	$date = date('Y-m-d');
+	if(!empty($_FILES['upload_image']['name'])){
+		$upload_image=$_FILES['upload_image']['name'];
+		$upload_image= explode('.',$upload_image);
+		$upload_image =time().$upload_image[0];
+		$dir = "uploads/gallery/";
+		$allext = array("jpg","JPG","jpeg","JPEG","png");
+		$check = Imageupload($dir, 'upload_image',$allext,'700000000','10000000','18000000',$upload_image);
+		// print_r($check);die;
+		if($check === true ){
+			$upload_image .= '.jpg';
+			// print_r($upload_image);die;
+			$query="INSERT INTO `about_us`(`images`,`text`,`date`) VALUES ('$upload_image','$about_text','$date')";
+			// print_r($query);die;
+		     $sql=mysqli_query($conn,$query);
+			if($sql){
+				$_SESSION['msg']="Images Added Successfully !!!";
+				header('Location:about-list.php');
+			}
+			else{
+				$_SESSION['msg']="Images is  Not Added!!!";
+				header("location:$_SERVER[HTTP_REFERER]");
+			}
+		}
+
+	}
+	else{
+
+		$query="INSERT INTO `about_us`(`text`,`date`) VALUES ('$about_text','$date')";
+			// print_r($query);die;
+		     $sql=mysqli_query($conn,$query);
+		     echo '<pre>';
+		     // print_r($query);die;
+			if($sql){
+				$_SESSION['msg']=" Added Successfully !!!";
+				header('Location:about-list.php');
+			}
+			else{
+				$_SESSION['msg']="Not Added!!!";
+				header("location:$_SERVER[HTTP_REFERER]");
+			}
+
+	}
+	
+}
+
+if(isset($_POST['update_about'])){
+	echo '<pre>';
+
+    $id = $_POST['snoEdit'];
+    $about_text = $_POST['about-edit'];
+ if(!empty($_FILES['upload_image']['name'])){
+ 	         $upload_image=$_FILES['upload_image']['name'];
+	         $upload_image= explode('.',$upload_image);
+	         $upload_image =time().$upload_image[0];
+	         $dir = "uploads/gallery/";
+	         $allext = array("jpg","JPG","jpeg","JPEG","png");
+	         $check = Imageupload($dir, 'upload_image',$allext,'700000000','10000000','18000000',$upload_image);
+             if($check === true ){
+		         $upload_image .= '.jpg';
+		         $query="UPDATE `about_us` SET `images`='$upload_image',`text`='$about_text' WHERE `about_us`.`id`='$id'";
+	             $sql=mysqli_query($conn,$query);
+	     // print_r($sql);die;
+		if($sql){
+			$_SESSION['msg']="images updated Successfully !!!";
+			header('Location:about-list.php');
+		}
+		else{
+			$_SESSION['msg']="images Not update!!!";
+			header("location:$_SERVER[HTTP_REFERER]");
+		}
+	}
+	
+  }
+  else{
+		$query="UPDATE `about_us` SET `text`='$about_text' WHERE `about_us`.`id`='$id'";
+		echo '<pre>';
+		// print_r($query);die;
+	     $sql=mysqli_query($conn,$query);
+	     // print_r($sql);die;
+		if($sql){
+			$_SESSION['msg']="updated Successfully !!!";
+			header('Location:about-list.php');
+		}
+		else{
+			$_SESSION['msg']="Not update!!!";
+			header("location:$_SERVER[HTTP_REFERER]");
+		}
+
+  }
+
+}
+
+
+if(isset($_GET['aboutdelete'])){
+	$id=$_GET['aboutdelete'];
+	$query="DELETE FROM `about_us` WHERE `id` = $id";
+	// echo $query;die;	
+	$run=mysqli_query($conn,$query);
+	if($run===true){
+		$_SESSION['msg']="Gallery Deleted Successfully !!!";
+	}
+	else{
+		$_SESSION['msg']="Gallery Deletion Cancel !!!";
+	}
+	header("location:$_SERVER[HTTP_REFERER]");
+} 
+
+// about us end/
+
+
 	if(isset($_POST['add_homework'])){
 		// echo '<pre>';
 		// print_r($_POST);die;

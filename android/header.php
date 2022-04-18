@@ -43,8 +43,8 @@
 				<div class="col-md-8 col-8">
 					<div class="logo">
 						<p>
-							<a href="#">
-								<label style="color: #171662;"><strong>Educollection Pratibha Darpan</strong></label>
+							<a href="index.php">
+								<label style="color: #171662;"><strong><img src="../images/logo/logo.png" height="30px" width="40px"> Educational Pratibha Darpan</strong></label>
 							</a>
 						</p>
 					</div>

@@ -53,29 +53,30 @@ $msg = "";
 
 <section class="banner-bottom" >
   <div class="container">
-        <div class="row">
-            <div class="col-md-6  col-6">
-              <a href="dashboard.php"><i class="fa fa-home" style="padding:25px;padding-bottom: 0px;" aria-hidden="true"></i><!-- <img src="../images/fav/01.png" alt="Los Angeles" style="padding:25px;padding-bottom: 0px;" class="img-fluid"> -->
-              <label>Dashboard</label></a>
-            </div>
-            <div class="col-md-6  col-6">
-              <a href="user_profile.php"><i class="fa fa-user" style="padding:25px;padding-bottom: 0px; color: black;" aria-hidden="true"></i><!-- <img src="../images/fav/02.png" alt="Los Angeles" style="padding:25px;padding-bottom: 0px;" class="img-fluid"> -->
-              <br><label>Profile</label></a>
-            </div>
-            <div class="col-md-6  col-6">
-              <a href="onlineexamlist.php"><i class="fa fa-book" style="padding:25px;padding-bottom: 0px; color:brown;"></i><!-- <img src="../images/fav/031.png" alt="Los Angeles" style="padding:25px;padding-bottom: 0px;" class="img-fluid"> -->
-              <label>Online Test</label></a>
+    <div class="row">
+      <div class="col-4 ">
+        <a href="dashboard.php">
+        <i class="fa fa-home" style="padding:25px;padding-bottom: 0px;" aria-hidden="true"></i>
+              </a>
+      </div>
+      <div class="col-4"><a href="user_profile.php"><i class="fa fa-user" style="padding:25px;padding-bottom: 0px; color: black;" aria-hidden="true"></i>
+              <br></a></div>
+      <div class="col-4"><a href="onlineexamlist.php"><i class="fa fa-book" style="padding:25px;padding-bottom: 0px; color:brown;"></i>
+              </a></div>
+    </div>
+    <div class="row">
+      <div class="col-4"><a href="winner-list.php"><i class="fa fa-medal" style="color:gold;padding:25px;padding-bottom: 0px;"></i>
+              </a></div>
+      <div class="col-4">
+        <a href="pay.php"><i class="fa fa-credit-card" style="color:gold;padding:25px;padding-bottom: 0px;"></i>
+              </a>
+      </div>
+      <div class="col-4">
+         <a href="logout.php"><i class="fa fa-sign-in-alt" style="color:red;padding:25px;padding-bottom: 0px;"></i> <br></a>
+      </div>
+    </div>
 
-            </div>
-            <div class="col-md-6  col-6">
-              <a href="winner-list.php"><i class="fa fa-medal" style="color:gold;padding:25px;padding-bottom: 0px;"></i><!-- <img src="../images/fav/04.png" alt="Los Angeles" style="padding:25px;padding-bottom: 0px;" class="img-fluid"> -->
-              <label>Winner List</label></a>
 
-           </div>
-           <div class="col-md-12 col-12">
-             <a href="logout.php"><i class="fa fa-sign-in-alt" style="color:red;padding:25px;padding-bottom: 0px;"></i> <br><label>Logout</label></a>
-           </div>
-        </div>
     </div>
 </section>
                
