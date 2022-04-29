@@ -5,7 +5,126 @@
 	<img src="../data1/images/New/banner.png" alt="Los Angeles">
     <hr>
 </section>
-<section class="banner-bottom" >
+
+<style>
+    .tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+  justify-content:  center;
+}
+.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+</style>
+ <!--  <section class="login" style="margin-top: 15rem;"> -->
+    <section class="login" style="margin-top: 2rem;">
+ <div class="tab" style="background: #9ad9ea;">
+    <div class="container">
+        <div class="row">
+            <div class="col-6" style="padding-right:0px!important;">
+                <button class="btn btn-secondary btn-block" onclick="openCity(event, 'student')" id="defaultOpen" style="color: black;border-radius:10px 0px 0px 10px;border: 1px solid black; background: #c7bfe6;">student</button>
+            </div>
+            <div class="col-6" style="padding-left:0px!important;">
+                 <button class="btn btn-secondary btn-block" onclick="openCity(event, 'Exectutive')" style=" color: black;border-radius:0px 10px 10px 0px;border: 1px solid black;background: #c7bfe6;">Executive</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="student" class="tabcontent">
+  <div class="container">
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <div class="login-form" style="background: #305474; padding:15px; border-radius: 15px;">
+                        <div class="logo-section">
+                            <h1 style="font-size: 35px; text-align:center; color: white;">Student Login</h1><hr>
+                        </div>
+                        <form action="student/action.php" method="POST">
+                            <div class="form-group">
+                                <!-- <i class="fa fa-envelope-square fa-lg passkey"></i> -->
+                             <input type="email" name="email" placeholder="Enter User Id:" class="form-control" required="" style="padding-left: 30px;">
+                             </div>
+                            <div class="form-group">
+                                <!-- <i class="fa fa-key fa-lg passkey"></i> -->
+                              <input type="password" name="pass" placeholder="Enter Password:" class="form-control" required="" style="padding-left: 30px;">
+                            </div>
+                            <div class="form-group mb-5">
+                                <input type="submit" class="btn btn-warning form-control" name="studentlogin" value="Login">
+                                <label style="color:white;float:right; padding:10px;"><a href="forget_password_student.php" style="color:white">forgot password</a></label>
+                                 <label style="color:white;float:left; padding:10px;"><a href="student_reg.php" style="color:white">Register</a></label>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+        </div>
+</div>
+
+<div id="Exectutive" class="tabcontent">
+
+ <div class="container">
+            <div class="row">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <div class="login-form" style="background: #305474; padding:15px; border-radius: 15px;">
+                        <div class="logo-section">
+                            <h1 style="font-size: 35px; text-align:center; color: white;">Field Executive Login</h1><hr>
+                        </div>
+                        <form action="executive/action.php" method="POST">
+                            <div class="form-group">
+                                <!-- <i class="fa fa-envelope-square fa-lg passkey"></i> -->
+                                <input type="text" name="email" placeholder="Enter Email Id :" class="form-control py-1" required>
+                            </div>
+                            <div class="form-group">
+                                <!-- <i class="fa fa-key fa-lg passkey"></i> -->
+                                <input type="text" name="pass" placeholder="Enter Password :" class="form-control py-1" required>
+                            </div>
+                            <div class="form-group mb-5">
+                                <input type="submit" class="btn btn-warning form-control" name="executive_login" value="Login">
+                                <label style="color:white;float:right; padding:10px;"><a href="forget_password_executive.php" style="color:white">forgot password</a></label>
+                                <label style="color:white;float:left; padding:10px;"><a href="apply_feildexcutive.php" style="color:white">Register</a></label>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+        </div>
+    </section>
+    <script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+}
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>
+<!-- <section class="banner-bottom" >
 	<div class="container">
         <div class="row">
             <div class="col-md-6	col-6">
@@ -25,10 +144,10 @@
             	<a href="executivelogin.php"><img src="../images/fav/04.png" alt="Los Angeles" style="padding:25px;padding-bottom: 0px;" class="img-fluid">
             	<label>Field Executive Login</label></a> <!--  Online Examination -->
 
-           </div>
+          <!--  </div>
         </div>
     </div>
-</section>
+</section> -->
 <!-- <section class="linkup"> 
     <div class="container">
         <div class="row">

@@ -107,8 +107,8 @@ $msg = "";
                   foreach ($about_us as $key => $row) {$sn++;  $id=$row['id'];?>
                       <tr>
                         <td><?php echo $sn; ?></td>
-                        <td><?php echo $row['text']; ?></td>
-                        <td><?php echo $row['text2']; ?></td>
+                        <td><?php echo $row['content']; ?></td>
+                        <td><?php echo $row['content2']; ?></td>
                         <td><img src="uploads/gallery/<?php echo $row['images']; ?>" height="200" width="300"></td>
                         <td><?php echo $row['date']; ?></td>
                         <td><button class="btn btn-sm btn-success editabout" 

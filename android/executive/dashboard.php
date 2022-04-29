@@ -29,6 +29,9 @@ $msg = "";
  .menu a{
   text-decoration: none;
   color: black;
+  font-size:30px;
+   
+   /* text-shadow:2px 2px 4px #000000;*/
  }
 </style>
 <?php include 'header.php'; ?>
@@ -36,9 +39,9 @@ $msg = "";
 <section>
 	<div class="container">
      <div class="row menu">
-      <div class="col-4"><a href="dashboard.php"><i class="fa fa-home" style="font-size:20px;" aria-hidden="true"></i><br>Dashboard</a></div>
-      <div class="col-4"><a href="studentlist.php"><i class="far fa-address-book" style="color:blue;font-size:20px;"></i><br>Student</a></div>
-      <div class="col-4"><a href="logout.php"><i class="fa fa-sign-in-alt" style="color:red;font-size:20px;" aria-hidden="true"></i> <br>Logout</a></div>
+      <div class="col-4"><a href="dashboard.php"><i class="fa fa-home" aria-hidden="true"></i></a></div>
+      <div class="col-4"><a href="studentlist.php"><i class="far fa-address-book" style="color:blue; text-align:center; margin-left: 40px;"></i></a></div>
+      <div class="col-4"><a href="logout.php"><i class="fa fa-sign-in-alt" style="color:red; float: 	right;" aria-hidden="true"></i></a></div>
     </div>
 		<!-- <div class="row">
 			<div class="col-md-12 dashboard mb-3">

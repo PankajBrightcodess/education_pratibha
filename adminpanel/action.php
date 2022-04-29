@@ -133,10 +133,9 @@ if(isset($_POST['add_about'])){
 		if($check === true ){
 			$upload_image .= '.jpg';
 			// print_r($upload_image);die;
-			$query="INSERT INTO `about_us`(`images`,`text`,`text2`,`date`) VALUES ('$upload_image','$about_text','$about_text2','$date')";
-			print_r($query);die;
+			$query="INSERT INTO `about_us`(`images`,`content`,`content2`,`date`) VALUES ('$upload_image','$about_text','$about_text2','$date')";
 		     $sql=mysqli_query($conn,$query);
-		     print_r($sql);die;
+		     // print_r($sql);die;
 			if($sql){
 				$_SESSION['msg']="Images Added Successfully !!!";
 				header('Location:about-list.php');
@@ -150,7 +149,7 @@ if(isset($_POST['add_about'])){
 	}
 	else{
 
-		$query="INSERT INTO `about_us`(`text`,`text2`,`date`) VALUES ('$about_text','$about_text2','$date')";
+		$query="INSERT INTO `about_us`(`content`,`content2`,`date`) VALUES ('$about_text','$about_text2','$date')";
 			// print_r($query);die;
 		     $sql=mysqli_query($conn,$query);
 		     echo '<pre>';
@@ -183,7 +182,7 @@ if(isset($_POST['update_about'])){
 	         $check = Imageupload($dir, 'upload_image',$allext,'700000000','10000000','18000000',$upload_image);
              if($check === true ){
 		         $upload_image .= '.jpg';
-		         $query="UPDATE `about_us` SET `images`='$upload_image',`text`='$about_text',`text2`='$about_text2' WHERE `about_us`.`id`='$id'";
+		         $query="UPDATE `about_us` SET `images`='$upload_image',`content`='$about_text',`content2`='$about_text2' WHERE `about_us`.`id`='$id'";
 	             $sql=mysqli_query($conn,$query);
 	     // print_r($sql);die;
 		if($sql){
@@ -198,7 +197,7 @@ if(isset($_POST['update_about'])){
 	
   }
   else{
-		$query="UPDATE `about_us` SET `text`='$about_text',`text2` = '$about_text2' WHERE `about_us`.`id`='$id'";
+		$query="UPDATE `about_us` SET `content`='$about_text',`content2` = '$about_text2' WHERE `about_us`.`id`='$id'";
 		echo '<pre>';
 		// print_r($query);die;
 	     $sql=mysqli_query($conn,$query);

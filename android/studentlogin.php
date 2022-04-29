@@ -1,7 +1,8 @@
  <?php include 'header-links.php'; ?>
 <?php include 'header.php'; ?>
 <section class="blank-course "></section>
-<section class="login" style="margin-top: 15rem;">
+
+ <section class="login" style="margin-top: 15rem;">
         <div class="container">
             <div class="row">
                 <div class="col-md-3"></div>
@@ -13,11 +14,11 @@
                         <form action="student/action.php" method="POST">
                             <div class="form-group">
                                 <!-- <i class="fa fa-envelope-square fa-lg passkey"></i> -->
-                                <input type="email" name="email" placeholder="Enter User Id:" class="form-control" required="" style="padding-left: 30px;">
-                            </div>
+                             <input type="email" name="email" placeholder="Enter User Id:" class="form-control" required="" style="padding-left: 30px;"> 
+                             </div>
                             <div class="form-group">
                                 <!-- <i class="fa fa-key fa-lg passkey"></i> -->
-                                <input type="password" name="pass" placeholder="Enter Password:" class="form-control" required="" style="padding-left: 30px;">
+                              <input type="password" name="pass" placeholder="Enter Password:" class="form-control" required="" style="padding-left: 30px;">
                             </div>
                             <div class="form-group mb-5">
                                 <input type="submit" class="btn btn-warning form-control" name="studentlogin" value="Login">
@@ -30,5 +31,6 @@
             </div>
         </div>
     </section>
+    
     <?php include 'footer.php';?>
 <?php include 'footer-links.php';?>
