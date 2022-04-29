@@ -52,7 +52,7 @@
                 <div class="col-md-6">
                     <div class="login-form" style="background: #305474; padding:15px; border-radius: 15px;">
                         <div class="logo-section">
-                            <h1 style="font-size: 35px; text-align:center; color: white;">Student Login</h1><hr>
+                            <h1 style="font-size: 30px; text-align:center; color: white;">Student Login</h1><hr>
                         </div>
                         <form action="student/action.php" method="POST">
                             <div class="form-group">
@@ -84,7 +84,7 @@
                 <div class="col-md-6">
                     <div class="login-form" style="background: #305474; padding:15px; border-radius: 15px;">
                         <div class="logo-section">
-                            <h1 style="font-size: 35px; text-align:center; color: white;">Field Executive Login</h1><hr>
+                            <h1 style="font-size: 30px; text-align:center; color: white;">Field Executive Login</h1><hr>
                         </div>
                         <form action="executive/action.php" method="POST">
                             <div class="form-group">
