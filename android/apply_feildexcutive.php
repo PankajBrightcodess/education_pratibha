@@ -39,19 +39,19 @@
         </div>
         <div class="col-md-6 col-12 mb-2">
             <label>Aadhaar no<span style="color: Red;">*</span></label>
-            <input type="text" name="aadhaar" id="aadhaar" maxlength="12" pattern="[789][0-9]{9}"  title="always put 12 digit number"placeholder="Active Email" class="form-control" required>
+            <input type="text" name="aadhaar" id="aadhaar" maxlength="12" pattern="[789][0-9]{9}"  title="always put 12 digit number"placeholder="Aadhaar No" class="form-control" required>
         </div>
         <div class="col-md-6 col-12 mb-2">
             <label>Bank Name<span style="color: Red;">*</span></label>
-            <input type="text" name="bankname" id="bankname" pattern="[A-Z]" title="Enter capital letter" placeholder="Active Email" class="form-control" required>
+            <input type="text" name="bankname" id="bankname" pattern="[A-Z]" title="Enter capital letter" placeholder="Bank Name" class="form-control" required>
         </div>
         <div class="col-md-6 col-12 mb-2">
             <label>Bank Account No<span style="color: Red;">*</span></label>
-            <input type="text" name="bankaccount" id="bankaccount" maxlength="10" minlength="3" pattern="[789][0-9]{9}" title="Please enter exactly 10 digits"  placeholder="Active Email" class="form-control" required>
+            <input type="text" name="bankaccount" id="bankaccount" maxlength="10" minlength="3" pattern="[789][0-9]{9}" title="Please enter exactly 10 digits"  placeholder="Bank Account" class="form-control" required>
         </div>
         <div class="col-md-6 col-12 mb-2">
             <label>IFSC CODE<span style="color: Red;">*</span></label>
-            <input type="text" name="ifsc" id="ifsc" pattern="[a-z0-9][A-Z0-9][a-z]" title="must use alphabhet and number"  placeholder="Active Email" class="form-control" required>
+            <input type="text" name="ifsc" id="ifsc" pattern="[a-z0-9][A-Z0-9][a-z]" title="must use alphabhet and number"  placeholder="IFSC Code" class="form-control" required>
         </div>
         <div class="col-md-6 col-12 mb-2">
             <label>Location Address<span style="color: Red;">*</span></label>

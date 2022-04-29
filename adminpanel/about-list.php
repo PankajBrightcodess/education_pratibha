@@ -46,13 +46,18 @@ $msg = "";
               <!-- /.card-header -->
               <!-- form start -->
               <div class="row">
-                   <div class="col-md-3">
-                  <form role="form" action="action.php" id="form_data" enctype="multipart/form-data" method="post">
+                <div class="col-md-3">
+                  <form action="action.php" id="form_data" enctype="multipart/form-data" method="post">
                     <div class="card-body">
                       <div class="row">
                         <div class="col-md-12 mb-2">
-                         <label>About Text</label>
+                         <label>About Text1</label>
                          <textarea class="form-control" name="about" id="about" placeholder="Enter about text" height="30;" width="40" required="false"> </textarea>
+                        
+                        </div>
+                         <div class="col-md-12 mb-2">
+                         <label>About Text2</label>
+                         <textarea class="form-control" name="about2" id="about2" placeholder="Enter about text" height="30;" width="40" required="false"> </textarea>
                         
                         </div>
                          <div class="col-md-12 mb-2">
@@ -83,6 +88,7 @@ $msg = "";
                   <tr>
                     <th>S.No.:</th>
                     <th>About Text</th>
+                      <th>About Text2</th>
                     <th>Image</th>
                     <th>Date</th>
                     <th>Action</th>
@@ -102,15 +108,16 @@ $msg = "";
                       <tr>
                         <td><?php echo $sn; ?></td>
                         <td><?php echo $row['text']; ?></td>
+                        <td><?php echo $row['text2']; ?></td>
                         <td><img src="uploads/gallery/<?php echo $row['images']; ?>" height="200" width="300"></td>
                         <td><?php echo $row['date']; ?></td>
                         <td><button class="btn btn-sm btn-success editabout" 
                           data-id="<?php echo $row['id']; ?>"
-                          data-text="<?php echo $row['text']; ?>" 
+                          data-text="<?php echo $row['text']; ?>"
+                          data-text2="<?php echo $row['text2']; ?>"  
                           data-images="uploads/gallery/<?php echo $row['images']; ?>" 
                           data-toggle="modal" data-target="#exampleModal" >&nbsp;&nbsp;<i class="far fa-edit nav-icon" ></i> &nbsp;Edit</button>
-                           <a href="action.php?aboutdelete=<?php echo $row['id']; ?>" class="btn btn-sm btn-danger" >Delete</a>
-                         
+                        <a href="action.php?aboutdelete=<?php echo $row['id']; ?>" class="btn btn-sm btn-danger" >Delete</a>
                         </td> 
                     
                     <?php
@@ -158,6 +165,10 @@ $msg = "";
             <label>About Text</label>
             <textarea class="form-control" name="about-edit" id="about-edit" required="false"></textarea>
            
+          </div>
+          <div class="col-md-12 col-lg-12 col-12 mb-2">
+            <label>About Text2</label>
+            <textarea class="form-control" name="about2-edit" id="about2-edit" required="false"></textarea>
           </div>
           <div class="col-md-12 mb-2">
             <label>Upload Image.</label>
@@ -209,6 +220,7 @@ $msg = "";
         // debugger;
         $('#snoEdit').val($(this).data('id'));
         $('#about-edit').val($(this).data('text'));
+        $('#about2-edit').val($(this).data('text2'));
         $('#upload_image').val($(this).data('images'));
        
       });
