@@ -36,10 +36,10 @@
     <div class="container">
         <div class="row">
             <div class="col-6" style="padding-right:0px!important;">
-                <button class="btn btn-secondary btn-block" onclick="openCity(event, 'student')" id="defaultOpen" style="color: black;border-radius:10px 0px 0px 10px;border: 1px solid black; background: #c7bfe6;">student</button>
+                <button class="btn btn-secondary btn-block" onclick="openCity(event, 'student')" id="defaultOpen" style="color: black;border-radius:10px 0px 0px 10px;border: 1px solid black; background: #c7bfe6; font-weight:bold!important;">Student</button>
             </div>
             <div class="col-6" style="padding-left:0px!important;">
-                 <button class="btn btn-secondary btn-block" onclick="openCity(event, 'Exectutive')" style=" color: black;border-radius:0px 10px 10px 0px;border: 1px solid black;background: #c7bfe6;">Executive</button>
+                 <button class="btn btn-secondary btn-block" onclick="openCity(event, 'Exectutive')" style=" color: black;border-radius:0px 10px 10px 0px;border: 1px solid black;background: #c7bfe6; font-weight:bold!important;">Executive</button>
             </div>
         </div>
     </div>
