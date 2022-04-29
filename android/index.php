@@ -89,11 +89,11 @@
                         <form action="executive/action.php" method="POST">
                             <div class="form-group">
                                 <!-- <i class="fa fa-envelope-square fa-lg passkey"></i> -->
-                                <input type="text" name="email" placeholder="Enter Email Id :" class="form-control py-1" required>
+                                <input type="text" name="email" placeholder="Enter Email Id :" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <!-- <i class="fa fa-key fa-lg passkey"></i> -->
-                                <input type="text" name="pass" placeholder="Enter Password :" class="form-control py-1" required>
+                                <input type="text" name="pass" placeholder="Enter Password :" class="form-control" required>
                             </div>
                             <div class="form-group mb-5">
                                 <input type="submit" class="btn btn-warning form-control" name="executive_login" value="Login">
