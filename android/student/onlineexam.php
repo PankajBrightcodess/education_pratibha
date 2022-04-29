@@ -172,7 +172,7 @@ function timer(remaining) {
   }
   
   // Do timeout stuff here
-  alert('Timeout for otp');
+  alert('Timeout for exam');
 }
 var time = "<?= $time; ?>";
 var time = time*60;
