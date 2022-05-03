@@ -71,6 +71,7 @@ $msg = "";
         <a href="pay.php"><i class="fa fa-credit-card" style="padding:25px;padding-bottom: 0px;"></i>
               </a>
       </div>
+     
       <div class="col-4">
          <a href="logout.php"><i class="fa fa-sign-in-alt" style="color:red;padding:25px;padding-bottom: 0px;"></i> <br></a>
       </div>
