@@ -1,9 +1,31 @@
     <?php include 'header-links.php'; ?>
-<?php include 'header.php'; ?>
+     <?php include 'header.php'; ?>
 
 <section class="slider">
-	<img src="../data1/images/New/banner.png" alt="Los Angeles">
-    <hr>
+<!-- 	<img src="../data1/images/New/banner.png" alt="Los Angeles"> -->
+<div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="d-block w-100" src="../data1/images/New/banner.png" alt="First slide" width="100%">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="../data1/images/New/banner.png" alt="Second slide"  width="100%">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="../data1/images/New/banner.png" alt="Third slide"  width="100%">
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+  
 </section>
 
 <style>
@@ -35,10 +57,10 @@
  <div class="tab" style="background: #9ad9ea;">
     <div class="container">
         <div class="row">
-            <div class="col-6" style="padding-right:0px!important;">
+            <div class="col-6 col-md-6" style="padding-right:0px!important;">
                 <button class="btn btn-secondary btn-block" onclick="openCity(event, 'student')" id="defaultOpen" style="color: black;border-radius:10px 0px 0px 10px;border: 1px solid black; background: #c7bfe6; font-weight:bold!important;">Student</button>
             </div>
-            <div class="col-6" style="padding-left:0px!important;">
+            <div class="col-6 col-md-6" style="padding-left:0px!important;">
                  <button class="btn btn-secondary btn-block" onclick="openCity(event, 'Exectutive')" style=" color: black;border-radius:0px 10px 10px 0px;border: 1px solid black;background: #c7bfe6; font-weight:bold!important;">Executive</button>
             </div>
         </div>
@@ -48,8 +70,8 @@
 <div id="student" class="tabcontent">
   <div class="container">
             <div class="row">
-                <div class="col-md-3"></div>
-                <div class="col-md-6">
+            <!--     <div class="col-md-3"></div> -->
+                <div class="col-md-12">
                     <div class="login-form" style="background: #305474; padding:15px; border-radius: 15px;">
                         <div class="logo-section">
                             <h1 style="font-size: 30px; text-align:center; color: white;">Student Login</h1><hr>
@@ -71,7 +93,7 @@
                         </form>
                     </div>
                 </div>
-                <div class="col-md-3"></div>
+            <!--     <div class="col-md-3"></div> -->
             </div>
         </div>
 </div>
@@ -80,8 +102,8 @@
 
  <div class="container">
             <div class="row">
-                <div class="col-md-3"></div>
-                <div class="col-md-6">
+             <!--    <div class="col-md-3"></div> -->
+                <div class="col-md-12">
                     <div class="login-form" style="background: #305474; padding:15px; border-radius: 15px;">
                         <div class="logo-section">
                             <h1 style="font-size: 29px; text-align:center; color: white;">Field Executive Login</h1><hr>
@@ -103,7 +125,7 @@
                         </form>
                     </div>
                 </div>
-                <div class="col-md-3"></div>
+             <!--    <div class="col-md-3"></div> -->
             </div>
         </div>
     </section>

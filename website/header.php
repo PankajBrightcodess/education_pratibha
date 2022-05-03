@@ -1,37 +1,44 @@
 <body class="desktop" style="background: #9ad9ea;">
-	<style type="text/css">
-		.home2 a{
-			text-align: center;
-		}
-	</style>
-	<section class="top-part">
+	<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+  <a class="navbar-brand" href="index.php"><img src="../images/logo/logo.png" height="65px" width="70px"> </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav mx-auto">
+      <a class="nav-item nav-link active  mb-0 h5" href="index.php">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link active  mb-0 h5" href="about-us.php">About Us</a>
+      <a class="nav-item nav-link active  mb-0 h5" href="contact-us.php">Contact Us</a>
+      
+    </div>
+  </div>
+</nav>
+	
+	<!-- <section class="top-part">
 		<div class="container">
 			<div class="row header">
 				<div class="col-md-2 col-2">
 					<div id="myNav" class="overlay5">
               			<a href="javascript:void(0)" class="closebtn" onclick="closeNav()" style="color: #fff;">&times;</a>	
               			<div class="overlay-content5">
-              				<!-- <div class="row">
+              				 <div class="row">
               					<div class="col-8 sidelogo">
               						<a href="" style="padding-bottom: 20px;">
               							<img src="../images/logo/logo.jpeg"  class="img-fluid">
               						</a>
               					</div>
               				</div> -->
-              				<div class="home2">
+              				<!-- <div class="home2">
 								<a href="index.php"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Home</a><hr>
 								<a href="about-us.php"><i class="fa fa-sign-in-alt"></i>&nbsp;&nbsp;&nbsp;About Us</a><hr>
 				               
-				                <!-- <a href="facility.php"><i class="fas fa-heart"></i>&nbsp;&nbsp;&nbsp;Facilities</a><hr> -->
-				            <!--   <a href="executivelogin.php"><i class="fas fa-user"></i>&nbsp;&nbsp;&nbsp;Excutive</a><hr> -->  
-				                <!-- <a href="certificate.php"><i class="fas fa-coins"></i>&nbsp;&nbsp;&nbsp;Certificarte</a><hr> -->
-				                <!-- <a href="javascript:void(0)"><i class="fas fa-cog"></i>&nbsp;&nbsp;&nbsp;Settings</a><hr> -->
+				            
 								<a href="contact-us.php"><i class="far fa-building"></i>&nbsp;&nbsp;&nbsp;Contact Us</a><hr>
-			          		<!-- 	<a href="admission.php"><i class="fas fa-id-card-alt"></i>&nbsp;&nbsp;&nbsp;Admission Now</a><hr> -->
+			          			<a href="admission.php"><i class="fas fa-id-card-alt"></i>&nbsp;&nbsp;&nbsp;Admission Now</a><hr> -->
 								<!-- <a href="result.php"><i class="fas fa-info-circle"></i>&nbsp;&nbsp;&nbsp;Results</a><hr> -->
 								<!-- <a href="pay.php"><i class="fa fa-credit-card" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Pay Now</a><hr> -->
 								
-							</div>
+						<!-- 	</div>
               			</div>
               		</div>
 					<div class="nav-menu">
@@ -62,4 +69,4 @@
 			</div>
 			<div class="clearfix"></div>
 		</div>
-	</section>
+	</section>-->

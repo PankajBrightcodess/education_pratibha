@@ -8,6 +8,7 @@
    
     <link rel="stylesheet" href="../css/owl.carousel.min.css">
     <link rel="stylesheet" href="../css/owl.theme.default.min.css">
+    <link rel="icon" href="../images/logo/logo.png" type="image/gif" sizes="16x16">
      <link rel="stylesheet" href="../css/website.css">
     <!-- <link rel="stylesheet" href="../css/style.css"> -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700|Roboto:300,400,400i,500,700" rel="stylesheet">

@@ -56,24 +56,24 @@ $msg = "";
     <div class="row">
       <div class="col-4 ">
         <a href="dashboard.php">
-        <i class="fa fa-home" style="padding:25px;padding-bottom: 0px;" aria-hidden="true"></i>
+       <img src="../../images/fav/01.png" width="80px;">
               </a>
       </div>
-      <div class="col-4"><a href="user_profile.php"><i class="fa fa-user" style="padding:25px;padding-bottom: 0px; color: black;" aria-hidden="true"></i>
+      <div class="col-4"><a href="user_profile.php"><img src="../../images/fav/02_old.png" width="80px;">
               <br></a></div>
-      <div class="col-4"><a href="onlineexamlist.php"><i class="fa fa-book" style="padding:25px;padding-bottom: 0px; color:brown;"></i>
+      <div class="col-4"><a href="onlineexamlist.php"> <img src="../../images/fav/031_old.png" width="80px;">
               </a></div>
     </div>
     <div class="row">
-      <div class="col-4"><a href="winner-list.php"><i class="fa fa-medal" style="color:gold;padding:25px;padding-bottom: 0px;"></i>
+      <div class="col-4"><a href="winner-list.php"> <img src="../../images/fav/03.png" width="80px;">
               </a></div>
       <div class="col-4">
-        <a href="pay.php"><i class="fa fa-credit-card" style="padding:25px;padding-bottom: 0px;"></i>
+        <a href="pay.php"> <img src="../../images/fav/05.png" width="80px;">
               </a>
       </div>
      
       <div class="col-4">
-         <a href="logout.php"><i class="fa fa-sign-in-alt" style="color:red;padding:25px;padding-bottom: 0px;"></i> <br></a>
+         <a href="logout.php"> <img src="../../images/fav/02.png" width="80px;"> <br></a>
       </div>
     </div>
 
@@ -102,7 +102,8 @@ $msg = "";
           if(!empty($homework)){
             foreach ($homework as $key => $value) {
                 ?>
-               <div class="col-md-9 mb-3">
+               <div class="container">
+                 <div class="col-md-12 mb-3">
                   <div class="card">
                    <div class="card-header bg-secondary text-light text-center"><span><strong>Homework</strong></span></div>
                     <div class="card-body">
@@ -112,8 +113,8 @@ $msg = "";
                        </div>
                        
                        <div class="col-md-3 col-3"> 
-                    	<a href="../../adminpanel/uploads/homework/<?php echo $value['assessment']; ?>" target="_blank">
-                    		<i class="fa fa-file-pdf-o" style="font-size:48px;color:red"></i></a>
+                      <a href="../../adminpanel/uploads/homework/<?php echo $value['assessment']; ?>" target="_blank">
+                        <i class="fa fa-file-pdf-o" style="font-size:48px;color:red"></i></a>
                       <!--  <iframe src="../executive/uploads/homework/<?php echo $value['assessment']; ?>"><i class="fa fa-file-pdf-o" style="font-size:48px;color:red"></i></iframe> -->
                           
                       </div>
@@ -125,6 +126,7 @@ $msg = "";
 
                 </div>
               </div>
+               </div>
 
                 <?php
             }
