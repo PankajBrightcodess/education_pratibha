@@ -75,7 +75,7 @@ $msg = "";
             <div class="col-12">
              <!--  <buttton class="btn btn-block" style="color: #06bebe;" type="submit" name="setting_change_password">Submit</buttton> -->
                <!-- <a href="" type="submit" name="setting_change_password"><img src="../../images/submit.jpg" width="100%"></a> -->
-               <button type="button" class="setting_password" style="border:none; background:#9ad9ea"><img src="../../images/submit.jpg" width="100%"> </button>
+               <button type="button" name="setting_change_password" class="setting_password" style="border:none; background:#9ad9ea"><img src="../../images/submit.jpg" width="100%"> </button>
             </div>
           </form>
         </div>
@@ -94,25 +94,27 @@ $msg = "";
   $('body').on('click','.setting_password',function(){
       // debugger;
        var id=$('#ids').val();
+       var current_password=$('#current_password').val();
          var new_password=$('#new_password').val();
          var confirm_new_password=$('#confirm_new_password').val();
          
         $.ajax({
                 type:'POST',
                 url:'action.php',
-                data:{id:id,new_password:new_password,confirm_new_password:confirm_new_password,setting_change_password:'setting_change_password'},
+                data:{id:id,current_password:current_password,new_password:new_password,confirm_new_password:confirm_new_password,setting_change_password:'setting_change_password'},
                 success: function(result){
                   // alert(result);
-                    console.log(result);
+                    // console.log(result);
                     if(result == 1){
-                      window.location.href = "dashboard.php";
+                
                         swal("Good job!", "Updated Successfully!", "success");
+                        window.location.href = "../studentlogin.php";
                      
                     }
                     else{
-                      
-                          window.location.href = "setting.php";
                           swal("Opps!", "Something Error!", "error");
+                          window.location.href = "setting.php";
+                         
                     }
                       
                  },

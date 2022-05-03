@@ -1,4 +1,5 @@
 <section class="blankfooter "></section>
+
 <section class="bottom-menu-bar">
 	<div class="container-fluid">
 		<div class="row">

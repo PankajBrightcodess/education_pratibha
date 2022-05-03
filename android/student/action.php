@@ -242,15 +242,22 @@ if(isset($_POST['change_student_exe'])){
 	}
   
 
-   if (isset($_POST['settinglogout'])) {
-    echo '<pre>';
-    print_r($_POST);die;
+   if (isset($_GET['settinglogout'])) {
+     $id = $_GET['settinglogout'];
+        if($id == $_SESSION['enroll_id']){
+        	unset($_SESSION['enroll_id']);
+        	header("location:../index.php");
+        }
    
    }
 	if(isset($_POST['setting_change_password'])){
-		// echo '<pre>';
-		// print_r($_POST);die;
-		 if($_POST['new_password']==$_POST['confirm_new_password']){
+		$id = $_SESSION['enroll_id'];
+		$query="SELECT * FROM `student` WHERE `id`='$id'";
+        $run=mysqli_query($conn,$query);
+        $data=mysqli_fetch_assoc($run);
+         if($_POST['current_password'] == $data['password']){
+		
+		       if($_POST['new_password']==$_POST['confirm_new_password']){
 		
 		   	 $pass = $_POST['confirm_new_password'];
 				$id = $_POST['id'];
@@ -258,17 +265,16 @@ if(isset($_POST['change_student_exe'])){
 		// 		  echo '<pre>';
 		// print_r($query);die;
         $run=mysqli_query($conn,$query);
-          echo '<pre>';
-		print_r($run);die;
+       //    echo '<pre>';
+		     // print_r($run);die;
 
         $data=mysqli_num_rows($run);
         if($data>0){
 				  $query="UPDATE `student` SET `password`='$pass' WHERE `id`='$id'";
 					// print_r($query);die;
 					$run=mysqli_query($conn,$query);
-					print_r($run);die;
-					// $query="UPDATE `student` SET  WHERE `id`='$id'";
-			  //   $sql=mysqli_query($conn,$query);
+					unset($_SESSION['enroll_id']);
+				
 					if($run){
 						 echo "1";
 					}
@@ -281,6 +287,10 @@ if(isset($_POST['change_student_exe'])){
         }
 				
 			}
+		}
+		else{
+			echo "0";
+		}
 
 	}
 	if(isset($_POST['deleteotp'])){
