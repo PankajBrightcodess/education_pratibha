@@ -9,9 +9,9 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav mx-auto">
-      <a class="nav-item nav-link active  mb-0 h5" href="index.php">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link active  mb-0 h5" href="about-us.php">About Us</a>
-      <a class="nav-item nav-link active  mb-0 h5" href="contact-us.php">Contact Us</a>
+      <a class="nav-item nav-link active  mb-0 h5" href="../index.php">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link active  mb-0 h5" href="../about-us.php">About Us</a>
+      <a class="nav-item nav-link active  mb-0 h5" href="../contact-us.php">Contact Us</a>
       
     </div>	
     <div>
@@ -21,13 +21,13 @@
   </a>
 
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-  	 <a class="dropdown-item" href="dashboard.php"><i class="fa fa-home" aria-hidden="true" style="color:blue; font-size:15px;"></i>&nbsp;&nbsp;&nbsp;Dashboard</a>
+  	  <a class="dropdown-item" href="dashboard.php"><i class="fa fa-home" aria-hidden="true" style="color:blue; font-size:15px;"></i>&nbsp;&nbsp;&nbsp;Dashboard</a>
   	  <a class="dropdown-item" href="onlineexamlist.php"><i class="fa fa-book" style=" color:brown; font-size:15px;"></i>&nbsp;&nbsp;&nbsp;Online Test</a>
-  	   <a class="dropdown-item" href="winner-list.php"><i class="fa fa-medal" style="color:gold; font-size:15px;"></i>&nbsp;&nbsp;&nbsp;Winner List</a>
-  	    <a class="dropdown-item" href="user_profile.php"><i class="fa fa-user" style=" font-size:15px;"></i>&nbsp;&nbsp;&nbsp;Profile</a>
-  	     <a class="dropdown-item" href="pay.php"><i class="fa fa-book" style=" color:brown; font-size:15px;"></i>&nbsp;&nbsp;&nbsp;Pay Now</a>
-    <a class="dropdown-item" href="setting.php"><i class="fa fa-gear fa-spin" style=" font-size:15px;"></i>&nbsp;&nbsp;&nbsp;Setting</a>
-    <a class="dropdown-item" href="logout.php"><i class="fa fa-sign-in-alt" aria-hidden="true" style="color:red;"></i>&nbsp;&nbsp;&nbsp;logout</a>
+  	  <a class="dropdown-item" href="winner-list.php"><i class="fa fa-medal" style="color:gold; font-size:15px;"></i>&nbsp;&nbsp;&nbsp;Winner List</a>
+  	  <a class="dropdown-item" href="user_profile.php"><i class="fa fa-user" style=" font-size:15px;"></i>&nbsp;&nbsp;&nbsp;Profile</a>
+  	  <a class="dropdown-item" href="pay.php"><i class="fa fa-book" style=" color:brown; font-size:15px;"></i>&nbsp;&nbsp;&nbsp;Pay Now</a>
+      <a class="dropdown-item" href="setting.php"><i class="fa fa-gear fa-spin" style=" font-size:15px;"></i>&nbsp;&nbsp;&nbsp;Setting</a>
+      <a class="dropdown-item" href="logout.php"><i class="fa fa-sign-in-alt" aria-hidden="true" style="color:red;"></i>&nbsp;&nbsp;&nbsp;logout</a>
    
   </div>
 </div>

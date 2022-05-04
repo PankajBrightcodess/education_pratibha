@@ -1,5 +1,5 @@
 <section class="blankfooter "></section>
-<section style="background: #222279; padding:50px;">
+<section  class="footer"style="background: #222279; padding:50px;">
 	<div class="container">
 	 <div class="row">
           <div class="col-12 col-md">
@@ -26,7 +26,6 @@
           	EDUCATION PRATIBHA DARPAN
 
 IT PARK NEAR RIYADA , RANCHI , NO - 24 , RANCHI
-
 Bokaro – 827012 (Jharkhand)
           </p>
           </div>

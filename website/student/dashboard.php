@@ -120,8 +120,8 @@ $msg = "";
                           
                       </div>
                           <div class="col-3 col-md-3" style="font-size: 10px;"><strong></strong></div>
-                          <div class="col-6 col-md-6" style="font-size: 10px; margin-bottom: -50px;"><strong >Student Name: <?= $_SESSION['name']; ?></strong></div>
-                          <div class="col-2 col-md-2" style="font-size: 10px;"><strong></strong></div>
+                          <div class="col-6 col-md-3 dashcard" style="font-size: 10px;"><strong >Student Name: <?= $_SESSION['name']; ?></strong></div>
+                          <div class="col-2 col-md-3" style="font-size: 10px;"><strong></strong></div>
                     </div>
                   </div>
 

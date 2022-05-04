@@ -329,296 +329,6 @@ body{
     margin-bottom: -18px;
 }
 /*'''''''''''''''''''''''scroll''''''''''''*/
-@media(min-width: 2560px){
-    .table-responsive {
-     display: table!important; 
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-}
-     #container {
-    background-color: #ffff;
-    height: 500px!important;
-    overflow-x: hidden!important;
-    overflow-y: scroll!important;
-    width: 60%!important;
-    padding: -44px!important;
-}
-     .dropdown{
-        float:right!important;
-         margin-right: -140px!important;
-    }
-    .blankfooter {
-    margin-top: 1173px!important;
-}
-.banner-bottom-executive{
-   
-    background:#fff;
-    text-align:center;
-    border-radius: 20px;
-    margin: 10px;
-    margin-top: 9px;
-    margin-top: 9px;
-    margin-right: 175px;
-    margin-left: 175px;
-    height: 147px!important;
- 
- /* padding: 10px;*/
- 
-}
-.banner-bottom-executive a{
-    color: black;
-}
-.blankfooter_executive{
-    margin-top: 1296px!important;
-}
-      .pages h5{
-        font-size: 35px!important;
-    }
-    .pages label{
-        font-size: 25px!important;
-    }
-    .pages span{
-        font-size: 20px!important;
-    }
-     .card strong{
-        font-size: 20px!important;
-    }
-    .winnerlist h6{
-        font-size: 20px!important;
-    }
-    .medal p{font-size: 30px!important;}
-    .fas{
-        font-size: 50px!important!important;
-    }
-
-        .col-4 strong{
-    font-size: 17px!important;
-}
-    .col-6 strong{
-    font-size: 17px!important;
-    margin-left: 150px!important;
-}
-    .banner-bottom{
-   
-    background:#fff;
-    text-align:center!important;
-    border-radius: 20px!important;
-    margin: 10px!important;
-   margin-top: 9px!important;
-    margin-right: 460px!important;
-    margin-left: 460px!important;
-    height: 262px!important;
- 
- /* padding: 10px;*/
- 
-}
-.dashboard1{
-    padding-top: 20px!important;
-}
-.dashboard{
-    margin-top: 35px!important;
-}
-.banner-bottom h2{
-    background: #fff;
-    padding: 15px!important;
-    color:#353746!important;
-    font-size:30px;
-}
-.banner-bottom h2 a{
-font-weight: 600;
-color:#D70104;
-}
-
-
-    }
-
-@media(min-width: 1440px){
-    .table-responsive {
-     display: table!important; 
-    width: 100%;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-}
-     #container {
-    background-color: #ffff;
-    height: 500px!important;
-    overflow-x: hidden!important;
-    overflow-y: scroll!important;
-    width: 60%!important;
-    padding: -44px!important;
-}
-    .row form{
-        display: block;
-    }
-     .dropdown{
-        float:right!important;
-         margin-right: -140px!important;
-    }
-    .blankfooter {
-    margin-top: 258px!important;
-}
-.banner-bottom-executive{
-   
-    background:#fff;
-    text-align:center;
-    border-radius: 20px;
-    margin: 10px;
-    margin-top: 9px;
-    margin-top: 9px;
-    margin-right: 175px;
-    margin-left: 175px;
-    height: 147px!important;
- 
- /* padding: 10px;*/
- 
-}
-.blankfooter_executive{
-    margin-top: 581px!important;
-}
-    .pages h5{
-        font-size: 30px!important;
-    }
-    .pages label{
-        font-size: 25px!important;
-    }
-    .pages span{
-        font-size: 18px!important;
-    }
-
-    .card strong{
-        font-size: 20px!important;
-    }
-    .winnerlist h6{
-        font-size: 20px!important;
-    }
-    .medal p{font-size: 30px!important;}
-    .fas{
-        font-size: 50px!important!important;
-    }
-   
-        .col-4 strong{
-    font-size: 17px!important;
-}
-    .col-6 strong{
-    font-size: 17px!important;
-    margin-left: 103px!important;
-}
-
-.banner-bottom{
-   
-    background:#fff;
-    text-align:center!important;
-    border-radius: 20px!important;
-    margin: 10px!important;
-   margin-top: 9px!important;
-    margin-right: 292px!important;
-    margin-left: 292px!important;
-    height: 262px!important;
- 
- /* padding: 10px;*/
- 
-}
-.banner-bottom-executive a{
-    color: black;
-}
-.dashboard1{
-    padding-top: 20px;
-}
-.dashboard{
-    margin-top: 35px;
-}
-.banner-bottom h2{
-    background: #fff;
-    padding: 15px;
-    color:#353746;
-    font-size:30px;
-}
-.banner-bottom h2 a{
-font-weight: 600;
-color:#D70104;
-}
-
-
-}
-
-@media(min-width: 1024px){
-    #container {
-    background-color: #ffff;
-    height: 500px!important;
-    overflow-x: hidden!important;
-    overflow-y: scroll!important;
-    width: 60%!important;
-    padding: -44px!important;
-}
-     .row form{
-        display: block!important;
-    }
-    .dropdown{
-        float:right!important;
-         margin-right: -140px!important;
-    }
-    .blankfooter {
-    margin-top: 100px!important;
-}
- .blankfooter_executive{
-    margin-top: 253px!important;
-}
-      .pages h5{
-        font-size: 27px!important;
-    }
-    .pages label{
-        font-size: 18px!important;
-    }
-    .pages span{
-        font-size: 15px!important;
-    }
-    .winnerlist h6{
-        font-size: 20px!important;
-    }
-    .medal p{font-size: 20px!important;}
-    .fas{
-        font-size: 40px!important!important;
-    }
-    .col-4 strong{
-    font-size: 17px!important;
-}
-.col-6 strong{
-    font-size: 17px!important;
-    margin-left: 80px!important;
-}
-.card {
-    position: relative;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: #fff;
-    background-clip: border-box;
-    border: 1px solid rgba(0,0,0,.125);
-    border-radius: 0.25rem;
-    margin-left: 113px;
-    margin-right: 113px;
-}
-.banner-bottom-executive{
-   
-    background:#fff;
-    text-align:center;
-    border-radius: 20px;
-    margin: 10px;
-    margin-top: 9px;
-    margin-top: 9px;
-    margin-right: 175px;
-    margin-left: 175px;
-    height: 147px!important;
- 
- /* padding: 10px;*/
- 
-}
 .banner-bottom{
    
     background:#fff;
@@ -627,8 +337,8 @@ color:#D70104;
     margin: 10px;
     margin-top: 9px;
    margin-top: 9px;
-   margin-right: 175px;
-    margin-left: 175px;
+   margin-right: 330px;
+    margin-left: 330px;
     height: 275px!important;
  
  /* padding: 10px;*/
@@ -655,8 +365,6 @@ color:#D70104;
 .banner-bottom h2 a{
 font-weight: 600;
 color:#D70104;
-}
-
 }
 
 
@@ -838,8 +546,208 @@ color:#D70104;
     font-weight: bold;
     font-size: 9px;
 }
+/**/
 
-@media (min-width: 769px){ 
+    
+
+
+  .footer{
+    margin-top: 233px!important;
+    background: #222279!important;
+    padding: 50px!important;
+    }
+    .table-responsive {
+     display: table!important; 
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
+     #container {
+    background-color: #ffff;
+    height: 500px!important;
+    overflow-x: hidden!important;
+    overflow-y: scroll!important;
+    width: 60%!important;
+    padding: -44px!important;
+}
+    .row form{
+        display: block;
+    }
+     .dropdown{
+        float:right!important;
+        margin-right: 98px;
+      
+    }
+    .blankfooter {
+    margin-top: 200px!important;
+}
+.banner-bottom-executive{
+   
+    background:#fff;
+    text-align:center;
+    border-radius: 20px;
+    margin: 10px;
+    margin-top: 9px;
+    margin-top: 9px;
+    margin-right: 175px;
+    margin-left: 175px;
+    height: 147px!important;
+ 
+ /* padding: 10px;*/
+ 
+}
+.blankfooter_executive{
+    margin-top: 581px!important;
+}
+    .pages h5{
+        font-size: 30px!important;
+    }
+    .pages label{
+        font-size: 25px!important;
+    }
+    .pages span{
+        font-size: 18px!important;
+    }
+
+    .card strong{
+        font-size: 17px!important;
+    }
+    .winnerlist h6{
+        font-size: 20px!important;
+    }
+    .medal p{font-size: 30px!important;}
+    .fas{
+        font-size: 50px!important!important;
+    }
+   
+        .col-4 strong{
+    font-size: 17px!important;
+}
+    .dashcard{
+    font-size: 17px!important;
+    margin-left: 160px!important;
+}
+
+
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125);
+    border-radius: 0.25rem;
+    /* padding: 50px; */
+   
+}
+
+
+
+@media(max-width: 1024px){
+    #container {
+    background-color: #ffff;
+    height: 500px!important;
+    overflow-x: hidden!important;
+    overflow-y: scroll!important;
+    width: 60%!important;
+    padding: -44px!important;
+}
+     .row form{
+        display: block!important;
+    }
+    .dropdown{
+        float:right!important;
+        margin-right: 98px;
+        
+    }
+    .blankfooter {
+    margin-top: 100px!important;
+}
+ .blankfooter_executive{
+    margin-top: 253px!important;
+}
+      .pages h5{
+        font-size: 27px!important;
+    }
+    .pages label{
+        font-size: 18px!important;
+    }
+    .pages span{
+        font-size: 15px!important;
+    }
+    .winnerlist h6{
+        font-size: 20px!important;
+    }
+    .medal p{font-size: 20px!important;}
+    .fas{
+        font-size: 40px!important!important;
+    }
+    .col-4 strong{
+    font-size: 17px!important;
+}
+.col-6 strong{
+    font-size: 17px!important;
+  
+}
+
+.banner-bottom-executive{
+   
+    background:#fff;
+    text-align:center;
+    border-radius: 20px;
+    margin: 10px;
+    margin-top: 9px;
+    margin-top: 9px;
+    margin-right: 175px;
+    margin-left: 175px;
+    height: 147px!important;
+ 
+ /* padding: 10px;*/
+ 
+}
+.banner-bottom{
+   
+    margin-right:72px;
+    margin-left: 64px;
+   
+ 
+ /* padding: 10px;*/
+ 
+}
+.banner-bottom a{
+    color: black;
+}
+.banner-bottom-executive a{
+    color: black;
+}
+.dashboard1{
+    padding-top: 20px;
+}
+.dashboard{
+    margin-top: 20px;
+}
+.banner-bottom h2{
+    background: #fff;
+    padding: 15px;
+    color:#353746;
+    font-size:30px;
+}
+.banner-bottom h2 a{
+font-weight: 600;
+color:#D70104;
+}
+
+}
+
+
+
+
+@media (max-width: 769px){ 
     .slider,.top{
         padding-top: 40px;
     }
@@ -851,6 +759,7 @@ color:#D70104;
     }
    /* .desktop{display: none;} */
 }
+
 @media (max-width: 768px){
       .flogo{
    width:   80px!important;
@@ -891,6 +800,61 @@ color:#D70104;
     }
 }
 @media (max-width: 576px){
+    .banner-bottom-executive{
+   
+    background:#fff!important;
+    text-align:center;
+    border-radius: 20px;
+    margin: 10px;
+    margin-top: 9px;
+    margin-top: 9px;
+    margin-right: 175px;
+    margin-left: 175px;
+    height: 147px!important;
+ 
+ /* padding: 10px;*/
+ 
+}
+.banner-bottom{
+   
+    background:#fff;
+    text-align:center;
+    border-radius: 20px;
+    margin: 10px;
+    margin-top: 9px;
+   margin-top: 9px;
+   margin-right: 175px;
+    margin-left: 175px;
+    height: 275px!important;
+ 
+ /* padding: 10px;*/
+ 
+}
+.banner-bottom a{
+    color: black;
+}
+.banner-bottom-executive a{
+    color: black;
+}
+.dashboard1{
+    padding-top: 20px;
+}
+.dashboard{
+    margin-top: 20px;
+}
+.banner-bottom h2{
+    background: #fff;
+    padding: 15px;
+    color:#353746;
+    font-size:30px;
+}
+.banner-bottom h2 a{
+font-weight: 600;
+color:#D70104;
+}
+
+
+
     .dropdown img{
     width: 35px!important;
 }

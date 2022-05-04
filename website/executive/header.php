@@ -10,9 +10,9 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav mx-auto">
-      <a class="nav-item nav-link active  mb-0 h5" href="index.php">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link active  mb-0 h5" href="about-us.php">About Us</a>
-      <a class="nav-item nav-link active  mb-0 h5" href="contact-us.php">Contact Us</a>
+      <a class="nav-item nav-link active  mb-0 h5" href="../index.php">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link active  mb-0 h5" href="../about-us.php">About Us</a>
+      <a class="nav-item nav-link active  mb-0 h5" href="../contact-us.php">Contact Us</a>
       
     </div>	
     <div>
