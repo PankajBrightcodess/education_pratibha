@@ -14,7 +14,7 @@ $msg = "";
 	}
 ?>
 <?php include 'header-links.php'; ?>
-<style type="text/css">
+<!-- <style type="text/css">
   .menu{
     margin-top: -28px;
     padding: 22px;
@@ -33,17 +33,38 @@ $msg = "";
    
    /* text-shadow:2px 2px 4px #000000;*/
  }
-</style>
+</style> -->
 <?php include 'header.php'; ?>
 <section class="blank-course "></section>
-<section>
+<section class=" banner-bottom-executive" >
+  <div class="container">
+    <div class="row dashboard1">
+      <div class="col-4 ">
+        <a href="dashboard.php">
+       <img src="../../images/fav/01.png" width="80px;">
+          <br>Dashboard    </a>
+      </div>
+      <div class="col-4"><a href="studentlist.php"><img src="../../images/fav/02_old.png" width="80px;">
+              <br>Student List</a></div>
+    
+     
+      <div class="col-4">
+         <a href="logout.php"> <img src="../../images/fav/02.png" width="80px;"> <br>
+         Logout</a>
+      </div>
+    </div>
+
+
+    </div>
+</section>
+<!-- <section>
 	<div class="container">
      <div class="row menu">
       <div class="col-4"><a href="dashboard.php"><i class="fa fa-home" aria-hidden="true"></i></a></div>
       <div class="col-4"><a href="studentlist.php"><i class="far fa-address-book" style="color:blue; text-align:center; margin-left: 40px;"></i></a></div>
       <div class="col-4"><a href="logout.php"><i class="fa fa-sign-in-alt" style="color:red; float: 	right;" aria-hidden="true"></i></a></div>
     </div>
-		<!-- <div class="row">
+		<div class="row">
 			<div class="col-md-12 dashboard mb-3">
 				<h4 style="color:#403226; margin-top: 2rem; text-align: center;"><?php print_r($_SESSION['name'])?>
 					
@@ -63,11 +84,11 @@ $msg = "";
                 </form>
 
 			</div>
-		</div> -->
+		</div>
 
    
 		
 	</div>
-</section>
+</section> -->
 <?php include 'footer.php'; ?>
 <?php include 'footer-links.php'; ?>

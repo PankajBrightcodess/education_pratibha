@@ -31,16 +31,16 @@ $msg = "";
           if(!empty($winner)){
             foreach ($winner as $key => $value) {
                 ?>
-               <div class="col-md-9 mb-3">
+               <div class="col-md-12 mb-3">
                   <div class="card">
                    <div class="card-header bg-secondary text-light text-center"><span><strong>Winner</strong></span></div>
                     <div class="card-body">
-                      <div class="row">
+                      <div class="row winnerlist">
                        <div class="col-md-9 col-9 mb-5">
                           <h6><?php echo $value['name'];?> <br>(<?php echo date('Y',strtotime($value['year']));?>)</h6>
                        </div>
                        
-                       <div class="col-md-3 col-3"> 
+                       <div class="col-md-3 col-3 medal"> 
                         <p><?= $value['Rank']; 
                              $rank= $value['Rank'];
                              if($rank == 1){ ?>

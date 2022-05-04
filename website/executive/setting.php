@@ -10,8 +10,8 @@ $msg = "";
     echo "<script> alert('$msg') </script>";
   }
   // print_r($_SESSION['role']);die;
-  if(empty($_SESSION['enroll_id'])){
-    header('location:../studentlogin.php');
+  if(empty($_SESSION['exe_id'])){
+    header('location:../executivelogin.php');
   }
   
 ?>
@@ -41,7 +41,7 @@ $msg = "";
             <h4 style="color:white">Settings</h4>
           </div>
           <div class="col-1">
-           <a href="action.php?settinglogout=<?php echo $_SESSION['enroll_id']; ?>"><i class="fa fa-power-off" style="font-size:24px; color: white;"></i></a>
+           <a href="action.php?settinglogout=<?php echo $_SESSION['exe_id']; ?>"><i class="fa fa-power-off" style="font-size:24px; color: white;"></i></a>
           </div>
         </div>
       </div>
@@ -63,7 +63,7 @@ $msg = "";
         <div class="row justify-content-center">
           <form method="POST" action="">
             <div class="col-12 col-md-12">
-              <input class="form-control" type="hidden" name="ids" id="ids" value="<?= $_SESSION['enroll_id']; ?>">
+              <input class="form-control" type="hidden" name="ids" id="ids" value="<?= $_SESSION['exe_id']; ?>">
               <input type="text" name="current_password" id="current_password" placeholder="Current Password" class="form-control" style="margin-bottom:10px">
             </div>
             <div class="col-12 col-md-12">
@@ -108,7 +108,7 @@ $msg = "";
                     if(result == 1){
                 
                         swal("Good job!", "Updated Successfully!", "success");
-                        window.location.href = "../studentlogin.php";
+                        window.location.href = "../executivelogin.php";
                      
                     }
                     else{

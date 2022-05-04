@@ -51,29 +51,30 @@ $msg = "";
  <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 
 
-<section class="banner-bottom" >
+<section class=" banner-bottom" >
   <div class="container">
-    <div class="row">
+    <div class="row dashboard1">
       <div class="col-4 ">
         <a href="dashboard.php">
        <img src="../../images/fav/01.png" width="80px;">
-              </a>
+          <br>Dashboard    </a>
       </div>
       <div class="col-4"><a href="user_profile.php"><img src="../../images/fav/02_old.png" width="80px;">
-              <br></a></div>
+              <br>Profile</a></div>
       <div class="col-4"><a href="onlineexamlist.php"> <img src="../../images/fav/031_old.png" width="80px;">
-              </a></div>
+               <br>Test Series</a></div>
     </div>
-    <div class="row">
+    <div class="row dashboard">
       <div class="col-4"><a href="winner-list.php"> <img src="../../images/fav/03.png" width="80px;">
-              </a></div>
+              <br>Winner List</a></div>
       <div class="col-4">
         <a href="pay.php"> <img src="../../images/fav/05.png" width="80px;">
-              </a>
+         <br>   payment  </a>
       </div>
      
       <div class="col-4">
-         <a href="logout.php"> <img src="../../images/fav/02.png" width="80px;"> <br></a>
+         <a href="logout.php"> <img src="../../images/fav/02.png" width="80px;"> <br>
+         Logout</a>
       </div>
     </div>
 
@@ -118,9 +119,9 @@ $msg = "";
                       <!--  <iframe src="../executive/uploads/homework/<?php echo $value['assessment']; ?>"><i class="fa fa-file-pdf-o" style="font-size:48px;color:red"></i></iframe> -->
                           
                       </div>
-                          <div class="col-3" style="font-size: 10px;"><strong></strong></div>
-                          <div class="col-6" style="font-size: 10px; margin-bottom: -50px;"><strong >Student Name: <?= $_SESSION['name']; ?></strong></div>
-                          <div class="col-2" style="font-size: 10px;"><strong></strong></div>
+                          <div class="col-3 col-md-3" style="font-size: 10px;"><strong></strong></div>
+                          <div class="col-6 col-md-6" style="font-size: 10px; margin-bottom: -50px;"><strong >Student Name: <?= $_SESSION['name']; ?></strong></div>
+                          <div class="col-2 col-md-2" style="font-size: 10px;"><strong></strong></div>
                     </div>
                   </div>
 

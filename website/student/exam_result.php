@@ -81,7 +81,7 @@ include 'header.php';
         margin-top: 120px;
     }
     #container {
-    background-color: #ff7f00;
+    /*background-color: #ff7f00;*/
     height: 300px;
     overflow-x: hidden;
     overflow-y: scroll;

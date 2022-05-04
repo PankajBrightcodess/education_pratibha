@@ -1,7 +1,44 @@
 <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- <body class="desktop" style="background: #e9ebfb;"> -->
 <body class="desktop" style="background:  #9ad9ea;">
-	<style type="text/css">
+	<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
+
+  <a class="navbar-brand" href="index.php"><img src="../../images/logo/logo.png" height="65px" width="70px"> </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav mx-auto">
+      <a class="nav-item nav-link active  mb-0 h5" href="index.php">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link active  mb-0 h5" href="about-us.php">About Us</a>
+      <a class="nav-item nav-link active  mb-0 h5" href="contact-us.php">Contact Us</a>
+      
+    </div>	
+    <div>
+    	<div class="dropdown">
+  <a class="dropdown-toggle  my-2 my-sm-0" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+   <img src="../../images/fav/01_old.png" width="20%">
+  </a>
+
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+  	 <a class="dropdown-item" href="dashboard.php"><i class="fa fa-home" aria-hidden="true" style="color:blue; font-size:15px;"></i>&nbsp;&nbsp;&nbsp;Dashboard</a>
+  	 
+  	   <a class="dropdown-item" href="studentlist.php"><i class="far fa-address-book" style="color:blue;"></i>&nbsp;&nbsp;&nbsp;Student List</a>
+  	    <a class="dropdown-item" href="setting.php"><i class="fa fa-gear fa-spin" style=" font-size:15px;"></i>&nbsp;&nbsp;&nbsp;Setting</a>
+  	    <a class="dropdown-item" href="logout.php"><i class="fa fa-sign-in-alt" style="color:red;"aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Logout</a>
+  	   
+   
+   
+  </div>
+</div>
+    	 <!-- <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+    
+    </div>	
+  </div>
+</nav>
+	<!-- <style type="text/css">
 		.home2 a{
 			text-align: center;
 		}
@@ -19,7 +56,7 @@
               							<img src="../images/logo/logo.jpeg"  class="img-fluid">
               						</a>
               					</div>
-              				</div> -->
+              				</div> 
               				<div class="home2">
 								<a href="dashboard.php"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Dashboard</a><hr>
 								<a href="studentlist.php"><i class="far fa-address-book" style="color:blue;"></i>&nbsp;&nbsp;&nbsp;Student List</a><hr>
@@ -47,7 +84,7 @@
 					<div class="bell">
 						<p>
 							<a href="#">
-								<!-- <span><i class="far fa-bell" style="color: #fff;"></i></span> -->
+								<!-- <span><i class="far fa-bell" style="color: #fff;"></i></span>
 							</a>
 						</p>
 					</div>
@@ -55,4 +92,4 @@
 			</div>
 			<div class="clearfix"></div>
 		</div>
-	</section>
+	</section> -->

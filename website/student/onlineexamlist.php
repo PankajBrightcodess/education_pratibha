@@ -38,14 +38,14 @@ header('location:pay.php');
 <?php include 'header.php'; ?>
 <section class="blank-course "></section>
  <section class="page">
-    <div class="container-fluid">
+    <div class="container">
       <div class="row">
         <?php 
 
           if(!empty($onlinetest)){
             foreach ($onlinetest as $key => $value) {
                 ?>
-                <a href="onlineexam.php?id=<?php echo $value['id'];?>" style="color: black;"><div class="col-md-9 mb-3">
+                <a href="onlineexam.php?id=<?php echo $value['id'];?>" style="color: black;"><div class="col-md-12 mb-3">
                   <div class="card">
                    <div class="card-header bg-secondary text-light text-center"><span><strong>Attempt</strong></span></div>
                     <div class="card-body">
