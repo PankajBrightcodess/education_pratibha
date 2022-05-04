@@ -897,6 +897,11 @@ color:#D70104;
     }
 }
 @media (max-width: 425px){
+    .banner-bottom {
+    margin-right: 33px;
+    margin-left: 28px;
+    /* padding: 10px; */
+}
     .dropdown img{
     width: 35px!important;
 }
