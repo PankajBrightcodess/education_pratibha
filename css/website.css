@@ -800,7 +800,10 @@ color:#D70104;
     }
 }
 @media (max-width: 576px){
-    .banner-bottom-executive{
+    .banner-bottom {
+    margin-right: 52px;
+    margin-left: 52px;
+  /*  .banner-bottom-executive{
    
     background:#fff!important;
     text-align:center;
@@ -815,7 +818,7 @@ color:#D70104;
  /* padding: 10px;*/
  
 }
-.banner-bottom{
+/*.banner-bottom{
    
     background:#fff;
     text-align:center;
@@ -827,7 +830,7 @@ color:#D70104;
     margin-left: 175px;
     height: 275px!important;
  
- /* padding: 10px;*/
+ /* pa*/
  
 }
 .banner-bottom a{
@@ -851,7 +854,7 @@ color:#D70104;
 .banner-bottom h2 a{
 font-weight: 600;
 color:#D70104;
-}
+}*/
 
 
 
