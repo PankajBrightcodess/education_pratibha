@@ -26,7 +26,7 @@
   	 
   	   <a class="dropdown-item" href="studentlist.php"><i class="far fa-address-book" style="color:blue;"></i>&nbsp;&nbsp;&nbsp;Student List</a>
   	    <a class="dropdown-item" href="setting.php"><i class="fa fa-gear fa-spin" style=" font-size:15px;"></i>&nbsp;&nbsp;&nbsp;Setting</a>
-  	    <a class="dropdown-item" href="logout.php"><i class="fa fa-sign-in-alt" style="color:red;"aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Logout</a>
+  	    <a class="dropdown-item" href="logout.php"><i class="ffa fa-sign-out"" style="color:red;"aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Logout</a>
   	   
    
    

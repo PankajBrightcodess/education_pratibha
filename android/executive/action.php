@@ -231,6 +231,57 @@ if(isset($_POST['change_center_exe'])){
 		}
 	}
 
+  if (isset($_GET['settinglogout'])) {
+     $id = $_GET['settinglogout'];
+        if($id == $_SESSION['exe_id']){
+        	unset($_SESSION['exe_id']);
+        	header("location:../index.php");
+        }
+   
+   }
+	if(isset($_POST['setting_change_password'])){
+		$id = $_SESSION['exe_id'];
+		$query="SELECT * FROM `field_excutive` WHERE `id`='$id'";
+        $run=mysqli_query($conn,$query);
+        $data=mysqli_fetch_assoc($run);
+         if($_POST['current_password'] == $data['password']){
+		
+		       if($_POST['new_password']==$_POST['confirm_new_password']){
+		
+		   	 $pass = $_POST['confirm_new_password'];
+				$id = $_POST['id'];
+				$query="SELECT * FROM `field_excutive` WHERE `id`='$id'";
+		// 		  echo '<pre>';
+		// print_r($query);die;
+        $run=mysqli_query($conn,$query);
+       //    echo '<pre>';
+		     // print_r($run);die;
+
+        $data=mysqli_num_rows($run);
+        if($data>0){
+				  $query="UPDATE `field_excutive` SET `password`='$pass' WHERE `id`='$id'";
+					// print_r($query);die;
+					$run=mysqli_query($conn,$query);
+					unset($_SESSION['exe_id']);
+				
+					if($run){
+						 echo "1";
+					}
+					else{
+						echo "0";
+					}
+        }
+        else{
+        	echo "0";
+        }
+				
+			}
+		}
+		else{
+			echo "0";
+		}
+
+	}
 
 // 	if(isset($_POST['add_homework'])){
 // 		// echo '<pre>';

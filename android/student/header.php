@@ -28,7 +28,7 @@
 								<a href="user_profile.php"><i class="fa fa-user" style=" font-size:15px;"></i>&nbsp;&nbsp;&nbsp;Profile</a><hr>
 								<a href="pay.php"><i class="fa fa-book" style=" color:brown; font-size:15px;"></i>&nbsp;&nbsp;&nbsp;Pay Now</a><hr>
 								<a href="setting.php"><i class="fa fa-gear fa-spin" style=" font-size:15px;"></i>&nbsp;&nbsp;&nbsp;Setting</a><hr>
-				                <a href="logout.php"><i class="fa fa-star" aria-hidden="true" style="color:red;"></i>&nbsp;&nbsp;&nbsp;Logout</a><hr>
+				                <a href="logout.php"><i class="fa fa-sign-out"" aria-hidden="true" style="color:red;"></i>&nbsp;&nbsp;&nbsp;Logout</a><hr>
 							</div>
               			</div>
               		</div>

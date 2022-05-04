@@ -1,4 +1,5 @@
 <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <!-- <body class="desktop" style="background: #e9ebfb;"> -->
 <body class="desktop" style="background:  #9ad9ea;">
 	<style type="text/css">
@@ -23,7 +24,8 @@
               				<div class="home2">
 								<a href="dashboard.php"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Dashboard</a><hr>
 								<a href="studentlist.php"><i class="far fa-address-book" style="color:blue;"></i>&nbsp;&nbsp;&nbsp;Student List</a><hr>
-				                <a href="logout.php"><i class="fa fa-sign-in-alt" style="color:red;"aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Logout</a><hr>
+								<a href="setting.php"><i class="fa fa-gear fa-spin" style=" font-size:15px;"></i>&nbsp;&nbsp;&nbsp;Setting</a><hr>
+				                <a href="logout.php"><i class="fa fa-sign-out" style="color:red;"aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Logout</a><hr>
 							</div>
               			</div>
               		</div>
