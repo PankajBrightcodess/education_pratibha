@@ -330,6 +330,13 @@ body{
 }
 /*'''''''''''''''''''''''scroll''''''''''''*/
 @media(min-width: 2560px){
+    .table-responsive {
+     display: table!important; 
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
      #container {
     background-color: #ffff;
     height: 500px!important;
@@ -428,6 +435,13 @@ color:#D70104;
     }
 
 @media(min-width: 1440px){
+    .table-responsive {
+     display: table!important; 
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+}
      #container {
     background-color: #ffff;
     height: 500px!important;
