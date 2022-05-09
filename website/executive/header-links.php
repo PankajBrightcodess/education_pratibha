@@ -15,5 +15,5 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="shortcut icon" href="../../images/logo/logo.png" type="image/png">
    
-    <title>Feild Executive</title>
+    <title>Field Executive</title>
 </head>

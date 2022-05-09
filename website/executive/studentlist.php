@@ -41,7 +41,8 @@ include '../connection.php';
               <div class="row">
                
         <div class="col-md-12">
-                  <table id="datatable" class="table table-hovered table-responsive table-bordered">
+          <div class="table-responsive">
+            <table id="datatable" class="table table-hovered table-bordered">
                       <thead>
                         <tr class="bg-dark text-light">
                           <th>Sno</th>
@@ -87,11 +88,14 @@ include '../connection.php';
                         <?php } }?>
                       </tbody>
                     </table>
+          </div>
+                  
               </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
     </div>
   </section>
   <!-- --------------------------------------------Modal----------------------------------------------- -->

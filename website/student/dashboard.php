@@ -56,24 +56,24 @@ $msg = "";
     <div class="row dashboard1">
       <div class="col-4 ">
         <a href="dashboard.php">
-       <img src="../../images/fav/01.png" width="80px;">
+       <img src="../../images/fav/01.png">
           <br>Dashboard    </a>
       </div>
-      <div class="col-4"><a href="user_profile.php"><img src="../../images/fav/02_old.png" width="80px;">
+      <div class="col-4"><a href="user_profile.php"><img src="../../images/fav/02_old.png" >
               <br>Profile</a></div>
-      <div class="col-4"><a href="onlineexamlist.php"> <img src="../../images/fav/031_old.png" width="80px;">
+      <div class="col-4"><a href="onlineexamlist.php"> <img src="../../images/fav/031_old.png" >
                <br>Test Series</a></div>
     </div>
     <div class="row dashboard">
-      <div class="col-4"><a href="winner-list.php"> <img src="../../images/fav/03.png" width="80px;">
+      <div class="col-4"><a href="winner-list.php"> <img src="../../images/fav/03.png" >
               <br>Winner List</a></div>
       <div class="col-4">
-        <a href="pay.php"> <img src="../../images/fav/05.png" width="80px;">
+        <a href="pay.php"> <img src="../../images/fav/05.png" >
          <br>   payment  </a>
       </div>
      
       <div class="col-4">
-         <a href="logout.php"> <img src="../../images/fav/02.png" width="80px;"> <br>
+         <a href="logout.php"> <img src="../../images/fav/02.png" > <br>
          Logout</a>
       </div>
     </div>
