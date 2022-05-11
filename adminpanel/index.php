@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_SESSION['adminemail'])){
+if(isset($_SESSION['email'])){
   header('location:dashboard.php');
 }
 include'../android/connection.php';
