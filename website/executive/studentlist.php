@@ -23,7 +23,7 @@ include '../connection.php';
                   $res1=mysqli_query($conn,$sqll);
                   $nm1=mysqli_num_rows($res1);
                   ?>
-               <div class="row" style="padding:19px;">
+                <div class="row" style="padding:19px;">
                     <div class="col-6" style="background-color: #20c997; color: white; text-align: center;">
                       Paid Student: <h3><br><?php echo $nm1 ; ?></h3>
                     </div>
@@ -32,23 +32,18 @@ include '../connection.php';
                       Unpaid Student: <h3> <br><?php echo $nm0 ; ?></h3>
                     </div>
                 </div>
-                   
+  
 
-
-
-
-
-              <div class="row">
-               
-        <div class="col-md-12">
-          <div class="table-responsive">
-            <table id="datatable" class="table table-hovered table-bordered">
+      <div class="row">  
+        <div class="col-md-12 col-12">
+          <div class="table-responsive-sm">
+            <table id="datatable" class="table table-hovered table-bordered" width="100%">
                       <thead>
                         <tr class="bg-dark text-light">
                           <th>Sno</th>
                           <th>Student's Name</th>
                           <th>Qualifaction</th>
-                          <th>D O B</th>
+                           <th>D O B</th>
                           <th>Mobile No</th>
                           <th>Email</th>
                           <th>Address</th>
@@ -68,7 +63,7 @@ include '../connection.php';
                                 // print_r($result);die;
                             if(!empty($result)){ $i=0;  foreach ($result as $uploadresult) { $i++; ?>
                         <tr>
-                          <td><?php echo $i; ?></td>
+                           <td><?php echo $i; ?></td>
                           <td><?php echo $uploadresult['name']; ?></td>  
                           <td><?php echo $uploadresult['ac_qualify']; ?></td>
                           <td><?php echo $uploadresult['dob']; ?></td>
@@ -78,87 +73,31 @@ include '../connection.php';
                           <td><?php
                              $status= $uploadresult['payment_status'];
                                       if( $status == 1){ ?>
-                                          <center  style="background-color: #20c997; color: white; text-align: center;">Paid</center>
+                                          <center  style="background-color: #20c997; color: white; text-align: center;">Paid
+                                          </center>
                                     <?php   }
 
                                       else{ ?>
-                                        <center style="background-color:#ca4653; color:white; text-align: center;">Unpaid</center>
+                                        <center style="background-color:#ca4653; color:white; text-align: center;">Unpaid
+                                        </center>
                                   <?php    } ?></td>
                         </tr>  
                         <?php } }?>
                       </tbody>
                     </table>
-          </div>
-                  
+                 </div>  
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    </div>
-  </section>
+  </div>
+</section>
   <!-- --------------------------------------------Modal----------------------------------------------- -->
 <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target=".bd-example-modal-lg">Large modal</button> -->
 
-<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Update News</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form action="action.php" method="POST" enctype="multipart/form-data">
-                     <div class="form-group row">
-                         <div class="col-sm-12 mb-3">
-                          <label class="label">Center Code</label>
-                         <input type="text" class="form-control" name="cent_code" id="cent_code" placeholder="Enter Center Code">
-                         <input type="hidden" class="form-control" name="id" id="id">
-                          </div> 
-                          <div class="col-sm-12 mb-3">
-                            <label class="label">Center Name</label>
-                           <input type="text" class="form-control" name="cent_name" id="cent_name" placeholder="Enter Center Name">
-                          </div> 
-                          <div class="col-sm-12 mb-3">
-                            <label class="label">Address</label>
-                            <textarea class="form-control" name="address" id="address" rows="3" col="12"></textarea>
-                          </div>   
-                          <div class="col-sm-12 mb-3">
-                            <label class="label">Contact No.</label>
-                            <input type="text" class="form-control" name="mobile" id="mobile" placeholder="Enter Center Name">
-                          </div>                                
-                          <div class="col-sm-12 mb-3">
-                            <label class="label">Email</label>
-                            <input type="mail" class="form-control" name="mail" id="mail" placeholder="Enter Email">
-                          </div>
-                             <div class="col-sm-12 mb-3">
-                            <label class="label">Password</label>
-                            <input type="text" class="form-control" name="pass" id="pass" placeholder="Enter Password">
-                          </div>
-                          <div class="col-sm-12 mb-3">
-                            <label class="label">Role</label>
-                            <select name="role" class="form-control">
-                              <option >---Select---</option>
-                              <option value="2" selected>Center</option>
-                            </select>
-                          </div>
-                      </div>
-                    <input type="submit" name="update_center" class="btn btn-warning" value="Update">
-                  </form>
 
-
-
-      </div>
-   <!--    <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-success">Update</button>
-      </div> -->
-    </div>
-  </div>
-</div>
 <!-- --------------------------------------------Modal End------------------------------------------- -->
 <?php include 'footer.php'; ?>
 <?php include 'footer-links.php'; ?>

@@ -589,7 +589,6 @@ color:#D70104;
     border-radius: 20px;
     margin: 10px;
     margin-top: 9px;
-    margin-top: 9px;
     margin-right: 175px;
     margin-left: 175px;
     height: 147px!important;
@@ -672,7 +671,7 @@ color:#D70104;
     margin-top: 100px!important;
 }
  .blankfooter_executive{
-    margin-top: 253px!important;
+    margin-top: 310px!important;
 }
       .pages h5{
         font-size: 27px!important;
@@ -706,8 +705,8 @@ color:#D70104;
     margin: 10px;
     margin-top: 9px;
     margin-top: 9px;
-    margin-right: 175px;
-    margin-left: 175px;
+   /* margin-right: 175px;
+    margin-left: 175px;*/
     height: 147px!important;
  
  /* padding: 10px;*/
@@ -768,7 +767,12 @@ color:#D70104;
 }
 
 @media (max-width: 768px){
+    .end-footer{
+        display: none;
+    }
       .flogo{
+    }
+    }
    width:   80px!important;
    height:  78px!important;
    
@@ -807,21 +811,10 @@ color:#D70104;
     }
 }
 @media (max-width: 576px){
-    .banner-bottom-executive{
-   
-    background:#fff;
-    text-align:center;
-    border-radius: 20px;
-    margin: 10px;
-    margin-top: 9px;
-    margin-top: 9px;
-   /* margin-right: 175px;
-    margin-left: 175px;*/
-    height: 147px!important;
- 
- /* padding: 10px;*/
- 
-}
+     .end-footer{
+        display: none;
+    }
+
 .banner-bottom-executive img{
     width: 50px;
 }
@@ -923,6 +916,9 @@ color:#D70104;
     }
 }
 @media (max-width: 425px){
+     .end-footer{
+        display: none;
+    }
     .banner-bottom-executive a{
         font-size: 15px;
     }
@@ -980,6 +976,9 @@ color:#D70104;
     }
 }
 @media(max-width: 368px){
+     .end-footer{
+        display: none;
+    }
     .dropdown img{
     width: 35px!important;
 }
@@ -989,6 +988,9 @@ color:#D70104;
 }
     }
 @media(max-width: 375px){
+     .end-footer{
+        display: none;
+    }
     .col-6 strong {
     font-size: 12px!important;
     text-align: center;
@@ -1063,6 +1065,9 @@ color:#D70104;
     }
 }
 @media(max-width: 320px){
+     .end-footer{
+        display: none;
+    }
     .banner-bottom-executive a{
         font-size: 11px!important;
     }

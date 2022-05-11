@@ -77,10 +77,11 @@ Bokaro – 827012 (Jharkhand)
     
 <!-------------------------End Footer ------------------------>
 
-    <div class="container">
+   <section class="end-footer">
+        <div class="container">
         <div class="row">
             <div class="col-sm-8">
-            	<a href="index.php">
+                <a href="index.php">
                 <span style="float:left; padding-top:5px; color:black;">
                     Copyright &copy; 2022 &nbsp; Education pratibha. All Rights Reserved.
                 </span>
@@ -89,13 +90,14 @@ Bokaro – 827012 (Jharkhand)
             
             <div class="col-sm-4">
                 <span style="float:right;">
-                	Powered By : 
+                    Powered By : 
                     <a href="https://www.brightcodess.com/website-designing-and-web-development.php" target="_blank"><img src="../../images/Brightcode.png" alt="Brightcode-Software-Services-Pvt-Ltd" title="Brightcode-Software-Services-Pvt-Ltd"></a>
                 </span>
             </div> 
                     
         </div>
     </div>
+   </section>
 
 <!-- <section class="bottom-menu-bar">
 	<div class="container-fluid">
