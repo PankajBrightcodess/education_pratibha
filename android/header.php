@@ -53,9 +53,9 @@
   text-align: center;
 }
 </style>
-<body onload="myFunction()" class="desktop" style="background: #9ad9ea;">
+<body class="desktop" style="background: #9ad9ea;">
 	
-<div id="loader"></div>
+
 
 <div style="display:none;" id="myDiv" class="animate-bottom">
   <section class="top-part">
