@@ -49,8 +49,8 @@
   text-align: center;
 }
 </style>
-<body onload="myFunction()" class="desktop" style="background: #9ad9ea;">
-	<div id="loader"></div>
+<body  class="desktop" style="background: #9ad9ea;">
+	
 	<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light">
   <a class="navbar-brand" href="index.php"><img src="../images/logo/logo.png" height="65px" width="70px"> </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
