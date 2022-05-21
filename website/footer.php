@@ -67,7 +67,13 @@ Bokaro – 827012 (Jharkhand)
                     <div class="clearfix"></div>
                 </div>
             </div>
+             <a href="#"> <img src="../images/logo/android.png" width="100%"    style="margin-top: 28px;"></a>
           </div>
+          <!-- <div class="row">
+              <div class="col-md-12">
+                 <a href="#"> <img src="../images/logo/android.png" width="100%"></a>
+              </div>
+         </div> -->
         </div>
 </div>
 </section>
