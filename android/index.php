@@ -1,4 +1,4 @@
-    <?php include 'header-links.php'; ?>
+<?php include 'header-links.php'; ?>
 <?php include 'header.php'; ?>
 
 <section class="slider">
