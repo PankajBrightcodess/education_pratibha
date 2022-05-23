@@ -16,7 +16,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<?php include '../admin/header-links.php'; ?>
-	<title>Student Change Password | Shivanya Computer Education</title>
+	<title>Student Change Password | Education Pratibha Darpan </title>
 </head>
 <body style="background:#e8e7e5; ">
 	<section class="login" style="margin-top: 15rem;">
