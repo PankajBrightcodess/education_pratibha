@@ -1,6 +1,5 @@
 <?php include 'header-links.php'; ?>
 <?php include 'header.php'; ?>
-
 <section class="slider">
 	<img src="../data1/images/New/banner.png" alt="Los Angeles">
     <hr>
