@@ -658,9 +658,6 @@ if(isset($_POST['del_result_admin'])){
 	
    }
    if(isset($_POST['student_reg'])){   
- //   	echo "hii"; die;
-	// echo '<pre>';
-	// print_r($_POST);die;
 		$name =$_POST['name'];
 		$mobile =$_POST['mobile'];
 		$email =$_POST['email'];
@@ -669,7 +666,6 @@ if(isset($_POST['del_result_admin'])){
 		$bankaccount =$_POST['bankaccount'];
 		$ifsc =$_POST['ifsc'];
 		$ac_qualify =$_POST['ac_qualify'];
-		
 		$executive_id =$_POST['executive_id'];
 		$password =$_POST['password'];
 		$dob =$_POST['dob'];
@@ -679,7 +675,6 @@ if(isset($_POST['del_result_admin'])){
 	   	$query="SELECT * FROM `student` WHERE `email`='$email'";
 	    $run=mysqli_query($conn,$query);
 	    $num=mysqli_num_rows($run);
-
 	    if($num==0){
 	    		$query="INSERT INTO `student`(`name`,`mobile`,`email`,`fathername`,`bankname`,`bankaccount`,`ifsc`,`ac_qualify`,`executive_id`,`password`,`dob`,`address`,`added_on`) VALUES ('$name','$mobile','$email','$fathername'
 	    			,'$bankname','$bankaccount','$ifsc','$ac_qualify','$executive_id','$password','$dob','$address',

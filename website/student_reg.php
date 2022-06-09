@@ -125,21 +125,21 @@ while ($data=mysqli_fetch_assoc($run)) {
         </div> -->
         <div class="col-md-6 col-12 mb-2">
              <label>Feild Executive<span style="color: Red;">*</span></label>
-             <input  class="form-control" type="text" id="myInput" id="executive_id" name="executive_id" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+             <input class="form-control" type="text" id="myInput" id="executive_id" name="executive_id" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
 
-<!-- <ul id="myUL">
- 
-   <?php 
+<ul id="myUL">
+      <?php 
                     if(!empty($executive)){
-                        foreach ($executive as $key => $value) {
-                           ?><li><a href="" value="<?php echo $value['id'];?>"><?php echo $value['email'];?></a></li><?php
+                        foreach ($executive as $key => $value) { ?>
+                <li class="aa"><a href="#" value="<?php echo $value['id'];?>"><?php echo $value['email'];?></a></li>
+             <?php
                         }
                     }
 
 
                 ?>
-</ul> -->
-            <select class="form-control" >
+</ul>
+           <!--  <select class="form-control" id="executive_id" name="executive_id">
                 <option>Search</option>
                 <?php 
                     if(!empty($executive)){
@@ -150,7 +150,7 @@ while ($data=mysqli_fetch_assoc($run)) {
 
 
                 ?>
-            </select>
+            </select> -->
         </div>
          
          <!-- <div class="col-md-6 col-12 mb-2">
@@ -179,6 +179,7 @@ while ($data=mysqli_fetch_assoc($run)) {
 <?php include 'footer-links.php';?>
 <script type="text/javascript">
     $(document).ready(function(e) {
+        $('.aa').hide();
     $('body').on('click','#student_reg',function(){
      // $('.student_reg').click(function(e){
             // debugger;
@@ -221,11 +222,11 @@ while ($data=mysqli_fetch_assoc($run)) {
     });
 });
 </script>
-<script>
-function myFunction() {
+<script type="text/javascript">
+
+    function myFunction() {
     var input, filter, ul, li, a, i, txtValue;
     input = document.getElementById("myInput");
-    // filter = input.value.charAt([0]);
     filter = input.value.toUpperCase();
     ul = document.getElementById("myUL");
     li = ul.getElementsByTagName("li");
@@ -239,5 +240,4 @@ function myFunction() {
         }
     }
 }
-
 </script>

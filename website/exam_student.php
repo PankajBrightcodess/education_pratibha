@@ -11,6 +11,13 @@ include 'connection.php';
   
 <?php include 'header-links.php'; ?>
 <?php include 'header.php'; ?>
+<style type="text/css">
+  .form-control {
+    /* font-size: 10px; */
+    /* border: 1px solid #e10a0a; */
+    border-radius: 0.25rem;
+}
+</style>
 <section class="blank-course "></section>
  <section class="page">
     <div class="container-fluid">
@@ -64,6 +71,10 @@ include 'connection.php';
 <!-- --------------------------------------------Modal End------------------------------------------- -->
 <?php include 'footer.php'; ?>
 <?php include 'footer-links.php'; ?>
+<script src="plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+<script src="plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+<script src="plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 <script type="text/javascript">
    
 
