@@ -23,7 +23,7 @@
             <h5>Address</h5>
             <hr>
           <p style="color: 	white;">
-          	EDUCATION PRATIBHA DARPAN
+          	Educollection PRATIBHA DARPAN
 
 IT PARK NEAR RIYADA , RANCHI , NO - 24 , RANCHI
 Bokaro – 827012 (Jharkhand)
@@ -83,7 +83,7 @@ Bokaro – 827012 (Jharkhand)
             <div class="col-sm-8">
             	<a href="index.php">
                 <span style="float:left; padding-top:5px; color:black;">
-                    Copyright &copy; 2022 &nbsp; Education pratibha darpan. All Rights Reserved.
+                    Copyright &copy; 2022 &nbsp; Educollection pratibha darpan. All Rights Reserved.
                 </span>
                 </a>
             </div>

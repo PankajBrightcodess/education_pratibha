@@ -1,7 +1,7 @@
 <?php 
 session_start();
 include 'connection.php';
- $query = "SELECT test_result.*, student.id AS student_id, student.name AS student_name, test_master.id AS testmaster_id, test_master.test_name AS testmaster_name FROM test_result LEFT JOIN student ON test_result.candidate_id=student.id LEFT JOIN test_master ON test_result.exam_id = test_master.id";
+ $query = "SELECT master_result.*, student.id AS student_id, student.name AS student_name, test_master.id AS testmaster_id, test_master.test_name AS testmaster_name FROM master_result LEFT JOIN student ON master_result.candi_id=student.id LEFT JOIN test_master ON master_result.exam_id = test_master.id";
      $res = mysqli_query($conn,$query);
      while ($data = mysqli_fetch_assoc($res)) {
             $result[] = $data;
@@ -29,6 +29,8 @@ include 'connection.php';
                           <th>Sno</th>
                           <th>Student's Name</th>
                           <th>Test Name</th>
+                          <th>Total Marks</th>
+                          <th>Score</th>
                            
                         </tr>
                       </thead>
@@ -40,6 +42,8 @@ include 'connection.php';
                            <td><?php echo $i; ?></td>
                           <td><?php echo $displayresult['student_name']; ?></td>  
                           <td><?php echo $displayresult['testmaster_name']; ?></td>
+                           <td><?php echo $displayresult['total_marks']; ?></td>
+                          <td><?php echo $displayresult['correct_marks']; ?>/<?php echo $displayresult['total_marks']; ?></td>
                         </tr>  
                         <?php } }?>
                       </tbody>

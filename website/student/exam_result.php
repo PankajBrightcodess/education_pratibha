@@ -15,9 +15,10 @@ include '../connection.php';
     //         $time = $data['time_duration'];
 
             // online question particular id
+    
     $date = date('Y-m-d H');
 
-    $query="SELECT * FROM `test_result`  WHERE `exam_id`='$examid' AND `candidate_id` = '$cand_id' AND `added_on`='$date' ORDER BY `pid` DESC";
+     $query="SELECT * FROM `test_result` WHERE `exam_id`='$examid' AND `candidate_id` = '$cand_id' AND `added_on`='$date' ORDER BY `pid` DESC";
      $run=mysqli_query($conn,$query);
      while ($data=mysqli_fetch_assoc($run)) {
        $result[] = $data;  
@@ -38,10 +39,6 @@ include '../connection.php';
     
        
      }
-//      print_r('total'.$count);
-//      print_r('correct='.$correct);
-//      print_r('incorrect='.$incorrect);
-      
 
 // die;
  include 'header-links.php'; 
@@ -202,6 +199,13 @@ include 'header.php';
 </div>   
 </div>  
 </section>
-<h4 style="color:white; margin-top: 12px;" class="text-center "> Retake Exam After One Hour!</h4>
+<?php
+  $added_on = date('Y-m-d');
+  $query1="INSERT INTO `master_result`(`exam_id`,`candi_id`,`total_marks`,`correct_marks`,`added_on`) VALUES ('$examid','$cand_id','$total','$marks','$added_on')";
+    $run=mysqli_query($conn,$query);
+
+
+?>
+
 <?php include 'footer.php'; ?>
 <?php include 'footer-links.php'; ?>

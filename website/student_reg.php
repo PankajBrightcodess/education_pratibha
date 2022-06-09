@@ -21,6 +21,28 @@ while ($data=mysqli_fetch_assoc($run)) {
 ?>
 <?php include 'header-links.php'; ?>
 <?php include 'header.php'; ?>
+<style type="text/css">
+    #myUL {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+#myUL li a {
+  border: 1px solid #ddd;
+  margin-top: -1px; /* Prevent double borders */
+  background-color: #f6f6f6;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  color: black;
+  display: block
+}
+
+#myUL li a:hover:not(.header) {
+  background-color: #eee;
+}
+</style>
 <section class="blank-course "></section>
 <section class="pages">
     <div class="container">
@@ -103,7 +125,21 @@ while ($data=mysqli_fetch_assoc($run)) {
         </div> -->
         <div class="col-md-6 col-12 mb-2">
              <label>Feild Executive<span style="color: Red;">*</span></label>
-            <select class="form-control" id="executive_id" name="executive_id">
+             <input  class="form-control" type="text" id="myInput" id="executive_id" name="executive_id" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+
+<!-- <ul id="myUL">
+ 
+   <?php 
+                    if(!empty($executive)){
+                        foreach ($executive as $key => $value) {
+                           ?><li><a href="" value="<?php echo $value['id'];?>"><?php echo $value['email'];?></a></li><?php
+                        }
+                    }
+
+
+                ?>
+</ul> -->
+            <select class="form-control" >
                 <option>Search</option>
                 <?php 
                     if(!empty($executive)){
@@ -184,4 +220,24 @@ while ($data=mysqli_fetch_assoc($run)) {
     return false;  
     });
 });
+</script>
+<script>
+function myFunction() {
+    var input, filter, ul, li, a, i, txtValue;
+    input = document.getElementById("myInput");
+    // filter = input.value.charAt([0]);
+    filter = input.value.toUpperCase();
+    ul = document.getElementById("myUL");
+    li = ul.getElementsByTagName("li");
+    for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            li[i].style.display = "";
+        } else {
+            li[i].style.display = "none";
+        }
+    }
+}
+
 </script>
