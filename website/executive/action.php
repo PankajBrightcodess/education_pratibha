@@ -156,9 +156,9 @@ if(isset($_POST['change_center_exe'])){
 				 // print_r($sql);die;
 				if($sql){
 					$from = "educollectionpratibhadarpan@gmail.com";
-					$name = "Education Pratibha";
+					$name = "Educollection Pratibha Darpan";
 					$message = "your one time otp change password: ".$otp."";
-					$subject = "Forget Password From Pratibha Darpan";
+					$subject = "Forget Password From Educollection Pratibha Darpan";
 					$headers  = 'MIME-Version: 1.0' . "\r\n";
 	        $headers .= 'Content-type:text/html;charset=UTF-8' . "\r\n";
 	        $headers .= "From: $name <$from>  \r\n"."Cc: $email \r\n"."Bcc: $email \r\n"."Reply-To: $name 
