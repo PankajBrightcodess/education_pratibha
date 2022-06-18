@@ -41,6 +41,8 @@ include '../connection.php';
             <h1 class="text-center animate-charcter">
             Your Test Already Completed Please Select Other Test
         </h1>
+        <br>
+        <br>
         <a href="dashboard.php" class="btn btn-lg" style="background: #222279;">Go To Dashboard</a>
        </div>
     </div>

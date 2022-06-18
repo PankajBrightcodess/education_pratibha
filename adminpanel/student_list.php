@@ -126,15 +126,12 @@ $msg = "";
                         }
 
 
-                    ?>
-                
-                       
-                     
-                 
-                </table>
-              </div>
+                    ?>  
+                  </tbody> 
+                  </table>
+                  </div>
               <!-- /.card-body -->
-            </div>
+                  </div>
                   </div>
                 </div>
               </div>
@@ -143,12 +140,6 @@ $msg = "";
         </div>
       </div>
     </section>
-
-
-
-
-
-
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
