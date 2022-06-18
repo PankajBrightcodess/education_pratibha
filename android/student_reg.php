@@ -125,13 +125,14 @@ while ($data=mysqli_fetch_assoc($run)) {
         </div> -->
         <div class="col-md-6 col-12 mb-2">
              <label>Feild Executive<span style="color: Red;">*</span></label>
-              <input class="form-control" type="text" id="myInput" id="executive_id" name="executive_id" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+             <input class="form-control" type="text" id="myInput" name="executive_id" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+             <input type="hidden" id="executive_id">
 
 <ul id="myUL">
       <?php 
                     if(!empty($executive)){
                         foreach ($executive as $key => $value) { ?>
-                <li class="aa"><a href="#" value="<?php echo $value['id'];?>"><?php echo $value['email'];?></a></li>
+                <li class="aa"><a  class="btn search"data-email="<?php echo $value['email'];?>" data-id="<?php echo $value['id'];?>" value="<?php echo $value['id'];?>"><?php echo $value['email'];?></a></li>
              <?php
                         }
                     }
@@ -222,8 +223,21 @@ while ($data=mysqli_fetch_assoc($run)) {
 });
 </script>
 <script type="text/javascript">
+    $(document).ready(function(){
+         $('#myUL').hide();
+      $('body').on('click','.search',function(){
+        // debugger;
+        $('#myInput').val($(this).data('email'));
+         $('#executive_id').val($(this).data('id'));
+          $('#myUL').hide();
+      });
+
+   });
+</script>
+<script type="text/javascript">
 
     function myFunction() {
+         $('#myUL').show();
     var input, filter, ul, li, a, i, txtValue;
     input = document.getElementById("myInput");
     filter = input.value.toUpperCase();
@@ -240,3 +254,5 @@ while ($data=mysqli_fetch_assoc($run)) {
     }
 }
 </script>
+
+
