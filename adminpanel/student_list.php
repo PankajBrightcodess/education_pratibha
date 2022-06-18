@@ -70,7 +70,7 @@ $msg = "";
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <table id="example1 datatable" class="table table-bordered table-hovered">
+                <table id="example1" class="table table-bordered table-hovered">
                   <thead>
                   <tr>
                     <th>S. No.:</th>
@@ -126,12 +126,15 @@ $msg = "";
                         }
 
 
-                    ?>  
-                  </tbody> 
-                  </table>
-                  </div>
+                    ?>
+                
+                       
+                     
+                 
+                </table>
+              </div>
               <!-- /.card-body -->
-                  </div>
+            </div>
                   </div>
                 </div>
               </div>
@@ -140,6 +143,12 @@ $msg = "";
         </div>
       </div>
     </section>
+
+
+
+
+
+
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
