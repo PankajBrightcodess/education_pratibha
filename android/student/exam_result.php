@@ -136,8 +136,8 @@ include 'header.php';
                      <?php 
                      // "SELECT student.*, field_excutive.name AS exe_name FROM student INNER JOIN field_excutive ON student.executive_id=field_excutive.id WHERE student.status='1'";
                         $selQuest = "SELECT test_result.*, online_question.question, online_question.marks FROM test_result INNER JOIN online_question ON test_result.ques_id=online_question.id WHERE test_result.candidate_id='$cand_id' AND test_result.exam_id ='$examid' AND test_result.added_on = '$date' ORDER BY `pid` DESC";
-                         $run=mysqli_query($conn,$selQuest);
-                          while ($data=mysqli_fetch_assoc($run)) {
+                         $run1=mysqli_query($conn,$selQuest);
+                          while ($data=mysqli_fetch_assoc($run1)) {
                                    $quesres[] = $data;  
                                                                  }
                        if (!empty($quesres)) { $i=0;
@@ -202,6 +202,14 @@ include 'header.php';
 </div>   
 </div>  
 </section>
-<h4 style="color:white; margin-top: 12px;" class="text-center "> Retake Exam After One Hour!</h4>
+<?php
+  $added_on = date('Y-m-d');
+  $query1="INSERT INTO `master_result`(`exam_id`,`candi_id`,`total_marks`,`correct_marks`,`added_on`) VALUES ('$examid','$cand_id','$total','$marks','$added_on')";
+    $run2=mysqli_query($conn,$query1);
+
+
+?>
+<br><br>
+<a href="dashboard.php" class="btn btn-sm btn-warning text-center">Submitted Exam</a>
 <?php include 'footer.php'; ?>
 <?php include 'footer-links.php'; ?>

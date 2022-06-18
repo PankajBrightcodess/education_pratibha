@@ -7,6 +7,14 @@ include '../connection.php';
          $testid= $_GET['id'];
          $cand_id=$_SESSION['enroll_id'];
         $_SESSION['examid'] =$_GET['id'];
+        // check the exam held or not already
+
+        $student= "SELECT * FROM `master_result` WHERE `candi_id`='$cand_id' AND `exam_id` = '$testid'";
+        $sql =  mysqli_query($conn,$student);
+        $num=mysqli_num_rows($sql);
+       if($num > 0){
+          header('location:message.php');
+       }
     $query="SELECT * FROM `test_master` WHERE `id`='$testid'";
     // print_r($quy);die;
         $run=mysqli_query($conn,$query);
