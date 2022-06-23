@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 21, 2022 at 08:51 AM
+-- Generation Time: Jun 23, 2022 at 06:07 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -30,7 +30,8 @@ SET time_zone = "+00:00";
 CREATE TABLE `about_us` (
   `id` int(11) NOT NULL,
   `images` varchar(255) DEFAULT NULL,
-  `text` text DEFAULT NULL,
+  `content` text DEFAULT NULL,
+  `content2` text DEFAULT NULL,
   `date` date NOT NULL,
   `status` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -39,9 +40,8 @@ CREATE TABLE `about_us` (
 -- Dumping data for table `about_us`
 --
 
-INSERT INTO `about_us` (`id`, `images`, `text`, `date`, `status`) VALUES
-(5, '1650260323img01.jpg', 'Established in the year 2017, The Education Pratibha Darpan in Bokaro, Bokaro is a top player in the category Computer Academy in the Bokaro. Education Pratibha Darpan Private Limited to offer quality education which will ultimately lead the young minds to a successful career. We do not limit ourselves only to classroom teaching but we think beyond it. Registered Under Ministry of Corporate Affairs, Govt. of India and Registered under Income Tax Department, Govt. of India.The Company is also Certified by Quality Management System An ISO 9001:2015 Certified.The Institution Conducting Computer Oriented Courses. It Offers Courses of One Month, Two Months, Three Months, Six Months, One Year, One Year Six Months, Two Years and Short Term Duration Courses.The Institute Provide Value Based Quality Education For Computer Technology.', '2022-04-18', 1),
-(8, NULL, ' aerfawerdrrdfsg', '2022-04-18', 1);
+INSERT INTO `about_us` (`id`, `images`, `content`, `content2`, `date`, `status`) VALUES
+(14, '1651213320img01.jpg', ' Established in the year 2017, The Education Pratibha Darpan in Bokaro, Bokaro is a top player in the category Computer Academy in the Bokaro. Education Pratibha Darpan Private Limited to offer quality education which will ultimately lead the young minds to a successful career. We do not limit ourselves only to classroom teaching but we think beyond it. Registered Under Ministry of Corporate Affairs, Govt. of India and Registered under Income Tax Department, Govt. of India.The Company is also Certified by Quality Management System An ISO 9001:2015 Certified.The Institution Conducting Computer Oriented Courses. It Offers Courses of One Month, Two Months, Three Months, Six Months, One Year, One Year Six Months, Two Years and Short Term Duration Courses.The Institute Provide Value Based Quality Education For Computer Technology.', ' We embrace a learning environment that will prepare you for the path ahead. Our classes incorporate traditional learning styles as well as hands-on experiences. It is known to provide top service in the following categories: DNITC, DCITC, PG-DCSC, MDCSC, ADCPC, DCOMPC, ADCSC, DCOAC, MCCSC etc. Your success is our priority. To support our inclusive community, we provide a personal approach, tailoring learning methods to each students needs. our time duration is 07:00 AM to 05:00 PM.', '2022-04-29', 1);
 
 -- --------------------------------------------------------
 
@@ -218,7 +218,7 @@ CREATE TABLE `field_excutive` (
 
 INSERT INTO `field_excutive` (`id`, `name`, `gender`, `dob`, `mobile`, `email`, `location`, `city`, `state`, `pincode`, `fathername`, `aadhaar`, `bankname`, `bankaccount`, `ifsc`, `password`, `otp`, `added_on`, `role`, `status`) VALUES
 (13, 'kumar', 'male', '2022-04-01', '8507284575', 'admin@gmail.com', 'dfsadf', 'dsfsd', 'sdfds', 'fdsfs', 'dfsdsfds', 'dfsfsdfd', 'fdsfsd', 'dfssafds', 'sdffsd', '12345', 0, '2022-04-06', '2', '1'),
-(14, 'Nakul', 'male', '2022-03-02', '7536985215', 'nakul@gmail.com', 'kadru', 'ranchi', 'Jharkhand', '741258', 'sunil kumar Mahto', '741258963214', 'Canara Bank', '231110005865', 'CNRB654465', '12345', 779295, '2022-04-06', '2', '1');
+(14, 'Nakul', 'male', '2022-03-02', '7536985215', 'nakul@gmail.com', 'kadru', 'ranchi', 'Jharkhand', '741258', 'sunil kumar Mahto', '741258963214', 'Canara Bank', '231110005865', 'CNRB654465', 'nakul@123', 779295, '2022-04-06', '2', '1');
 
 -- --------------------------------------------------------
 
@@ -239,7 +239,33 @@ CREATE TABLE `homework` (
 --
 
 INSERT INTO `homework` (`pid`, `assessment`, `name`, `date`, `status`) VALUES
-(10, '1649151237demo.pdf', 'aadarsh', '2022-04-05', 1);
+(11, '1651467625demo.pdf', 'science', '2022-05-02', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `master_result`
+--
+
+CREATE TABLE `master_result` (
+  `pid` int(11) NOT NULL,
+  `candi_id` int(11) NOT NULL,
+  `exam_id` int(11) NOT NULL,
+  `total_marks` int(200) NOT NULL,
+  `correct_marks` int(200) NOT NULL,
+  `added_on` date NOT NULL,
+  `status` tinyint(1) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `master_result`
+--
+
+INSERT INTO `master_result` (`pid`, `candi_id`, `exam_id`, `total_marks`, `correct_marks`, `added_on`, `status`) VALUES
+(1, 18, 1, 3, 3, '0000-00-00', 1),
+(2, 0, 0, 0, 0, '0000-00-00', 1),
+(3, 18, 1, 3, 2, '2022-03-05', 1),
+(4, 16, 1, 12, 11, '2022-06-18', 1);
 
 -- --------------------------------------------------------
 
@@ -424,14 +450,15 @@ CREATE TABLE `student` (
 INSERT INTO `student` (`id`, `name`, `ac_qualify`, `dob`, `fathername`, `bankname`, `bankaccount`, `ifsc`, `executive_id`, `course`, `address`, `mobile`, `email`, `otp`, `password`, `amount`, `pay_date`, `payment_id`, `payment_details`, `payment_status`, `role`, `added_on`, `status`, `request_no`) VALUES
 (16, 'aadarsh', 'B.E', '1999-02-15', 'sunil kumar mahto', 'canara bank', '654798465846954', 'CNRB65456', '14', '', 'Kadru', '7412589635', 'aadarsh629@gmail.com', '551442', '123456', '', '0000-00-00', '', '', 1, '3', '2022-04-06', '1', ''),
 (17, 'aadarsh', 'B.E', '2022-04-09', 'sunil kumar mahto', 'asdfasd', '', 'CNRB65456', '13', '', 'dsfdsfsd', '8507284575', 'a@gmail.com', '', '12345', '', '0000-00-00', '', '', 1, '3', '2022-04-06', '1', ''),
-(18, 'aadarsh', 'B.E', '2022-04-09', '', '', '', '', '13', '', 'asdfasd', '8507284575', 'admin@gmail.com', '', '12345', '531', '2022-04-15', 'pay_JJYP2JSoUZt4V6', '{\"razorpay_payment_id\":\"pay_JJYP2JSoUZt4V6\",\"merchant_order_id\":\"OEsG2g01FHRyQkbwc9\",\"merchant_trans_id\":\"1650008636\",\"merchant_product_info_id\":\"Payment for Admission\",\"merchant_surl_id\":\"payment-success.php\",\"merchant_furl_id\":\"payment-success.php\",\"card_holder_name_id\":\"aadarsh\",\"merchant_total\":\"53100\",\"merchant_amount\":\"531\",\"order_id\":\"OEsG2g01FHRyQkbwc9\"}', 1, '3', '2022-04-07', '1', 'p8ghU0DFP2XeIAb'),
-(19, 'kumar', 'B.E', '2022-04-05', '', '', '', '', '14', '', 'sdfasdfsadf', '7894561236', 'kumar@gmail.com', '', '12345', '', '0000-00-00', '', '', 1, '3', '2022-04-07', '1', ''),
+(18, 'aadarsh', 'B.E', '2022-04-09', '', '', '', '', '13', '', 'asdfasd', '8507284575', 'admin@gmail.com', '', 'aadarsh@123', '531', '2022-04-15', 'pay_JJYP2JSoUZt4V6', '{\"razorpay_payment_id\":\"pay_JJYP2JSoUZt4V6\",\"merchant_order_id\":\"OEsG2g01FHRyQkbwc9\",\"merchant_trans_id\":\"1650008636\",\"merchant_product_info_id\":\"Payment for Admission\",\"merchant_surl_id\":\"payment-success.php\",\"merchant_furl_id\":\"payment-success.php\",\"card_holder_name_id\":\"aadarsh\",\"merchant_total\":\"53100\",\"merchant_amount\":\"531\",\"order_id\":\"OEsG2g01FHRyQkbwc9\"}', 1, '3', '2022-04-07', '1', 'p8ghU0DFP2XeIAb'),
+(19, 'kumar', 'B.E', '2022-04-05', '', '', '', '', '14', '', 'sdfasdfsadf', '7894561236', 'kumar@gmail.com', '', 'kumar@123', '531', '2022-05-04', '', '', 1, '3', '2022-04-07', '1', '12ETe76yjzn8a9A'),
 (20, 'Damodar', 'B.E', '1885-12-05', '', '', '', '', '14', '', 'kadru', '7412589636', 'nakul@gmail.com', '', '12345', '', '0000-00-00', '', '', 1, '3', '2022-04-07', '1', ''),
 (21, 'dassdfds', 'B.E', '2022-03-31', 'sadfasdf', 'asdfasd', 'asdfasdf', 'asdfasdf', '13', '', 'sdfasdf', '8507284575', 'asdfa@gmail.com', '', '12345', '', '0000-00-00', '', '', 1, '3', '2022-04-07', '1', ''),
 (22, 'aadarsh', 'lksd', '2022-04-08', 'sunil kumar mahto', 'canara bank', '6547984658', 'CNRB65456', '13', NULL, 'Kadru', '7412589635', 'anshukumar@gmail.com', '', '12345', '', '0000-00-00', '', '', 0, '3', '2022-04-12', '1', ''),
 (23, 'swati', 'B.E', '1995-11-12', 'ashok kumar shrivastaVA', 'CANARA bANK', '23100010055', 'CNRB65456', '13', NULL, 'kadru', '7894561235', 'swati@gmail.com', '', '123456', '', '0000-00-00', '', '', 0, '3', '2022-04-13', '1', ''),
 (24, 'swati', 'B.E', '2022-03-31', 'ashok kumar shrivastaVA', 'canara bank', '6547984658', 'CNRB65456', '13', NULL, 'kadru', '8507284575', 'b@gmail.com', '', '12345', '', '0000-00-00', '', '', 0, '3', '2022-04-13', '1', ''),
-(25, 'Gallery', 'B.E', '2022-04-08', 'sunil kumar mahto', 'canara bank', '6547984658', 'CNRB65456', '14', NULL, 'kadru', '7412589635', 'c@gmail.com', '', '123456', '531', '2022-04-15', '', '', 0, '3', '2022-04-13', '1', 'y0SNUfrztuQXFde');
+(25, 'Gallery', 'B.E', '2022-04-08', 'sunil kumar mahto', 'canara bank', '6547984658', 'CNRB65456', '14', NULL, 'kadru', '7412589635', 'c@gmail.com', '', '123456', '531', '2022-04-15', '', '', 0, '3', '2022-04-13', '1', 'y0SNUfrztuQXFde'),
+(26, 'Afarni', 'B.E', '2022-04-09', 'mohd khan', 'canra bank', '23100100655', 'IFSC54564', '13', NULL, 'Kadru ranchi 4100147', '8507284575', 'afrani@gmail.com', '', 'abc@123', '', '0000-00-00', '', '', 0, '3', '2022-04-29', '1', '');
 
 -- --------------------------------------------------------
 
@@ -478,7 +505,7 @@ CREATE TABLE `test_master` (
 
 INSERT INTO `test_master` (`id`, `test_name`, `no_question`, `total_marks`, `time_duration`, `added_on`, `status`) VALUES
 (1, 'TEST1', '2', '200', 35, '2022-03-16', '1'),
-(2, 'TEST2', '1', '50', 30, '2022-03-16', '1'),
+(2, 'TEST2', '0', '50', 30, '2022-03-16', '1'),
 (4, 'TEST4', '0', '100', 30, '2022-04-12', '1');
 
 -- --------------------------------------------------------
@@ -568,7 +595,27 @@ INSERT INTO `test_result` (`pid`, `candidate_id`, `answer`, `correct_ans`, `ques
 (73, 18, 'ampere', 'ampere', 10, 1, '2022-04-14 15:00:00', 1),
 (74, 18, 'name', 'name', 14, 1, '2022-04-14 15:00:00', 1),
 (75, 18, 'ampere', 'ampere', 10, 1, '2022-04-14 15:00:00', 1),
-(76, 18, 'name', 'name', 14, 1, '2022-04-14 15:00:00', 1);
+(76, 18, 'name', 'name', 14, 1, '2022-04-14 15:00:00', 1),
+(77, 19, 'name', 'name', 14, 1, '2022-05-03 17:00:00', 1),
+(78, 19, 'Ampere', 'Ampere', 15, 1, '2022-05-03 17:00:00', 1),
+(79, 19, 'name', 'name', 14, 1, '2022-05-04 11:00:00', 1),
+(80, 19, 'voltage', 'Ampere', 15, 1, '2022-05-04 11:00:00', 1),
+(81, 18, 'title', 'name', 14, 1, '2022-05-04 12:00:00', 1),
+(82, 18, 'Ampere', 'Ampere', 15, 1, '2022-05-04 12:00:00', 1),
+(83, 18, 'title', 'name', 14, 1, '2022-05-04 12:00:00', 1),
+(84, 18, 'Ampere', 'Ampere', 15, 1, '2022-05-04 12:00:00', 1),
+(85, 19, 'name', 'name', 14, 1, '2022-05-04 12:00:00', 1),
+(86, 19, 'voltage', 'Ampere', 15, 1, '2022-05-04 12:00:00', 1),
+(87, 18, 'name', 'name', 14, 1, '2022-06-09 09:00:00', 1),
+(88, 18, 'Ampere', 'Ampere', 15, 1, '2022-06-09 09:00:00', 1),
+(89, 16, 'title', 'name', 14, 1, '2022-06-18 16:00:00', 1),
+(90, 16, 'Ampere', 'Ampere', 15, 1, '2022-06-18 16:00:00', 1),
+(91, 16, 'name', 'name', 14, 1, '2022-06-18 16:00:00', 1),
+(92, 16, 'Ampere', 'Ampere', 15, 1, '2022-06-18 16:00:00', 1),
+(93, 16, 'name', 'name', 14, 1, '2022-06-18 16:00:00', 1),
+(94, 16, 'Ampere', 'Ampere', 15, 1, '2022-06-18 16:00:00', 1),
+(95, 16, 'name', 'name', 14, 1, '2022-06-18 16:00:00', 1),
+(96, 16, 'Ampere', 'Ampere', 15, 1, '2022-06-18 16:00:00', 1);
 
 -- --------------------------------------------------------
 
@@ -651,6 +698,12 @@ ALTER TABLE `homework`
   ADD PRIMARY KEY (`pid`);
 
 --
+-- Indexes for table `master_result`
+--
+ALTER TABLE `master_result`
+  ADD PRIMARY KEY (`pid`);
+
+--
 -- Indexes for table `material_upload`
 --
 ALTER TABLE `material_upload`
@@ -718,7 +771,7 @@ ALTER TABLE `winner`
 -- AUTO_INCREMENT for table `about_us`
 --
 ALTER TABLE `about_us`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `add_notice`
@@ -760,7 +813,13 @@ ALTER TABLE `field_excutive`
 -- AUTO_INCREMENT for table `homework`
 --
 ALTER TABLE `homework`
-  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
+-- AUTO_INCREMENT for table `master_result`
+--
+ALTER TABLE `master_result`
+  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `material_upload`
@@ -796,7 +855,7 @@ ALTER TABLE `sh_addcenter`
 -- AUTO_INCREMENT for table `student`
 --
 ALTER TABLE `student`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT for table `testimonial`
@@ -814,7 +873,7 @@ ALTER TABLE `test_master`
 -- AUTO_INCREMENT for table `test_result`
 --
 ALTER TABLE `test_result`
-  MODIFY `pid` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=77;
+  MODIFY `pid` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=97;
 
 --
 -- AUTO_INCREMENT for table `winner`
