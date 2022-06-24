@@ -66,16 +66,16 @@ $msg = "";
     </div>
     <div class="row">
       <div class="col-4">
-	      <a href="winner-list.php"><i class="fas fa-medal" style="color:gold; padding:25px; padding-bottom: 0px;"></i>
+	      <a href="winner-list.php"><i class="fa fa-medal" style="color:gold; padding:25px; padding-bottom: 0px;"></i>
               </a>
 	    </div>
       <div class="col-4">
-        <a href="pay.php"><i class="fa fa-credit-card" style="padding:25px;padding-bottom: 0px;"></i>
+        <a href="pay.php"><i class="fa fa-rupee" style="padding:25px;padding-bottom: 0px;"></i>
               </a>
       </div>
      
       <div class="col-4">
-         <a href="logout.php"><i class="fa fa-sign-in-alt" style="color:red;padding:25px;padding-bottom: 0px;"></i></a>
+         <a href="logout.php"><i class="fa fa-circle-o-notch" style="color:red;padding:25px;padding-bottom: 0px;"></i></a>
       </div>
     </div>
 
