@@ -541,6 +541,20 @@ if(isset($_GET['deletemaster'])){
 	}
 	header("location:$_SERVER[HTTP_REFERER]");
 }
+if(isset($_GET['deletetestresult'])){
+	$id=$_GET['deletetestresult'];	
+	$query="DELETE FROM `master_result` WHERE `exam_id` = $id";
+	$run=mysqli_query($conn,$query);
+	if($run===true){
+		header('Location:student_appearing_list.php');
+		$_SESSION['msg']="Student Test list Deleted Successfully !!!";
+	}
+	else{
+		$_SESSION['msg']="Student Test list Deletion Cancel !!!";
+		header('Location:student_appearing_list.php');
+	}
+	header("location:$_SERVER[HTTP_REFERER]");
+}
 // update test and delete
 
 if(isset($_POST['update_question'])){

@@ -12,9 +12,9 @@ $msg = "";
     if ($msg != "") {
         echo "<script> alert('$msg')</script>";
     }       
-    if(isset($_GET['executice_student_list'])){
-    $id=$_GET['executice_student_list'];
-    $query="SELECT * FROM `student` WHERE `executive_id`='$id'";
+    if(isset($_GET['executice_student_pay'])){
+    $id=$_GET['executice_student_pay'];
+    $query="SELECT * FROM `student` WHERE `payment_status`='$id'";
     // echo $query;die; 
     $run=mysqli_query($conn,$query);
      while ($data=mysqli_fetch_assoc($run)) {
@@ -28,7 +28,7 @@ $msg = "";
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Executive student list</title>
+  <title>student payment status list</title>
   <?php include'includes/header-links.php'; ?>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -50,7 +50,7 @@ $msg = "";
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Executive student list</h3>
+                <h3 class="card-title">Executive student payment status list</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
@@ -60,34 +60,10 @@ $msg = "";
                   <div class="department-list">
                      <div class="card">
               <div class="card-header">
-                <h5 style="font-weight: bold;">Student List</h5>
+                <h5 style="font-weight: bold;">Student payment status List</h5>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
-                <?php
-                  
-                  $sql0="SELECT * FROM `student` WHERE `payment_status` = '0'";
-                  $res0=mysqli_query($conn,$sql0);
-                  $nm0=mysqli_num_rows($res0);
-                  $sqll="SELECT * FROM `student` WHERE `payment_status` = '1'";
-                  $res1=mysqli_query($conn,$sqll);
-                  $nm1=mysqli_num_rows($res1);
-                  ?>
-                  <div class="row" style="padding:19px;"> 
-                    <div class="col-6" style="background-color: #20c997; color: white; text-align: center;">
-                      <a href="executive-student-pay.php?executice_student_pay=1" style="color: white;" >
-                      Paid Student: <h3><br><?php echo $nm1 ; ?></h3></a>
-                    </div>
-                     
-                     <div class="col-6" style="background-color:#ca4653;; color:white; text-align: center;">
-                      <a href="executive-student-pay.php?executice_student_pay=0" style="color: white;" >
-                      Unpaid Student: <h3> <br><?php echo $nm0 ; ?></h3> </a>
-                    </div>
-                 
-                </div>
-
-
-
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
@@ -95,6 +71,7 @@ $msg = "";
                     <th>Name</th>
                     <th>email</th>
                     <th>mobile no</th>
+                     <th>payment status</th>
                     <th>Date</th>
                    
                     
@@ -111,6 +88,16 @@ $msg = "";
                                 <td><?php echo $value['name']; ?></td>
                                 <td><?php echo $value['email']; ?></td>
                                 <td><?php echo $value['mobile']; ?></td>
+                                <td><?php
+                             $status= $value['payment_status'];
+                                      if( $status == 1){ ?>
+                                          <center style="background-color: #20c997; color: white; text-align: center;">Paid</center>
+                                    <?php   }
+
+                                      else{ ?>
+                                        <center style="background-color:#ca4653;; color:white; text-align: center;">Unpaid</center>
+                                  <?php    }
+?></td>
                                 <td><?php echo $value['added_on']; ?></td>
                                
                             </tr>

@@ -96,6 +96,12 @@
                   <p>Student List</p>
                 </a>
               </li>
+               <li class="nav-item">
+                <a href="student_appearing_list.php" class="nav-link  <?php if($page == 'product-list'){ echo 'active'; }?>">
+                  <i class="fas fa-clipboard-list nav-icon"></i>
+                  <p>Student Appearing list</p>
+                </a>
+              </li>
             </ul>
           </li>
            <li class="nav-item has-treeview <?php if(in_array($page, $product)){echo 'menu-open';} ?>">
