@@ -66,7 +66,7 @@ $msg = "";
     </div>
     <div class="row">
       <div class="col-4">
-	      <a href="winner-list.php"><i class="fa fa-medal" style="color:gold; padding:25px; padding-bottom: 0px;"></i>
+	      <a href="winner-list.php"><i class="fa fa-hand-peace-o" style="color:gold; padding:25px; padding-bottom: 0px;"></i>
               </a>
 	    </div>
       <div class="col-4">
