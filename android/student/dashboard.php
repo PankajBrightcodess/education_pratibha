@@ -51,33 +51,34 @@ $msg = "";
  <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
 
 
-<section class="banner-bottom" >
+<section >
   <div class="container">
     <div class="row">
       <div class="col-4 ">
         <a href="dashboard.php">
-        <i class="fa fa-home" style="padding:25px;padding-bottom: 0px;" aria-hidden="true"></i>
+          <img src="../../images/app/01.png" width="80px;">
               </a>
       </div>
-      <div class="col-4"><a href="user_profile.php"><i class="fa fa-user" style="padding:25px;padding-bottom: 0px; color: black;" aria-hidden="true"></i>
-              <br></a></div>
-      <div class="col-4"><a href="onlineexamlist.php"><i class="fa fa-book" style="padding:25px;padding-bottom: 0px; color:brown;"></i>
+      <div class="col-4"><a href="user_profile.php"><img src="../../images/app/02.png" width="80px;">
               </a></div>
+
+               <div class="col-4"><a href="winner-list.php"><img src="../../images/app/04.png" width="80px;">
+              </a></div>
+      
     </div>
+    <br>
     <div class="row">
-      <div class="col-4"><a href="winner-list.php"><i class="fa fa-medal" style="color:gold;padding:25px;padding-bottom: 0px;"></i>
-              </a></div>
-      <div class="col-4">
-        <a href="pay.php"><i class="fa fa-credit-card" style="padding:25px;padding-bottom: 0px;"></i>
-              </a>
-      </div>
      
-      <div class="col-4">
-         <a href="logout.php"><i class="fa fa-sign-in-alt" style="color:red;padding:25px;padding-bottom: 0px;"></i> <br></a>
-      </div>
-    </div>
-
-
+              <div class="col-4"><a href="onlineexamlist.php"><img src="../../images/app/03.png" width="80px;">
+              </a></div>
+              <div class="col-4">
+                 <a href="pay.php"><img src="../../images/app/05.png" width="80px;">
+                 </a>
+            </div>
+           <div class="col-4">
+             <a href="logout.php"><img src="../../images/app/06.png" width="80px;"></a>
+           </div>
+            </div>
     </div>
 </section>
                
@@ -97,6 +98,8 @@ $msg = "";
        
      
     </div> -->
+    <br>
+    <br>
       <div class="row">
         <?php 
           if(!empty($homework)){

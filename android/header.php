@@ -53,10 +53,10 @@
               			<div class="overlay-content5">
               				
               				<div class="home2">
-							<a href="index.php"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Home</a><hr>
-								<a href="about-us.php"><i class="fa fa-sign-in-alt"></i>&nbsp;&nbsp;&nbsp;About Us</a><hr>
+							<a href="index.php"><img src="../images/app/07.png" width="30px">&nbsp;&nbsp;&nbsp;Home</a><hr>
+								<a href="about-us.php"><img src="../images/app/12.png" width="30px">&nbsp;&nbsp;&nbsp;About Us</a><hr>
 
-								<a href="contact-us.php"><i class="far fa-building"></i>&nbsp;&nbsp;&nbsp;Contact Us</a><hr>
+								<a href="contact-us.php"><img src="../images/app/09.png" width="30px">&nbsp;&nbsp;&nbsp;Contact Us</a><hr>
 							</div>
               			</div>
               		</div>
