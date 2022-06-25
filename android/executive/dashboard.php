@@ -37,37 +37,25 @@ $msg = "";
 <?php include 'header.php'; ?>
 <section class="blank-course "></section>
 <section>
-	<div class="container">
-     <div class="row menu">
-      <div class="col-4"><a href="dashboard.php"><i class="fa fa-home" aria-hidden="true"></i></a></div>
-      <div class="col-4"><a href="studentlist.php"><i class="far fa-address-book" style="color:blue; text-align:center; margin-left: 40px;"></i></a></div>
-      <div class="col-4"><a href="logout.php"><i class="fa fa-sign-out" style="color:red; float: 	right;" aria-hidden="true"></i></a></div>
+   <div class="container">
+    <div class="row">
+      <div class="col-4 ">
+        <a href="dashboard.php">
+          <img src="../../images/app/01.png" width="80px;">
+              </a>
+      </div>
+      <div class="col-4"><a href="studentlist.php"><img src="../../images/app/student.png" width="80px;">
+              </a></div>
+
+               <div class="col-4"><a href="logout.php"><img src="../../images/app/06.png" width="80px;">
+              </a></div>
+      
     </div>
-		<!-- <div class="row">
-			<div class="col-md-12 dashboard mb-3">
-				<h4 style="color:#403226; margin-top: 2rem; text-align: center;"><?php print_r($_SESSION['name'])?>
-					
-				</h4>
-
-                <form  action="action.php" id="form_data" enctype="multipart/form-data" method="post">
-                	<div class="col-md-12 mb-2">
-                		
-                		<input type="hidden" name="executive_id" value="<?php echo $_SESSION['id']; ?>">
-                	</div>
-           
-                        <div class="col-md-12 mb-2">
-                          <label>Upload Pdf.<span style="color:red;">*</span></label>
-                          <input type="file" name="assessement" id="assessement" class="form-control" required="" >      
-                        </div>
-                          <button class="btn btn-info btn-sm btn-block formdata" type="submit" name="add_homework" style="margin-top: 10px;">Save</button>
-                </form>
-
-			</div>
-		</div> -->
-
-   
-		
-	</div>
+  
+    
+      
+    </div>
+	
 </section>
 <?php include 'footer.php'; ?>
 <?php include 'footer-links.php'; ?>

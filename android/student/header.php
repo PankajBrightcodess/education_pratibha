@@ -72,15 +72,15 @@
               					</div>
               				</div> -->
               				<div class="home2">
-								<a href="dashboard.php"><i class="fa fa-home" aria-hidden="true" style="color:blue; font-size:15px;"></i>&nbsp;&nbsp;&nbsp;Dashboard</a><hr>
+								<a href="dashboard.php"><img src="../../images/app/07.png" width="30px">&nbsp;&nbsp;&nbsp;Dashboard</a><hr>
 								
-								<a href="onlineexamlist.php"><i class="fa fa-book" style=" color:brown; font-size:15px;"></i>&nbsp;&nbsp;&nbsp;Online Test</a><hr>
+								<a href="onlineexamlist.php"><img src="../../images/app/09.png" width="30px">&nbsp;&nbsp;&nbsp;Online Test</a><hr>
 
-								<a href="winner-list.php"><i class="fa fa-medal" style="color:gold; font-size:15px;"></i>&nbsp;&nbsp;&nbsp;Winner List</a><hr>
-								<a href="user_profile.php"><i class="fa fa-user" style=" font-size:15px;"></i>&nbsp;&nbsp;&nbsp;Profile</a><hr>
-								<a href="pay.php"><i class="fa fa-book" style=" color:brown; font-size:15px;"></i>&nbsp;&nbsp;&nbsp;Pay Now</a><hr>
-								<a href="setting.php"><i class="fa fa-gear fa-spin" style=" font-size:15px;"></i>&nbsp;&nbsp;&nbsp;Setting</a><hr>
-				                <a href="logout.php"><i class="fa fa-sign-in-alt" aria-hidden="true" style="color:red;"></i>&nbsp;&nbsp;&nbsp;Logout</a><hr>
+								<a href="winner-list.php"><img src="../../images/app/10.png" width="30px">&nbsp;&nbsp;&nbsp;Winner List</a><hr>
+								<a href="user_profile.php"><img src="../../images/app/08.png" width="30px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Profile</a><hr>
+								<a href="pay.php"><img src="../../images/app/11.png" width="30px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pay Now</a><hr>
+								<a href="setting.php"><img src="../../images/app/18.png" width="30px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Setting</a><hr>
+				                <a href="logout.php"><img src="../../images/app/12.png" width="30px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Logout</a><hr>
 							</div>
               			</div>
               		</div>

@@ -74,10 +74,10 @@
               					</div>
               				</div> -->
               				<div class="home2">
-								<a href="dashboard.php"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Dashboard</a><hr>
-								<a href="studentlist.php"><i class="far fa-address-book" style="color:blue;"></i>&nbsp;&nbsp;&nbsp;Student List</a><hr>
-								<a href="setting.php"><i class="fa fa-gear fa-spin" style=" font-size:15px;"></i>&nbsp;&nbsp;&nbsp;Setting</a><hr>
-				                <a href="logout.php"><i class="fa fa-sign-out" style="color:red;"aria-hidden="true"></i>&nbsp;&nbsp;&nbsp;Logout</a><hr>
+								<a href="dashboard.php"><img src="../../images/app/07.png" width="30px">&nbsp;&nbsp;&nbsp;Dashboard</a><hr>
+								<a href="studentlist.php"><img src="../../images/app/08.png" width="30px">&nbsp;&nbsp;&nbsp;Student List</a><hr>
+								<a href="setting.php"><img src="../../images/app/18.png" width="30px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Setting</a><hr>
+				                <a href="logout.php"><img src="../../images/app/12.png" width="30px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Logout</a><hr>
 							</div>
               			</div>
               		</div>
