@@ -68,6 +68,7 @@ $msg = "";
     </div>
     <br>
     <div class="row">
+
      
               <div class="col-4"><a href="onlineexamlist.php"><img src="../../images/app/03.png" width="80px;">
               </a></div>
@@ -79,6 +80,21 @@ $msg = "";
              <a href="logout.php"><img src="../../images/app/06.png" width="80px;"></a>
            </div>
             </div>
+      <div class="col-4">
+	      <a href="winner-list.php"><i class="fa fa-hand-peace-o" style="color:gold; padding:25px; padding-bottom: 0px;"></i>
+              </a>
+	    </div>
+      <div class="col-4">
+        <a href="pay.php"><i class="fa fa-rupee" style="padding:25px;padding-bottom: 0px;"></i>
+              </a>
+      </div>
+     
+      <div class="col-4">
+         <a href="logout.php"><i class="fa fa-circle-o-notch" style="color:red;padding:25px;padding-bottom: 0px;"></i></a>
+      </div>
+    </div>
+
+
     </div>
 </section>
                
