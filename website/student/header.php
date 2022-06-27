@@ -73,13 +73,13 @@
   </a>
 
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-  	  <a class="dropdown-item" href="dashboard.php"><i class="fa fa-home" aria-hidden="true" style="color:blue; font-size:15px;"></i>&nbsp;&nbsp;&nbsp;Dashboard</a>
-  	  <a class="dropdown-item" href="onlineexamlist.php"><i class="fa fa-book" style=" color:brown; font-size:15px;"></i>&nbsp;&nbsp;&nbsp;Online Test</a>
-  	  <a class="dropdown-item" href="winner-list.php"><i class="fa fa-medal" style="color:gold; font-size:15px;"></i>&nbsp;&nbsp;&nbsp;Winner List</a>
-  	  <a class="dropdown-item" href="user_profile.php"><i class="fa fa-user" style=" font-size:15px;"></i>&nbsp;&nbsp;&nbsp;Profile</a>
-  	  <a class="dropdown-item" href="pay.php"><i class="fa fa-book" style=" color:brown; font-size:15px;"></i>&nbsp;&nbsp;&nbsp;Pay Now</a>
-      <a class="dropdown-item" href="setting.php"><i class="fa fa-gear fa-spin" style=" font-size:15px;"></i>&nbsp;&nbsp;&nbsp;Setting</a>
-      <a class="dropdown-item" href="logout.php"><i class="fa fa-sign-in-alt" aria-hidden="true" style="color:red;"></i>&nbsp;&nbsp;&nbsp;logout</a>
+  	  <a class="dropdown-item" href="dashboard.php"><img src="../../images/fav/01.png" width="50px">&nbsp;&nbsp;&nbsp;Dashboard</a>
+  	  <a class="dropdown-item" href="onlineexamlist.php"><img src="../../images/fav/031_old.png" width="50px" >&nbsp;&nbsp;&nbsp;Online Test</a>
+  	  <a class="dropdown-item" href="winner-list.php"> <img src="../../images/fav/03.png" width="50px" >&nbsp;&nbsp;&nbsp;Winner List</a>
+  	  <a class="dropdown-item" href="user_profile.php"><img src="../../images/fav/02_old.png" width="50px" >&nbsp;&nbsp;&nbsp;Profile</a>
+  	  <a class="dropdown-item" href="pay.php"><img src="../../images/fav/05.png" width="50px" >&nbsp;&nbsp;&nbsp;Pay Now</a>
+      <a class="dropdown-item" href="setting.php"><img src="../../images/app/18.png" width="50px" >&nbsp;&nbsp;&nbsp;Setting</a>
+      <a class="dropdown-item" href="logout.php"><img src="../../images/fav/02.png" width="50px" >&nbsp;&nbsp;&nbsp;logout</a>
    
   </div>
 </div>

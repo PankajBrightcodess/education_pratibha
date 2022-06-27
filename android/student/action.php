@@ -71,12 +71,12 @@ if(isset($_POST['submitAnswer'])){
 		  // print_r($run);die;
 		}
 		if($run){
-			$_SESSION['msg']="exam Submitted !!!";
-			header('location:exam_result.php');
+		
+			header('location:exam_result.php?status=1');
 		}
 		else{
-			$_SESSION['msg']="exam not Submitted !!!";
-			header('location:onlineexam.php');
+		
+			header('location:onlineexam.php?status=0');
 		}
 
 
