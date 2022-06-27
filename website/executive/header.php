@@ -74,11 +74,11 @@
   </a>
 
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-  	 <a class="dropdown-item" href="dashboard.php"><img src="../../images/fav/01.png" width="50px">&nbsp;&nbsp;&nbsp;Dashboard</a>
+  	 <a class="dropdown-item" href="dashboard.php"><img src="../../images/app/07.png" width="50px">&nbsp;&nbsp;&nbsp;Dashboard</a>
   	 
-  	   <a class="dropdown-item" href="studentlist.php"><img src="../../images/fav/02_old.png" width="50px">&nbsp;&nbsp;&nbsp;Student List</a>
+  	   <a class="dropdown-item" href="studentlist.php"><img src="../../images/app/08.png" width="50px">&nbsp;&nbsp;&nbsp;Student List</a>
   	    <a class="dropdown-item" href="setting.php"><img src="../../images/app/18.png" width="50px">&nbsp;&nbsp;&nbsp;Setting</a>
-  	    <a class="dropdown-item" href="logout.php"><img src="../../images/fav/02.png" width="50px">&nbsp;&nbsp;&nbsp;Logout</a>
+  	    <a class="dropdown-item" href="logout.php"><img src="../../images/app/12.png" width="50px">&nbsp;&nbsp;&nbsp;Logout</a>
   	   
    
    

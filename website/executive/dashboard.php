@@ -41,16 +41,15 @@ $msg = "";
     <div class="row dashboard1">
       <div class="col-4 ">
         <a href="dashboard.php">
-       <img src="../../images/fav/01.png" width="80px;">
-          <br>Dashboard    </a>
+       <img src="../../images/app/01.png" width="80px;">
+           </a>
       </div>
-      <div class="col-4"><a href="studentlist.php"><img src="../../images/fav/02_old.png" width="80px;">
-              <br>Student List</a></div>
+      <div class="col-4"><a href="studentlist.php"><img src="../../images/app/student.png" width="80px;">
+            </a></div>
     
      
       <div class="col-4">
-         <a href="logout.php"> <img src="../../images/fav/02.png" width="80px;"> <br>
-         Logout</a>
+         <a href="logout.php"> <img src="../../images/app/06.png" width="80px;"> </a>
       </div>
     </div>
 

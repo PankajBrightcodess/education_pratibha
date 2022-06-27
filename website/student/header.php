@@ -73,13 +73,13 @@
   </a>
 
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-  	  <a class="dropdown-item" href="dashboard.php"><img src="../../images/fav/01.png" width="50px">&nbsp;&nbsp;&nbsp;Dashboard</a>
-  	  <a class="dropdown-item" href="onlineexamlist.php"><img src="../../images/fav/031_old.png" width="50px" >&nbsp;&nbsp;&nbsp;Online Test</a>
-  	  <a class="dropdown-item" href="winner-list.php"> <img src="../../images/fav/03.png" width="50px" >&nbsp;&nbsp;&nbsp;Winner List</a>
-  	  <a class="dropdown-item" href="user_profile.php"><img src="../../images/fav/02_old.png" width="50px" >&nbsp;&nbsp;&nbsp;Profile</a>
-  	  <a class="dropdown-item" href="pay.php"><img src="../../images/fav/05.png" width="50px" >&nbsp;&nbsp;&nbsp;Pay Now</a>
+  	  <a class="dropdown-item" href="dashboard.php"><img src="../../images/app/07.png" width="50px">&nbsp;&nbsp;&nbsp;Dashboard</a>
+  	  <a class="dropdown-item" href="onlineexamlist.php"><img src="../../images/app/09.png" width="50px" >&nbsp;&nbsp;&nbsp;Online Test</a>
+  	  <a class="dropdown-item" href="winner-list.php"> <img src="../../images/app/10.png" width="50px" >&nbsp;&nbsp;&nbsp;Winner List</a>
+  	  <a class="dropdown-item" href="user_profile.php"><img src="../../images/app/08.png" width="50px" >&nbsp;&nbsp;&nbsp;Profile</a>
+  	  <a class="dropdown-item" href="pay.php"><img src="../../images/app/11.png" width="50px" >&nbsp;&nbsp;&nbsp;Pay Now</a>
       <a class="dropdown-item" href="setting.php"><img src="../../images/app/18.png" width="50px" >&nbsp;&nbsp;&nbsp;Setting</a>
-      <a class="dropdown-item" href="logout.php"><img src="../../images/fav/02.png" width="50px" >&nbsp;&nbsp;&nbsp;logout</a>
+      <a class="dropdown-item" href="logout.php"><img src="../../images/app/12.png" width="50px" >&nbsp;&nbsp;&nbsp;logout</a>
    
   </div>
 </div>
