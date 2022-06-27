@@ -71,16 +71,14 @@ if(isset($_POST['submitAnswer'])){
 		  // print_r($run);die;
 		}
 		if($run){
-		
+
 			header('location:exam_result.php?status=1');
 		}
 		else{
 		
 			header('location:onlineexam.php?status=0');
+
 		}
-
-
-
 
 	}
 
