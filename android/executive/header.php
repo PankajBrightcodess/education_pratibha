@@ -13,7 +13,7 @@
   border: 16px solid #f3f3f3;
   border-radius: 50%;
   border-top: 16px solid #3498db;
-  -webkit-animation: spin 2s linear infinite;
+  -webkit-animation: spin 0.5s linear infinite;
   animation: spin 2s linear infinite;
 }
 
@@ -75,6 +75,7 @@
               				</div> -->
               				<div class="home2">
 								<a href="dashboard.php"><img src="../../images/app/07.png" width="30px">&nbsp;&nbsp;&nbsp;Dashboard</a><hr>
+									<a href="profile.php"><img src="../../images/app/08.png" width="30px">&nbsp;&nbsp;&nbsp;profile</a><hr>
 								<a href="studentlist.php"><img src="../../images/app/08.png" width="30px">&nbsp;&nbsp;&nbsp;Student List</a><hr>
 								<a href="setting.php"><img src="../../images/app/18.png" width="30px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Setting</a><hr>
 				                <a href="logout.php"><img src="../../images/app/12.png" width="30px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Logout</a><hr>
