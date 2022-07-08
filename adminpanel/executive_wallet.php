@@ -21,7 +21,7 @@ $msg = "";
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Student Wallet</title>
+  <title>Executive wallet</title>
   <?php include'includes/header-links.php'; ?>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -43,14 +43,14 @@ $msg = "";
             <!-- general form elements -->
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">Student Wallet</h3>
+                <h3 class="card-title">Executive Wallet</h3>
               </div>
               <!-- /.card-header -->
               <!-- form start -->
               <div class="row">
                 <div class="col-md-3">
                   <form role="form" action="action.php" method="post">
-                    <input type="hidden" name="type" value="student">
+                    <input type="hidden" name="type" value="field_executive">
                     <div class="card-body">
                       <div class="row">
                         <div class="col-md-12">
@@ -58,18 +58,17 @@ $msg = "";
                           <input type="text" name="amount" class="form-control" required="" placeholder="Wallet amount:">
                         </div>
                         <div class="col-md-12">
-                          <label>Student Email</label>
+                          <label>Executive Email</label>
                           <select name="user_id" class="form-control">
                              <?php 
-                               $query = "SELECT master_result.*, student.id AS student_id, student.name AS student_name, student.email AS student_email, test_master.id AS testmaster_id, test_master.test_name AS testmaster_name FROM master_result LEFT JOIN student ON master_result.candi_id=student.id LEFT JOIN test_master ON master_result.exam_id = test_master.id ORDER BY master_result.percentage DESC LIMIT 5";
-                                 $res = mysqli_query($conn,$query);
-                                 while ($data = mysqli_fetch_assoc($res)) {
-                                        $result[] = $data;
-                                 } 
-
-                                if(!empty($result)){$sn=0;
-                                foreach ($result as $key => $row) {$sn++;  $id=$row['id'];?>
-                            <option value="<?php echo $row['candi_id']; ?>"><?php echo $row['student_email']; ?>&nbsp;&nbsp;Rank :<?php echo $sn; ?></option>
+                               $query="SELECT * FROM `field_excutive` WHERE `status`='1'";
+                                $run=mysqli_query($conn,$query);
+                                while ($data=mysqli_fetch_assoc($run)) {
+                                  $executive[]=$data;
+                                }
+                                if(!empty($executive)){$sn=0;
+                                foreach ($executive as $key => $row) {$sn++;  $id=$row['id'];?>
+                            <option value="<?php echo $row['id']; ?>"><?php echo $row['email']; ?>&nbsp;&nbsp;name :<?php echo $row['name']; ?></option>
                                 <?php  }
                               } ?>
                           </select>
@@ -82,7 +81,7 @@ $msg = "";
                         </div>
                         
                         <div class="col-md-4">
-                          <button class="btn btn-primary btn-sm btn-block" type="submit" name="add_student_wallet" style="margin-top: 10px;">Save</button>
+                          <button class="btn btn-primary btn-sm btn-block" type="submit" name="add_executive_wallet" style="margin-top: 10px;">Save</button>
                         </div>
                       </div>
                     </div>
@@ -92,7 +91,7 @@ $msg = "";
                   <div class="department-list">
                      <div class="card">
               <div class="card-header">
-                <h5 style="font-weight: bold;">Test List</h5>
+                <h5 style="font-weight: bold;">Executive Wallet</h5>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
@@ -110,7 +109,7 @@ $msg = "";
                   </thead>
                   <tbody>
                  <?php 
-                 $query = "SELECT student.id, wallet.user_id,wallet.amount, wallet.description, wallet.date,student.name,student.email FROM student INNER JOIN wallet ON student.id=wallet.user_id WHERE wallet.type= 'student'";
+                 $query = "SELECT field_excutive.id, wallet.user_id,wallet.amount, wallet.description, wallet.date,field_excutive.name,field_excutive.email FROM field_excutive INNER JOIN wallet ON field_excutive.id=wallet.user_id WHERE wallet.type= 'field_executive'";
                   $res = mysqli_query($conn,$query);
                   while($data = mysqli_fetch_assoc($res)){
                     $list[]=$data;
@@ -130,7 +129,7 @@ $msg = "";
                             data-user_id ="<?php echo $row['user_id']; ?>"
                             data-amount="<?php echo $row['amount']; ?>"
                             data-description="<?php echo $row['description']; ?>"
-                            data-target="#departmentModal">&nbsp;&nbsp;<i class="far fa-edit nav-icon"></i>&nbsp;Edit</button>  <a href="action.php?deletestudentwallet=<?php echo $row['id']; ?>" class="btn btn-sm btn-danger" >Delete</a>
+                            data-target="#departmentModal">&nbsp;&nbsp;<i class="far fa-edit nav-icon"></i>&nbsp;Edit</button>  <a href="action.php?deletemaster=<?php echo $row['id']; ?>" class="btn btn-sm btn-danger" >Delete</a>
                           </td>
                         </tr>
                       <?php
@@ -142,7 +141,7 @@ $msg = "";
                 </table>
               </div>
               <!-- /.card-body -->
-                   </div>
+            </div>
                   </div>
                 </div>
               </div>
@@ -151,6 +150,12 @@ $msg = "";
         </div>
       </div>
     </section>
+
+
+
+
+
+
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
@@ -195,19 +200,18 @@ $msg = "";
                           <label>Time Duration</label>
                          <select name="user_id" id="user_id" class="form-control">
                            <?php 
-                               $query = "SELECT master_result.*, student.id AS student_id, student.name AS student_name, student.email AS student_email, test_master.id AS testmaster_id, test_master.test_name AS testmaster_name FROM master_result LEFT JOIN student ON master_result.candi_id=student.id LEFT JOIN test_master ON master_result.exam_id = test_master.id ORDER BY master_result.percentage DESC LIMIT 5";
-                                 $res = mysqli_query($conn,$query);
-                                 while ($data = mysqli_fetch_assoc($res)) {
-                                        $result1[] = $data;
-                                 } 
-
-                                if(!empty($result1)){$sn1=0;
-                                foreach ($result1 as $key => $row) {$sn1++;  $id=$row['id'];?>
-                                 <option value="<?php echo $row['candi_id']; ?>"><?php echo $row['student_email']; ?>&nbsp;&nbsp;Rank :<?php echo $sn1; ?></option>
+                               $query="SELECT * FROM `field_excutive` WHERE `status`='1'";
+                                $run=mysqli_query($conn,$query);
+                                while ($data=mysqli_fetch_assoc($run)) {
+                                  $executive1[]=$data;
+                                }
+                                if(!empty($executive1)){$sn=0;
+                                foreach ($executive1 as $key => $row1) {$sn++;  $id=$row1['id'];?>
+                            <option value="<?php echo $row1['id']; ?>"><?php echo $row1['email']; ?>&nbsp;&nbsp;name :<?php echo $row1['name']; ?></option>
                                 <?php  }
                               } ?>
                           </select>
-                          <!-- <input type="time" name="time_duration" id="time_duration" class="form-control" required="" > -->
+                         
                         </div>
                          <div class="col-md-12">
               <label>Description</label>
@@ -216,7 +220,7 @@ $msg = "";
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" name="update_wallet" class="btn btn-primary">Save changes</button>
+          <button type="submit" name="update_executive_wallet" class="btn btn-primary">Save changes</button>
         </div>
        </form>
     </div>

@@ -53,45 +53,9 @@ $msg = "";
               <!-- /.card-header -->
               <!-- form start -->
               <div class="row">
-                   <div class="col-md-3">
-                  <form role="form" action="action.php" id="form_data" enctype="multipart/form-data" method="post">
-                    <div class="card-body">
-                      <div class="row">
-                        <div class="col-md-12 mb-2">
-                         <label>Student Name</label>
-                        <input type="text" name="name" id="name" placeholder="Enter student name" class="form-control">
-                        </div>
-                        <div class="col-md-12 mb-2">
-                         <label>Father Name</label>
-                        <input type="text" name="father_name" id="father_name" placeholder="Enter father name" class="form-control">
-                        </div>
-                        <div class="col-md-12 mb-2">
-                         <label>Mother Name</label>
-                        <input type="text" name="mother_name" id="father_name" placeholder="Enter mother name" class="form-control">
-                        </div>
-                    
-
-                         <div class="col-md-12 mb-2">
-                          <label>percentage</label>
-                         <input type="text" name="percentage" id="percentage"class="form-control" placeholder="Enter the percentage">
-                        </div>
-                        <div class="col-md-12 mb-2">
-                          <label>Winner Year</label>
-                         <input type="date" name="year" id="year"class="form-control" placeholder="Y-M-D">
-                        </div>
-                          <div class="col-md-12 mb-2">
-                          <label>Rank</label>
-                         <input type="number" name="rank" id="rank"class="form-control" placeholder="Enter rank no">
-                        </div>
-                          <button class="btn btn-info btn-sm btn-block formdata" type="submit" name="add_winner" style="margin-top: 10px;">Save</button>
-                        </div>
-                      </div>
-                    </div>
-                  </form>
-                </div>
                
                 
-                <div class="col-md-9">
+                <div class="col-md-12">
                   <div class="department-list">
                      <div class="card">
               <div class="card-header">
@@ -105,43 +69,45 @@ $msg = "";
                   <tr>
                     <th>S.No.:</th>
                     <th>Student Name</th>
-                    <th>Father Name</th>
-                    <th>Mother Name</th>
+                    <th>Email</th>
+                    <th>Test</th>
+                    <th>Total marks</th>
+                    <th>Result</th>
                     <th>Percentage</th>
-                    <th>Winner Year</th>
                     <th>Rank</th>
                     <th>Date</th>
-                    <th>Action</th>
+                    
                   </tr>
                   </thead>
                   <tbody >
                  <?php 
-                 $sql = "SELECT * FROM `winner` WHERE `status`='1'";
-                  $res = mysqli_query($conn,$sql);
-                  while($data = mysqli_fetch_assoc($res)){
-                    $winner[]=$data;
-                  } 
-                 if(!empty($winner)){$sn=0;
-                  echo '<pre>';
-                  // print_r($gallery);
-                  foreach ($winner as $key => $row) {$sn++;  $id=$row['pid'];?>
+                 $query = "SELECT master_result.*, student.id AS student_id, student.name AS student_name, student.email AS student_email, test_master.id AS testmaster_id, test_master.test_name AS testmaster_name FROM master_result LEFT JOIN student ON master_result.candi_id=student.id LEFT JOIN test_master ON master_result.exam_id = test_master.id ORDER BY master_result.percentage DESC LIMIT 5";
+     $res = mysqli_query($conn,$query);
+     while ($data = mysqli_fetch_assoc($res)) {
+            $result[] = $data;
+     } 
+                 if(!empty($result)){$sn=0;
+                
+                  foreach ($result as $key => $row) {$sn++; ?>
                       <tr>
+                       <td><?php echo $sn; ?></td>
+                        <td><p ><?php echo $row['student_name']; ?></p></td>
+                        <td><?php echo $row['student_email']; ?></td>
+                        <td><?php echo $row['testmaster_name']; ?></td>
+                        <td><?php echo $row['total_marks']; ?></td>
+                        <td><?php echo $row['correct_marks']; ?>/<?php echo $row['total_marks']; ?></td>
+                        <td><?php echo $row['percentage']; ?>%</td>
                         <td><?php echo $sn; ?></td>
-                        <td><p ><?php echo $row['name']; ?></p></td>
-                        <td><?php echo $row['father_name']; ?></td>
-                        <td><?php echo $row['mother_name']; ?></td>
-                        <td><?php echo $row['percentage']; ?></td>
-                        <td><?php echo $row['year']; ?></td>
-                        <td><?php echo $row['Rank']; ?></td>
-                        <td><?php echo $row['date']; ?></td>
-                        <td><button class="btn btn-sm btn-success editwinner" data-pid="<?php echo $row['pid']; ?>" data-name="<?php echo $row['name']; ?>"
+                       
+                        <td><?php echo $row['added_on']; ?></td>
+                       <!--  <td><button class="btn btn-sm btn-success editwinner" data-pid="<?php echo $row['pid']; ?>" data-name="<?php echo $row['name']; ?>"
                            data-father_name="<?php echo $row['father_name']; ?>"
                            data-mother_name="<?php echo $row['mother_name']; ?>"
                            data-rank="<?php echo $row['Rank']; ?>"
                            data-percentage="<?php echo $row['percentage']; ?>"
                            data-year="<?php echo $row['year']; ?>"
                           
-                           data-toggle="modal" data-target="#exampleModal" >&nbsp;&nbsp;<i class="far fa-edit nav-icon" ></i> &nbsp;Edit</button> <a href="action.php?deletewinner=<?php echo $row['pid']; ?>" class="btn btn-sm btn-danger" >Delete</a></td>
+                           data-toggle="modal" data-target="#exampleModal" >&nbsp;&nbsp;<i class="far fa-edit nav-icon" ></i> &nbsp;Edit</button> <a href="action.php?deletewinner=<?php echo $row['pid']; ?>" class="btn btn-sm btn-danger" >Delete</a></td> -->
                          
 
                     <?php
@@ -169,69 +135,6 @@ $msg = "";
       </div>
     </section>
     <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content" style="background:white;">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">winner Edit</h5>
-
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <form method="post" action="action.php" enctype="multipart/form-data">
-      <div class="modal-body">
-      <div class="row">
-         <div class="col-md-12 col-lg-12 col-12 mb-2">
-            <input type="hidden" name="snoEdit" id="snoEdit">
-         
-           
-       </div>
-       <div class="col-md-12 col-lg-12 col-12 mb-2">
-            <label>Name</label>
-            <input class="form-control" type="text" name="name-edit" id="name-edit">
-       </div>
-        <div class="col-md-12 col-lg-12 col-12 mb-2">
-            <label>Father Name</label>
-            <input class="form-control" type="text" name="father_name-edit" id="father_name-edit">
-            
-       </div>
-        <div class="col-md-12 col-lg-12 col-12 mb-2">
-            <label>Mother mother-Name</label>
-            <input class="form-control" type="text" name="mother_name-edit" id="mother_name-edit">
-            
-       </div>
-        <div class="col-md-12 col-lg-12 col-12 mb-2">
-            <label>Percentage</label>
-            <input class="form-control" type="text" name="percentage-edit" id="percentage-edit">
-            
-       </div>
-        <div class="col-md-12 col-lg-12 col-12 mb-2">
-            <label>Winner year</label>
-            <input class="form-control" type="date" name="year-edit" id="year-edit">
-            
-       </div>
-       <div class="col-md-12 col-lg-12 col-12 mb-2">
-          <label>Rank</label>
-          <input type="number" name="Rank-edit" id="Rank-edit" class="form-control" >
-       </div>
-      
-
-  
-      </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="submit" name="update_winner" class="btn btn-info updatedata">Update</button>
-      </div>
-      </form>
-    </div>
-  </div>
-</div>
-
-
-
-
 
 
     <!-- /.contact_us -->

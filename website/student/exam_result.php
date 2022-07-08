@@ -193,7 +193,12 @@ include 'header.php';
                              }
 
                             ?>
-                       <h3 style="color:white">   <?php echo $marks; ?>   / <?php echo $total; ?></h3>     
+                       <h3 style="color:white">   <?php echo $marks; ?>   / <?php echo $total; ?></h3> 
+                       <?php
+                       $percentage = ($marks*100)/$total;
+
+
+                        ?>    
              </div> 
     </div>
 </div>   
@@ -201,13 +206,25 @@ include 'header.php';
 </section>
 <?php
   $added_on = date('Y-m-d');
-  $query1="INSERT INTO `master_result`(`exam_id`,`candi_id`,`total_marks`,`correct_marks`,`added_on`) VALUES ('$examid','$cand_id','$total','$marks','$added_on')";
+  $query1="INSERT INTO `master_result`(`exam_id`,`candi_id`,`total_marks`,`correct_marks`,`percentage`,`added_on`) VALUES ('$examid','$cand_id','$total','$marks','$percentage','$added_on')";
     $run2=mysqli_query($conn,$query1);
 
 
 ?>
 <br><br>
 <a href="dashboard.php" class="btn btn-sm btn-warning text-center">Submitted Exam</a>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript">
+
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    var c = url.searchParams.get("status");
+    if(c==1){
+       swal("Good job!", "Exam Submitted!", "success");
+     }else if(c==0){
+       swal("Opps!", "Something Error Not Submitted!", "error");
+     }
+ </script>
 
 <?php include 'footer.php'; ?>
 <?php include 'footer-links.php'; ?>

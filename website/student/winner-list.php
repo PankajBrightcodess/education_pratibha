@@ -15,21 +15,26 @@ $msg = "";
 <?php include 'header-links.php'; ?>
 <?php include 'header.php'; ?>
 <section class="blank-course "></section>
-<?php 
+<!-- <?php 
                  $sql = "SELECT * FROM `winner` WHERE `status`='1'";
                  
                   $res = mysqli_query($conn,$sql);
                   while($data = mysqli_fetch_assoc($res)){
                     $winner[]=$data;
-                  } ?>
+                  } ?> -->
+                <?php   $query = "SELECT master_result.*, student.id AS student_id, student.name AS student_name, student.email AS student_email, test_master.id AS testmaster_id, test_master.test_name AS testmaster_name FROM master_result LEFT JOIN student ON master_result.candi_id=student.id LEFT JOIN test_master ON master_result.exam_id = test_master.id ORDER BY master_result.percentage DESC LIMIT 5";
+     $res = mysqli_query($conn,$query);
+     while ($data = mysqli_fetch_assoc($res)) {
+            $result[] = $data;
+     } ?>
 
  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">                 
 <section class="page">
     <div class="container-fluid">
       <div class="row">
         <?php 
-          if(!empty($winner)){
-            foreach ($winner as $key => $value) {
+          if(!empty($result)){ $i=0;
+            foreach ($result as $key => $value) { $i++;
                 ?>
                <div class="col-md-12 mb-3">
                   <div class="card">
@@ -37,34 +42,38 @@ $msg = "";
                     <div class="card-body">
                       <div class="row winnerlist">
                        <div class="col-md-9 col-9 mb-5">
-                          <h6><?php echo $value['name'];?> <br>(<?php echo date('Y',strtotime($value['year']));?>)</h6>
+                          <h6><?php echo $value['student_name'];?> <br>(<?php echo date('d-m-Y',strtotime($value['added_on']));?>)</h6>
                        </div>
                        
                        <div class="col-md-3 col-3 medal"> 
-                        <p><?= $value['Rank']; 
-                             $rank= $value['Rank'];
-                             if($rank == 1){ ?>
+                        <p> <?php 
+                             if($i == 1){ 
+                              echo $i; ?>
                               <i class='fas fa-medal' style='font-size:24px;color:gold'></i>
-                           <?php  }
-                           elseif ($rank == 2) { ?>
+                           <?php echo $value['testmaster_name']; }
+                           elseif ($i == 2) { 
+                            echo $i; ?>
                              <i class='fas fa-medal' style='font-size:24px;color:#e6e1e1'></i>
-                          <?php }
-                          elseif ($rank == 3) { ?>
+                          <?php echo $value['testmaster_name']; }
+                          elseif ($i == 3) { 
+                            echo $i;
+                             ?>
                            <i class='fas fa-medal' style='font-size:24px;color:#CD7F32'></i>
-                         <?php }
-                          else{ ?>
+                         <?php echo $value['testmaster_name']; }
+                          else{ 
+                            echo $i; ?>
                                
                                 <i class='fa fa-thumbs-up' style='font-size:24px;color:green'></i>
 
-                     <?php     }
+                     <?php echo $value['testmaster_name']; }
 
                         ?>
-                        <!-- <i class='fas fa-medal' style='font-size:24px;color:gold'></i> --></p>
+                      <!-- <i class='fas fa-medal' style='font-size:24px;color:gold'></i> --> </p>
                           
                       </div>
-                         <!--  <div class="col-4" style="font-size: 10px;"><strong>10 Questions</strong></div>
-                          <div class="col-4" style="font-size: 10px;"><strong>20 Marks</strong></div>
-                          <div class="col-4" style="font-size: 10px;"><strong>10 Minutes</strong></div> -->
+                         <div class="col-4" style="font-size: 10px;"><strong>Percentage:<?php echo $value['percentage']; ?>%</strong></div>
+                          <div class="col-4" style="font-size: 10px;"><strong><?php echo $value['student_email']; ?></strong></div>
+                          <div class="col-4" style="font-size: 10px;"><strong>Score<?php echo $value['correct_marks']; ?>/<?php echo $value['total_marks']; ?></strong></div>
                     </div>
                   </div>
 

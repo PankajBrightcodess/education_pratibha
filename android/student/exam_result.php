@@ -197,6 +197,11 @@ include 'header.php';
 
                             ?>
                        <h3 style="color:white">   <?php echo $marks; ?>   / <?php echo $total; ?></h3>     
+                       <?php
+                       $percentage = ($marks*100)/$total;
+
+
+                        ?>
              </div> 
     </div>
 </div>   
@@ -204,7 +209,7 @@ include 'header.php';
 </section>
 <?php
   $added_on = date('Y-m-d');
-  $query1="INSERT INTO `master_result`(`exam_id`,`candi_id`,`total_marks`,`correct_marks`,`added_on`) VALUES ('$examid','$cand_id','$total','$marks','$added_on')";
+  $query1="INSERT INTO `master_result`(`exam_id`,`candi_id`,`total_marks`,`correct_marks`,`percentage``added_on`) VALUES ('$examid','$cand_id','$total','$marks','$percentage','$added_on')";
     $run2=mysqli_query($conn,$query1);
 
 

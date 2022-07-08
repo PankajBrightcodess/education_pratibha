@@ -39,7 +39,7 @@ include 'connection.php';
                           <th>Test Name</th>
                           <th>Total Marks</th>
                           <th>Score</th>
-                           
+                          <th>percentage</th> 
                         </tr>
                       </thead>
                       <tbody>
@@ -47,12 +47,13 @@ include 'connection.php';
                             if(!empty($result)){ $i=0;  
                               foreach ($result as $displayresult) { $i++; ?>
                         <tr>
-                           <td><?php echo $i; ?></td>
+                          <td><?php echo $i; ?></td>
                           <td><?php echo $displayresult['student_name']; ?></td>
                           <td><?php echo $displayresult['student_email']; ?></td>  
                           <td><?php echo $displayresult['testmaster_name']; ?></td>
-                           <td><?php echo $displayresult['total_marks']; ?></td>
+                          <td><?php echo $displayresult['total_marks']; ?></td>
                           <td><?php echo $displayresult['correct_marks']; ?>/<?php echo $displayresult['total_marks']; ?></td>
+                          <td><?php echo $displayresult['percentage']; ?></td>
                         </tr>  
                         <?php } }?>
                       </tbody>

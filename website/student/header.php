@@ -147,10 +147,3 @@
 			<div class="clearfix"></div>
 		</div>
 	</section> -->
-	<script type="text/javascript">
-		var myVar;
-
-function myFunction() {
-  myVar = setTimeout(() => $("#loader").fadeOut(), 2000);
-}
-	</script>

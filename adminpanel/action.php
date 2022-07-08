@@ -442,7 +442,7 @@ if(isset($_POST['add_student_wallet'])){
 	$description = $_POST['description'];
 	$type = $_POST['type'];
 	$date = date('Y-m-d');
-	$query="INSERT INTO `wallet`(`user_id`,`amount`,`description`,`type`,`date`,`Rank`,`date`) VALUES ('$user_id','$amount','$description','$type','$date','$rank','$date')";
+	$query="INSERT INTO `wallet`(`user_id`,`amount`,`description`,`type`,`date`) VALUES ('$user_id','$amount','$description','$type','$date')";
 	
 		$sql=mysqli_query($conn,$query);
 		// print_r($sql);die;
@@ -554,6 +554,20 @@ if(isset($_GET['deletemaster'])){
 	if($run===true){
 		header('Location:testmaster.php');
 		$_SESSION['msg']="Test Master list Deleted Successfully !!!";
+	}
+	else{
+		$_SESSION['msg']="Test Master list Deletion Cancel !!!";
+		header("location:$_SERVER[HTTP_REFERER]");
+	}
+	header("location:$_SERVER[HTTP_REFERER]");
+}
+if(isset($_GET['deletestudentwallet'])){
+	$id=$_GET['deletestudentwallet'];	
+	$query="DELETE FROM `wallet` WHERE `id` = $id,`type` = 'student'";
+	$run=mysqli_query($conn,$query);
+	if($run===true){
+		header('Location:student_wallet.php');
+		$_SESSION['msg']="Student wallet Deleted Successfully !!!";
 	}
 	else{
 		$_SESSION['msg']="Test Master list Deletion Cancel !!!";
@@ -927,7 +941,62 @@ if(isset($_POST['del_result'])){
 				}
 
 	}
+	if(isset($_POST['update_wallet'])){
+		$SnoEdit = $_POST['SnoEdit'];
+		$amount = $_POST['amount'];
+		$user_id = $_POST['user_id'];
+		$description = $_POST['description'];
+		$date = date('Y-m-d');
+		$query="UPDATE `wallet` SET `user_id`='$user_id',`amount`='$amount',`description`='$description',`date`='$date' WHERE `user_id`='$SnoEdit', `type` = 'student'";
+				$run=mysqli_query($conn,$query);
+				if($run){
+					 header("Location:$_SERVER[HTTP_REFERER]");
+					$_SESSION['msg']="Student Wallet Updated Successfully !!!";	
+				}
+				else{
+					$_SESSION['msg']="Student Wallet Not Updated!!!";
+					header("location:$_SERVER[HTTP_REFERER]");
+				}
+	}
+	if(isset($_POST['update_executive_wallet'])){
+		$SnoEdit = $_POST['SnoEdit'];
+		$amount = $_POST['amount'];
+		$user_id = $_POST['user_id'];
+		$description = $_POST['description'];
+		$date = date('Y-m-d');
+		$query="UPDATE `wallet` SET `user_id`='$user_id',`amount`='$amount',`description`='$description',`date`='$date' WHERE `user_id`='$SnoEdit', `type` = 'field_excutive'";
+				$run=mysqli_query($conn,$query);
+				if($run){
+					 header("Location:$_SERVER[HTTP_REFERER]");
+					$_SESSION['msg']="Student Wallet Updated Successfully !!!";	
+				}
+				else{
+					$_SESSION['msg']="Student Wallet Not Updated!!!";
+					header("location:$_SERVER[HTTP_REFERER]");
+				}
+	}
+ if(isset($_POST['add_executive_wallet'])){
+ 	
+ 	$amount = $_POST['amount'];
+	$user_id = $_POST['user_id'];
+	$description = $_POST['description'];
+	$type = $_POST['type'];
+	$date = date('Y-m-d');
+	$query="INSERT INTO `wallet`(`user_id`,`amount`,`description`,`type`,`date`) VALUES ('$user_id','$amount','$description','$type','$date')";
+	
+		$sql=mysqli_query($conn,$query);
+		// print_r($sql);die;
+		if($sql){
+			 header("Location:$_SERVER[HTTP_REFERER]");
+			$_SESSION['msg']="Executive Wallet Successfully Added!!!";	
+		}
+		else{
+			
+			header("Location:$_SERVER[HTTP_REFERER]");
+			$_SESSION['msg']="Not added result !!!";
+		}
 
+ }
    
 
 

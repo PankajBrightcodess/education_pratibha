@@ -10,9 +10,12 @@
     var myVar;
 
 function myFunction() {
-  myVar = setTimeout(() => $("#loader").fadeOut(), 2000);
+  myVar = setTimeout(showPage, 1000);
 }
-  
+    function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("myDiv").style.display = "block";
+}
   	function openNav() {
           if(screen.width > 576){
             document.getElementById("myNav").style.width = "40%";
