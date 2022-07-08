@@ -6,14 +6,14 @@
   left: 50%;
   top: 50%;
   z-index: 1;
-  width: 120px;
-  height: 120px;
+  width: 90px;
+  height: 90px;
   margin: -76px 0 0 -76px;
-  border: 16px solid #f3f3f3;
+  border: 10px solid #f3f3f3;
   border-radius: 50%;
   border-top: 16px solid #3498db;
-  -webkit-animation: spin 2s linear infinite;
-  animation: spin 2s linear infinite;
+  -webkit-animation: spin 0.5s linear infinite;
+  animation: spin 0.5s linear infinite;
 }
 
 @-webkit-keyframes spin {
