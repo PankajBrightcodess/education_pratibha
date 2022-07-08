@@ -10,7 +10,7 @@
     var myVar;
 
 function myFunction() {
-  myVar = setTimeout(showPage, 1000);
+  myVar = setTimeout(() => $("#loader").fadeOut(), 2000);
 }
     function showPage() {
   document.getElementById("loader").style.display = "none";
