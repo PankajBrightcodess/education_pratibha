@@ -77,6 +77,7 @@ $msg = "";
                     <th>Name</th>
                     <th>DOB</th>
                     <th>Father Name</th>
+                     <th>School Name</th>
                     <th>Bank Name</th>
                     <th>Bank Account</th>
                     <th>IFSC</th>
@@ -101,6 +102,7 @@ $msg = "";
                                 <td><?php echo $value['name']; ?></td>
                                 <td><?php echo date('d-m-Y', strtotime($value['dob'])); ?></td>
                                 <td><?php echo $value['fathername']; ?></td>
+                                <td><?php echo $value['school_name']; ?></td>
                                 <td><?php echo $value['bankname']; ?></td>
                                 <td><?php echo $value['bankaccount']; ?></td>
                                 <td><?php echo $value['ifsc']; ?></td>
@@ -113,6 +115,7 @@ $msg = "";
                                 <td><?php echo date('d-m-Y', strtotime($value['added_on'])); ?></td>
                                <td> <button class="btn btn-sm btn-success editexecutive" data-toggle="modal" data-id="<?php echo $value['id']; ?>" data-name="<?php echo $value['name']; ?>"  
                                 data-dob="<?php echo $value['dob']; ?>" 
+                               data-school_name="<?php echo $value['school_name']; ?>"
                                data-fathername="<?php echo $value['fathername']; ?>"
                                data-bankname="<?php echo $value['bankname']; ?>"
                                data-bankaccount="<?php echo $value['bankaccount']; ?>"
@@ -188,7 +191,8 @@ $msg = "";
            <label>Name </label>
            <input type="text" name="name" id="name" class="form-control" required="" value="abc">
 
-          
+           <label>School Name</label>
+           <input type="text" name="school_name" id="school_name" class="form-control" required="" >
 
            <label>DOB </label>
            <input type="date" name="dob" id="dob" class="form-control" required="" >
@@ -248,6 +252,7 @@ $msg = "";
         $('#gender').val($(this).data('gender'));
         $('#dob').val($(this).data('dob'));
         $('#fathername').val($(this).data('fathername'));
+        $('#school_name').val($(this).data('school_name'));
         $('#bankname').val($(this).data('bankname'));
         $('#bankaccount').val($(this).data('bankaccount'));
         $('#ifsc').val($(this).data('ifsc'));

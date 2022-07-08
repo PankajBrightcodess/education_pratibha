@@ -19,7 +19,7 @@ include '../connection.php';
           
             <div class="col-md-12 mb-5">
                 <label >Amount<span style="color: Red;">*</span></label>
-                <input type="text" name="amount" class="form-control" readonly value="531" required> 
+                <input type="text" name="amount" class="form-control" readonly value="650" required> 
             </div>
                 <div class="clearfix"></div>
             <div class="col-md-12 text-center"><input type="submit" class="btn btn-warning btn-lg" value="Pay Now" name="payment"></div>
@@ -27,7 +27,7 @@ include '../connection.php';
             
     </form>
     </div>
-      <span style="text-align: center; font-size:15px;">Total Amount: 450 + 18%GST = 531</span>
+    <!--   <span style="text-align: center; font-size:15px;">Total Amount: 530 + 18%GST = 650</span> -->
  </section>
  
  <?php include 'footer.php';?>

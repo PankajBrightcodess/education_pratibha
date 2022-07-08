@@ -436,7 +436,27 @@ if(isset($_GET['deletewinner'])){
 	header("location:$_SERVER[HTTP_REFERER]");
 } 
 
-
+if(isset($_POST['add_student_wallet'])){
+	$amount = $_POST['amount'];
+	$user_id = $_POST['user_id'];
+	$description = $_POST['description'];
+	$type = $_POST['type'];
+	$date = date('Y-m-d');
+	$query="INSERT INTO `wallet`(`user_id`,`amount`,`description`,`type`,`date`,`Rank`,`date`) VALUES ('$user_id','$amount','$description','$type','$date','$rank','$date')";
+	
+		$sql=mysqli_query($conn,$query);
+		// print_r($sql);die;
+		if($sql){
+			 header("Location:$_SERVER[HTTP_REFERER]");
+			$_SESSION['msg']="Successfully Added!!!";	
+		}
+		else{
+			
+			header("Location:$_SERVER[HTTP_REFERER]");
+			$_SESSION['msg']="Not added result !!!";
+		}
+	
+}
 
 
 if(isset($_POST['uploadfiles'])){
@@ -886,6 +906,7 @@ if(isset($_POST['del_result'])){
 		$name = $_POST['name'];
 		$dob = $_POST['dob'];
 		$fathername = $_POST['fathername'];
+		$school_name = $_POST['school_name'];
 		$bankname = $_POST['bankname'];
 		$bankaccount = $_POST['bankaccount'];
 		$ifsc = $_POST['ifsc'];
@@ -894,7 +915,7 @@ if(isset($_POST['del_result'])){
 		$address = $_POST['address'];
 		$executive_id = $_POST['executive_id'];
 		$password = $_POST['password'];
-		$query="UPDATE `student` SET `name`='$name',`dob`='$dob',`fathername`='$fathername',`bankname`='$bankname',`bankaccount`='$bankaccount',`ifsc`='$ifsc',`mobile`='$mobile',`email`='$email',`address`='$address',`executive_id`='$executive_id',`password`='$password' WHERE `id`='$id'";
+		$query="UPDATE `student` SET `name`='$name',`dob`='$dob',`fathername`='$fathername',`school_name`='$school_name',`bankname`='$bankname',`bankaccount`='$bankaccount',`ifsc`='$ifsc',`mobile`='$mobile',`email`='$email',`address`='$address',`executive_id`='$executive_id',`password`='$password' WHERE `id`='$id'";
 				$run=mysqli_query($conn,$query);
 				if($run){
 					 header("Location:$_SERVER[HTTP_REFERER]");

@@ -19,6 +19,9 @@ $msg = "";
   $data=mysqli_fetch_assoc($run);
   // echo '<pre>';
   // print_r($data);die;
+   $query1="SELECT * FROM `wallet` WHERE `user_id`='$id' AND `type` = 'student'";
+  $run1=mysqli_query($conn,$query1);
+  $data1=mysqli_fetch_assoc($run1);
  
 ?>
 <?php include 'header-links.php'; ?>
@@ -48,8 +51,8 @@ $msg = "";
                 <table class="table">
                     <thead>
                         <tr>
-                            <th>ID</th>
-                            <td><?php echo $data['id'];?></td>
+                            <th>Wallet:</th>
+                            <td><?php echo $data1['amount'];?></td>
                         </tr>
                         <tr>
                             <th>Name</th>
@@ -82,7 +85,7 @@ $msg = "";
                
             </div>
             <div class="col-md-12">
-<!--     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3655.476042260754!2d86.13541841538598!3d23.62311698465224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f42379b47dcc9f%3A0xcb08bfc6ca9ced8a!2sSHIVANYA%20COMPUTER%20EDUCATION%20PVT.LTD!5e0!3m2!1sen!2sin!4v1640603123250!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe> -->
+
     </div>
             <div class="clearfix"></div>
         </div>

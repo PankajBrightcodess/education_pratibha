@@ -154,7 +154,10 @@ if(isset($_POST['field_excutive'])){
 	    		$query="INSERT INTO `field_excutive`(`name`,`gender`,`dob`,`mobile`,`email`,`location`,`city`,`state`,`fathername`,`aadhaar`,`bankname`,`bankaccount`,`ifsc`,`pincode`,`password`,`added_on`) VALUES ('$name','$gender','$dob','$mobile','$email','$location','$city','$state','$fathername','$aadhaar','$bankname','$bankaccount','$ifsc','$pincode','$password','$added_on')";
 	    		
 	    	    $sql=mysqli_query($conn,$query);
-	    	    if($sql){
+	    	     $last_id = $conn->insert_id;
+	    	      $query1= "INSERT INTO `wallet`(`user_id`,`type`,`amount`,`name`,`email`,`date`) VALUES ('$last_id','filed_executive','0','$name','$email','$added_on')";
+	    	     $sql1=mysqli_query($conn,$query1);
+	    	    if($sql && $sql1){
 					echo $sql;
 				}
 				else{
@@ -657,7 +660,7 @@ if(isset($_POST['del_result_admin'])){
 	}
 	
    }
-   if(isset($_POST['student_reg'])){   
+  if(isset($_POST['student_reg'])){   
 		$name =$_POST['name'];
 		$mobile =$_POST['mobile'];
 		$email =$_POST['email'];
@@ -666,6 +669,7 @@ if(isset($_POST['del_result_admin'])){
 		$bankaccount =$_POST['bankaccount'];
 		$ifsc =$_POST['ifsc'];
 		$ac_qualify =$_POST['ac_qualify'];
+		$school_name = $_POST['school_name'];
 		$executive_id =$_POST['executive_id'];
 		$password =$_POST['password'];
 		$dob =$_POST['dob'];
@@ -676,24 +680,22 @@ if(isset($_POST['del_result_admin'])){
 	    $run=mysqli_query($conn,$query);
 	    $num=mysqli_num_rows($run);
 	    if($num==0){
-	    		$query="INSERT INTO `student`(`name`,`mobile`,`email`,`fathername`,`bankname`,`bankaccount`,`ifsc`,`ac_qualify`,`executive_id`,`password`,`dob`,`address`,`added_on`) VALUES ('$name','$mobile','$email','$fathername'
-	    			,'$bankname','$bankaccount','$ifsc','$ac_qualify','$executive_id','$password','$dob','$address',
+	    		$query="INSERT INTO `student`(`name`,`mobile`,`email`,`fathername`,`bankname`,`bankaccount`,`ifsc`,`ac_qualify`,`executive_id`,`password`,`dob`,`address`,`added_on`) VALUES ('$name','$mobile','$email','$fathername','$bankname','$bankaccount','$ifsc','$ac_qualify','$executive_id','$password','$dob','$address',
 	    			'$added_on')";
-	    		// print_r($query);die;
-	    		
 	    	    $sql=mysqli_query($conn,$query);
-	    	    if($sql){
+	    	    $last_id = $conn->insert_id;
+	    	    $query1= "INSERT INTO `wallet`(`user_id`,`type`,`amount`,`name`,`email`,`date`) VALUES ('$last_id','student','0','$name','$email','$added_on')";
+	    	     $sql1=mysqli_query($conn,$query1);
+	    	    if($sql && $sql1){
 					echo "1";
 				}
 				else{
 					echo "0";
-				}
-	    	
-	    	
+				}	
 	    }
 	    else{
 	    	 echo "0";
-		    // header("Location: " . $_SERVER['HTTP_REFERER']);
+		    
 	    }
 	}
 	}

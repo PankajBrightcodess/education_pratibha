@@ -65,6 +65,10 @@ while ($data=mysqli_fetch_assoc($run)) {
             <input type="text" name="fathername" id="fathername" placeholder="Enter Father Name" class="form-control" required>
         </div>
         <div class="col-md-6 col-12 mb-2">
+            <label>School Name<span style="color: Red;">*</span></label>
+            <input type="text" name="school_name" id="school_name" placeholder="Enter School Name" class="form-control" required>
+        </div>
+        <div class="col-md-6 col-12 mb-2">
             <label>Bank Name<span style="color: Red;">*</span></label>
             <input type="text" name="bankname" id="bankname" pattern="[A-Z]" title="Enter capital letter" placeholder="Bank Name" class="form-control" required>
         </div> 
@@ -182,11 +186,12 @@ while ($data=mysqli_fetch_assoc($run)) {
     $(document).ready(function(e) {
     $('body').on('click','#student_reg',function(){
      // $('.student_reg').click(function(e){
-            // debugger;
+            // debugger;school_name
          var name=$('#name').val();
          var mobile=$('#mobile').val();
          var email=$('#email').val();
          var fathername=$('#fathername').val();
+        var school_name=$('#school_name').val();
          var bankname=$('#bankname').val();
          var bankaccount=$('#bankaccount').val();
          var ifsc=$('#ifsc').val();
@@ -199,7 +204,7 @@ while ($data=mysqli_fetch_assoc($run)) {
         $.ajax({
                 type:'POST',
                 url:'action.php',
-                data:{name:name,mobile:mobile,email:email,ac_qualify:ac_qualify,course:course,executive_id:executive_id,password:password,dob:dob,fathername:fathername,bankname:bankname,bankaccount:bankaccount,ifsc:ifsc,address:address,student_reg:'student_reg'},
+                data:{name:name,mobile:mobile,email:email,ac_qualify:ac_qualify,course:course,executive_id:executive_id,password:password,dob:dob,fathername:fathername,school_name:school_name,bankname:bankname,bankaccount:bankaccount,ifsc:ifsc,address:address,student_reg:'student_reg'},
                 success: function(result){
                     // alert(result);
                     // console.log(result);
