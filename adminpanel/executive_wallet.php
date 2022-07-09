@@ -197,7 +197,7 @@ $msg = "";
         </div>
        
          <div class="col-md-12">
-                          <label>Time Duration</label>
+                          <label>Email/Name</label>
                          <select name="user_id" id="user_id" class="form-control">
                            <?php 
                                $query="SELECT * FROM `field_excutive` WHERE `status`='1'";

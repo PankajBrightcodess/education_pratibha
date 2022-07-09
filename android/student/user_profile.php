@@ -22,6 +22,11 @@ $msg = "";
    $query1="SELECT * FROM `wallet` WHERE `user_id`='$id' AND `type` = 'student'";
   $run1=mysqli_query($conn,$query1);
   $data1=mysqli_fetch_assoc($run1);
+
+    // withdrawal amount
+  $query2="SELECT * FROM `withdrawal` WHERE `user_id`='$id' AND `type` = 'student'";
+  $run2=mysqli_query($conn,$query2);
+  $data2=mysqli_fetch_assoc($run2);
  
 ?>
 <?php include 'header-links.php'; ?>
@@ -52,16 +57,26 @@ $msg = "";
                     <thead>
                         <tr>
                             <th>Wallet:</th>
-                            <td><?php echo $data1['amount'];?></td>
+                             <?php if(!empty($data1)){ ?>
+                             <td>&#8377;<?php echo ($data1['amount']-(!empty($data2['amount']))); ?>&nbsp;&nbsp;&nbsp;<button class="btn btn-sm btn-success withdrawl"   data-toggle="modal" 
+                            data-id="<?php echo $data1['id']; ?>" 
+                            data-user_id ="<?php echo $data1['user_id']; ?>"
+                            data-amount="<?php echo $data1['amount']; ?>"
+                          
+                            data-target="#withdrawlModal">&#8377;Withdrawl</button></td>
+                          <?php  } 
+                    
+                          ?>
+                            
                         </tr>
                         <tr>
                             <th>Name</th>
                             <td><?php echo $data['name'];?></td>
                         </tr>
-                          <tr>
+                          <!-- <tr>
                             <th>Course</th>
                             <td><?php echo $data['course'];?></td>
-                        </tr>
+                        </tr> -->
                          <tr>
                             <th>Address</th>
                             <td><?php echo $data['address'];?></td>
@@ -93,3 +108,53 @@ $msg = "";
  </section>
  <?php include 'footer.php';?>
 <?php include 'footer-links.php';?>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+ <script type="text/javascript">
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    var c = url.searchParams.get("status");
+    if(c==1){
+       swal("Withrawal!", "wallet withdrawl!", "success");
+     }else if(c==0){
+       swal("Opps not Withrawal!", "Something Error !", "error");
+     }
+ </script>
+<div class="modal fade" id="withdrawlModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><b>Withdrawal wallet</b></h5>
+        
+      </div>
+       <form action="action.php" method="post">
+        <div class="modal-body">
+           
+        </div>
+         <div class="col-md-12">
+              <label>Wallet</label>
+              <input type="text" id="amount" name="amount" class="form-control" placeholder="Test Total Marks:">
+        </div>
+         <div class="col-md-12">
+                          <label>Email/Name</label>
+                         <input type="hidden" name="user_id" id="user_id">
+                         <input type="hidden" name="type" id="type" value="student">
+                         <input type="text" value="<?php echo $data['email'] ?>&nbsp;&nbsp;(<?php echo $data['name'] ?>)" readonly class="form-control">
+                        </div>
+                         
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" name="withdrawl_wallet" class="btn btn-primary">Save changes</button>
+        </div>
+       </form>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+   $(document).ready(function(){
+      $('body').on('click','.withdrawl',function(){
+        $('#user_id').val($(this).data('user_id'));
+        $('#amount').val($(this).data('amount'));
+        
+      });
+   });
+ </script>

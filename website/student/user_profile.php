@@ -51,7 +51,9 @@ $msg = "";
                     <thead>
                         <tr>
                             <th>Wallet:</th>
-                            <td><?php echo $data1['amount'];?></td>
+                             <?php if(!empty($data1)){ ?>
+                                 <td>&#8377;<?php echo $data1['amount'];?></td>
+                          <?php  } ?>
                         </tr>
                         <tr>
                             <th>Name</th>

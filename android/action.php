@@ -790,6 +790,7 @@ if(isset($_POST['update_student'])){
 				header("Location: " . $_SERVER['HTTP_REFERER']);
 			}
 	}
+	
 
 	
 

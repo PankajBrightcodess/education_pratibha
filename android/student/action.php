@@ -405,6 +405,22 @@ if(isset($_POST['del_result'])){
 		}
 		
   }
+  if(isset($_POST['withdrawl_wallet'])){
+		$user_id=$_POST['user_id'];
+		$amount=$_POST['amount'];
+		$type=$_POST['type'];
+		$added_on=date('Y-m-d H:i:s');
+		$query="INSERT INTO `withdrawal`(`user_id`,`amount`,`type`,`added_on`) VALUES ('$user_id','$amount','$type','$added_on')";
+			$sql=mysqli_query($conn,$query);
+			if($sql){
+				 header('location:user_profile.php?status=1');
+				 
+			}
+			else{
+				
+				header('location:user_profile.php?status=0');
+			}
+	}
 
  //   if(isset($_POST['update_password_student'])){
  //   	// echo '<pre>';
