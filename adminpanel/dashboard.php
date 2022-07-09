@@ -1,20 +1,10 @@
 <?php
 session_start();
+include_once('connection.php');
 if($_SESSION['role']!='1'){
     header('location:index.php');
   }
-include'connection.php';
-$msg = "";
-    if (isset($_SESSION['msg'])) {
-        $msg = $_SESSION['msg'];
-        unset($_SESSION['msg']);
-    }
-    if ($msg != "") {
-        echo "<script> alert('$msg')</script>";
-    }
 
-  
-     
 ?>
 <!DOCTYPE html>
 <html>
@@ -63,7 +53,7 @@ $msg = "";
               <div class="icon">
                 <i class="ion ion-bag"></i>
               </div>
-              <a href="textmaster.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="department.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -112,7 +102,6 @@ $msg = "";
               <div class="inner">
                 
                 <h3></h3>
-
                 <p>Total Assignment Current Year</p>
               </div>
               <div class="icon">
