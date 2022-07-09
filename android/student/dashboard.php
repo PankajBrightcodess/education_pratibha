@@ -218,5 +218,15 @@ $msg = "";
 	</div>
 </section> -->
 <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <?php include 'footer.php'; ?>
 <?php include 'footer-links.php'; ?>
+<script type="text/javascript">
+      var url_string = window.location.href;
+    var url = new URL(url_string);
+    var c = url.searchParams.get("status");
+    if(c==1){
+       swal("Payment!", "Payment successfully!", "success");
+     }else if(c==0){
+       swal("Opps not payment!", "Something Error !", "error");     }
+</script>

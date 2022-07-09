@@ -108,26 +108,48 @@ if(isset($_POST['submitAnswer'])){
 // 	 }
    		
 //   }
-
- if(isset($_POST['payment']))
-   {  $id = $_SESSION['enroll_id'];
+	 // if( $_SESSION['amount']> $amount){
+ if(isset($_POST['payment'])){  
+ 	   $id = $_SESSION['enroll_id'];
    	 $amount = $_POST['amount'];
    	 $added_on = date('Y-m-d');
+   	 if($_POST['mode'] == 'online'){
    	  $length = 15;
    	  $request_no=substr(str_shuffle(str_repeat($x='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz', ceil($length/strlen($x)) )),1,$length);
 	 $sql="UPDATE `student` SET `amount`='$amount',`pay_date`='$added_on',`request_no`='$request_no' WHERE `id`='$id'";
 	 $run = mysqli_query($conn,$sql);
-	//  echo '<pre>';
-	// print_r($run);die;
+	
 	 if ($run) {
 		
        header('location:payment.php');
 	 } 
 	 else {
-		// $_SESSION['msg']="Records Not Added !!!";
+
        header('header:pay.php');
 	 }
-   		// 
+	}elseif($_POST['mode'] =='wallet'){
+		if($_SESSION['amount'] > $amount){
+			$review = "payment wallet for test series";
+			$query="INSERT INTO `withdrawal`(`user_id`,`amount`,`type`,`review`,`added_on`) VALUES ('$id','$amount','student','$review','$added_on')";
+			$sql=mysqli_query($conn,$query);
+			if($sql){
+				 header('location:dashboard.php?status=1');
+				 
+			}
+			else{
+				
+				header('location:pay.php?status=0');
+			}
+               
+		}
+		else{
+		header('location:pay.php?warning=0');
+	}
+	}
+	else{
+		header('header:pay.php');
+	}
+   		
   }
 if(isset($_POST['studentlogin'])){
 	
@@ -406,15 +428,17 @@ if(isset($_POST['del_result'])){
 		
   }
   if(isset($_POST['withdrawl_wallet'])){
+
 		$user_id=$_POST['user_id'];
 		$amount=$_POST['amount'];
 		$type=$_POST['type'];
 		$added_on=date('Y-m-d H:i:s');
-		$query="INSERT INTO `withdrawal`(`user_id`,`amount`,`type`,`added_on`) VALUES ('$user_id','$amount','$type','$added_on')";
+		$review = "wallet withdrawl in bank";
+		
+		$query="INSERT INTO `withdrawal`(`user_id`,`amount`,`type`,`review`,`added_on`) VALUES ('$user_id','$amount','$type','$review','$added_on')";
 			$sql=mysqli_query($conn,$query);
 			if($sql){
-				 header('location:user_profile.php?status=1');
-				 
+				 header('location:user_profile.php?status=1');	 
 			}
 			else{
 				

@@ -17,17 +17,16 @@ $msg = "";
      $query="SELECT * FROM `student` WHERE `id`='$id'";
   $run=mysqli_query($conn,$query);
   $data=mysqli_fetch_assoc($run);
-  // echo '<pre>';
-  // print_r($data);die;
-   $query1="SELECT * FROM `wallet` WHERE `user_id`='$id' AND `type` = 'student'";
+   
+   $query1="SELECT sum(amount) as total_wallet, wallet.user_id as user_id FROM `wallet` WHERE `user_id`='$id' AND `type` = 'student'";
   $run1=mysqli_query($conn,$query1);
   $data1=mysqli_fetch_assoc($run1);
 
     // withdrawal amount
-  $query2="SELECT * FROM `withdrawal` WHERE `user_id`='$id' AND `type` = 'student'";
+  $query2="SELECT sum(amount) as total_withdrawal, withdrawal.user_id as user_id FROM `withdrawal` WHERE `user_id`='$id' AND `type` = 'student'";
   $run2=mysqli_query($conn,$query2);
   $data2=mysqli_fetch_assoc($run2);
- 
+
 ?>
 <?php include 'header-links.php'; ?>
 <?php include 'header.php'; ?>
@@ -57,14 +56,24 @@ $msg = "";
                     <thead>
                         <tr>
                             <th>Wallet:</th>
-                             <?php if(!empty($data1)){ ?>
-                             <td>&#8377;<?php echo ($data1['amount']-(!empty($data2['amount']))); ?>&nbsp;&nbsp;&nbsp;<button class="btn btn-sm btn-success withdrawl"   data-toggle="modal" 
+                             <?php if(!empty($data2)){ ?>
+                             <td>&#8377;<?php $amt =  $data1['total_wallet']-$data2['total_withdrawal'];
+                             echo $amt;
+                               $_SESSION['amount'] = $amt; ?>&nbsp;&nbsp;&nbsp;<button class="btn btn-sm btn-success withdrawl"   data-toggle="modal" 
                             data-id="<?php echo $data1['id']; ?>" 
                             data-user_id ="<?php echo $data1['user_id']; ?>"
-                            data-amount="<?php echo $data1['amount']; ?>"
+                            data-amount="<?php echo $data1['total_wallet']-$data2['total_withdrawal']; ?>"
                           
                             data-target="#withdrawlModal">&#8377;Withdrawl</button></td>
-                          <?php  } 
+                          <?php  } else{ ?>
+                            <td>&#8377;<?php echo $data1['total_wallet']; ?>&nbsp;&nbsp;&nbsp;<button class="btn btn-sm btn-success withdrawl"   data-toggle="modal" 
+                            data-id="<?php echo $data1['id']; ?>" 
+                            data-user_id ="<?php echo $data1['user_id']; ?>"
+                            data-amount="<?php echo $data1['total_wallet']; ?>"
+                          
+                            data-target="#withdrawlModal">&#8377;Withdrawl</button></td>
+
+                       <?php   }
                     
                           ?>
                             
@@ -132,7 +141,8 @@ $msg = "";
         </div>
          <div class="col-md-12">
               <label>Wallet</label>
-              <input type="text" id="amount" name="amount" class="form-control" placeholder="Test Total Marks:">
+              <input type="number" id="amount" name="amount" class="form-control" placeholder="amount withrawl:" required>
+              <span id="waletamt"></span>
         </div>
          <div class="col-md-12">
                           <label>Email/Name</label>
@@ -143,7 +153,7 @@ $msg = "";
                          
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="submit" name="withdrawl_wallet" class="btn btn-primary">Save changes</button>
+          <button type="submit" id="withdrawl_wallet" name="withdrawl_wallet" class="btn btn-primary">Withdrawal</button>
         </div>
        </form>
     </div>
@@ -155,6 +165,16 @@ $msg = "";
         $('#user_id').val($(this).data('user_id'));
         $('#amount').val($(this).data('amount'));
         
+      });
+      $('body').on('keyup', '#amount',function(){
+        var amount = $('#amount').val();
+        var amt = "<?php echo $amt; ?>";
+        if(amt< amount){
+            $('#waletamt').html('your amount is excess on your wallet!');
+            $('#amount').val('');
+            $('#withdrawl_wallet').prop('disabled',true);
+        }
+
       });
    });
  </script>

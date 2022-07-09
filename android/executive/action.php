@@ -404,11 +404,11 @@ if(isset($_POST['withdrawl_wallet'])){
 		$amount=$_POST['amount'];
 		$type=$_POST['type'];
 		$added_on=date('Y-m-d H:i:s');
-		$query="INSERT INTO `withdrawal`(`user_id`,`amount`,`type`,`added_on`) VALUES ('$user_id','$amount','$type','$added_on')";
+		$review = "wallet withdrawl in bank";
+		$query="INSERT INTO `withdrawal`(`user_id`,`amount`,`type`,`review`,`added_on`) VALUES ('$user_id','$amount','$type','$review','$added_on')";
 			$sql=mysqli_query($conn,$query);
 			if($sql){
-				 header('location:profile.php?status=1');
-				 
+				 header('location:profile.php?status=1');			 
 			}
 			else{
 				
