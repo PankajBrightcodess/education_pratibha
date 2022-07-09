@@ -53,7 +53,7 @@ if($_SESSION['role']!='1'){
               <div class="icon">
                 <i class="ion ion-bag"></i>
               </div>
-              <a href="department.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+              <a href="textmaster.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -102,6 +102,7 @@ if($_SESSION['role']!='1'){
               <div class="inner">
                 
                 <h3></h3>
+
                 <p>Total Assignment Current Year</p>
               </div>
               <div class="icon">

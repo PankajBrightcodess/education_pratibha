@@ -1,4 +1,4 @@
-<?php
+  <?php
   $cp = substr($_SERVER["SCRIPT_NAME"],strrpos($_SERVER["SCRIPT_NAME"],"/")+1);
   $cpage = explode('.',$cp); 
   $page=$cpage[0];
@@ -34,6 +34,29 @@
               </p>
             </a>
           </li>
+           <li class="nav-item has-treeview <?php if(in_array($page, $armkey)){echo 'menu-open';} ?>">
+            <a href="#" class="nav-link <?php if(in_array($page, $armkey)){echo 'active';} ?>">
+              <i class="fas fa-wallet nav-icon"></i>
+              <p>
+              Wallet
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="executive_wallet.php" class="nav-link <?php if($page == 'category'){ echo 'active';} ?>">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Field Executive Wallet</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="student_wallet.php" class="nav-link <?php if($page == 'subcategory'){ echo 'active';} ?>">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Student Wallet</p>
+                </a>
+              </li>
+            </ul>
+          </li> 
          <li class="nav-item has-treeview <?php if(in_array($page, $armkey)){echo 'menu-open';} ?>">
             <a href="#" class="nav-link <?php if(in_array($page, $armkey)){echo 'active';} ?>">
               <i class="fas fa-key nav-icon"></i>
