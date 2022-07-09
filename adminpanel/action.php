@@ -116,7 +116,7 @@ function Pdfupload($dir,$inputname,$allext,$pass_width,$pass_height,$pass_size,$
 
 
 if(isset($_POST['add_about'])){
-	echo '<pre>';
+	
 	// print_r($_POST);
 	//  print_r($_FILES);die;
 	$about_text = $_POST['about'];	
@@ -168,7 +168,7 @@ if(isset($_POST['add_about'])){
 }
 
 if(isset($_POST['update_about'])){
-	echo '<pre>';
+
 
     $id = $_POST['snoEdit'];
     $about_text = $_POST['about-edit'];
