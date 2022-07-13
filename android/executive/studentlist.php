@@ -13,7 +13,6 @@ include '../connection.php';
           <div class="card">
             <div class="card-header bg-secondary text-light"><h4>Student List</h4></div>
             <div class="card-body">
-             
                   <?php
                    $ids=$_SESSION['exe_id'];
                   $sql0="SELECT * FROM `student` WHERE `executive_id`='$ids' AND `payment_status` = '0'";

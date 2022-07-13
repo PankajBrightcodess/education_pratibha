@@ -415,6 +415,28 @@ if(isset($_POST['withdrawl_wallet'])){
 				header('location:profile.php?status=0');
 			}
 	}
+	if(isset($_POST['Transfer_wallet'])){
+	
+		$amount=$_POST['amount'];
+		$user_id=$_POST['user_id'];
+		$type=$_POST['type'];
+		$student_user_id=$_POST['student_user_id'];
+		$review = "wallet money transfer from";
+		$added_on=date('Y-m-d H:i:s');
+		$query1="INSERT INTO `wallet`(`user_id`,`refer_user_id`,`amount`,`type`,`description`,`date`) VALUES ('$student_user_id','$user_id','$amount','$type','wallet added amount through Executive','$added_on')";
+		$sql1=mysqli_query($conn,$query1);
+		$review = "wallet amount transfer to student";
+		$query2="INSERT INTO `withdrawal`(`user_id`,`transfer_userid`,`amount`,`type`,`review`,`added_on`) VALUES ('$user_id','$student_user_id','$amount','field_executive','$review','$added_on')";
+			$sql2=mysqli_query($conn,$query2);
+			if($sql1 && $sql2){
+				header('location:profile.php?transfer=1');
+			}
+			else{
+				
+				header('location:profile.php?transfer=0');
+			}
+	}
+	
 
    // ''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''Center Area Start'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
