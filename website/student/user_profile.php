@@ -17,20 +17,25 @@ $msg = "";
      $query="SELECT * FROM `student` WHERE `id`='$id'";
   $run=mysqli_query($conn,$query);
   $data=mysqli_fetch_assoc($run);
-  // echo '<pre>';
-  // print_r($data);die;
- $query1="SELECT * FROM `wallet` WHERE `user_id`='$id' AND `type` = 'student'";
+   
+   $query1="SELECT sum(amount) as total_wallet, wallet.user_id as user_id FROM `wallet` WHERE `user_id`='$id' AND `type` = 'student'";
   $run1=mysqli_query($conn,$query1);
   $data1=mysqli_fetch_assoc($run1);
+
+    // withdrawal amount
+  $query2="SELECT sum(amount) as total_withdrawal, withdrawal.user_id as user_id FROM `withdrawal` WHERE `user_id`='$id' AND `type` = 'student'";
+  $run2=mysqli_query($conn,$query2);
+  $data2=mysqli_fetch_assoc($run2);
+
 ?>
 <?php include 'header-links.php'; ?>
 <?php include 'header.php'; ?>
 <section class="blank-course "></section>
 <section class="pages" id="contactpg">
-  	<div class="container">
-		<div class="row">
+    <div class="container">
+        <div class="row">
            <!--  <div class="col-md-7">
-            	<h2 class="text-center text-info">Contact Us</h2><hr class="border-warning">
+                <h2 class="text-center text-info">Contact Us</h2><hr class="border-warning">
                 <form action="sendmail.php" method="post">
                     <div class="form-row">
                         <div class="col"><input type="text" name="name" placeholder="Name :" class="form-control py-4" required></div>
@@ -40,29 +45,47 @@ $msg = "";
                         <div class="col"><input type="email" name="email" placeholder="Email :" class="form-control py-4" required></div>
                     </div>
                     <div class="form-row">
-                    	<div class="col mt-4"><textarea name="message" placeholder="Message :" class="form-control py-4" required style="min-height:75px;"></textarea></div>
+                        <div class="col mt-4"><textarea name="message" placeholder="Message :" class="form-control py-4" required style="min-height:75px;"></textarea></div>
                     </div>
                     <button type="submit" name="contactus" class="my-4 btn btn-warning btn-sm btn-block">Send</button>
                 </form>
             </div> -->
             <div class="col-md-12">
-            	<h2 class="text-center text-info">User Profile</h2><hr class="border-warning">
+                <h2 class="text-center text-info">User Profile</h2><hr class="border-warning">
                 <table class="table">
                     <thead>
                         <tr>
                             <th>Wallet:</th>
-                             <?php if(!empty($data1)){ ?>
-                                 <td>&#8377;<?php echo $data1['amount'];?></td>
-                          <?php  } ?>
+                             <?php if(!empty($data2)){ ?>
+                             <td>&#8377;<?php $amt =  $data1['total_wallet']-$data2['total_withdrawal'];
+                             echo $amt;
+                               $_SESSION['amount'] = $amt; ?>&nbsp;&nbsp;&nbsp;<button class="btn btn-sm btn-success withdrawl"   data-toggle="modal" 
+                            data-id="<?php echo $data1['id']; ?>" 
+                            data-user_id ="<?php echo $data1['user_id']; ?>"
+                            data-amount="<?php echo $data1['total_wallet']-$data2['total_withdrawal']; ?>"
+                          
+                            data-target="#withdrawlModal">&#8377;Withdrawl</button></td>
+                          <?php  } else{ ?>
+                            <td>&#8377;<?php echo $data1['total_wallet']; ?>&nbsp;&nbsp;&nbsp;<button class="btn btn-sm btn-success withdrawl"   data-toggle="modal" 
+                            data-id="<?php echo $data1['id']; ?>" 
+                            data-user_id ="<?php echo $data1['user_id']; ?>"
+                            data-amount="<?php echo $data1['total_wallet']; ?>"
+                          
+                            data-target="#withdrawlModal">&#8377;Withdrawl</button></td>
+
+                       <?php   }
+                    
+                          ?>
+                            
                         </tr>
                         <tr>
                             <th>Name</th>
                             <td><?php echo $data['name'];?></td>
                         </tr>
-                          <tr>
+                          <!-- <tr>
                             <th>Course</th>
                             <td><?php echo $data['course'];?></td>
-                        </tr>
+                        </tr> -->
                          <tr>
                             <th>Address</th>
                             <td><?php echo $data['address'];?></td>
@@ -86,7 +109,7 @@ $msg = "";
                
             </div>
             <div class="col-md-12">
-<!--     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3655.476042260754!2d86.13541841538598!3d23.62311698465224!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39f42379b47dcc9f%3A0xcb08bfc6ca9ced8a!2sSHIVANYA%20COMPUTER%20EDUCATION%20PVT.LTD!5e0!3m2!1sen!2sin!4v1640603123250!5m2!1sen!2sin" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe> -->
+
     </div>
             <div class="clearfix"></div>
         </div>
@@ -94,3 +117,64 @@ $msg = "";
  </section>
  <?php include 'footer.php';?>
 <?php include 'footer-links.php';?>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+ <script type="text/javascript">
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    var c = url.searchParams.get("status");
+    if(c==1){
+       swal("Withrawal!", "wallet withdrawl!", "success");
+     }else if(c==0){
+       swal("Opps not Withrawal!", "Something Error !", "error");
+     }
+ </script>
+<div class="modal fade" id="withdrawlModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"><b>Withdrawal wallet</b></h5>
+        
+      </div>
+       <form action="action.php" method="post">
+        <div class="modal-body">
+           
+        </div>
+         <div class="col-md-12">
+              <label>Wallet</label>
+              <input type="number" id="amount" name="amount" class="form-control" placeholder="amount withrawl:" required>
+              <span id="waletamt"></span>
+        </div>
+         <div class="col-md-12">
+                          <label>Email/Name</label>
+                         <input type="hidden" name="user_id" id="user_id">
+                         <input type="hidden" name="type" id="type" value="student">
+                         <input type="text" value="<?php echo $data['email'] ?>&nbsp;&nbsp;(<?php echo $data['name'] ?>)" readonly class="form-control">
+                        </div>
+                         
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" id="withdrawl_wallet" name="withdrawl_wallet" class="btn btn-primary">Withdrawal</button>
+        </div>
+       </form>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+   $(document).ready(function(){
+      $('body').on('click','.withdrawl',function(){
+        $('#user_id').val($(this).data('user_id'));
+        $('#amount').val($(this).data('amount'));
+        
+      });
+      $('body').on('keyup', '#amount',function(){
+        var amount = $('#amount').val();
+        var amt = "<?php echo $amt; ?>";
+        if(amt< amount){
+            $('#waletamt').html('your amount is excess on your wallet!');
+            $('#amount').val('');
+            $('#withdrawl_wallet').prop('disabled',true);
+        }
+
+      });
+   });
+ </script>

@@ -79,6 +79,7 @@
 								<a href="winner-list.php"><img src="../../images/app/10.png" width="30px">&nbsp;&nbsp;&nbsp;Winner List</a><hr>
 								<a href="user_profile.php"><img src="../../images/app/08.png" width="30px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Profile</a><hr>
 								<a href="pay.php"><img src="../../images/app/11.png" width="30px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pay Now</a><hr>
+									<a href="history.php"><img src="../../images/app/11.png" width="30px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;History</a><hr>
 								<a href="setting.php"><img src="../../images/app/18.png" width="30px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Setting</a><hr>
 				                <a href="logout.php"><img src="../../images/app/12.png" width="30px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Logout</a><hr>
 							</div>

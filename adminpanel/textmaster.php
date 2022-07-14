@@ -107,7 +107,7 @@ $msg = "";
                   </thead>
                   <tbody>
                    <?php 
-                        $sql = "select * from test_master where status = '1'";
+                        $sql = "select * from test_master ";
                         $res = mysqli_query($conn,$sql);
                          while ($data=mysqli_fetch_assoc($res)) {
                                             $master[]=$data;
@@ -140,12 +140,16 @@ $msg = "";
                             data-test_name="<?php echo $value['test_name']; ?>"
                             data-time_duration="<?php echo $value['time_duration']; ?>" 
                             data-target="#departmentModal">&nbsp;&nbsp;<i class="far fa-edit nav-icon"></i>&nbsp;Edit</button>  <a href="action.php?deletemaster=<?php echo $value['id']; ?>" class="btn btn-sm btn-danger" >Delete</a>
+                            <?php if($value['status'] == 0){?>
+                             <a href="action.php?testactivate=<?php echo $value['id']; ?>" class="btn btn-sm btn-warning" >Unactivate</a>
+                          <?php   }
+                          else{ ?>
+                                 <a href="action.php?testdeactive=<?php echo $value['id']; ?>" class="btn btn-sm btn-success">Active</a>
+                      <?php    } ?>
                           </td>
                         </tr>
                       <?php
-                       }
-
-                   
+                       } 
               ?>
                  
                 </table>

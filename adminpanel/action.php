@@ -561,6 +561,36 @@ if(isset($_GET['deletemaster'])){
 	}
 	header("location:$_SERVER[HTTP_REFERER]");
 }
+if(isset($_GET['testactivate'])){
+	$id=$_GET['testactivate'];	
+	$query="UPDATE `test_master` SET `status`= 1 WHERE `id` = $id";
+	
+	$run=mysqli_query($conn,$query);
+	if($run===true){
+		header('Location:testmaster.php');
+		$_SESSION['msg']="Test Master list Deleted Successfully !!!";
+	}
+	else{
+		$_SESSION['msg']="Test Master list Deletion Cancel !!!";
+		header("location:$_SERVER[HTTP_REFERER]");
+	}
+	header("location:$_SERVER[HTTP_REFERER]");
+}
+if(isset($_GET['testdeactive'])){
+	$id=$_GET['testdeactive'];	
+	$query="UPDATE `test_master` SET `status`= 0 WHERE `id` = $id";
+	
+	$run=mysqli_query($conn,$query);
+	if($run===true){
+		header('Location:testmaster.php');
+		$_SESSION['msg']="Test Master list Deleted Successfully !!!";
+	}
+	else{
+		$_SESSION['msg']="Test Master list Deletion Cancel !!!";
+		header("location:$_SERVER[HTTP_REFERER]");
+	}
+	header("location:$_SERVER[HTTP_REFERER]");
+}
 if(isset($_GET['deletestudentwallet'])){
 	$id=$_GET['deletestudentwallet'];	
 	$query="DELETE FROM `wallet` WHERE `id` = $id,`type` = 'student'";
