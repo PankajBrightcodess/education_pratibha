@@ -4,7 +4,6 @@ include_once('connection.php');
 if($_SESSION['role']!='1'){
     header('location:index.php');
   }
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -16,10 +15,6 @@ if($_SESSION['role']!='1'){
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
-
-
-
- 
     <?php include'includes/top-header.php'; ?>
     <?php include'includes/sidebar.php'; ?>
 
@@ -96,22 +91,6 @@ if($_SESSION['role']!='1'){
               <a href="feild_executive.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
           </div>
-          <!-- ./col -->
-         <!--  <div class="col-lg-3 col-6">
-            <div class="small-box bg-danger">
-              <div class="inner">
-                
-                <h3></h3>
-
-                <p>Total Assignment Current Year</p>
-              </div>
-              <div class="icon">
-                <i class="fas fa-gift"></i>
-              </div>
-              <a href="gifted-winners.php" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-            </div>
-          </div> -->
-          <!-- ./col -->
         </div>
         <!-- /.row -->
         
