@@ -15,9 +15,10 @@ include '../connection.php';
     //         $time = $data['time_duration'];
 
             // online question particular id
+    
     $date = date('Y-m-d H');
 
-    $query="SELECT * FROM `test_result`  WHERE `exam_id`='$examid' AND `candidate_id` = '$cand_id' AND `added_on`='$date' ORDER BY `pid` DESC";
+     $query="SELECT * FROM `test_result` WHERE `exam_id`='$examid' AND `candidate_id` = '$cand_id' AND `added_on`='$date' ORDER BY `pid` DESC";
      $run=mysqli_query($conn,$query);
      while ($data=mysqli_fetch_assoc($run)) {
        $result[] = $data;  
@@ -38,10 +39,6 @@ include '../connection.php';
     
        
      }
-//      print_r('total'.$count);
-//      print_r('correct='.$correct);
-//      print_r('incorrect='.$incorrect);
-      
 
 // die;
  include 'header-links.php'; 
@@ -81,7 +78,7 @@ include 'header.php';
         margin-top: 120px;
     }
     #container {
-    background-color: #ff7f00;
+    /*background-color: #ff7f00;*/
     height: 300px;
     overflow-x: hidden;
     overflow-y: scroll;
@@ -196,12 +193,12 @@ include 'header.php';
                              }
 
                             ?>
-                       <h3 style="color:white">   <?php echo $marks; ?>   / <?php echo $total; ?></h3>     
+                       <h3 style="color:white">   <?php echo $marks; ?>   / <?php echo $total; ?></h3> 
                        <?php
                        $percentage = ($marks*100)/$total;
 
 
-                        ?>
+                        ?>    
              </div> 
     </div>
 </div>   
@@ -209,7 +206,7 @@ include 'header.php';
 </section>
 <?php
   $added_on = date('Y-m-d');
-  $query1="INSERT INTO `master_result`(`exam_id`,`candi_id`,`total_marks`,`correct_marks`,`percentage``added_on`) VALUES ('$examid','$cand_id','$total','$marks','$percentage','$added_on')";
+  $query1="INSERT INTO `master_result`(`exam_id`,`candi_id`,`total_marks`,`correct_marks`,`percentage`,`added_on`) VALUES ('$examid','$cand_id','$total','$marks','$percentage','$added_on')";
     $run2=mysqli_query($conn,$query1);
 
 
@@ -228,5 +225,6 @@ include 'header.php';
        swal("Opps!", "Something Error Not Submitted!", "error");
      }
  </script>
+
 <?php include 'footer.php'; ?>
 <?php include 'footer-links.php'; ?>

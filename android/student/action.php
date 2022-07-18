@@ -40,9 +40,6 @@ function Imageupload($dir,$inputname,$allext,$pass_width,$pass_height,$pass_size
 
 
 if(isset($_POST['submitAnswer'])){
-	  echo "<pre>";
-	  // print_r($_POST);die;
-
 		$data['ques_id']= $_POST['ques_id'];
 		$data['candidate_id']= $_POST['candidate_id'];
 		$data['exam_id']= $_POST['exam_id'];

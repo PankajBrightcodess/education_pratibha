@@ -34,22 +34,7 @@ $msg = "";
 <section class="pages" id="contactpg">
   	<div class="container">
 		<div class="row">
-           <!--  <div class="col-md-7">
-            	<h2 class="text-center text-info">Contact Us</h2><hr class="border-warning">
-                <form action="sendmail.php" method="post">
-                    <div class="form-row">
-                        <div class="col"><input type="text" name="name" placeholder="Name :" class="form-control py-4" required></div>
-                        <div class="col"><input type="tel" name="contact" placeholder="Contact :" class="form-control py-4" required></div>
-                    </div>
-                    <div class="form-row mt-4">                        
-                        <div class="col"><input type="email" name="email" placeholder="Email :" class="form-control py-4" required></div>
-                    </div>
-                    <div class="form-row">
-                    	<div class="col mt-4"><textarea name="message" placeholder="Message :" class="form-control py-4" required style="min-height:75px;"></textarea></div>
-                    </div>
-                    <button type="submit" name="contactus" class="my-4 btn btn-warning btn-sm btn-block">Send</button>
-                </form>
-            </div> -->
+           <!-- timer -->
             <div class="col-md-12">
             	<h2 class="text-center text-info">User Profile</h2><hr class="border-warning">
                 <table class="table">

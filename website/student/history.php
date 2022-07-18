@@ -128,7 +128,7 @@ $query1="SELECT sum(amount) as total_wallet, wallet.user_id as user_id FROM `wal
     ?>
     </div>
 <section>
-      <div class="btn-group text-center tab">
+      <div class="btn-group text-center tab text-center">
         <div class="row">
           <div class="col-2"></div>
           <div class="col-4"> <button type="button" class="btn btn-outline-light" onclick="openCity(event, 'student')" id="defaultOpen">Credit</button></div>

@@ -18,7 +18,7 @@ $msg = "";
     //   $material[]=$data;
     // }
     // TEST MASTER KEY
-    $query="SELECT * FROM `test_master` WHERE `status`='1'";
+    $query="SELECT * FROM `test_master`";
     $run=mysqli_query($conn,$query);
     while ($datamaster=mysqli_fetch_assoc($run)) {
       $testmaster[]=$datamaster;
