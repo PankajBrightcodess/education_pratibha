@@ -27,9 +27,25 @@ $msg = "";
   $run2=mysqli_query($conn,$query2);
   $data2=mysqli_fetch_assoc($run2);
 
+
+
 ?>
 <?php include 'header-links.php'; ?>
 <?php include 'header.php'; ?>
+<?php $query3="SELECT * FROM `student` WHERE `payment_status`=1 AND `id` = '$id'";
+  $run3=mysqli_query($conn,$query3);
+  $check3=mysqli_fetch_assoc($run3);
+   $paydate = $check3['pay_date'];
+   $startdata = date('d-F-Y',strtotime($check3['pay_date']));
+    $expirydate = date('d-F-Y',strtotime($paydate.'+'.'+1year'));
+     ?>
+   <?php if($expirydate <= date('Y-m-d')){ ?>
+     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+     <script type="text/javascript">
+       
+        swal("Opps Your Subscription!", "Expiry !", "error");
+        </script>
+   <?php } ?>
 <section class="blank-course "></section>
 <section class="pages" id="contactpg">
   	<div class="container">
@@ -39,7 +55,16 @@ $msg = "";
             	<h2 class="text-center text-info">User Profile</h2><hr class="border-warning">
                 <table class="table">
                     <thead>
+                         <tr>
+                            <th>Subscriptions start date</th>
+                            <td><?php echo $startdata; ?></td>
+                        </tr>
                         <tr>
+                            <th>Subscriptions Expiry date</th>
+                            <td><?php echo $expirydate; ?></td>
+                        </tr>
+                        <tr>
+
                             <th>Wallet:</th>
                              <?php if(!empty($data2)){ ?>
                              <td>&#8377;<?php $amt =  $data1['total_wallet']-$data2['total_withdrawal'];

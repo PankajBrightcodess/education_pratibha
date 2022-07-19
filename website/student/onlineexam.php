@@ -31,11 +31,29 @@ include '../connection.php';
        $ques[] = $data1;
       
      }
+     
 
  ?>
  <?php include 'header-links.php'; ?>
 
 <?php include 'header.php'; ?>
+<?php $query3="SELECT * FROM `student` WHERE `payment_status`=1 AND `id` = '$cand_id'";
+     $run3=mysqli_query($conn,$query3);
+     $check3=mysqli_fetch_assoc($run3);
+     $paydate = $check3['pay_date'];
+     $startdata = date('d-F-Y',strtotime($check3['pay_date']));
+     $expirydate = date('d-F-Y',strtotime($paydate.'+'.'+1year'));
+     $_SESSION['expirydate'] = $expirydate; ?>
+ <?php   if($expirydate <= date('Y-m-d')){ ?>
+      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script type="text/javascript">
+
+         swal("Opps Your Subscription!", "Expiry !", "error");
+         location.href = "pay.php";
+         </script>
+         <?php 
+         // header('location:pay.php'); 
+     } ?>
 <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <section class="blank-course "></section>
 <h5>Remaining Time: <span id="timer"></span></h5>
