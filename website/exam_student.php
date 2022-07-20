@@ -1,10 +1,11 @@
 <?php 
 session_start();
 include 'connection.php';
- $query = "SELECT master_result.*, student.id AS student_id, student.name AS student_name, student.email AS student_email, test_master.id AS testmaster_id, test_master.test_name AS testmaster_name FROM master_result LEFT JOIN student ON master_result.candi_id=student.id LEFT JOIN test_master ON master_result.exam_id = test_master.id";
+ $query = "SELECT master_result.*, student.id AS student_id, student.name AS student_name, student.email AS student_email, student.school_name AS student_schoolname, test_master.id AS testmaster_id, test_master.test_name AS testmaster_name FROM master_result LEFT JOIN student ON master_result.candi_id=student.id LEFT JOIN test_master ON master_result.exam_id = test_master.id";
      $res = mysqli_query($conn,$query);
      while ($data = mysqli_fetch_assoc($res)) {
             $result[] = $data;
+           
      }
 
 ?>
@@ -36,6 +37,7 @@ include 'connection.php';
                           <th>Sno</th>
                           <th>Student's Name</th>
                           <th>Student's email</th>
+                          <th>Student School Name</th>
                           <th>Test Name</th>
                           <th>Total Marks</th>
                           <th>Score</th>
@@ -49,7 +51,8 @@ include 'connection.php';
                         <tr>
                           <td><?php echo $i; ?></td>
                           <td><?php echo $displayresult['student_name']; ?></td>
-                          <td><?php echo $displayresult['student_email']; ?></td>  
+                          <td><?php echo $displayresult['student_email']; ?></td>
+                          <td><?php echo $displayresult['student_schoolname']; ?></td>  
                           <td><?php echo $displayresult['testmaster_name']; ?></td>
                           <td><?php echo $displayresult['total_marks']; ?></td>
                           <td><?php echo $displayresult['correct_marks']; ?>/<?php echo $displayresult['total_marks']; ?></td>

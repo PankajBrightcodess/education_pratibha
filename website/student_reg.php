@@ -125,7 +125,7 @@ while ($data=mysqli_fetch_assoc($run)) {
         </div> -->
         <div class="col-md-6 col-12 mb-2">
              <label>Feild Executive<span style="color: Red;">*</span></label>
-             <input class="form-control" type="text" id="myInput" name="executive_id" onkeyup="myFunction()" placeholder="Search for names.." title="Type in a name">
+             <input class="form-control" type="text" id="myInput" name="executive_id" onkeyup="myFunction()" placeholder="Search for email.." title="Type in a name">
              <input type="hidden" id="executive_id">
 
 <ul id="myUL">
