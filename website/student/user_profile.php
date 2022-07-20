@@ -34,17 +34,19 @@ $msg = "";
 <?php $query3="SELECT * FROM `student` WHERE `payment_status`=1 AND `id` = '$id'";
   $run3=mysqli_query($conn,$query3);
   $check3=mysqli_fetch_assoc($run3);
-   $paydate = $check3['pay_date'];
+  if(!empty($check3['pay_date'])){
+    $paydate = $check3['pay_date'];
    $startdata = date('d-F-Y',strtotime($check3['pay_date']));
     $expirydate = date('d-F-Y',strtotime($paydate.'+'.'+1year'));
-     ?>
-   <?php if($expirydate <= date('Y-m-d')){ ?>
+    if($expirydate <= date('Y-m-d')){  ?>
      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
      <script type="text/javascript">
        
         swal("Opps Your Subscription!", "Expiry !", "error");
         </script>
-   <?php } ?>
+<?php }
+     
+   }  ?>
 <section class="blank-course "></section>
 <section class="pages" id="contactpg">
     <div class="container">
@@ -67,7 +69,8 @@ $msg = "";
             </div> -->
             <div class="col-md-12">
                 <h2 class="text-center text-info">User Profile</h2><hr class="border-warning">
-                <table class="table">
+                 <?php if(!empty($paydate)){?>
+                    <table class="table">
                     <thead>
                          <tr>
                             <th>Subscriptions start date</th>
@@ -78,7 +81,7 @@ $msg = "";
                             <td><?php echo $expirydate; ?></td>
                         </tr>
                         <tr>
-                        <tr>
+
                             <th>Wallet:</th>
                              <?php if(!empty($data2)){ ?>
                              <td>&#8377;<?php $amt =  $data1['total_wallet']-$data2['total_withdrawal'];
@@ -130,6 +133,66 @@ $msg = "";
                     </thead>
                     
                 </table>
+
+         <?php       }else{ ?>
+            <table class="table">
+                    <thead>
+                         
+                        <tr>
+
+                            <th>Wallet:</th>
+                             <?php if(!empty($data2)){ ?>
+                             <td>&#8377;<?php $amt =  $data1['total_wallet']-$data2['total_withdrawal'];
+                             echo $amt;
+                               $_SESSION['amount'] = $amt; ?>&nbsp;&nbsp;&nbsp;<button class="btn btn-sm btn-success withdrawl"   data-toggle="modal" 
+                            data-id="<?php echo $data1['id']; ?>" 
+                            data-user_id ="<?php echo $data1['user_id']; ?>"
+                            data-amount="<?php echo $data1['total_wallet']-$data2['total_withdrawal']; ?>"
+                          
+                            data-target="#withdrawlModal">&#8377;Withdrawl</button></td>
+                          <?php  } else{ ?>
+                            <td>&#8377;<?php echo $data1['total_wallet']; ?>&nbsp;&nbsp;&nbsp;<button class="btn btn-sm btn-success withdrawl"   data-toggle="modal" 
+                            data-id="<?php echo $data1['id']; ?>" 
+                            data-user_id ="<?php echo $data1['user_id']; ?>"
+                            data-amount="<?php echo $data1['total_wallet']; ?>"
+                          
+                            data-target="#withdrawlModal">&#8377;Withdrawl</button></td>
+
+                       <?php   }
+                    
+                          ?>
+                            
+                        </tr>
+                        <tr>
+                            <th>Name</th>
+                            <td><?php echo $data['name'];?></td>
+                        </tr>
+                          <!-- <tr>
+                            <th>Course</th>
+                            <td><?php echo $data['course'];?></td>
+                        </tr> -->
+                         <tr>
+                            <th>Address</th>
+                            <td><?php echo $data['address'];?></td>
+                        </tr>
+
+                        <tr>
+                            <th>Mobile</th>
+                            <td><?php echo $data['mobile'];?></td>
+                        </tr>
+                         <tr>
+                            <th>Email</th>
+                            <td><?php echo $data['email'];?></td>
+                        </tr>
+                        <!-- <tr>
+                            <th>Password</th>
+                            <td><?php echo $data['password'];?></td>
+                        </tr> -->
+                    </thead>
+                    
+                </table>
+
+         <?php       } ?>
                
             </div>
             <div class="col-md-12">

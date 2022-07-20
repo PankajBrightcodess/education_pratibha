@@ -34,6 +34,11 @@ $msg = "";
    /* text-shadow:2px 2px 4px #000000;*/
  }
 </style> -->
+<style type="text/css">
+  .mar{
+  margin-top: 24px;
+ }
+</style>
 <?php include 'header.php'; ?>
 <section class="blank-course "></section>
 <section class=" banner-bottom-executive" >
@@ -48,9 +53,17 @@ $msg = "";
             </a></div>
     
      
-      <div class="col-4">
-         <a href="logout.php"> <img src="../../images/app/06.png" width="80px;"> </a>
-      </div>
+      <div class="col-4"><a href="profile.php"><img src="../../images/app/02.png" width="80px;">
+              </a></div>
+             
+               <div class="col-4 mar"><a href="setting.php"><img src="../../images/app/19.png" width="80px;">
+              </a></div>
+             
+               <div class="col-4 mar"><a href="history.php"><img src="../../images/app/history.png" width="80px;">
+              </a></div>
+
+              <div class="col-4 mar"><a href="logout.php"><img src="../../images/app/06.png" width="80px;">
+              </a></div>
     </div>
 
 
