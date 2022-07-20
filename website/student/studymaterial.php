@@ -14,7 +14,7 @@ $msg = "";
   }
   $courseid = $_SESSION['course'];
 
-$query="SELECT * FROM `material_upload` WHERE `course`='1' GROUP BY `added_on` ASC";
+$query="SELECT * FROM `material_upload` WHERE `course`='$courseid' GROUP BY `added_on` DESC";
 $run=mysqli_query($conn,$query);
 while ($data=mysqli_fetch_assoc($run)) {
   $selectcourse[]=$data;
