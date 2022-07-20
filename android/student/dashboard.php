@@ -28,7 +28,7 @@ $msg = "";
                  //  while($data = mysqli_fetch_assoc($res)){
                  //    $homework[]=$data;
                  //  } 
-             $sql = "SELECT * FROM `homework` WHERE `status`='1'";
+             $sql = "SELECT * FROM `homework` WHERE `status`='1' GROUP BY `pid` DESC";
              $res = mysqli_query($conn, $sql);
              while($data = mysqli_fetch_assoc($res)){
               $homework[] = $data;
