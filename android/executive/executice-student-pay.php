@@ -1,6 +1,15 @@
 <?php 
 session_start();
 include '../connection.php';
+if(isset($_GET['executice_student_pay'])){
+    $id=$_GET['executice_student_pay'];
+    $query="SELECT * FROM `student` WHERE `payment_status`='$id'";
+    // echo $query;die; 
+    $run=mysqli_query($conn,$query);
+     while ($data=mysqli_fetch_assoc($run)) {
+      $executive[]=$data;
+    } 
+} 
 ?>
   
 <?php include 'header-links.php'; ?>
@@ -11,72 +20,33 @@ include '../connection.php';
       <div class="row">
         <div class="col-md-12">
           <div class="card">
-            <div class="card-header bg-secondary text-light"><h4>Student List</h4></div>
+            <div class="card-header bg-secondary text-light"><h4>payment List</h4></div>
             <div class="card-body">
-                  <?php
-                   $ids=$_SESSION['exe_id'];
-                  $sql0="SELECT * FROM `student` WHERE `executive_id`='$ids' AND `payment_status` = '0'";
-                  $res0=mysqli_query($conn,$sql0);
-                  $nm0=mysqli_num_rows($res0);
-                  $sqll="SELECT * FROM `student` WHERE `executive_id`='$ids' AND `payment_status` = '1'";
-                  $res1=mysqli_query($conn,$sqll);
-                  $nm1=mysqli_num_rows($res1);
-                  ?>
-               <div class="row" style="padding:19px;">
-                    <div class="col-6" style="background-color: #20c997; color: white; text-align: center; border-radius: 20px;">
-                      <a href="executice-student-pay.php?executice_student_pay=1" style="color: white; font-weight: 900;" >
-                      Paid Student: <h3><br><?php echo $nm1 ; ?></h3></a>
-                    </div>
-                     
-                     <div class="col-6" style="background-color:#ca4653; color:white; text-align: center;border-radius: 20px;">
-                       <a href="executice-student-pay.php?executice_student_pay=0" style="color: white;  font-weight: 900;" >
-                      Unpaid Student: <h3> <br><?php echo $nm0 ; ?></h3> </a>
-                    </div>
-                </div>
-                   
-
-
-
-
-
               <div class="row">
                
         <div class="col-md-12">
                   <table id="datatable" class="table table-hovered table-responsive table-bordered">
                       <thead>
                         <tr class="bg-dark text-light">
-                          <th>Sno</th>
-                          <th>Student's Name</th>
-                          <th>Qualifaction</th>
-                          <th>D O B</th>
-                          <th>Mobile No</th>
-                          <th>Email</th>
-                          <th>Address</th>
-                          <th>payment Status</th>
+                          <th>S. No.:</th>
+                           <th>Name</th>
+                           <th>Email</th>
+                           <th>Mobile no</th>
+                            <th>Payment status</th>
+                           <th>Date</th>
                         </tr>
                       </thead>
                       <tbody>
-                        <?php $id=$_SESSION['exe_id'];
-                        // $query = "SELECT student.*, addpayment.payment_status FROM addpayment LEFT JOIN student ON addpayment.student_id=student.id WHERE addpayment.executive_id='$id'";
-                                  // print_r($query);die;
-                            $query="SELECT * FROM `student` WHERE `executive_id`='$id'";
-                            $run=mysqli_query($conn,$query);
-                            // print_r($run);die;
-                            while ($data=mysqli_fetch_assoc($run)) {
-                                  $result[]=$data;
-                                }
-                                // print_r($result);die;
-                            if(!empty($result)){ $i=0;  foreach ($result as $uploadresult) { $i++; ?>
+                        <?php
+                            if(!empty($executive)){ $i=0;  
+                              foreach ($executive as $value) { $i++; ?>
                         <tr>
                           <td><?php echo $i; ?></td>
-                          <td><?php echo $uploadresult['name']; ?></td>  
-                          <td><?php echo $uploadresult['ac_qualify']; ?></td>
-                          <td><?php echo $uploadresult['dob']; ?></td>
-                          <td><?php echo $uploadresult['mobile']; ?></td>
-                           <td><?php echo $uploadresult['email']; ?></td>
-                           <td><?php echo $uploadresult['address']; ?></td>
-                          <td><?php
-                             $status= $uploadresult['payment_status'];
+                          <td><?php echo $value['name']; ?></td>  
+                          <td><?php echo $value['email']; ?></td>
+                          <td><?php echo $value['mobile']; ?></td>
+                         
+                          <td><?php $status= $value['payment_status'];
                                       if( $status == 1){ ?>
                                           <center  style="background-color: #20c997; color: white; text-align: center;">Paid</center>
                                     <?php   }
@@ -84,6 +54,7 @@ include '../connection.php';
                                       else{ ?>
                                         <center style="background-color:#ca4653; color:white; text-align: center;">Unpaid</center>
                                   <?php    } ?></td>
+                                   <td><?php echo $value['added_on']; ?></td>
                         </tr>  
                         <?php } }?>
                       </tbody>
