@@ -54,9 +54,12 @@
               				
               				<div class="home2">
 							<a href="index.php"><img src="../images/app/07.png" width="30px">&nbsp;&nbsp;&nbsp;Home</a><hr>
-								<a href="about-us.php"><img src="../images/app/12.png" width="30px">&nbsp;&nbsp;&nbsp;About Us</a><hr>
+								<a href="about-us.php">&nbsp;&nbsp;&nbsp;<img src="../images/app/12.png" width="30px">&nbsp;&nbsp;&nbsp;About Us</a><hr>
+								<a href="contact-us.php">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../images/app/09.png" width="30px">&nbsp;&nbsp;&nbsp;Contact Us</a><hr>
+								<a href="policy.php">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../images/app/09.png" width="30px">&nbsp;&nbsp;&nbsp;Privacy Policy</a><hr>
+								<a href="termcon.php">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../images/app/09.png" width="30px">&nbsp;&nbsp;&nbsp;&nbsp;Terms&Condition</a><hr>
 
-								<a href="contact-us.php"><img src="../images/app/09.png" width="30px">&nbsp;&nbsp;&nbsp;Contact Us</a><hr>
+								
 							</div>
               			</div>
               		</div>
@@ -70,7 +73,7 @@
 					<div class="logo" style="margin-top: 20px;">
 						<p>
 							<a href="#">
-								<label style="color: #171662;"><strong style="font-size: 12px;"><img src="../images/logo/logo.png" height="30px" width="40px"> Educational Pratibha Darpan</strong></label>
+								<label style="color: #171662;"><strong style="font-size: 12px;"><img src="../images/logo/logo.png" height="30px" width="40px"> Educollection Pratibha Darpan</strong></label>
 							</a>
 						</p>
 					</div>

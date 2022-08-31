@@ -62,7 +62,7 @@ while ($data=mysqli_fetch_assoc($run)) {
         </div>
         <div class="col-md-6 col-12 mb-2">
             <label>Father Name<span style="color: Red;">*</span></label>
-            <input type="text" name="fathername" id="fathername" placeholder="Enter Father Name" class="form-control" required>
+            <input type="text" name="fathername" id="fathername" placeholder="Enter Your Father Name" class="form-control" required>
         </div>
         <div class="col-md-6 col-12 mb-2">
             <label>School Name<span style="color: Red;">*</span></label>
