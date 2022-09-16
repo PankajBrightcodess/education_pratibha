@@ -37,8 +37,8 @@ $msg = "";
   $check3=mysqli_fetch_assoc($run3);
    if(!empty($check3['pay_date'])){
     $paydate = $check3['pay_date'];
-   $startdata = date('d-F-Y',strtotime($check3['pay_date']));
-    $expirydate = date('d-F-Y',strtotime($paydate.'+'.'+1year'));
+   $startdata = date('d/m/Y',strtotime($check3['pay_date']));
+    $expirydate = date('d/m/Y',strtotime($paydate.'+'.'+1year'));
     if($expirydate <= date('Y-m-d')){  ?>
      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
      <script type="text/javascript">
@@ -55,17 +55,41 @@ $msg = "";
            <!-- timer -->
             <div class="col-md-12">
             	<h2 class="text-center text-info">User Profile</h2><hr class="border-warning">
-                <?php if(!empty($paydate)){?>
+                <?php if(!empty($paydate)){ ?>
+
+
+            <!-- 
+                       <div class="row justify-content-center" style="font-size:20px;font-weight: 900;">
+                           <div class="col-md-6 col-12" >
+                              <center>  <h2> Left Days </h2> </center>
+                                <div class="row">
+                               <div class="col-md-4 col-4" id="day">  &nbsp;&nbsp;: </div> 
+                             <div class="col-md-4 col-4" id="month">  &nbsp;&nbsp;: </div> 
+                             <div class="col-md-4 col-4" id="min">   </div> 
+                              </div>
+                               <div class="row">
+                               <div class="col-md-4 col-4">Days </div>
+                               <div class="col-md-4 col-4"> Hours </div>
+                               <div class="col-md-4 col-4">Minutes </div>
+                              </div>
+                           </div>
+                       </div> -->
+
+ 
+
                     <table class="table">
                     <thead>
+                       <!--  <input type="date" name="sd" value="<?php echo $startdata; ?>" hidden>
+                        <input type="date" name="ed"  value="<?php echo $expirydate; ?>" hidden> -->
                          <tr>
                             <th>Subscriptions start date</th>
-                            <td><?php echo $startdata; ?></td>
+                            <td id="sd"><?php echo $startdata; ?></td>
                         </tr>
                         <tr>
                             <th>Subscriptions Expiry date</th>
-                            <td><?php echo $expirydate; ?></td>
+                            <td id="ed"><?php echo $expirydate; ?></td>
                         </tr>
+                    
                         <tr>
 
                             <th>Wallet:</th>
@@ -234,6 +258,7 @@ $msg = "";
 </div>
 <script type="text/javascript">
    $(document).ready(function(){
+
       $('body').on('click','.withdrawl',function(){
         $('#user_id').val($(this).data('user_id'));
         $('#amount').val($(this).data('amount'));
@@ -249,5 +274,42 @@ $msg = "";
         }
 
       });
+
+      
+           //   debugger;
+           //  var sd = $('#sd').html();
+           //  var ed = $('#ed').html();
+           //  var today = new Date();
+           //  var countDownDate = new Date(today.getTime());
+
+           //  // alert(sd);
+           //  // alert(ed);
+
+           //  var date = today.getDate()+'/'+(today.getMonth()+1)+'/'+today.getFullYear(); 
+           //    sd.getDate()-date.getDate()
+           //     alert();
+           //     var newdate = (ed.getTime() - today.getTime());
+           // alert(newdate);
+           
+           //  var art =  date.getTime();
+          
+           //      const days = Math.floor(diffInMilliSeconds / 86400);
+           //      diffInMilliSeconds -= days * 86400;
+           //      document.getElementById("day").innerHTML = days;              
+           //      // calculate hours
+           //      const hours = Math.floor(diffInMilliSeconds / 3600) % 24;
+           //      diffInMilliSeconds -= hours * 3600;
+           //        document.getElementById("month").innerHTML = hours;
+           //      // calculate minutes
+           //      const minutes = Math.floor(diffInMilliSeconds / 60) % 60;
+           //      diffInMilliSeconds -= minutes * 60;
+           //       document.getElementById("min").innerHTML = minutes;
+      
+
+
    });
+
+
+
+
  </script>

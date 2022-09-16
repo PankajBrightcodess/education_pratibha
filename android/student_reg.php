@@ -44,7 +44,7 @@ while ($data=mysqli_fetch_assoc($run)) {
 }
 </style>
 <section class="blank-course "></section>
-<section class="pages">
+<section class="pages" style="background-color: #81fbd7;">
     <div class="container">
         <form method="post" action="action.php">
        <div class="row enqueryform">

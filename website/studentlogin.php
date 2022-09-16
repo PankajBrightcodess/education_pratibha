@@ -2,7 +2,7 @@
 <?php include 'header.php'; ?>
 <section class="blank-course "></section>
 
- <section class="login" style="margin-top: 15rem;">
+    <section class="login" style="margin-top: 15rem;">
         <div class="container">
             <div class="row">
                <!--  <div class="col-md-3"></div> -->
