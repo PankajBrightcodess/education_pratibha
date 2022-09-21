@@ -23,7 +23,7 @@
             </div>
             <div class="col-md-5">
             	<h2 class="text-center text-info">Official Address</h2><hr class="border-warning">
-                <p>EDUCATION PRATIBHA DARPAN</p>
+                <p>Educollection Pratibha Darpan</p>
                 <p>
                  Village - khoir, PO - Pariharpur, PS - Rajnagar, DIST - Madhubani ( Bihar ) <br> Pincode :- 847235
                      </p>
