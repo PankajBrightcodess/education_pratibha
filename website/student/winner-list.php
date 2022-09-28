@@ -22,7 +22,7 @@ $msg = "";
                   while($data = mysqli_fetch_assoc($res)){
                     $winner[]=$data;
                   } ?> -->
-                <?php   $query = "SELECT master_result.*, student.id AS student_id, student.name AS student_name, student.email AS student_email, test_master.id AS testmaster_id, test_master.test_name AS testmaster_name FROM master_result LEFT JOIN student ON master_result.candi_id=student.id LEFT JOIN test_master ON master_result.exam_id = test_master.id ORDER BY master_result.percentage DESC LIMIT 5";
+                <?php   $query = "SELECT master_result.*, student.id AS student_id, student.name AS student_name, student.email AS student_email,student.school_name AS schoolname, student.fathername AS student_father, test_master.id AS testmaster_id, test_master.test_name AS testmaster_name FROM master_result LEFT JOIN student ON master_result.candi_id=student.id LEFT JOIN test_master ON master_result.exam_id = test_master.id ORDER BY master_result.percentage DESC LIMIT 5";
      $res = mysqli_query($conn,$query);
      while ($data = mysqli_fetch_assoc($res)) {
             $result[] = $data;
@@ -42,7 +42,8 @@ $msg = "";
                     <div class="card-body">
                       <div class="row winnerlist">
                        <div class="col-md-9 col-9 mb-5">
-                          <h6><?php echo $value['student_name'];?> <br>(<?php echo date('d-m-Y',strtotime($value['added_on']));?>)</h6>
+                          <h6><?php echo $value['student_name'];?> <br>(<?php echo date('d-m-Y',strtotime($value['added_on']));?>) <br>
+                           <?php    echo $value['student_father']; ?> <br> <?php    echo $value['schoolname']; ?>  </h6>
                        </div>
                        
                        <div class="col-md-3 col-3 medal"> 
