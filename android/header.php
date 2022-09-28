@@ -53,12 +53,12 @@
               			<div class="overlay-content5">
               				
               				<div class="home2">
-							<a href="index.php"><img src="../images/app/07.png" width="30px">&nbsp;&nbsp;&nbsp;Home</a><hr>
-								<a href="about-us.php">&nbsp;&nbsp;&nbsp;<img src="../images/app/12.png" width="30px">&nbsp;&nbsp;&nbsp;About Us</a><hr>
-								<a href="contact-us.php">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../images/app/09.png" width="30px">&nbsp;&nbsp;&nbsp;Contact Us</a><hr>
-								<a href="policy.php">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../images/app/09.png" width="30px">&nbsp;&nbsp;&nbsp;Privacy Policy</a><hr>
-								<a href="termcon.php">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="../images/app/09.png" width="30px">&nbsp;&nbsp;&nbsp;&nbsp;Terms&Condition</a><hr>
-
+							<a href="index.php"><img src="../images/app/07.png" width="30px">Home</a><hr>
+								<a href="about-us.php"><img src="../images/app/12.png" width="30px">About Us</a><hr>
+								<a href="contact-us.php"><img src="../images/app/09.png" width="30px">Contact Us</a><hr>
+								<a href="policy.php"><img src="../images/app/09.png" width="30px">Privacy Policy</a><hr>
+								<a href="termcon.php"><img src="../images/app/09.png" width="30px">Terms&Condition</a><hr>
+                	<a href="refund.php"><img src="../images/app/09.png" width="30px">Refund/Cancellation Policy</a><hr>
 								
 							</div>
               			</div>

@@ -19,6 +19,7 @@
               <li><a class="text-white" href="privacy.php">Privacy&Policy</a></li>
               <li><a class="text-white" href="term.php">Terms&Condition</a></li>
               <li><a class="text-white" href="contact-us.php">Contact Us</a></li>
+              <li><a class="text-white" href="refund.php">Refund / Cancellation Policy</a></li>
             </ul>
           </div>
           <div class="col-6 col-md">
