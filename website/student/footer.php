@@ -17,6 +17,7 @@
               <li><a class="text-white" href="index.php">Home</a></li>
               <li><a class="text-white" href="about-us.php">About Us</a></li>
               <li><a class="text-white" href="contact-us.php">Contact Us</a></li>
+              <li><a class="text-white" href="refund.php">Refund / Cancellation Policy</a></li>
             </ul>
           </div>
           <div class="col-6 col-md">
