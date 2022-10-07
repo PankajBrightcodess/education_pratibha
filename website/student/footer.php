@@ -25,9 +25,8 @@
             <hr>
           <p style="color: 	white;">
           	Educollection PRATIBHA DARPAN
-
-Village - khoir, PO - Pariharpur, PS - Rajnagar, DIST - Madhubani ( Bihar ) <br>
-Pincode :- 847235
+           Village - khoir, PO - Pariharpur, PS - Rajnagar, DIST - Madhubani ( Bihar ) <br>
+            Pincode :- 847235
           </p>
           </div>
           <div class="col-6 col-md">
