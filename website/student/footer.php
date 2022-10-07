@@ -26,8 +26,8 @@
           <p style="color: 	white;">
           	Educollection PRATIBHA DARPAN
 
-IT PARK NEAR RIYADA , RANCHI , NO - 24 , RANCHI
-Bokaro – 827012 (Jharkhand)
+Village - khoir, PO - Pariharpur, PS - Rajnagar, DIST - Madhubani ( Bihar ) <br>
+Pincode :- 847235
           </p>
           </div>
           <div class="col-6 col-md">
