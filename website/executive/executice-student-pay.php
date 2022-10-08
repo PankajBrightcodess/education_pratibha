@@ -3,7 +3,8 @@ session_start();
 include '../connection.php';
 if(isset($_GET['executice_student_pay'])){
     $id=$_GET['executice_student_pay'];
-    $query="SELECT * FROM `student` WHERE `payment_status`='$id'";
+    $ids=$_SESSION['exe_id'];
+    $query="SELECT * FROM `student` WHERE `executive_id`='$ids' AND `payment_status`='$id'";
     // echo $query;die; 
     $run=mysqli_query($conn,$query);
      while ($data=mysqli_fetch_assoc($run)) {
