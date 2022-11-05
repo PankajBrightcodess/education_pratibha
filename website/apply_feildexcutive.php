@@ -1,7 +1,7 @@
 <?php include 'header-links.php'; ?>
 <?php include 'header.php'; ?>
 <section class="blank-course "></section>
-<section class="pages">
+<section class="pages" style="background-color: #81fbd7;">
     <div class="container">
         <form method="post" action="#">
        <div class="row enqueryform">

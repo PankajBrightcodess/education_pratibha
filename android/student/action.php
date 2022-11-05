@@ -106,6 +106,25 @@ if(isset($_POST['submitAnswer'])){
    		
 //   }
 	 // if( $_SESSION['amount']> $amount){
+
+	if(isset($_POST['qr_code'])){  
+ 	   $id = $_SESSION['enroll_id'];
+   	 $utr_no = $_POST['utr_no'];
+   	 
+   	
+	 $sql="UPDATE `student` SET `payment_id`='$utr_no' WHERE `id`='$id'";
+	 $run = mysqli_query($conn,$sql);
+	
+	 if ($run) {
+		    header('location:qr_code.php?status=1');
+       // header('location:payment.php');
+	 } 
+	 else {
+       header('header:pay.php');
+	 }
+
+   		
+  }
  if(isset($_POST['payment'])){  
  	   $id = $_SESSION['enroll_id'];
    	 $amount = $_POST['amount'];
@@ -117,8 +136,9 @@ if(isset($_POST['submitAnswer'])){
 	 $run = mysqli_query($conn,$sql);
 	
 	 if ($run) {
-		
-       header('location:payment.php');
+
+		     header('location:qr_code.php');
+       // header('location:payment.php');
 	 } 
 	 else {
 

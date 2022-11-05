@@ -372,7 +372,7 @@ if(isset($_POST['add_notice'])){
 	}
 }
 if(isset($_POST['add_winner'])){
-	echo '<pre>';
+	
 	$name = $_POST['name'];
 	$father_name = $_POST['father_name'];
 	$mother_name = $_POST['mother_name'];
@@ -395,9 +395,24 @@ if(isset($_POST['add_winner'])){
 		}
 	
 }
+if(isset($_POST['approved'])){
+	$id = $_POST['id'];
+	$payment_status = $_POST['payment_status'];
+
+	$query = "UPDATE `student` SET `payment_status` = '$payment_status' WHERE `id`='$id'";
+	$sql = mysqli_query($conn,$query);
+	if($sql){
+		$_SESSION['msg']="Payment status verify Successfully";
+	  	header("Location:$_SERVER[HTTP_REFERER]");
+	  }else{
+	  	$_SESSION['msg']="Not Approved!!!";
+	  	header("location:$_SERVER[HTTP_REFERER]");
+	  }
+
+}
 
 if(isset($_POST['update_winner'])){
-	echo '<pre>';
+
 	
 	  $id = $_POST['snoEdit'];
 	$name = $_POST['name-edit'];

@@ -115,10 +115,9 @@ if(isset($_POST['submitAnswer'])){
    	  $request_no=substr(str_shuffle(str_repeat($x='ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijklmnopqrstuvwxyz', ceil($length/strlen($x)) )),1,$length);
 	 $sql="UPDATE `student` SET `amount`='$amount',`pay_date`='$added_on',`request_no`='$request_no' WHERE `id`='$id'";
 	 $run = mysqli_query($conn,$sql);
-	
 	 if ($run) {
-		
-       header('location:payment.php');
+		    header('location:qr_code.php');
+       // header('location:payment.php');
 	 } 
 	 else {
 
@@ -146,6 +145,24 @@ if(isset($_POST['submitAnswer'])){
 	else{
 		header('header:pay.php');
 	}
+   		
+  }
+  if(isset($_POST['qr_code'])){  
+ 	   $id = $_SESSION['enroll_id'];
+   	 $utr_no = $_POST['utr_no'];
+   	 
+   	
+	 $sql="UPDATE `student` SET `payment_id`='$utr_no' WHERE `id`='$id'";
+	 $run = mysqli_query($conn,$sql);
+	
+	 if ($run) {
+		    header('location:qr_code.php?status=1');
+       // header('location:payment.php');
+	 } 
+	 else {
+       header('header:pay.php');
+	 }
+
    		
   }
 if(isset($_POST['studentlogin'])){

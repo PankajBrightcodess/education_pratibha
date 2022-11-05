@@ -91,7 +91,9 @@ $msg = "";
                     <th>Phone No</th>
                     <th>Student Fee</th>
                     <th>Date</th>
-                    <th>Fee Detail</th>
+                     <th>UTR Number</th>
+                    <th>Payment Status</th>
+                     <th>Payment Aprroved</th>
                   </tr>
                   </thead>
                   <tbody>
@@ -104,7 +106,7 @@ $msg = "";
                               <td><?php echo $value['mobile']; ?></td>
                               <td><?php echo $value['amount']; ?></td>
                               <td><?php echo date('d-m-Y', strtotime($value['added_on'])); ?></td>
-                             <!--  <td><?php echo $value['pay_date']; ?></td> -->
+                              <td><?php echo $value['payment_id']; ?></td> 
                              <td>
                              <?php
                              $status= $value['payment_status'];
@@ -132,7 +134,17 @@ $msg = "";
          
                               ?>
                              </td>
-                              
+                              <td> <?php if($value['payment_status'] == 0){ ?>
+                                   <form action="action.php" method="post">
+                                    <input type="hidden" name="id" value="<?php echo $value['id']; ?>">
+                                      <input type="hidden" name="payment_status" value="1">
+                                      <input type="submit" class="btn btn-warning btn-sm" value="Pending" name="approved">
+                                     
+                                   </form>
+                            <?php  }else{ ?>
+                               <a  class="btn btn-sm btn-success">Aprroved</a>
+                           <?php } ?>
+                                  </td>
                              
                            </tr>
                           <?php
