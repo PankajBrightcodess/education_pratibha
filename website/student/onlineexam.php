@@ -41,8 +41,8 @@ include '../connection.php';
      $run3=mysqli_query($conn,$query3);
      $check3=mysqli_fetch_assoc($run3);
      $paydate = $check3['pay_date'];
-     $startdata = date('d-F-Y',strtotime($check3['pay_date']));
-     $expirydate = date('d-F-Y',strtotime($paydate.'+'.'+1year'));
+     $startdata = date('Y-m-d',strtotime($check3['pay_date']));
+     $expirydate = date('Y-m-d',strtotime($paydate.'+'.'+1year'));
      $_SESSION['expirydate'] = $expirydate; ?>
  <?php   if($expirydate <= date('Y-m-d')){ ?>
       <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
