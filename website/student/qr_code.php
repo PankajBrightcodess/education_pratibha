@@ -69,6 +69,15 @@ include '../connection.php';
      }else if(c==0){
        swal("Opps not payment!", "Something Error !", "error");     }
 </script>
+<script type="text/javascript">
+      var url_string = window.location.href;
+    var url = new URL(url_string);
+    var c = url.searchParams.get("already");
+    if(c==1){
+       swal("UTR Number save successfully!", "Admin aprroved pending!", "success");
+     }else if(c==0){
+       swal("Opps", "Already save UTR Number!", "error");     }
+</script>
 
 
 

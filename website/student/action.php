@@ -153,6 +153,13 @@ if(isset($_POST['submitAnswer'])){
   if(isset($_POST['qr_code'])){  
  	   $id = $_SESSION['enroll_id'];
    	 $utr_no = $_POST['utr_no'];
+   	  $query="SELECT * FROM `student` WHERE `id`='$id' and `status`='1'";
+	    $runs=mysqli_query($conn,$query);
+	    $data=mysqli_fetch_assoc($runs);
+	    if($data['payment_id'] == $utr_no){
+        header('location:qr_code.php?already=0');  
+
+	    }else{   
    	 
    	
 	 $sql="UPDATE `student` SET `payment_id`='$utr_no' WHERE `id`='$id'";
@@ -165,6 +172,7 @@ if(isset($_POST['submitAnswer'])){
 	 else {
        header('header:pay.php');
 	 }
+	}
 
    		
   }

@@ -110,18 +110,23 @@ if(isset($_POST['submitAnswer'])){
 	if(isset($_POST['qr_code'])){  
  	   $id = $_SESSION['enroll_id'];
    	 $utr_no = $_POST['utr_no'];
-   	 
-   	
+   	 $query="SELECT * FROM `student` WHERE `id`='$id' and `status`='1'";
+	    $runs=mysqli_query($conn,$query);
+	    $data=mysqli_fetch_assoc($runs);
+	    if($data['payment_id'] == $utr_no){
+        header('location:qr_code.php?already=0');  
+
+	    }else{   
 	 $sql="UPDATE `student` SET `payment_id`='$utr_no' WHERE `id`='$id'";
 	 $run = mysqli_query($conn,$sql);
 	
 	 if ($run) {
-		    header('location:qr_code.php?status=1');
-       // header('location:payment.php');
+		    header('location:qr_code.php?status=1');  
 	 } 
 	 else {
        header('header:pay.php');
 	 }
+	}
 
    		
   }
@@ -145,7 +150,7 @@ if(isset($_POST['submitAnswer'])){
        header('header:pay.php');
 	 }
 	}elseif($_POST['mode'] =='wallet'){
-	
+
 		if($_SESSION['amount'] > $amount){
 			$review = "payment wallet for test series";
 			$query="INSERT INTO `withdrawal`(`user_id`,`amount`,`type`,`review`,`added_on`) VALUES ('$id','$amount','student','$review','$added_on')";
