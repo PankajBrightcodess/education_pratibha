@@ -145,11 +145,14 @@ if(isset($_POST['submitAnswer'])){
        header('header:pay.php');
 	 }
 	}elseif($_POST['mode'] =='wallet'){
+	
 		if($_SESSION['amount'] > $amount){
 			$review = "payment wallet for test series";
 			$query="INSERT INTO `withdrawal`(`user_id`,`amount`,`type`,`review`,`added_on`) VALUES ('$id','$amount','student','$review','$added_on')";
 			$sql=mysqli_query($conn,$query);
-			if($sql){
+			 $sql2="UPDATE `student` SET `amount`='$amount',`pay_date`='$added_on',`payment_status`='1' WHERE `id`='$id'";
+	 $run = mysqli_query($conn,$sql2);
+			if($sql && $run){
 				 header('location:dashboard.php?status=1');
 				 
 			}
