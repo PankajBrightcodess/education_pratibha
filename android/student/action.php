@@ -113,12 +113,36 @@ if(isset($_POST['submitAnswer'])){
    	 $query="SELECT * FROM `student` WHERE `id`='$id' and `status`='1'";
 	    $runs=mysqli_query($conn,$query);
 	    $data=mysqli_fetch_assoc($runs);
+
 	    if($data['payment_id'] == $utr_no){
         header('location:qr_code.php?already=0');  
 
-	    }else{   
-	 $sql="UPDATE `student` SET `payment_id`='$utr_no' WHERE `id`='$id'";
-	 $run = mysqli_query($conn,$sql);
+	    }else{ 
+	    if(!empty($data['pay_date'])){
+	    	$paydate = $data['pay_date'];
+	     if($expirydate >= date('Y-m-d')){
+	     	$expirydate = $date['pay_end_date'];
+	     	$new_expirydate = date('Y-m-d',strtotime($expirydate.'+'.'+1year'));
+	     	$date = date('Y-m-d');
+	     	$payment_times= $data['pay_times'] +1;
+	     	$sql="UPDATE `student` SET `payment_id`='$utr_no',`pay_end_date`='$new_expirydate',`pay_date`='$date',`pay_times`='$payment_times' WHERE `id`='$id'";
+	      $run = mysqli_query($conn,$sql);
+	     }else{
+	     	$date = date('Y-m-d');
+	     		$payment_times= $data['pay_times'] +1;
+	     	$new_expirydate = date('Y-m-d',strtotime($date.'+'.'+1year'));
+	     	$sql="UPDATE `student` SET `payment_id`='$utr_no',`pay_end_date`='$new_expirydate',`pay_date`='$date',`pay_times`='$payment_times' WHERE `id`='$id'";
+	      $run = mysqli_query($conn,$sql);
+	     }
+	    }else{
+	      $date = date('Y-m-d');
+        $payment_times= $data['pay_times'] +1;
+	     	$new_expirydate = date('Y-m-d',strtotime($date.'+'.'+1year'));
+	     	$sql="UPDATE `student` SET `payment_id`='$utr_no',`pay_end_date`='$new_expirydate',`pay_date`='$date',`pay_times`='$payment_times' WHERE `id`='$id'";
+	      $run = mysqli_query($conn,$sql);
+
+	    }
+	 
 	
 	 if ($run) {
 		    header('location:qr_code.php?status=1');  
@@ -157,7 +181,65 @@ if(isset($_POST['submitAnswer'])){
 			$sql=mysqli_query($conn,$query);
 			 $sql2="UPDATE `student` SET `amount`='$amount',`pay_date`='$added_on',`payment_status`='1' WHERE `id`='$id'";
 	 $run = mysqli_query($conn,$sql2);
-			if($sql && $run){
+
+     $query2="SELECT * FROM `student` WHERE `id`='$id' and `status`='1'";
+	    $runs2=mysqli_query($conn,$query2);
+	    $data=mysqli_fetch_assoc($runs2);
+
+  if(!empty($data['pay_date'])){
+	    	$paydate = $data['pay_date'];
+	     if($expirydate >= date('Y-m-d')){
+	     	$expirydate = $date['pay_end_date'];
+	     	$new_expirydate = date('Y-m-d',strtotime($expirydate.'+'.'+1year'));
+	     	$date = date('Y-m-d');
+	     	$payment_times= $data['pay_times'] +1;
+	     	$sql3="UPDATE `student` SET `payment_status`='1',`pay_end_date`='$new_expirydate',`pay_date`='$date',`pay_times`='$payment_times' WHERE `id`='$id'";
+	      $run1 = mysqli_query($conn,$sql3);
+	      $query4 = "SELECT field_excutive.id,field_excutive.name, student.id,student.executive_id FROM student INNER JOIN field_excutive ON field_excutive.id=student.executive_id WHERE student.id= '$id'";
+      $sql4 = mysqli_query($conn,$query4);    
+      $executive=mysqli_fetch_assoc($sql4);  
+      $executive_id = $executive['executive_id'];
+      $date = date('Y-m-d');
+      $wallet = "INSERT INTO `wallet`(`user_id`,`refer_user_id`,`type`,`amount`,`description`,`date`) VALUES ('$executive_id','$id','field_executive','250','Amount add through student payment','$date')";
+      $wallrun = mysqli_query($conn,$wallet);   
+        
+
+
+
+
+	     }else{
+	     	$date = date('Y-m-d');
+	     		$payment_times= $data['pay_times'] +1;
+	     	$new_expirydate = date('Y-m-d',strtotime($date.'+'.'+1year'));
+	     	$sql3="UPDATE `student` SET `payment_status`='1',`pay_end_date`='$new_expirydate',`pay_date`='$date',`pay_times`='$payment_times' WHERE `id`='$id'";
+	      $run1 = mysqli_query($conn,$sql3);
+	      $query4 = "SELECT field_excutive.id,field_excutive.name, student.id,student.executive_id FROM student INNER JOIN field_excutive ON field_excutive.id=student.executive_id WHERE student.id= '$id'";
+      $sql4 = mysqli_query($conn,$query4);    
+      $executive=mysqli_fetch_assoc($sql4);  
+      $executive_id = $executive['executive_id'];
+      $date = date('Y-m-d');
+      $wallet = "INSERT INTO `wallet`(`user_id`,`refer_user_id`,`type`,`amount`,`description`,`date`) VALUES ('$executive_id','$id','field_executive','250','Amount add through student payment','$date')";
+      $wallrun = mysqli_query($conn,$wallet);   
+	     }
+	    }else{
+	      $date = date('Y-m-d');
+        $payment_times= $data['pay_times'] +1;
+	     	$new_expirydate = date('Y-m-d',strtotime($date.'+'.'+1year'));
+	     	$sql3="UPDATE `student` SET `payment_status`='1',`pay_end_date`='$new_expirydate',`pay_date`='$date',`pay_times`='$payment_times' WHERE `id`='$id'";
+	      $run1 = mysqli_query($conn,$sql3);
+	      $query4 = "SELECT field_excutive.id,field_excutive.name, student.id,student.executive_id FROM student INNER JOIN field_excutive ON field_excutive.id=student.executive_id WHERE student.id= '$id'";
+      $sql4 = mysqli_query($conn,$query4);    
+      $executive=mysqli_fetch_assoc($sql4);  
+      $executive_id = $executive['executive_id'];
+      $date = date('Y-m-d');
+      $wallet = "INSERT INTO `wallet`(`user_id`,`refer_user_id`,`type`,`amount`,`description`,`date`) VALUES ('$executive_id','$id','field_executive','250','Amount add through student payment','$date')";
+      $wallrun = mysqli_query($conn,$wallet);   
+
+	    }
+	 
+
+
+			if($sql && $run && $run1 && $wallrun){
 				 header('location:dashboard.php?status=1');
 				 
 			}
@@ -460,9 +542,13 @@ if(isset($_POST['del_result'])){
 		$added_on=date('Y-m-d H:i:s');
 		$review = "wallet withdrawl in bank";
 		
-		$query="INSERT INTO `withdrawal`(`user_id`,`amount`,`type`,`review`,`added_on`) VALUES ('$user_id','$amount','$type','$review','$added_on')";
+	$query="INSERT INTO `withdrawal`(`user_id`,`email`,`amount`,`type`,`review`,`added_on`) VALUES ('$user_id','$email','$amount','$type','$review','$added_on')";
 			$sql=mysqli_query($conn,$query);
-			if($sql){
+			$last_id = $conn->insert_id;
+	    $uniqueid = "EDU-".$last_id;
+	    $query2 = "UPDATE `withdrawal` SET `unique_id`='$uniqueid' WHERE `id`='$last_id'";
+	    $sql2=mysqli_query($conn,$query2);	
+			if($sql == true && $sql2 == true){
 				 header('location:user_profile.php?status=1');	 
 			}
 			else{

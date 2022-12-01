@@ -190,6 +190,8 @@ $msg = "";
                          <input type="hidden" name="user_id" id="user_id">
                          <input type="hidden" name="type" id="type" value="field_executive">
                          <input type="text" value="<?php echo $data['email'] ?>&nbsp;&nbsp;(<?php echo $data['name'] ?>)" readonly class="form-control">
+                         <input type="hidden" name="email" value="<?php echo $data['email'] ?>">
+
                         </div>
                          
         <div class="modal-footer">

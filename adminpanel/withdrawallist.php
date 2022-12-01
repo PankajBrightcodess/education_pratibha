@@ -12,14 +12,10 @@ $msg = "";
     if ($msg != "") {
         echo "<script> alert('$msg')</script>";
     }
-    $query="SELECT * FROM `student` WHERE `status`='1'";
-    $run=mysqli_query($conn,$query);
-    while ($data=mysqli_fetch_assoc($run)) {
-      $details_payment[]=$data;
-    }
-    // echo '<pre>';
-    // print_r($executive);die;
-
+    
+    // echo "<pre>";
+    // print_r($details_payment);die;
+    
    
 ?>
 <!DOCTYPE html>
@@ -27,7 +23,7 @@ $msg = "";
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Field Executive List</title>
+  <title>Withrawal List</title>
   <?php include'includes/header-links.php'; ?>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -59,48 +55,80 @@ $msg = "";
                   <div class="department-list">
                      <div class="card">
               <div class="card-header">
-                <h5 style="font-weight: bold;">Fee details List</h5>
+                <h5 style="font-weight: bold;">Withdrawal List</h5>
+              </div>
+              <div class="row">
+                <div class="col-md-3 col-3"></div>
+                <div class="col-md-2" style="font-weight: 700;">
+                  Select Field Executive
+                </div>
+                <div class="col-md-3 col-4">
+                 <form method="post" action="withdrawallist.php">
+                    <select class="form-control" name="table" >
+                      <option>--Select Option--</option>
+                     <option value="student">Student</option>
+                     <option value="field_excutive">Field Executive</option>
+                  </select>
+                
+                    <button class="btn btn-sm btn-success" name="search">submit</button>
+                
+                 </form>
+                </div>
+                <div class="col-md-3 col-3"></div>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
                 <?php
-                  
-                  $sql0="SELECT * FROM `student` WHERE `payment_status` = '0'";
-                  $res0=mysqli_query($conn,$sql0);
-                  $nm0=mysqli_num_rows($res0);
-                  $sqll="SELECT * FROM `student` WHERE `payment_status` = '1'";
-                  $res1=mysqli_query($conn,$sqll);
-                  $nm1=mysqli_num_rows($res1);
-                  $sql2 = "SELECT SUM(student.amount) as total FROM `student` WHERE `payment_status` = '1'";
+                  $sql2 = "SELECT SUM(withdrawal.amount) as total FROM `withdrawal` WHERE `payment_status` = '1'";
                   $res2 = mysqli_query($conn,$sql2);
                   $data=mysqli_fetch_assoc($res2);
                   $total = $data['total'];
+
+
+
+                  if(isset($_POST['search'])){
+                    $table = $_POST['table'];
+
+                 if(!empty($table)){
+                  $query="SELECT $table.*, withdrawal.user_id, withdrawal.id as withdrawalid,withdrawal.unique_id, withdrawal.type, withdrawal.unique_id,withdrawal.amount,withdrawal.added_on as withdrawal_added,withdrawal.transactionid,withdrawal.payment_status as withdrawal_payment_status FROM $table INNER JOIN withdrawal ON $table.id=withdrawal.user_id WHERE $table.status='1'";
+                  $run=mysqli_query($conn,$query);
+                  while ($data=mysqli_fetch_assoc($run)){
+                     $details_payment[]=$data;
+                  }
+                }
+                  else{
+
+                 $query="SELECT field_excutive.*, withdrawal.user_id, withdrawal.id as withdrawalid,withdrawal.unique_id, withdrawal.type, withdrawal.unique_id,withdrawal.amount,withdrawal.added_on as withdrawal_added,withdrawal.transactionid,withdrawal.payment_status as withdrawal_payment_status FROM field_excutive INNER JOIN withdrawal ON field_excutive.id=withdrawal.user_id WHERE field_excutive.status='1'";
+                  $run=mysqli_query($conn,$query);
+                  while ($data=mysqli_fetch_assoc($run)){
+                     $details_payment[]=$data;
+                  }
+
+                  }
+                 }
+                 
                   ?>
                   <div class="row" >
 
-                    <div class="col-12" style="text-align: center; color: #20c997; font-size: 35px;font-weight: 500;">Total Income : <?php echo $total; ?></div>
+                    <div class="col-12" style="text-align: center; color: #20c997; font-size: 35px;font-weight: 500;">Total Withdrawal : <?php echo $total; ?></div>
                   </div>
-                 
-               <div class="row" style="padding:19px;">
-                    <div class="col-6" style="background-color: #20c997; color: white; text-align: center;">
-                      Paid Student: <h3><br><?php echo $nm1 ; ?></h3>
-                    </div>
-                     
-                     <div class="col-6" style="background-color:#ca4653;; color:white; text-align: center;">
-                      Unpaid Student: <h3> <br><?php echo $nm0 ; ?></h3>
-                    </div>
-                </div>
                 <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4 no-footer">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
                     <th>S. No.:</th>
-                    <th>Student Name</th>
+                    <th>Type</th>
+                     <th>Uniqueid</th>
+                    <th>Name</th>
                     <th>Phone No</th>
-                    <th>Student Fee</th>
+                    <th>Email</th>
+                    <th>Amount</th>
                     <th>Date</th>
-                     <th>UTR Number</th>
-                    <th>Payment Status</th>
+                     <th>Bank Name</th>
+                    <th>Bank Account</th>
+                    <th>IFSC</th>
+                    <th>Show TransactionId</th>
+                    <th>Transaction Id</th>
                      <th>Payment Aprroved</th>
                   </tr>
                   </thead>
@@ -110,20 +138,39 @@ $msg = "";
                           foreach ($details_payment as $key => $value) {$sn++; $id=$value['id']; ?>
                             <tr>
                               <td><?php echo $sn; ?></td>
+                              <td><?php echo $value['type']; ?></td>
+                              <td><?php echo $value['unique_id']; ?></td>
                               <td><?php echo $value['name']; ?></td>
                               <td><?php echo $value['mobile']; ?></td>
+                              <td><?php echo $value['email']; ?></td>
                               <td><?php echo $value['amount']; ?></td>
-                              <td><?php echo date('d-m-Y', strtotime($value['added_on'])); ?></td>
-                              <td><?php echo $value['payment_id']; ?></td> 
-                             <td>
+                              <td><?php echo date('d-m-Y', strtotime($value['withdrawal_added'])); ?></td>
+                              <td><?php echo $value['bankname']; ?></td>
+                               <td><?php echo $value['bankaccount']; ?></td> 
+                               <td><?php echo $value['ifsc']; ?></td>
+                               <td><?php echo $value['transactionid']; ?></td>
+                             
+                              <td><form method="post" action="action.php">
+                                <div class="row"> 
+                                  <div class="col-md-6 col-6">
+                                    <input type="hidden" name="id" value="<?php echo $value['withdrawalid']; ?>">
+                                   <input type="text" name="transactionid" class="form-control">
+                                   <input type="hidden" name="type" value="<?php echo $value['type']; ?>">
+                                  </div>
+                                  <div class="col-6 col-md-6">
+                                      <button type="submit" class="btn btn-sm btn-success" name="transaction">submit</button>
+                                  </div></div>
+                              
+                              </form></td>
+                              <td>
                              <?php
-                             $status= $value['payment_status'];
+                             $status= $value['withdrawal_payment_status'];
                                       if( $status == 1){ ?>
-                                          <center style="background-color: #20c997; color: white; text-align: center;">Paid</center>
+                                          <a  class="btn btn-sm btn-success" style="background-color: #20c997; color: white; text-align: center;">Paid</a>
                                     <?php   }
 
                                       else{ ?>
-                                        <center style="background-color:#ca4653;; color:white; text-align: center;">Unpaid</center>
+                                        <a href="action.php?approved_transaction=<?php echo $value['withdrawalid']; ?>/<?php echo $value['type']; ?>"  class="btn btn-sm btn-danger" style="background-color:#ca4653;; color:white; text-align: center;">Unpaid</a>
                                   <?php    }
 
 
@@ -142,19 +189,7 @@ $msg = "";
          
                               ?>
                              </td>
-                               <td> <?php if($value['payment_status'] == 0){ ?>
-                                      <form action="action.php" method="post">
-                                      <input type="hidden" name="id" value="<?php echo $value['id']; ?>">
-                                      <input type="hidden" name="payment_status" value="1">
-                                      <input type="submit" class="btn btn-warning btn-sm" value="Pending" name="approved">
-                                     
-                                   </form>
-                                   <button class="btn btn-secondary">Pay Times: <?php echo $value['pay_times']; ?></button>
-                            <?php  }else{ ?>
-                               <button  class="btn btn-sm btn-success">Aprroved</button>
-                                <button class="btn btn-secondary">Pay Times: <?php echo $value['pay_times']; ?></button>
-                           <?php } ?>
-                                  </td>
+                               
                              
                            </tr>
                           <?php

@@ -404,10 +404,15 @@ if(isset($_POST['withdrawl_wallet'])){
 		$amount=$_POST['amount'];
 		$type=$_POST['type'];
 		$added_on=date('Y-m-d H:i:s');
+		$email = $_POST['email'];
 		$review = "wallet withdrawl in bank";
-		$query="INSERT INTO `withdrawal`(`user_id`,`amount`,`type`,`review`,`added_on`) VALUES ('$user_id','$amount','$type','$review','$added_on')";
+		$query="INSERT INTO `withdrawal`(`user_id`,`email`,`amount`,`type`,`review`,`added_on`) VALUES ('$user_id','$email','$amount','$type','$review','$added_on')";
 			$sql=mysqli_query($conn,$query);
-			if($sql){
+	    $last_id = $conn->insert_id;
+	    $uniqueid = "EDU-".$last_id;
+	    $query2 = "UPDATE `withdrawal` SET `unique_id`='$uniqueid' WHERE `id`='$last_id'";
+	    $sql2=mysqli_query($conn,$query2);		
+			if($sql == true && $sql2 == true){
 				 header('location:profile.php?status=1');			 
 			}
 			else{

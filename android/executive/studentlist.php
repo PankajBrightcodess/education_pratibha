@@ -1,8 +1,7 @@
 <?php 
 session_start();
 include '../connection.php';
-?>
-  
+?> 
 <?php include 'header-links.php'; ?>
 <?php include 'header.php'; ?>
 <section class="blank-course "></section>
@@ -27,18 +26,11 @@ include '../connection.php';
                       <a href="executice-student-pay.php?executice_student_pay=1" style="color: white; font-weight: 900;" >
                       Paid Student: <h3><br><?php echo $nm1 ; ?></h3></a>
                     </div>
-                     
                      <div class="col-6" style="background-color:#ca4653; color:white; text-align: center;border-radius: 20px;">
                        <a href="executice-student-pay.php?executice_student_pay=0" style="color: white;  font-weight: 900;" >
                       Unpaid Student: <h3> <br><?php echo $nm0 ; ?></h3> </a>
                     </div>
                 </div>
-                   
-
-
-
-
-
               <div class="row">
                
         <div class="col-md-12">
@@ -78,12 +70,13 @@ include '../connection.php';
                           <td><?php
                              $status= $uploadresult['payment_status'];
                                       if( $status == 1){ ?>
-                                          <center  style="background-color: #20c997; color: white; text-align: center;">Paid</center>
+                                          <center  style="background-color: #20c997; color: white; font-weight: 500; text-align: center;">Paid</center>
                                     <?php   }
 
                                       else{ ?>
-                                        <center style="background-color:#ca4653; color:white; text-align: center;">Unpaid</center>
-                                  <?php    } ?></td>
+                                        <center style="background-color:#ca4653; color:white; font-weight: 500; text-align: center;">Unpaid</center>
+                                  <?php    } ?>
+                                  <center style="background-color: orange; color:white; font-weight: 500;">Reactive: <?php echo $uploadresult['pay_times']; ?></center></td>
                         </tr>  
                         <?php } }?>
                       </tbody>

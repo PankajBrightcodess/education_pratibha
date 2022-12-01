@@ -218,14 +218,14 @@
             </ul>
           </li>
          
-         <!--  <li class="nav-item">
-            <a href="view_assignment.php" class="nav-link <?php if($page == 'assignment'){ echo 'active';} ?>">
+         <li class="nav-item">
+            <a href="withdrawallist.php" class="nav-link <?php if($page == 'assignment'){ echo 'active';} ?>">
               <i class="fas fa-trophy nav-icon"></i>
               <p>
-                Assignment
+                withdrawal list
               </p>
             </a>
-          </li> -->
+          </li> 
           <!-- <li class="nav-item">
             <a href="gifted-winners.php" class="nav-link <?php if($page == 'gifted-winners'){ echo 'active';} ?>">
               <i class="fas fa-medal nav-icon"></i>

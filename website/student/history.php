@@ -160,6 +160,12 @@ $query1="SELECT sum(amount) as total_wallet, wallet.user_id as user_id FROM `wal
         <?php if(!empty($withdrawal)){
           foreach ($withdrawal as $key => $value) { ?>
            <p class="txn-list"><?php echo $value['review']; ?>(<?php echo $value['added_on']; ?>)<span class="debit-amount">-&#8377;<?php echo $value['amount']; ?></span>
+               <?php if(!empty($value['unique_id'])){
+               if($value['payment_status'] == 1){  ?>
+                      <span style="text-align: center; background-color: green; color: white;">success</span>   
+            <?php   }else{  ?>
+                  <span style="text-align: center; background-color: orange; color: white;">pending</span>
+         <?php   }  } ?>
             </p>
      <?php     }
         } ?>

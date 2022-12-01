@@ -97,7 +97,7 @@
                             <div class="form-group mb-5">
                                 <input type="submit" class="btn btn-warning form-control" name="executive_login" value="Login">
                                 <label style="color:white;float:right; padding:10px;"><a href="forget_password_executive.php" style="color:white">forgot password</a></label>
-                                <label style="color:white;float:left; padding:10px;"><a href="apply_feildexcutive.php" style="color:white">Register</a></label>
+                                <!-- <label style="color:white;float:left; padding:10px;"><a href="apply_feildexcutive.php" style="color:white">Register</a></label> -->
                             </div>
                         </form>
                     </div>

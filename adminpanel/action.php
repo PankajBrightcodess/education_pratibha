@@ -398,23 +398,25 @@ if(isset($_POST['add_winner'])){
 if(isset($_POST['approved'])){
 	$id = $_POST['id'];
 	$payment_status = $_POST['payment_status'];
-
 	$query = "UPDATE `student` SET `payment_status` = '$payment_status' WHERE `id`='$id'";
 	$sql = mysqli_query($conn,$query);
-	if($sql){
+	$query2 = "SELECT field_excutive.id,field_excutive.name, student.id,student.executive_id FROM student INNER JOIN field_excutive ON field_excutive.id=student.executive_id WHERE student.id= '$id'";
+      $sql2 = mysqli_query($conn,$query2);    
+      $executive=mysqli_fetch_assoc($sql2);  
+      $executive_id = $executive['executive_id'];
+      $date = date('Y-m-d');
+      $wallet = "INSERT INTO `wallet`(`user_id`,`refer_user_id`,`type`,`amount`,`description`,`date`) VALUES ('$executive_id','$id','field_executive','250','Amount add through student payment','$date')";      
+	if($sql == true && $sql2 == true ){
 		$_SESSION['msg']="Payment status verify Successfully";
 	  	header("Location:$_SERVER[HTTP_REFERER]");
 	  }else{
 	  	$_SESSION['msg']="Not Approved!!!";
 	  	header("location:$_SERVER[HTTP_REFERER]");
 	  }
-
 }
 
 if(isset($_POST['update_winner'])){
-
-	
-	  $id = $_POST['snoEdit'];
+	$id = $_POST['snoEdit'];
 	$name = $_POST['name-edit'];
 	$father_name = $_POST['father_name-edit'];
 	$mother_name = $_POST['mother_name-edit'];
@@ -450,6 +452,43 @@ if(isset($_GET['deletewinner'])){
 	}
 	header("location:$_SERVER[HTTP_REFERER]");
 } 
+if(isset($_GET['approved_transaction'])){
+	$id=$_GET['approved_transaction'];
+
+	$type = explode('/',$id);
+	$types = $type[1];
+	// echo "<pre>";
+	// print_r($type[1]);die;
+	$query="UPDATE `withdrawal` SET `payment_status`= 1  WHERE `id`='$id' AND `type`='$types'";
+	// echo $query;die;	
+	$run=mysqli_query($conn,$query);
+	if($run===true){
+		$_SESSION['msg']="Approved Successfully !!!";
+	}
+	else{
+		$_SESSION['msg']="Approved Cancel !!!";
+	}
+	header("location:$_SERVER[HTTP_REFERER]");
+} 
+
+
+
+if(isset($_POST['transaction'])){
+   $id = $_POST['id'];
+   $type = $_POST['type'];
+   $transactionid = $_POST['transactionid'];
+    $query = "UPDATE `withdrawal` SET `transactionid`='$transactionid' WHERE `id`='$id' AND `type`='$type'";
+    $sql=mysqli_query($conn,$query);
+    if($sql == true){
+    	header("Location:$_SERVER[HTTP_REFERER]");
+			$_SESSION['msg']="Successfully Added!!!";	
+		}else{
+			header("Location:$_SERVER[HTTP_REFERER]");
+			$_SESSION['msg']="Sorry Try Again!!!";	
+		}
+
+
+}
 
 if(isset($_POST['add_student_wallet'])){
 	$amount = $_POST['amount'];

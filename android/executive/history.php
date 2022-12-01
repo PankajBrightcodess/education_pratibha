@@ -22,14 +22,13 @@ $query1="SELECT sum(amount) as total_wallet, wallet.user_id as user_id FROM `wal
       $executive[]=$data3;
     }
 
-     $query4="SELECT withdrawal.*, withdrawal.user_id AS withdrawal_id, withdrawal.transfer_userid AS withdrawal_transferid, student.email AS student_email, student.id AS student_id, student.name AS student_name FROM withdrawal LEFT JOIN student ON withdrawal.transfer_userid=student.id WHERE withdrawal.user_id = '$ids' AND withdrawal.type = 'field_executive'";
-  $run4=mysqli_query($conn,$query4);
- while ($data4=mysqli_fetch_assoc($run4)) {
+   $query4="SELECT withdrawal.*, withdrawal.user_id AS withdrawal_id, withdrawal.transfer_userid AS withdrawal_transferid, student.email AS student_email, student.id AS student_id, student.name AS student_name FROM withdrawal LEFT JOIN student ON withdrawal.transfer_userid=student.id WHERE withdrawal.user_id = '$ids' AND withdrawal.type = 'field_executive'";
+   $run4=mysqli_query($conn,$query4);
+   while ($data4=mysqli_fetch_assoc($run4)) {
       $withdrawal[]=$data4;
     }
-
-
-
+    // echo "<pre>";
+    // print_r($withdrawal);die;
   ?>
 <style type="text/css">
   .wallet-container {
@@ -159,7 +158,22 @@ $query1="SELECT sum(amount) as total_wallet, wallet.user_id as user_id FROM `wal
         <?php if(!empty($withdrawal)){
           foreach ($withdrawal as $key => $value) { ?>
            <p class="txn-list"><?php echo $value['review']; ?><span class="debit-amount">-&#8377;<?php echo $value['amount']; ?></span>
-            <span><?php echo $value['student_name']; ?>(<?php echo $value['student_email']; ?>)</span></p>
+            <span><?php echo $value['student_name']; ?>(<?php 
+
+               if(!empty($value['unique_id'])){
+                echo $value['unique_id'];
+               }else{
+                 echo $value['student_email'];
+               }
+              ?>)</span>
+            <?php if(!empty($value['unique_id'])){
+               if($value['payment_status'] == 1){  ?>
+                      <span style="text-align: center; background-color: green; color: white;">success</span> 
+            <?php   }else{  ?>
+                  <span style="text-align: center; background-color: orange; color: white;">pending</span>
+         <?php   }  } ?>
+
+              </p>
      <?php     }
         } ?>
         

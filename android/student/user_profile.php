@@ -37,8 +37,8 @@ $msg = "";
   $check3=mysqli_fetch_assoc($run3);
    if(!empty($check3['pay_date'])){
     $paydate = $check3['pay_date'];
-   $startdata = date('d/m/Y',strtotime($check3['pay_date']));
-    $expirydate = date('d/m/Y',strtotime($paydate.'+'.'+1year'));
+   $startdata = date('Y-m-d',strtotime($check3['pay_date']));
+    $expirydate = date('Y-m-d',strtotime($check3['pay_end_date']));
     if($expirydate <= date('Y-m-d')){  ?>
      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
      <script type="text/javascript">
@@ -242,10 +242,11 @@ $msg = "";
               <span id="waletamt"></span>
         </div>
          <div class="col-md-12">
-                          <label>Email/Name</label>
+                        <label>Email/Name</label>
                          <input type="hidden" name="user_id" id="user_id">
                          <input type="hidden" name="type" id="type" value="student">
                          <input type="text" value="<?php echo $data['email'] ?>&nbsp;&nbsp;(<?php echo $data['name'] ?>)" readonly class="form-control">
+                         <input type="hidden" name="email" value="<?php echo $data['email'] ?>">
                         </div>
                          
         <div class="modal-footer">
