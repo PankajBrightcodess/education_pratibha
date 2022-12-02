@@ -30,18 +30,13 @@ include '../connection.php';
                       </thead>
                       <tbody>
                         <?php $id=$_SESSION['exe_id'];
-                        $query = "SELECT student.*, master_result.candi_id, master_result.status FROM student LEFT JOIN master_result ON master_result.candi_id !=student.id WHERE student.executive_id='$id'";
-
+                        $query = "SELECT student.*, master_result.candi_id, master_result.status FROM student LEFT JOIN master_result ON master_result.candi_id != student.id WHERE student.executive_id='$id'";
                             $run=mysqli_query($conn, $query);
-                           
                             $data=mysqli_fetch_assoc($run);
-
-                            
                             while($data=mysqli_fetch_assoc($run)) {
                                   $result[]=$data;
                                 }
-                               
-                               
+                                                           
                             if(!empty($result)){ $i=0;  foreach ($result as $uploadresult) { $i++; ?>
                         <tr>
                           <td><?php echo $i; ?></td>
@@ -60,7 +55,8 @@ include '../connection.php';
                                       else{ ?>
                                         <center style="background-color:#ca4653; color:white; text-align: center;">Unpaid</center>
                                   <?php    } ?>
-                                  <center style="background-color: orange; color:white;">Reactive: <?php echo $uploadresult['pay_times']; ?></center></td>
+                                  <center style="background-color: orange; color:white;">Reactive: <?php echo $uploadresult['pay_times']; ?></center>
+                          </td>
                         </tr>  
                         <?php } }?>
                       </tbody>
