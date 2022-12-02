@@ -30,7 +30,7 @@ include '../connection.php';
                       </thead>
                       <tbody>
                         <?php $id=$_SESSION['exe_id'];
-                        $query = "SELECT student.*, test_result.candidate_id, test_result.status FROM student LEFT JOIN test_result ON test_result.candidate_id !=student.id WHERE student.executive_id='$id'";
+                        $query = "SELECT student.*, test_result.candidate_id, test_result.status FROM student LEFT JOIN test_result ON test_result.candidate_id != student.id WHERE student.executive_id='$id'";
 
                             $run=mysqli_query($conn, $query);
                            
