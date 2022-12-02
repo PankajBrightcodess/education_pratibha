@@ -39,6 +39,7 @@ $msg = "";
     $paydate = $check3['pay_date'];
    $startdata = date('Y-m-d',strtotime($check3['pay_date']));
     $expirydate = date('Y-m-d',strtotime($check3['pay_end_date']));
+        $counter = date('F d, Y H:i:s',strtotime($check3['pay_end_date']));
     if($expirydate <= date('Y-m-d')){  ?>
      <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
      <script type="text/javascript">
@@ -48,6 +49,36 @@ $msg = "";
 <?php }
      
    }  ?>
+   <script>
+// Set the date we're counting down to
+// var countDownDate = new Date("Jan 5, 2024 14:37:25").getTime();
+var countDownDate = new Date("<?php echo $counter; ?>").getTime();
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+    
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+    
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+  // Output the result in an element with id="demo"
+  document.getElementById("demo").innerHTML =" <div class='col-md-3 col-3'>"+ days +  "d:</div> "+ "<div class='col-md-3 col-3'>"  + hours + "h:</div>"
+  +"<div class='col-md-3 col-3'>" + minutes + "m:</div>" +"<div class='col-md-3 col-3'>"+ seconds + "s</div> ";
+    
+  // If the count down is over, write some text 
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("demo").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script>
 <section class="blank-course "></section>
 <section class="pages" id="contactpg">
   	<div class="container">
@@ -58,22 +89,21 @@ $msg = "";
                 <?php if(!empty($paydate)){ ?>
 
 
-            <!-- 
-                       <div class="row justify-content-center" style="font-size:20px;font-weight: 900;">
+          
+                       <div class="row justify-content-center" style="font-size:20px;font-weight: 900; padding: 20px;">
                            <div class="col-md-6 col-12" >
                               <center>  <h2> Left Days </h2> </center>
-                                <div class="row">
-                               <div class="col-md-4 col-4" id="day">  &nbsp;&nbsp;: </div> 
-                             <div class="col-md-4 col-4" id="month">  &nbsp;&nbsp;: </div> 
-                             <div class="col-md-4 col-4" id="min">   </div> 
+                                <div class="row" id="demo">
+                            
                               </div>
                                <div class="row">
-                               <div class="col-md-4 col-4">Days </div>
-                               <div class="col-md-4 col-4"> Hours </div>
-                               <div class="col-md-4 col-4">Minutes </div>
+                               <div class="col-md-3 col-3">Days</div>
+                               <div class="col-md-3 col-3"> Hours</div>
+                               <div class="col-md-3 col-3">Min</div>
+                               <div class="col-md-3 col-3">Sec</div>
                               </div>
                            </div>
-                       </div> -->
+                       </div> 
 
  
 
@@ -81,14 +111,14 @@ $msg = "";
                     <thead>
                        <!--  <input type="date" name="sd" value="<?php echo $startdata; ?>" hidden>
                         <input type="date" name="ed"  value="<?php echo $expirydate; ?>" hidden> -->
-                         <tr>
+                         <!-- <tr>
                             <th>Subscriptions start date</th>
                             <td id="sd"><?php echo $startdata; ?></td>
                         </tr>
                         <tr>
                             <th>Subscriptions Expiry date</th>
                             <td id="ed"><?php echo $expirydate; ?></td>
-                        </tr>
+                        </tr> -->
                     
                         <tr>
 
