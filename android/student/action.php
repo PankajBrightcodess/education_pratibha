@@ -125,20 +125,20 @@ if(isset($_POST['submitAnswer'])){
 	     	$new_expirydate = date('Y-m-d',strtotime($expirydate.'+'.'+1year'));
 	     	$date = date('Y-m-d');
 	     	$payment_times= $data['pay_times'] +1;
-	     	$sql="UPDATE `student` SET `payment_id`='$utr_no',`pay_end_date`='$new_expirydate',`pay_date`='$date',`pay_times`='$payment_times' WHERE `id`='$id'";
+	     	$sql="UPDATE `student` SET `payment_id`='$utr_no',`payment_status`='0',`pay_end_date`='$new_expirydate',`pay_date`='$date',`pay_times`='$payment_times' WHERE `id`='$id'";
 	      $run = mysqli_query($conn,$sql);
 	     }else{
 	     	$date = date('Y-m-d');
 	     		$payment_times= $data['pay_times'] +1;
 	     	$new_expirydate = date('Y-m-d',strtotime($date.'+'.'+1year'));
-	     	$sql="UPDATE `student` SET `payment_id`='$utr_no',`pay_end_date`='$new_expirydate',`pay_date`='$date',`pay_times`='$payment_times' WHERE `id`='$id'";
+	     	$sql="UPDATE `student` SET `payment_id`='$utr_no',`payment_status`='0',`pay_end_date`='$new_expirydate',`pay_date`='$date',`pay_times`='$payment_times' WHERE `id`='$id'";
 	      $run = mysqli_query($conn,$sql);
 	     }
 	    }else{
 	      $date = date('Y-m-d');
         $payment_times= $data['pay_times'] +1;
 	     	$new_expirydate = date('Y-m-d',strtotime($date.'+'.'+1year'));
-	     	$sql="UPDATE `student` SET `payment_id`='$utr_no',`pay_end_date`='$new_expirydate',`pay_date`='$date',`pay_times`='$payment_times' WHERE `id`='$id'";
+	     	$sql="UPDATE `student` SET `payment_id`='$utr_no',`payment_status`='0',`pay_end_date`='$new_expirydate',`pay_date`='$date',`pay_times`='$payment_times' WHERE `id`='$id'";
 	      $run = mysqli_query($conn,$sql);
 
 	    }

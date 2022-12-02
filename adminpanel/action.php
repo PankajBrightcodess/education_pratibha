@@ -405,7 +405,8 @@ if(isset($_POST['approved'])){
       $executive=mysqli_fetch_assoc($sql2);  
       $executive_id = $executive['executive_id'];
       $date = date('Y-m-d');
-      $wallet = "INSERT INTO `wallet`(`user_id`,`refer_user_id`,`type`,`amount`,`description`,`date`) VALUES ('$executive_id','$id','field_executive','250','Amount add through student payment','$date')";      
+      $wallet = "INSERT INTO `wallet`(`user_id`,`refer_user_id`,`type`,`amount`,`description`,`date`) VALUES ('$executive_id','$id','field_executive','250','Amount add through student payment','$date')"; 
+      $sql3 = mysqli_query($conn,$wallet);     
 	if($sql == true && $sql2 == true ){
 		$_SESSION['msg']="Payment status verify Successfully";
 	  	header("Location:$_SERVER[HTTP_REFERER]");
