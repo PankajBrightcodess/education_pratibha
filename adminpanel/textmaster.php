@@ -11,10 +11,7 @@ $msg = "";
     }
     if ($msg != "") {
         echo "<script> alert('$msg')</script>";
-    }
-
-
-     
+    }     
 ?>
 <!DOCTYPE html>
 <html>

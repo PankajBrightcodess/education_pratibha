@@ -16,13 +16,13 @@ $query1="SELECT sum(amount) as total_wallet, wallet.user_id as user_id FROM `wal
   $run2=mysqli_query($conn,$query2);
   $data2=mysqli_fetch_assoc($run2);  
 
-  $query3="SELECT * FROM `wallet` WHERE `user_id`='$ids' AND `type` = 'field_executive'";
+  $query3="SELECT * FROM `wallet` WHERE `user_id`='$ids' AND `type` = 'field_executive' ORDER BY `wallet`.`id` DESC";
   $run3=mysqli_query($conn,$query3);
  while ($data3=mysqli_fetch_assoc($run3)) {
       $executive[]=$data3;
     }
 
-   $query4="SELECT withdrawal.*, withdrawal.user_id AS withdrawal_id, withdrawal.transfer_userid AS withdrawal_transferid, student.email AS student_email, student.id AS student_id, student.name AS student_name FROM withdrawal LEFT JOIN student ON withdrawal.transfer_userid=student.id WHERE withdrawal.user_id = '$ids' AND withdrawal.type = 'field_executive'";
+   $query4="SELECT withdrawal.*, withdrawal.user_id AS withdrawal_id, withdrawal.transfer_userid AS withdrawal_transferid, student.email AS student_email, student.id AS student_id, student.name AS student_name FROM withdrawal LEFT JOIN student ON withdrawal.transfer_userid=student.id WHERE withdrawal.user_id = '$ids' AND withdrawal.type = 'field_executive' ORDER BY withdrawal.id DESC";
    $run4=mysqli_query($conn,$query4);
    while ($data4=mysqli_fetch_assoc($run4)) {
       $withdrawal[]=$data4;
@@ -141,16 +141,12 @@ $query1="SELECT sum(amount) as total_wallet, wallet.user_id as user_id FROM `wal
           <p><b>History</b></p>
         <?php if(!empty($executive)){
           foreach ($executive as $key => $value) { ?>
-      <p class="txn-list"><?php echo $value['description']; ?>(<?php echo $value['date']; ?>)<span class="credit-amount">+&#8377;<?php echo $value['amount']; ?></span></p>
+      <p class="txn-list"><?php echo $value['description']; ?>(<?php echo date('Y-m-d h:i A', strtotime($value['date'])); ?>)<span class="credit-amount">+&#8377;<?php echo $value['amount']; ?></span></p>
 
      <?php    
         } 
       }
       ?>
-      
-       
-
-     
       </div>
       <!-- withdrawl -->
       <div class="txn-history tabcontent" id="Exectutive">
@@ -172,8 +168,9 @@ $query1="SELECT sum(amount) as total_wallet, wallet.user_id as user_id FROM `wal
             <?php   }else{  ?>
                   <span style="text-align: center; background-color: orange; color: white;">pending</span>
          <?php   }  } ?>
-
+                  <br> <span><?php echo date('Y-m-d h:i A', strtotime($value['added_on'])); ?></span>
               </p>
+
      <?php     }
         } ?>
         

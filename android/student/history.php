@@ -16,13 +16,13 @@ $query1="SELECT sum(amount) as total_wallet, wallet.user_id as user_id FROM `wal
   $run2=mysqli_query($conn,$query2);
   $data2=mysqli_fetch_assoc($run2);  
 
-  $query3="SELECT * FROM `withdrawal` WHERE `user_id`='$ids' AND `type` = 'student'";
+  $query3="SELECT * FROM `withdrawal` WHERE `user_id`='$ids' AND `type` = 'student' ORDER BY `withdrawal`.`id` DESC";
   $run3=mysqli_query($conn,$query3);
  while ($data3=mysqli_fetch_assoc($run3)) {
       $withdrawal[]=$data3;
     }
 
-     $query4="SELECT wallet.*, wallet.user_id AS wallet_id, wallet.refer_user_id AS  wallet_executiveid, field_excutive.email AS executive_email, field_excutive.id AS executive_id, field_excutive.name AS executive_name FROM wallet LEFT JOIN field_excutive ON wallet.refer_user_id=field_excutive.id WHERE wallet.user_id = '$ids' AND wallet.type = 'student'";
+     $query4="SELECT wallet.*, wallet.user_id AS wallet_id, wallet.refer_user_id AS  wallet_executiveid, field_excutive.email AS executive_email, field_excutive.id AS executive_id, field_excutive.name AS executive_name FROM wallet LEFT JOIN field_excutive ON wallet.refer_user_id=field_excutive.id WHERE wallet.user_id = '$ids' AND wallet.type = 'student' ORDER BY wallet.id DESC";
   $run4=mysqli_query($conn,$query4);
  while ($data4=mysqli_fetch_assoc($run4)) {
       $wallet[]=$data4;
@@ -140,7 +140,7 @@ $query1="SELECT sum(amount) as total_wallet, wallet.user_id as user_id FROM `wal
           <p><b>History</b></p>
         <?php if(!empty($wallet)){
           foreach ($wallet as $key => $value) { ?>
-      <p class="txn-list"><?php echo $value['description']; ?>(<?php echo $value['date']; ?>)<span class="credit-amount">+&#8377;<?php echo $value['amount']; ?></span>
+      <p class="txn-list"><?php echo $value['description']; ?>(<?php echo date('Y-m-d h:i A', strtotime($value['date'])); ?>)<span class="credit-amount">+&#8377;<?php echo $value['amount']; ?></span>
       <span><?php echo $value['executive_name']; ?>(<?php echo $value['executive_email']; ?>)</span></p>
 
      <?php    
@@ -153,7 +153,7 @@ $query1="SELECT sum(amount) as total_wallet, wallet.user_id as user_id FROM `wal
         <p><b>History</b></p>
         <?php if(!empty($withdrawal)){
           foreach ($withdrawal as $key => $value) { ?>
-           <p class="txn-list"><?php echo $value['review']; ?>(<?php echo $value['added_on']; ?>)<span class="debit-amount">-&#8377;<?php echo $value['amount']; ?></span>
+           <p class="txn-list"><?php echo $value['review']; ?>(<?php echo date('Y-m-d h:i A',strtotime($value['added_on'])); ?>)<span class="debit-amount">-&#8377;<?php echo $value['amount']; ?></span>
                <?php if(!empty($value['unique_id'])){
                if($value['payment_status'] == 1){  ?>
                        <span style="text-align: center; background-color: green; color: white;">success</span> 
