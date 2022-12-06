@@ -49,11 +49,11 @@ if(isset($_POST['submitAnswer'])){
 		$count = count($data['ques_id']);
 		// print_r($count);die;
 		for ($i=0; $i < $count; $i++) { 
-			// code...
+			
 			$arr = array('ques_id'=>$data['ques_id'][$i],'candidate_id'=>$data['candidate_id'],'exam_id'=>$data['exam_id'],'correct_ans'=>$data['correct_ans'][$i],'answer'=>$data['answer'][$data['ques_id'][$i]],'added_on'=>$data['added_on']);
 			$testarray[]=$arr;
 		}
-		// print_r($revenuearray);die;
+	
      foreach ($testarray as $key => $value) {
      	  $exam_id =$value['exam_id'];
      	  $candidate_id = $value['candidate_id'];
