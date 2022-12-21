@@ -1051,6 +1051,8 @@ if(isset($_POST['del_result'])){
 		$date = date('Y-m-d');
 		$query="UPDATE `wallet` SET `amount`='$amount',`description`='$description',`date`='$date' WHERE `user_id`='$SnoEdit' AND `type` = 'field_excutive'";
 				$run=mysqli_query($conn,$query);
+				echo  '<pre>';
+				print_r($run);die;
 				if($run){
 					 header("Location:$_SERVER[HTTP_REFERER]");
 					$_SESSION['msg']="Executive Wallet Updated Successfully !!!";	
