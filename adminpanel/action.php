@@ -404,7 +404,7 @@ if(isset($_POST['approved'])){
       $sql2 = mysqli_query($conn,$query2);    
       $executive=mysqli_fetch_assoc($sql2);  
       $executive_id = $executive['executive_id'];
-      $date = date('Y-m-d');
+      $date = date('Y-m-d H:i:s');
       $wallet = "INSERT INTO `wallet`(`user_id`,`refer_user_id`,`type`,`amount`,`description`,`date`) VALUES ('$executive_id','$id','field_executive','250','Amount add through student payment','$date')"; 
       $sql3 = mysqli_query($conn,$wallet);     
 	if($sql == true && $sql2 == true ){
@@ -1049,7 +1049,7 @@ if(isset($_POST['del_result'])){
 		$user_id = $_POST['user_id'];
 		$description = $_POST['description'];
 		$date = date('Y-m-d');
-		$query="UPDATE `wallet` SET `user_id`='$user_id',`amount`='$amount',`description`='$description',`date`='$date' WHERE `user_id`='$SnoEdit', `type` = 'field_excutive'";
+		$query="UPDATE `wallet` SET `amount`='$amount',`description`='$description',`date`='$date' WHERE `user_id`='$SnoEdit', `type` = 'field_excutive'";
 				$run=mysqli_query($conn,$query);
 				if($run){
 					 header("Location:$_SERVER[HTTP_REFERER]");

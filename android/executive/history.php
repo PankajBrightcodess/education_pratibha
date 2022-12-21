@@ -2,7 +2,6 @@
 session_start();
 include '../connection.php';
 ?>
-  
 <?php include 'header-links.php'; ?>
 <?php include 'header.php'; ?>
 <?php  
