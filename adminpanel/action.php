@@ -1049,7 +1049,7 @@ if(isset($_POST['del_result'])){
 		$user_id = $_POST['user_id'];
 		$description = $_POST['description'];
 		$date = date('Y-m-d');
-		$query="UPDATE `wallet` SET `amount`='$amount',`description`='$description',`date`='$date' WHERE `user_id`='$SnoEdit', `type` = 'field_excutive'";
+		$query="UPDATE `wallet` SET `amount`='$amount',`description`='$description',`date`='$date' WHERE `user_id`='$SnoEdit' AND `type` = 'field_excutive'";
 				$run=mysqli_query($conn,$query);
 				if($run){
 					 header("Location:$_SERVER[HTTP_REFERER]");

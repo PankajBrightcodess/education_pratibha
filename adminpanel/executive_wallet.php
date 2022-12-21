@@ -121,7 +121,7 @@ $msg = "";
                           <td><?php echo $row['name']; ?></td>  
                           <td><?php echo $row['email']; ?></td>      
                           <td><?php echo $row['amount']; ?></td>
-                          <td><?php echo $row['description']; ?>Minutes</td>
+                          <td><?php echo $row['description']; ?></td>
                           <td><?php echo date('d-m-y', strtotime($row['date'])); ?></td>
                           <td>
                             <button class="btn btn-sm btn-success editwallet" data-toggle="modal" 
