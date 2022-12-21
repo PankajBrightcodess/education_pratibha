@@ -1032,7 +1032,7 @@ if(isset($_POST['del_result'])){
 		$user_id = $_POST['user_id'];
 		$description = $_POST['description'];
 		$date = date('Y-m-d');
-		$query="UPDATE `wallet` SET `user_id`='$user_id',`amount`='$amount',`description`='$description',`date`='$date' WHERE `user_id`='$SnoEdit', `type` = 'student'";
+		$query="UPDATE `wallet` SET `amount`='$amount',`description`='$description',`date`='$date' WHERE `user_id`='$SnoEdit', `type` = 'student'";
 				$run=mysqli_query($conn,$query);
 				if($run){
 					 header("Location:$_SERVER[HTTP_REFERER]");
@@ -1053,10 +1053,10 @@ if(isset($_POST['del_result'])){
 				$run=mysqli_query($conn,$query);
 				if($run){
 					 header("Location:$_SERVER[HTTP_REFERER]");
-					$_SESSION['msg']="Student Wallet Updated Successfully !!!";	
+					$_SESSION['msg']="Executive Wallet Updated Successfully !!!";	
 				}
 				else{
-					$_SESSION['msg']="Student Wallet Not Updated!!!";
+					$_SESSION['msg']="Executive Wallet Not Updated!!!";
 					header("location:$_SERVER[HTTP_REFERER]");
 				}
 	}
