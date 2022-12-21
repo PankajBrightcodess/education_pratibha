@@ -496,7 +496,7 @@ if(isset($_POST['add_student_wallet'])){
 	$user_id = $_POST['user_id'];
 	$description = $_POST['description'];
 	$type = $_POST['type'];
-	$date = date('Y-m-d');
+	$date = date('Y-m-d H:i:s');
 	$query="INSERT INTO `wallet`(`user_id`,`amount`,`description`,`type`,`date`) VALUES ('$user_id','$amount','$description','$type','$date')";
 	
 		$sql=mysqli_query($conn,$query);
@@ -1031,8 +1031,8 @@ if(isset($_POST['del_result'])){
 		$amount = $_POST['amount'];
 		$user_id = $_POST['user_id'];
 		$description = $_POST['description'];
-		$date = date('Y-m-d');
-		$query="UPDATE `wallet` SET `amount`='$amount',`description`='$description',`date`='$date' WHERE `user_id`='$SnoEdit', `type` = 'student'";
+		$date = date('Y-m-d H:i:s');
+		$query="UPDATE `wallet` SET `amount`='$amount',`description`='$description',`date`='$date' WHERE `user_id`='$SnoEdit' AND 'type` = 'student'";
 				$run=mysqli_query($conn,$query);
 				if($run){
 					 header("Location:$_SERVER[HTTP_REFERER]");
@@ -1048,7 +1048,7 @@ if(isset($_POST['del_result'])){
 		$amount = $_POST['amount'];
 		$user_id = $_POST['user_id'];
 		$description = $_POST['description'];
-		$date = date('Y-m-d');
+		$date = date('Y-m-d H:i:s');
 		$query="UPDATE `wallet` SET `amount`='$amount',`description`='$description',`date`='$date' WHERE `user_id`='$SnoEdit' AND `type` = 'field_excutive'";
 				$run=mysqli_query($conn,$query);
 				if($run){
@@ -1066,7 +1066,7 @@ if(isset($_POST['del_result'])){
 	$user_id = $_POST['user_id'];
 	$description = $_POST['description'];
 	$type = $_POST['type'];
-	$date = date('Y-m-d');
+	$date = date('Y-m-d H:i:s');
 	$query="INSERT INTO `wallet`(`user_id`,`amount`,`description`,`type`,`date`) VALUES ('$user_id','$amount','$description','$type','$date')";
 	
 		$sql=mysqli_query($conn,$query);
