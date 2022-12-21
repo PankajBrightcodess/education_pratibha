@@ -125,12 +125,12 @@ $msg = "";
                           <td><?php echo $row['description']; ?></td>
                           <td><?php echo date('d-m-y', strtotime($row['date'])); ?></td>
                           <td>
-                            <button class="btn btn-sm btn-success editwallet" data-toggle="modal" 
+                            <!-- <button class="btn btn-sm btn-success editwallet" data-toggle="modal" 
                             data-id="<?php echo $row['id']; ?>" 
                             data-user_id ="<?php echo $row['user_id']; ?>"
                             data-amount="<?php echo $row['amount']; ?>"
                             data-description="<?php echo $row['description']; ?>"
-                            data-target="#departmentModal">&nbsp;&nbsp;<i class="far fa-edit nav-icon"></i>&nbsp;Edit</button>  <a href="action.php?deletestudentwallet=<?php echo $row['id']; ?>" class="btn btn-sm btn-danger" >Delete</a>
+                            data-target="#departmentModal">&nbsp;&nbsp;<i class="far fa-edit nav-icon"></i>&nbsp;Edit</button>  --> <a href="action.php?deletestudentwallet=<?php echo $row['id']; ?>" class="btn btn-sm btn-danger" >Delete</a>
                           </td>
                         </tr>
                       <?php
