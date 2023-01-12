@@ -9,7 +9,7 @@ $msg = "";
     if($msg != ""){
         echo "<script> alert('$msg') </script>";
     }
-    // print_r($_SESSION['role']);die;
+   
     if($_SESSION['role']!='2'){
         header('location:../executivelogin.php');
     }
@@ -254,6 +254,9 @@ $msg = "";
             $('#waletamt').html('your amount is excess on your wallet!');
             $('#amount').val('');
             $('#withdrawl_wallet').prop('disabled',true);
+        }
+        if(amt == 0){
+            $('.withdrawl').prop('disabled',true);
         }
 
       });
