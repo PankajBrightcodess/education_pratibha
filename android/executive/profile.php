@@ -182,7 +182,7 @@ $msg = "";
         </div>
          <div class="col-md-12">
               <label>Wallet</label>
-              <input type="text" id="amount" name="amount" class="form-control" placeholder="amount withrawl::">
+              <input type="number" id="amount" name="amount" class="form-control" placeholder="amount withrawl::">
               <span id="waletamt"></span>
         </div>
          <div class="col-md-12">
@@ -216,7 +216,7 @@ $msg = "";
         </div>
          <div class="col-md-12">
               <label>Wallet</label>
-              <input type="text" id="amounts" name="amount" class="form-control" placeholder="amount withrawl::">
+              <input type="number" id="amounts" name="amount" class="form-control" placeholder="amount withrawl::">
               <span id="waletamts"></span>
         </div>   
                          <input type="hidden" name="user_id" id="user_ids">
