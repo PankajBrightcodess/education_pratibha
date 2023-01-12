@@ -72,7 +72,7 @@ $msg = "";
                            <?php if(!empty($data2)){ ?>
                              <td>&#8377;<?php  $amt =  $data1['total_wallet']-$data2['total_withdrawal'];
                              echo $amt;
-                               $_SESSION['amount'] = $amt;?>&nbsp;&nbsp;&nbsp;<button class="btn btn-sm btn-success withdrawl" data-toggle="modal" 
+                               $_SESSION['amount'] = $amt;?>&nbsp;&nbsp;&nbsp;<button id="withdrawl" class="btn btn-sm btn-success withdrawl" data-toggle="modal" 
                             data-id="<?php echo $data1['id']; ?>" 
                             data-user_id ="<?php echo $data1['user_id']; ?>"
                             data-amount="<?php echo $data1['total_wallet']-$data2['total_withdrawal']; ?>"
@@ -243,6 +243,10 @@ $msg = "";
 </div>
 <script type="text/javascript">
    $(document).ready(function(){
+    var damt = "<?php echo $amt; ?>";
+     if(amt == 0){
+            $('#withdrawl').prop('disabled',true);
+        }
       $('body').on('click','.withdrawl',function(){
         $('#user_id').val($(this).data('user_id'));
         $('#amount').val($(this).data('amount'));
@@ -255,9 +259,7 @@ $msg = "";
             $('#amount').val('');
             $('#withdrawl_wallet').prop('disabled',true);
         }
-        if(amt == 0){
-            $('.withdrawl').prop('disabled',true);
-        }
+
 
       });
    });
