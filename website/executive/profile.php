@@ -182,7 +182,7 @@ $msg = "";
         </div>
          <div class="col-md-12">
               <label>Wallet</label>
-              <input type="text" id="amount" name="amount" class="form-control" placeholder="amount withrawl::">
+              <input type="number" id="amount" name="amount" class="form-control" placeholder="amount withrawl::">
               <span id="waletamt"></span>
         </div>
          <div class="col-md-12">
@@ -255,7 +255,7 @@ $msg = "";
             $('#amount').val('');
             $('#withdrawl_wallet').prop('disabled',true);
         }
-        if(amt == 0){
+        if(amt <= 0){
             $('.withdrawl').prop('disabled',true);
         }
 
