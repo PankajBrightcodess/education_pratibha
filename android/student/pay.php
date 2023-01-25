@@ -19,7 +19,7 @@ include '../connection.php';
           
             <div class="col-md-6 mb-5">
                 <label >Amount<span style="color: Red;">*</span></label>
-                <input type="text" name="amount" class="form-control" readonly value="650" required> 
+                <input type="text" name="amount" class="form-control" readonly value="350" required> 
             </div>
                 <div class="clearfix"></div>
                 <div class="form-check form-check-inline">
