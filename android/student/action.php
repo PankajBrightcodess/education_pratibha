@@ -202,10 +202,6 @@ if(isset($_POST['submitAnswer'])){
       $date = date('Y-m-d');
       $wallet = "INSERT INTO `wallet`(`user_id`,`refer_user_id`,`type`,`amount`,`description`,`date`) VALUES ('$executive_id','$id','field_executive','150','Amount add through student payment','$date')";
       $wallrun = mysqli_query($conn,$wallet);   
-        
-
-
-
 
 	     }else{
 	     	$date = date('Y-m-d');
