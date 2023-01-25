@@ -149,7 +149,7 @@ if(isset($_POST['submitAnswer'])){
       $executive=mysqli_fetch_assoc($sql4);  
       $executive_id = $executive['executive_id'];
       $date = date('Y-m-d');
-      $wallet = "INSERT INTO `wallet`(`user_id`,`refer_user_id`,`type`,`amount`,`description`,`date`) VALUES ('$executive_id','$id','field_executive','250','Amount add through student payment','$date')"; 
+      $wallet = "INSERT INTO `wallet`(`user_id`,`refer_user_id`,`type`,`amount`,`description`,`date`) VALUES ('$executive_id','$id','field_executive','150','Amount add through student payment','$date')"; 
       $wallrun = mysqli_query($conn,$wallet);     
 	     }else{
 	     	$date = date('Y-m-d');
@@ -162,7 +162,7 @@ if(isset($_POST['submitAnswer'])){
       $executive=mysqli_fetch_assoc($sql4);  
       $executive_id = $executive['executive_id'];
       $date = date('Y-m-d');
-      $wallet = "INSERT INTO `wallet`(`user_id`,`refer_user_id`,`type`,`amount`,`description`,`date`) VALUES ('$executive_id','$id','field_executive','250','Amount add through student payment','$date')"; 
+      $wallet = "INSERT INTO `wallet`(`user_id`,`refer_user_id`,`type`,`amount`,`description`,`date`) VALUES ('$executive_id','$id','field_executive','150','Amount add through student payment','$date')"; 
       $wallrun = mysqli_query($conn,$wallet);     
 	     }
 	    }else{
@@ -176,7 +176,7 @@ if(isset($_POST['submitAnswer'])){
       $executive=mysqli_fetch_assoc($sql4);  
       $executive_id = $executive['executive_id'];
       $date = date('Y-m-d');
-      $wallet = "INSERT INTO `wallet`(`user_id`,`refer_user_id`,`type`,`amount`,`description`,`date`) VALUES ('$executive_id','$id','field_executive','250','Amount add through student payment','$date')"; 
+      $wallet = "INSERT INTO `wallet`(`user_id`,`refer_user_id`,`type`,`amount`,`description`,`date`) VALUES ('$executive_id','$id','field_executive','150','Amount add through student payment','$date')"; 
       $wallrun = mysqli_query($conn,$wallet);     
 
 	    }
