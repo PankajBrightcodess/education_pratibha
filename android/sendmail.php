@@ -72,7 +72,7 @@ if(isset($_POST['feedback'])){
 if(isset($_POST['contactus'])){
 	   // echo '<pre>';
    	// print_r($_POST);die;
-	    $to="support@shivanyacomputer.com";   
+	    $to="educollectionpratibhadarpan@gmail.com";   
 	    // /support@shivanyacomputer.com/ 
 	    $name = $_POST['name'];
 	    $mobile = $_POST['contact'];
@@ -80,7 +80,7 @@ if(isset($_POST['contactus'])){
 	    $comment = $_POST['message'];
 	    $selectedProjects  = 'None';
 	    
-	    $body = 'Shivanya Computer Education(Contact Us): ' . $selectedProjects;
+	    $body = 'Educollection Pratibha(Contact Us): ';
 	    $subject = "Regarding Contact Enquiry";
 	    $from = $email;
 	    $message = "Name: ".$name."\n Mobile: ".$mobile."\n E-mail: ".$email."\n".$body."\n Comment: ".$comment;
