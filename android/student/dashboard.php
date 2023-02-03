@@ -230,3 +230,13 @@ $msg = "";
      }else if(c==0){
        swal("Opps not payment!", "Something Error !", "error");     }
 </script>
+<script type="text/javascript">
+      var url_string = window.location.href;
+    var url = new URL(url_string);
+    var c = url.searchParams.get("statuss");
+    if(c==1){
+       swal("Success!", "successfully!", "success");
+     }else if(c==0){
+       swal("Opps!", "Something Error !", "error");     }
+</script>
+

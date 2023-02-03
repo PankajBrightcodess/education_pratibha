@@ -214,3 +214,14 @@ $msg = "";
 <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 <?php include 'footer.php'; ?>
 <?php include 'footer-links.php'; ?>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript">
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+    var b = url.searchParams.get("statuss");
+    if(b==1){
+       swal("Success!", "Login successfully!", "success");
+     }else if(b==0){
+       swal("Opps!", "Please Try Again!", "error");    
+        }
+</script>

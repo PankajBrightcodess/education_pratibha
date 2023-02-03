@@ -109,7 +109,7 @@ function deletedata(){
                 success: function(result){
                 	
                     if(result=='1'){
-                        swal("Good job!", "Updated Successfully!", "success");
+                        swal("Success!", "Updated Successfully!", "success");
                     	window.location.href = "executivelogin.php";
                         
                     }

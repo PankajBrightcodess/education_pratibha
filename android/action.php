@@ -1,4 +1,4 @@
-center_login<?php 
+<?php 
 session_start();
 include 'connection.php';
 function Imageupload($dir,$inputname,$allext,$pass_width,$pass_height,$pass_size,$newname){
@@ -686,15 +686,15 @@ if(isset($_POST['del_result_admin'])){
 	    	    $last_id = $conn->insert_id;
 	    	    $query1= "INSERT INTO `wallet`(`user_id`,`type`,`amount`,`name`,`email`,`date`) VALUES ('$last_id','student','0','$name','$email','$added_on')";
 	    	     $sql1=mysqli_query($conn,$query1);
-	    	    if($sql && $sql1){
-					echo $sql1;
+	    	    if($sql ){
+					echo 1;
 				}
 				else{
-					echo $sql1;
+					echo 0;
 				}	
 	    }
 	    else{
-	    	 echo $sql1;
+	    	 echo 0;
 		    
 	    }
 	}

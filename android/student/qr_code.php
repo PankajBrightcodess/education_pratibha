@@ -16,10 +16,9 @@ include '../connection.php';
             <div class="row ">
                 <div class="col-md-12"><h5 class="text-center text-info">QR Payment</h5><hr class="border-warning"></div>
                 <div class="col-md-12 col-12">
-                    <img src="../../images/qr_code.jpeg" width="100%" >
+                    <img src="../../images/qr_code.png" width="100%" >
                 </div> 
             </div>
-
             <div class="row ">
                 <div class="col-md-12"><hr class="border-warning"></div>
                

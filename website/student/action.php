@@ -263,11 +263,11 @@ if(isset($_POST['studentlogin'])){
 		$_SESSION['role'] = $data['role'];
 		$_SESSION['executive_id'] = $data['executive_id'];
 
-		header('location:dashboard.php');		
+		header('location:dashboard.php?statuss=1');		
 	}
 	else{
 		// $_SESSION['msg']='Invalid details !!!';
-		header("Location: ".$_SERVER['HTTP_REFERER']);
+		header("Location:../index.php?status=0");
 	}
 }
 

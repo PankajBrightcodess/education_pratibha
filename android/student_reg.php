@@ -206,10 +206,9 @@ while ($data=mysqli_fetch_assoc($run)) {
                 url:'action.php',
                 data:{name:name,mobile:mobile,email:email,ac_qualify:ac_qualify,course:course,executive_id:executive_id,password:password,dob:dob,fathername:fathername,school_name:school_name,bankname:bankname,bankaccount:bankaccount,ifsc:ifsc,address:address,student_reg:'student_reg'},
                 success: function(result){
-                    // alert(result);
-                    // console.log(result);
-                    if(result){
-                        swal("Good job!", "Registered Successfully!", "success");
+                    alert(result);
+                    if(result == 1){
+                        swal("Success!", "Registered Successfully!", "success");
                         window.location = "studentlogin.php";
                     }
                     else{

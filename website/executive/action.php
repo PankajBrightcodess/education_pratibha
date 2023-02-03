@@ -128,7 +128,7 @@ if(isset($_POST['executive_login'])){
 		$_SESSION['exe_id'] = $data['id'];
 		$_SESSION['name'] = $data['name'];
 		if($_SESSION['role']==2){
-			header('location:dashboard.php');
+			header('location:dashboard.php?status=1');
 		}
 		else{
 			header('location:../executivelogin.php');
@@ -136,7 +136,7 @@ if(isset($_POST['executive_login'])){
 	}
 	else{
 		 // $_SESSION['msg']='Invalid details !!!';
-		header("Location: " . $_SERVER['HTTP_REFERER']);
+		header("Location:../index.php?status=0");
 	}
 }
 if(isset($_POST['change_center_exe'])){

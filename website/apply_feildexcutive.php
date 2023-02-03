@@ -117,10 +117,10 @@
                 success: function(data){
                     // console.log(data);
                     if(data=='center_login'){
-                        swal("Good job!", "Registered Successfully!", "success");
+                        swal("Success!", "Registered Successfully!", "success");
                     }
                     else{
-                        swal("Good job!", "Registered Successfully!", "success");
+                        swal("Success!", "Registered Successfully!", "success");
                       
                     }
                       

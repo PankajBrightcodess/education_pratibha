@@ -220,7 +220,7 @@ include 'header.php';
     var url = new URL(url_string);
     var c = url.searchParams.get("status");
     if(c==1){
-       swal("Good job!", "Exam Submitted!", "success");
+       swal("Success!", "Exam Submitted!", "success");
      }else if(c==0){
        swal("Opps!", "Something Error Not Submitted!", "error");
      }

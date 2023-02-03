@@ -204,7 +204,7 @@ while ($data=mysqli_fetch_assoc($run)) {
                 success: function(result){
                     // alert(result);
                     // console.log(result);
-                    if(result){
+                    if(result == 1){
                         swal("Good job!", "Registered Successfully!", "success");
                         window.location = "studentlogin.php";
                     }
