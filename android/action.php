@@ -660,7 +660,15 @@ if(isset($_POST['del_result_admin'])){
 	}
 	
    }
-   if(isset($_POST['student_reg'])){   
+
+   
+   if(isset($_POST['student_reg'])){
+        if(isset($_POST['referalid'])){
+        $refid = $_POST['referalid'];	
+        }else{
+   	    $refid = null;	
+        }  
+
 		$name =$_POST['name'];
 		$mobile =$_POST['mobile'];
 		$email =$_POST['email'];
@@ -687,16 +695,15 @@ if(isset($_POST['del_result_admin'])){
 	    	    $query1= "INSERT INTO `wallet`(`user_id`,`type`,`amount`,`name`,`email`,`date`) VALUES ('$last_id','student','0','$name','$email','$added_on')";
 	    	     $sql1=mysqli_query($conn,$query1);
 	    	    if($sql ){
-					echo 1;
-				}
-				else{
-					echo 0;
+		    echo '<script>alert("Register successfully!!");window.location.assign("studentlogin.php");</script>'; 
+				}else{
+			echo '<script>alert("Not Register!!");window.location.assign("student_reg.php");</script>'; 
 				}	
+	       }else{
+		     echo '<script>alert("Enter Another Email!!");window.location.assign("student_reg.php");</script>'; 
 	    }
-	    else{
-	    	 echo 0;
-		    
-	    }
+	}else{
+		    echo '<script>alert("Enter Another Email!!");window.location.assign("student_reg.php");</script>';
 	}
 	}
 
@@ -791,6 +798,16 @@ if(isset($_POST['update_student'])){
 			}
 	}
 	
+
+
+   if(isset($_POST['search_executive'])){
+      $id = $_POST['studentid'];
+
+
+
+
+   }
+
 
 	
 

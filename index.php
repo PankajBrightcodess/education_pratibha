@@ -1,1 +1,5 @@
-<?php header('location:https://educollectionpratibhadarpan.com/website/'); ?>
+<?php 
+
+// header('location:https://educollectionpratibhadarpan.com/website/');
+
+ ?>

@@ -64,14 +64,20 @@ $msg = "";
                   <form method="post" action="action.php" enctype="multipart/form-data">
                   <div class="col-md-12">
                         
-                <div class="col-md-12 mb-5">
+                <div class="col-md-12 mb-3">
                     <label>Homework Name<!-- <span style="color: Red;">*</span> --></label>
                   <input type="text" name="name" id="name" class="form-control">
                 </div>
-                <div class="col-md-12 mb-5">
+                  <div class="col-md-12 mb-3">
+                    <label>Youtube link<!-- <span style="color: Red;">*</span> --></label>
+                  <input type="text" name="youtubelink"  class="form-control">
+                </div>
+                <div class="col-md-12 mb-3">
                     <label>Upload Homework<!-- <span style="color: Red;">*</span> --></label>
                   <input type="file" name="assessement" accept="pdf" class="form-control">
                 </div>
+              
+
                   </div>
                   <div class="col-md-12"><input type="submit" name="add_homework" class="btn btn-sm btn-success"></div>
                   </form>
@@ -108,6 +114,7 @@ $msg = "";
                   <tr>
                     <th>S. No.:</th>
                     <th>Homework</th>
+                    <th>Youtube Link</th>
                     <th>Date</th>
                     <th>Action</th>
                     
@@ -122,6 +129,7 @@ $msg = "";
                              <tr>
                               <td><?php echo $sn; ?></td>
                               <td><a href="uploads/homework/<?php echo $value['assessment']; ?>"><?php echo  $value['name']; ?></a></td>
+                              <td><?php echo $value['link']; ?></td>  
                               <td><?php echo $value['date']; ?></td>
                               <td> <a href="action.php?homeworkdelete=<?php echo $value['pid']; ?>" class="btn btn-sm btn-danger" >Delete</a></td>
                             </tr>

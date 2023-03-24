@@ -13,6 +13,31 @@ $msg = "";
 		header('location:../executivelogin.php');
 	}
 ?>
+
+
+<?php  
+
+function url(){
+    if(isset($_SERVER['HTTPS'])){
+        $protocol = ($_SERVER['HTTPS'] && $_SERVER['HTTPS'] != "off") ? "https" : "http";
+    }else{
+        $protocol = 'http';
+    }
+   $exe_id =  $_SESSION['exe_id']; 
+  if(isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST']=='localhost'){
+     $myurl =   $protocol . "://" . $_SERVER['HTTP_HOST']."/education_pratibha/android/student_reg.php?refid=EXC_".$exe_id;
+  }else{
+     $myurl = "https://educollectionpratibhadarpan.com/android/student_reg.php?refid=STD_".$exe_id; 
+  }
+  return $myurl;
+}
+$base = url();
+
+?>
+
+
+
+
 <?php include 'header-links.php'; ?>
 <!-- <style type="text/css">
   .menu{
@@ -39,6 +64,23 @@ $msg = "";
   margin-top: 24px;
  }
 </style>
+
+<style type="text/css">
+
+ .share_button_des{
+      background: #3e34aa;
+    /* width: 48%; */
+    border-radius: 100%;
+    padding: 27px;
+    border: 4px solid #5b5bcd;
+ }
+
+ .botton_text{
+font-weight: 500;font-size: 14px;
+ }
+</style>
+
+
 <?php include 'header.php'; ?>
 <section class="blank-course "></section>
 <section class=" banner-bottom-executive" >
@@ -64,6 +106,13 @@ $msg = "";
 
               <div class="col-4 mar"><a href="logout.php"><img src="../../images/app/06.png" width="80px;">
               </a></div>
+   <div class="col-4 mt-3">
+       <span  class="btn  share_button_des " id="sub40"> <i  class="fa fa-share" style="color:white;"> </i> </span> <br>
+       <span class="botton_text"> Share </span> 
+      </div>
+
+
+
     </div>
 
 
@@ -114,4 +163,21 @@ $msg = "";
      }else if(b==0){
        swal("Opps!", "Please Try Again!", "error");    
         }
+
+   $('body').on('click','#sub40',function(){
+      var link=  '<?php echo $base.""; ?>';
+      var name=$(this).attr('data-name');
+      if (navigator.share) {
+      navigator.share({
+        title: '<?php echo "Education PRATIBHA DARPAN"; ?>',
+        text: 'Hii '+name+', Thanks For Purchase !! To Check Your Purchase Detail Click Here -',
+        url: link,
+      })
+        .then(() => console.log('Successful share'))
+        .catch((error) => console.log('Error sharing', error));
+     }
+   });
+
+
+
 </script>

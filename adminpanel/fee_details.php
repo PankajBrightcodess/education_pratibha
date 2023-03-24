@@ -73,7 +73,7 @@ $msg = "";
                   $nm1=mysqli_num_rows($res1);
                   $sql2 = "SELECT SUM(student.amount) as total FROM `student` WHERE `payment_status` = '1'";
                   $res2 = mysqli_query($conn,$sql2);
-                  $data=mysqli_fetch_assoc($res2);
+                  $data = mysqli_fetch_assoc($res2);
                   $total = $data['total'];
                   ?>
                   <div class="row" >
@@ -117,7 +117,7 @@ $msg = "";
                               <td><?php echo $value['payment_id']; ?></td> 
                              <td>
                              <?php
-                             $status= $value['payment_status'];
+                                 $status= $value['payment_status'];
                                       if( $status == 1){ ?>
                                           <center style="background-color: #20c997; color: white; text-align: center;">Paid</center>
                                     <?php   }
@@ -125,29 +125,14 @@ $msg = "";
                                       else{ ?>
                                         <center style="background-color:#ca4653;; color:white; text-align: center;">Unpaid</center>
                                   <?php    }
-
-
-                          //            if($status == 1){
-                          //            $rowcount = count( $status );
-                          //            echo '<pre>';
-                          //            print_r($rowcount);die;
-
-                          // }
-                          // elseif(($status == 0) && ($status == null)){
-
-                          //     $rowcount = count( $status );
-                          //     echo $rowcount;
-                          // }
-
          
                               ?>
                              </td>
                                <td> <?php if($value['payment_status'] == 0){ ?>
-                                      <form action="action.php" method="post">
+                                   <form action="action.php" method="post">
                                       <input type="hidden" name="id" value="<?php echo $value['id']; ?>">
                                       <input type="hidden" name="payment_status" value="1">
-                                      <input type="submit" class="btn btn-warning btn-sm" value="Pending" name="approved">
-                                     
+                                      <input type="submit" class="btn btn-warning btn-sm" value="Pending" name="approved">  
                                    </form>
                                    <button class="btn btn-secondary">Pay Times: <?php echo $value['pay_times']; ?></button>
                             <?php  }else{ ?>

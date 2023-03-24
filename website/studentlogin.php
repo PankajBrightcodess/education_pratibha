@@ -14,7 +14,7 @@
                         <form action="student/action.php" method="POST">
                             <div class="form-group">
                                 <!-- <i class="fa fa-envelope-square fa-lg passkey"></i> -->
-                             <input type="email" name="email" placeholder="Enter User Id:" class="form-control" required="" style="padding-left: 30px;"> 
+                             <input type="email" name="email" placeholder="Enter User Email:" class="form-control" required="" style="padding-left: 30px;"> 
                              </div>
                             <div class="form-group">
                                 <!-- <i class="fa fa-key fa-lg passkey"></i> -->
@@ -27,7 +27,7 @@
                         </form>
                     </div>
                 </div>
-               <!--  <div class="col-md-3"></div> -->
+                 <!-- <div class="col-md-3">  </div> -->
             </div>
         </div>
     </section>

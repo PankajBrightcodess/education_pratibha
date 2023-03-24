@@ -13,13 +13,16 @@ include '../connection.php';
  <section class="pages" id="contactpg">
     <div class="container">
         <form action="action.php" method="post">
-            <div class="row ">
+            <div class="row">
                 <div class="col-md-12"><h5 class="text-center text-info">Payment</h5><hr class="border-warning"></div>
-               
-          
-            <div class="col-md-6 mb-5">
+             <div class="col-md-6 mb-5">
                 <label >Amount<span style="color: Red;">*</span></label>
-                <input type="text" name="amount" class="form-control" readonly value="350" required> 
+                <select name="amount" class="form-control" required>
+                    <option value="">--Select--</option>
+                    <option value="450">450</option>
+                    <option value="40">40</option>
+                </select>
+                <!-- <input type="text" name="" class="form-control" readonly value="" required>  -->
             </div>
                 <div class="clearfix"></div>
                 <div class="form-check form-check-inline">

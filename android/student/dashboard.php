@@ -15,6 +15,26 @@ $msg = "";
 	}
   
 ?>
+
+<?php  
+function url(){
+    if(isset($_SERVER['HTTPS'])){
+        $protocol = ($_SERVER['HTTPS'] && $_SERVER['HTTPS'] != "off") ? "https" : "http";
+    }else{
+        $protocol = 'http';
+    }
+   $re_id =  $_SESSION['enroll_id']; 
+  if(isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST']=='localhost'){
+     $myurl =   $protocol . "://" . $_SERVER['HTTP_HOST']."/education_pratibha/android/student_reg.php?refid=STD_".$re_id;
+  }else{
+     $myurl = "https://educollectionpratibhadarpan.com/android/student_reg.php?refid=STD_".$re_id; 
+  }
+  return $myurl;
+}
+$base = url();
+
+?>
+
 <?php include 'header-links.php'; ?>
 
 <?php include 'header.php'; ?>
@@ -42,10 +62,20 @@ $msg = "";
 <style type="text/css">
   .banner-bottom i{
     font-size:30px;
-   
     text-shadow:2px 2px 4px #000000;
   }
   
+ .share_button_des{
+      background: #3e34aa;
+    /* width: 48%; */
+    border-radius: 100%;
+    padding: 27px;
+    border: 4px solid #5b5bcd;
+ }
+
+ .botton_text{
+font-weight: 500;font-size: 14px;
+ }
 </style>
 
  <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
@@ -67,7 +97,7 @@ $msg = "";
       
     </div>
     <br>
-    <div class="row">
+      <div class="row">
 
      
               <div class="col-4"><a href="onlineexamlist.php"><img src="../../images/app/03.png" width="80px;">
@@ -79,8 +109,22 @@ $msg = "";
            <div class="col-4">
              <a href="logout.php"><img src="../../images/app/06.png" width="80px;"></a>
            </div>
+
+           
+       <div class="col-4 mt-3">
+       <span  class="btn  share_button_des " id="sub40"> <i  class="fa fa-share" style="color:white;"> </i> </span> <br>
+       <span class="botton_text"> Share </span> 
+      </div>
+         <!--   <div class="col-6">
+           <span  class="btn  share_button_des" id="sub450" >  <i  class="fa fa-share" style="color:white;"> </i> </span> <br>
+              <span class="botton_text"> 1 Year Subscription </span> 
+           </div> -->
+   
+
             </div>
       
+   
+   
     </div>
 
 
@@ -90,19 +134,7 @@ $msg = "";
 <section class="page">
     <div class="container-fluid">
 
-     <!--  <div class="row menu">
-        <div class="col-6"><a href="dashboard.php"><i class="fa fa-home" aria-hidden="true"></i>Dashboard</a></div>
-        <div class="col-6"><a href="user_profile.php"><i class="fa fa-sign-in-alt"></i>Profile</a></div>
-        <div class="row" style="margin-left: 3px;">
-          <div class="col-6"><a href="paid_course.php"><i class="fa fa-book"></i>Online Test</a></div>
-           <div class="col-6"><a href="winner-list.php"><i class="fa fa-medal"></i>Winner List</a></div>
-            <div class="row">
-          <div class="col-12" style="margin-left: 15px;"><a href="logout.php"><i class="fa fa-star" aria-hidden="true"></i>Logout</a></div>
-        </div>
-        </div>
-       
-     
-    </div> -->
+
     <br>
     <br>
       <div class="row">
@@ -136,87 +168,12 @@ $msg = "";
 
                 <?php
             }
-          }
-
-
-
-        ?>
+          } ?>
     </div>
   </section>
 
 
 
-<!-- <section>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-12 dashboard mb-3">
-				<h4 style="color:#403226; margin-top: 2rem; text-align: center;"><?php print_r($_SESSION['name'])?>
-				
-				</h4>
-
-				     <div class="col-md-9">
-                  <div class="department-list">
-                     <div class="card">
-              <div class="card-header">
-                <h5 style="font-weight: bold;">Student Assessment List</h5>
-              </div>
-              <!-- /.card-header -->
-              <!-- <div class="card-body">
-              
-                <table  class="table  ">
-                  <thead>
-                  <tr>
-                    <th>S.No.:</th>
-                   <th>Teacher name</th>
-                    <th>Assessement</th>
-                    <th>Date</th>
-                  </tr>
-                  </thead>
-                  <tbody > -->
-                 <!-- <?php 
-                 // $sql = "SELECT * FROM `homework` WHERE `status`='1'";
-                 $sql = "SELECT `homework`.`pid`, `field_excutive`.`name`, `homework`.`assessment`,`homework`.`date` 
-                 FROM `homework`
-                  INNER JOIN `field_excutive` ON `homework`.`executive_id`=`field_excutive`.`id`;";
-                  $res = mysqli_query($conn,$sql);
-                  while($data = mysqli_fetch_assoc($res)){
-                    $homework[]=$data;
-                  } 
-                 if(!empty($homework)){$sn=0;
-                  echo '<pre>';
-                  // print_r($gallery);
-                  foreach ($homework as $key => $row) {$sn++;  $id=$row['pid'];?>
-                      <tr>
-                        <td><?php echo $sn; ?></td>
-                        <td><p ><?php echo $row['name']; ?></p></td>
-                        <td><a href="../executive/uploads/homework/<?php echo $row['assessment']; ?>"><i class="fa fa-file-pdf-o" style="font-size:24px"></i></a>	 </td>
-                        <td><?php echo $row['date']; ?></td>
-                 
-                    <?php
-                  }
-                 }
-                         
-                ?> -->
-                        
-                            
-                        <!-- </tr>
-                 
-                    </tbody>
-                 
-                </table>
-              </div>
-              <!-- /.card-body -->
-              
-            <!-- </div>
-                  </div>
-                </div>
-			</div>
-		</div>
-		<div class="row">
-
-        </div>
-	</div>
-</section> -->
 <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <?php include 'footer.php'; ?>
@@ -238,5 +195,22 @@ $msg = "";
        swal("Success!", "successfully!", "success");
      }else if(c==0){
        swal("Opps!", "Something Error !", "error");     }
+
+
+    
+   $('body').on('click','#sub40',function(){
+      var link=  '<?php echo $base.""; ?>';
+      var name=$(this).attr('data-name');
+      if (navigator.share) {
+      navigator.share({
+        title: '<?php echo "Education PRATIBHA DARPAN"; ?>',
+        text: 'Hii '+name+', Thanks For Purchase !! To Check Your Purchase Detail Click Here -',
+        url: link,
+      })
+        .then(() => console.log('Successful share'))
+        .catch((error) => console.log('Error sharing', error));
+     }
+   });
+
 </script>
 

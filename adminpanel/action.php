@@ -238,6 +238,7 @@ if(isset($_GET['aboutdelete'])){
 		// print_r($_POST);die;
 		// $executive_id=$_POST['executive_id'];
 		$name = $_POST['name'];
+		$link = $_POST['youtubelink'];
 		$date = date('Y-m-d');
 		$assessement = $_FILES['assessement']['name'];
 		$assessement = explode('.',$assessement);
@@ -248,7 +249,7 @@ if(isset($_GET['aboutdelete'])){
 		$check = Fileupload($dir,'assessement',$allext,'10000000',$assessement); 
 		if($check===true){
 			$assessement .= ".pdf";	
-			$query="INSERT INTO `homework`(`name`,`assessment`,`date`) VALUES ('$name','$assessement','$date')";
+			$query="INSERT INTO `homework`(`name`,`assessment`,`link`,`date`) VALUES ('$name','$assessement','$link','$date')";
 			$sql=mysqli_query($conn,$query);
 			if($sql){
 				 header("Location:$_SERVER[HTTP_REFERER]");
@@ -398,23 +399,101 @@ if(isset($_POST['add_winner'])){
 if(isset($_POST['approved'])){
 	$id = $_POST['id'];
 	$payment_status = $_POST['payment_status'];
-	$query = "UPDATE `student` SET `payment_status` = '$payment_status' WHERE `id`='$id'";
-	$sql = mysqli_query($conn,$query);
-	$query2 = "SELECT field_excutive.id,field_excutive.name, student.id,student.executive_id FROM student INNER JOIN field_excutive ON field_excutive.id=student.executive_id WHERE student.id= '$id'";
-      $sql2 = mysqli_query($conn,$query2);    
-      $executive=mysqli_fetch_assoc($sql2);  
-      $executive_id = $executive['executive_id'];
-      $date = date('Y-m-d H:i:s');
-      $wallet = "INSERT INTO `wallet`(`user_id`,`refer_user_id`,`type`,`amount`,`description`,`date`) VALUES ('$executive_id','$id','field_executive','150','Amount add through student payment','$date')"; 
-      $sql3 = mysqli_query($conn,$wallet);     
-	if($sql == true && $sql2 == true ){
+
+   	$query="SELECT * FROM `student` WHERE `id`='$id' and `status`='1'";
+	$runs=mysqli_query($conn,$query);
+	$data=mysqli_fetch_assoc($runs);
+    $amount = $data['amount'];
+    $executive_id = $data['executive_id'];
+
+    if(!empty($data['pay_end_date']) && $data['pay_end_date'] != NULL){
+	     $expirydate = $data['pay_end_date'];   	
+	}
+
+      if(!empty($data['pay_date'])){
+	      $paydate = $data['pay_date'];
+	      if($expirydate > date('Y-m-d')){
+	      $expirydate = $data['pay_end_date'];
+	      if($data['amount'] == 450){
+         $new_expirydate = date('Y-m-d',strtotime($expirydate.'+'.'+1year'));
+	      }elseif($data['amount'] == 40){
+         $new_expirydate = date('Y-m-d',strtotime($expirydate.'+'.'+20days'));
+	      }
+	      }else{
+	     	$date = date('Y-m-d');
+	     		$payment_times= $data['pay_times'] +1;
+	     if($data['amount'] == 450){
+         $new_expirydate = date('Y-m-d',strtotime($date.'+'.'+1year'));
+	      }elseif($data['amount'] == 40){
+         $new_expirydate = date('Y-m-d',strtotime($date.'+'.'+20days'));
+	      }	 
+	     }
+	    }else{
+	      $date = date('Y-m-d');
+        $payment_times= $data['pay_times'] +1;
+        if($data['amount'] == 450){
+         $new_expirydate = date('Y-m-d',strtotime($date.'+'.'+1year'));
+	      }elseif($data['amount'] == 40){
+         $new_expirydate = date('Y-m-d',strtotime($date.'+'.'+20days'));
+	      }	   
+	   } 
+ 
+     if($new_expirydate){
+        $query = "UPDATE `student` SET `payment_status` = '$payment_status',`pay_end_date`='$new_expirydate' WHERE `id`='$id'";
+	    $sql = mysqli_query($conn,$query);	
+     }
+
+    //  statrt of commition to share in student and executive
+      if(isset($data['ref_id'])){
+      $refid =  $data['ref_id'];
+      $ref[] = explode("_",$refid);           
+      if($ref[0][0] == 'STD'){
+       $student_id = $ref[0][1];
+      if($amount==40){
+        $date = date('Y-m-d');
+        $fieldExWallet = "INSERT INTO `wallet`(`user_id`,`refer_user_id`,`type`,`amount`,`description`,`date`) VALUES ('$executive_id','$id','field_executive','10','Amount add through student payment','$date')"; 
+        $fieldExWallrun = mysqli_query($conn,$fieldExWallet);
+        $stWallet = "INSERT INTO `wallet`(`user_id`,`refer_user_id`,`type`,`amount`,`description`,`date`) VALUES ('$student_id','$id','student','10','Amount add through student payment','$date')"; 
+        $stWallrun = mysqli_query($conn,$stWallet); 
+      }elseif($amount==450){
+        $date = date('Y-m-d');
+        $fieldExWallet = "INSERT INTO `wallet`(`user_id`,`refer_user_id`,`type`,`amount`,`description`,`date`) VALUES ('$executive_id','$id','field_executive','50','Amount add through student payment','$date')"; 
+        $fieldExWallrun = mysqli_query($conn,$fieldExWallet);
+        $stWallet = "INSERT INTO `wallet`(`user_id`,`refer_user_id`,`type`,`amount`,`description`,`date`) VALUES ('$student_id','$id','student','100','Amount add through student payment','$date')"; 
+        $stWallrun = mysqli_query($conn,$stWallet); 
+      }
+       }elseif($ref[0][0] == 'EXC'){
+       if($amount==40){
+        $date = date('Y-m-d');
+        $fieldExWallet = "INSERT INTO `wallet`(`user_id`,`refer_user_id`,`type`,`amount`,`description`,`date`) VALUES ('$executive_id','$id','field_executive','20','Amount add through student payment','$date')"; 
+        $fieldExWallrun = mysqli_query($conn,$fieldExWallet);
+      }elseif($amount==450){
+        $date = date('Y-m-d');
+        $fieldExWallet = "INSERT INTO `wallet`(`user_id`,`refer_user_id`,`type`,`amount`,`description`,`date`) VALUES ('$executive_id','$id','field_executive','150','Amount add through student payment','$date')"; 
+        $fieldExWallrun = mysqli_query($conn,$fieldExWallet);
+      }  
+       }
+      }else{
+       if($amount==40){
+        $date = date('Y-m-d');
+        $fieldExWallet = "INSERT INTO `wallet`(`user_id`,`refer_user_id`,`type`,`amount`,`description`,`date`) VALUES ('$executive_id','$id','field_executive','20','Amount add through student payment','$date')"; 
+        $fieldExWallrun = mysqli_query($conn,$fieldExWallet);
+      }elseif($amount==450){
+        $date = date('Y-m-d');
+        $fieldExWallet = "INSERT INTO `wallet`(`user_id`,`refer_user_id`,`type`,`amount`,`description`,`date`) VALUES ('$executive_id','$id','field_executive','150','Amount add through student payment','$date')"; 
+        $fieldExWallrun = mysqli_query($conn,$fieldExWallet);
+      }        
+      }
+
+    //  end of commition to share in student and executive
+	if($sql == true && $fieldExWallrun == true ){
 		$_SESSION['msg']="Payment status verify Successfully";
 	  	header("Location:$_SERVER[HTTP_REFERER]");
 	  }else{
 	  	$_SESSION['msg']="Not Approved!!!";
 	  	header("location:$_SERVER[HTTP_REFERER]");
 	  }
-}
+  }
 
 if(isset($_POST['update_winner'])){
 	$id = $_POST['snoEdit'];

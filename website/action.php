@@ -1,4 +1,4 @@
-center_login<?php 
+<?php 
 session_start();
 include 'connection.php';
 function Imageupload($dir,$inputname,$allext,$pass_width,$pass_height,$pass_size,$newname){
@@ -660,7 +660,16 @@ if(isset($_POST['del_result_admin'])){
 	}
 	
    }
-  if(isset($_POST['student_reg'])){   
+
+
+
+   if(isset($_POST['student_reg'])){
+        if(isset($_POST['referalid'])){
+        $refid = $_POST['referalid'];	
+        }else{
+   	    $refid = null;	
+        }  
+        
 		$name =$_POST['name'];
 		$mobile =$_POST['mobile'];
 		$email =$_POST['email'];
@@ -680,25 +689,101 @@ if(isset($_POST['del_result_admin'])){
 	    $run=mysqli_query($conn,$query);
 	    $num=mysqli_num_rows($run);
 	    if($num==0){
-	    		$query="INSERT INTO `student`(`name`,`mobile`,`email`,`fathername`,`bankname`,`bankaccount`,`ifsc`,`ac_qualify`,`executive_id`,`password`,`dob`,`address`,`added_on`) VALUES ('$name','$mobile','$email','$fathername','$bankname','$bankaccount','$ifsc','$ac_qualify','$executive_id','$password','$dob','$address',
+	    		$query="INSERT INTO `student`(`name`,`mobile`,`email`,`school_name`,`fathername`,`bankname`,`bankaccount`,`ifsc`,`ac_qualify`,`executive_id`,`password`,`dob`,`address`,`added_on`) VALUES ('$name','$mobile','$email','$school_name','$fathername','$bankname','$bankaccount','$ifsc','$ac_qualify','$executive_id','$password','$dob','$address',
 	    			'$added_on')";
 	    	    $sql=mysqli_query($conn,$query);
 	    	    $last_id = $conn->insert_id;
 	    	    $query1= "INSERT INTO `wallet`(`user_id`,`type`,`amount`,`name`,`email`,`date`) VALUES ('$last_id','student','0','$name','$email','$added_on')";
 	    	     $sql1=mysqli_query($conn,$query1);
-	    	    if($sql && $sql1){
-					echo "1";
-				}
-				else{
-					echo "0";
+	    	    if($sql ){
+		    echo '<script>alert("Register successfully!!");window.location.assign("studentlogin.php");</script>'; 
+				}else{
+			echo '<script>alert("Not Register!!");window.location.assign("student_reg.php");</script>'; 
 				}	
+	       }else{
+		     echo '<script>alert("Enter Another Email!!");window.location.assign("student_reg.php");</script>'; 
 	    }
-	    else{
-	    	 echo "0";
-		    
-	    }
+	}else{
+		    echo '<script>alert("Enter Another Email!!");window.location.assign("student_reg.php");</script>';
 	}
 	}
+
+
+
+
+
+
+  // if(isset($_POST['student_reg'])){ 
+// 		$name =$_POST['name'];
+// 		$mobile =$_POST['mobile'];
+// 		$email =$_POST['email'];
+// 		$fathername =$_POST['fathername'];
+// 		$bankname =$_POST['bankname'];
+// 		$bankaccount =$_POST['bankaccount'];
+// 		$ifsc =$_POST['ifsc'];
+// 		$ac_qualify =$_POST['ac_qualify'];
+// 		// $school_name = $_POST['school_name'];
+// 		$executive_id =$_POST['executive_id'];
+// 		$password =$_POST['password'];
+// 		$dob =$_POST['dob'];
+// 		$address =$_POST['address'];
+// 		$added_on =date('Y-m-d');
+ 
+
+  //       if(isset($_POST['refid'])){
+  //       $refid = $_POST['refid'];
+  //       $ref[] = explode("_",$refid);
+  //       $OK = 0;      
+  //       if($ref[0][0] == 'STD'){
+  //       $id = $ref[0][1];	
+  //       $query0="SELECT * FROM `student` WHERE `id`='$id'";
+// 	    $run0=mysqli_query($conn,$query0);
+// 	    $num0=mysqli_num_rows($run0);
+  //        if($num0 == 1){
+  //        $resdata0 = mysqli_fetch_assoc($run0); 
+  //        $executive_id = $resdata0['executive_id'];	
+  //          $OK = 1;      
+  //        }else{
+  //          $OK = 0;           	
+  //        }  
+  //       }elseif($ref[0][0] == 'EXC'){
+  //       $id = $ref[0][1];	
+  //       $executive_id = $ref[0][1];
+  //       $query1="SELECT * FROM `field_excutive` WHERE `id`='$id'";
+// 	    $run1=mysqli_query($conn,$query1);
+// 	    $num1=mysqli_num_rows($num1);
+  //        if($num1 == 1){
+  //           $OK = 1;      
+  //           }else{
+  //           $OK = 0;           	
+  //          }  
+  //         }
+  //       }
+
+
+// 		if(!empty($email)){
+// 	   	$query="SELECT * FROM `student` WHERE `email`='$email'";
+// 	    $run=mysqli_query($conn,$query);
+// 	    $num=mysqli_num_rows($run);
+// 	    if($num==0){
+// 	    $query="INSERT INTO `student`(`ref_id`,`name`,`mobile`,`email`,`fathername`,`bankname`,`bankaccount`,`ifsc`,`ac_qualify`,`executive_id`,`password`,`dob`,`address`,`added_on`) VALUES ('$refid','$name','$mobile','$email','$fathername','$bankname','$bankaccount','$ifsc','$ac_qualify','$executive_id','$password','$dob','$address','$added_on')";
+// 	     $sql=mysqli_query($conn,$query);
+// 	     $last_id = $conn->insert_id;
+// 	     $query1= "INSERT INTO `wallet`(`user_id`,`refer_user_id`,`email`,`type`,`amount`,`date`,`description`,`status`) VALUES ('$last_id','16','$email','student','0.00','$added_on','Account Created with 0 Balance','1')";
+// 	      $sql1=mysqli_query($conn,$query1);
+// 	     if($sql && $sql1){
+// 		 	echo "1";
+// 		 }else{
+// 		 	echo "0";
+// 		 }	
+// 	     }else{
+// 	        echo "0";
+// 	     }
+  //        }else{
+// 	 	    echo '0';
+// 	     }
+	     
+// 	  }
 
    
 // if(isset($_POST['add_student'])){

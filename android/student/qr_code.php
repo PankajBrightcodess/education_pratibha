@@ -11,36 +11,28 @@ include '../connection.php';
 <?php include 'header.php'; ?>
 <section class="blank-course "></section>
  <section class="pages" id="contactpg">
-    <div class="container">
+      <div class="container">
         <form action="action.php" method="post">
             <div class="row ">
                 <div class="col-md-12"><h5 class="text-center text-info">QR Payment</h5><hr class="border-warning"></div>
                 <div class="col-md-12 col-12">
-                    <img src="../../images/qr_code.png" width="100%" >
+                    <img src="../../images/<?php if($_SESSION['nowpay_amount'] == 450){ echo "qr_code.png"; }elseif($_SESSION['nowpay_amount'] == 40){ echo "qr_code_40.png"; }  ?>  " width="100%" >
                 </div> 
             </div>
+
             <div class="row ">
-                <div class="col-md-12"><hr class="border-warning"></div>
-               
-          
+            <div class="col-md-12"><hr class="border-warning"></div>
             <div class="col-md-6 mb-5">
-                <label style="font-weight: 700;" >UTR NO(Transaction ID)<span style="color: Red;">*</span></label>
+                <label style="font-weight: 700;">UTR NO(Transaction ID)<span style="color: Red;">*</span></label>
                 <input type="text" name="utr_no" class="form-control" placeholder="Enter UTR No" required> 
             </div>
-                <div class="clearfix"></div>
-                <!-- <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="mode" id="inlineRadio1" value="online" required>
-                  <label class="form-check-label" for="inlineRadio1">Online</label>
-                </div>
-                <div class="form-check form-check-inline">
-                  <input class="form-check-input" type="radio" name="mode" id="inlineRadio2" value="wallet" required>
-                  <label class="form-check-label" for="inlineRadio2">Wallet</label>
-                </div> -->
+            <div class="clearfix"></div>
+              <!-- <input type="hidden" name="amount" value="<?php if($_SESSION['nowpay_amount'] == 450){ echo 450; }elseif($_SESSION['nowpay_amount'] == 40){ echo 40; }  ?>" > -->
             <div class="col-md-12 text-center"><input type="submit" class="btn btn-warning btn-sm" value="Pay Now" name="qr_code"></div>
             </div>
             
-    </form>
-    </div>
+        </form>
+       </div>
     
       <!-- <span style="text-align: center; font-size:15px;">Total Amount: 450 + 18%GST = 531</span> -->
  </section>

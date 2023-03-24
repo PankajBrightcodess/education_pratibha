@@ -9,10 +9,7 @@ $msg = "";
   if ($msg != "") {
     echo "<script> alert('$msg') </script>";
   }
-  // if($_SESSION['role']!='2'){
-  //   header('location:index.php');
-  // }
-  // $id = $_SESSION['cent_id'];
+
 $query="SELECT * FROM `field_excutive` WHERE `status`='1'";
 $run=mysqli_query($conn,$query);
 while ($data=mysqli_fetch_assoc($run)) {
@@ -22,12 +19,11 @@ while ($data=mysqli_fetch_assoc($run)) {
 <?php include 'header-links.php'; ?>
 <?php include 'header.php'; ?>
 <style type="text/css">
-    #myUL {
+#myUL {
   list-style-type: none;
   padding: 0;
   margin: 0;
 }
-
 #myUL li a {
   border: 1px solid #ddd;
   margin-top: -1px; /* Prevent double borders */
@@ -38,15 +34,58 @@ while ($data=mysqli_fetch_assoc($run)) {
   color: black;
   display: block
 }
-
 #myUL li a:hover:not(.header) {
   background-color: #eee;
 }
 </style>
 <section class="blank-course "></section>
 <section class="pages" style="background-color: #81fbd7; ">
+
+
+   
+<?php  
+if(isset($_GET['refid'])){
+   $refid = explode('_',$_GET['refid']);
+  if($refid[0] == "STD"){
+      $stdid = $refid[1]; 
+      $query="SELECT * FROM `student` WHERE `id`='$stdid' and `status`='1'";
+      $runs=mysqli_query($conn,$query);
+      $num = mysqli_num_rows($runs);
+      if($num){
+        $std_details = mysqli_fetch_assoc($runs); 
+        $exeid = $std_details['executive_id'];
+        $query1="SELECT * FROM `field_excutive` WHERE `id`='$exeid' and `status`='1'";
+        $runs1=mysqli_query($conn,$query1);
+        $exe_detail = mysqli_fetch_assoc($runs1);
+        $executive_emailid = $exe_detail['email'];
+        $executive_id = $exe_detail['id'];  
+      }else{
+        $executive_emailid = null;
+      }
+  }elseif($refid[0] == "EXC"){
+      $exc_id = $refid[1];
+        $query2="SELECT * FROM `field_excutive` WHERE `id`='$exc_id' and `status`='1'";
+        $runs2=mysqli_query($conn,$query2);
+        $num2 =  mysqli_num_rows($runs2); 
+        if($num2 == 1){
+        $exe_detail = mysqli_fetch_assoc($runs2);            
+        $executive_emailid = $exe_detail['email'];
+        $executive_id = $exe_detail['id']; 
+        }else{
+       $executive_emailid = null;   
+        }
+  }
+ }
+
+?>
+
+
+
+
+
     <div class="container">
-        <form method="post" action="action.php">
+
+    <form method="post" action="action.php">
        <div class="row enqueryform">
         <div class="col-lg-12 col-12 mb-3">
             <h2 class="text-center text-info">Student Registration Enquiry Form</h2>
@@ -65,16 +104,20 @@ while ($data=mysqli_fetch_assoc($run)) {
             <input type="text" name="fathername" id="fathername" placeholder="Enter Your Father Name" class="form-control" required>
         </div>
         <div class="col-md-6 col-12 mb-2">
+            <label>School Name<span style="color: Red;">*</span></label>
+            <input type="text" name="school_name" id="school_name" placeholder="Enter School Name" class="form-control" required>
+        </div>
+        <div class="col-md-6 col-12 mb-2">
             <label>Bank Name</label>
-            <input type="text" name="bankname" id="bankname" pattern="[A-Z]" title="Enter capital letter" placeholder="Bank Name" class="form-control">
+            <input type="text" name="bankname" id="bankname"  title="Enter capital letter" placeholder="Bank Name" class="form-control" >
         </div> 
         <div class="col-md-6 col-12 mb-2">
-            <label>Bank Account</label>
-            <input type="number" maxlength="10" minlength="3" pattern="[789][0-9]{9}" title="Please enter exactly 10 digits" name="bankaccount" id="bankaccount" placeholder="Bank Account No" class="form-control" >
+            <label>Bank Account No</label>
+            <input type="number" maxlength="10" minlength="3" pattern="[0-9][0-9][0-9][0-9]" title="Please enter exactly 10 digits" name="bankaccount" id="bankaccount" placeholder="Bank Account No" class="form-control" >
         </div>
         <div class="col-md-6 col-12 mb-2">
             <label>IFSC</label>
-            <input type="text" name="ifsc" id="ifsc" pattern="[a-z0-9][A-Z0-9][a-z]" title="must use alphabhet and number" placeholder="Bank IFSC" class="form-control" >
+            <input type="text" name="ifsc" id="ifsc"  title="must use alphabhet and number" placeholder="Bank IFSC" class="form-control" >
         </div>
         <div class="col-md-6 col-12 mb-2">
             <label>Address<span style="color: Red;">*</span></label>
@@ -123,67 +166,54 @@ while ($data=mysqli_fetch_assoc($run)) {
                 <option value="CBP">Certificate in Basic Programming</option>
             </select>
         </div> -->
-        <div class="col-md-6 col-12 mb-2">
+
+
+
+      <div class="col-md-6 col-12 mb-2">
              <label>Feild Executive<span style="color: Red;">*</span></label>
-             <input class="form-control" type="text" id="myInput" name="executive_id" onkeyup="myFunction()" placeholder="Search for email.." title="Type in a name">
-             <input type="hidden" id="executive_id">
-
-<ul id="myUL">
-      <?php 
-                    if(!empty($executive)){
-                        foreach ($executive as $key => $value) { ?>
-                <li class="aa"><a  class="btn search"data-email="<?php echo $value['email'];?>" data-id="<?php echo $value['id'];?>" value="<?php echo $value['id'];?>"><?php echo $value['email'];?></a></li>
-             <?php
-                        }
-                    }
-
-
-                ?>
-</ul>
-           <!--  <select class="form-control" id="executive_id" name="executive_id">
-                <option>Search</option>
+             <input type="hidden" name="referalid" id="referalid"  placeholder="Enter Referal ID" <?php if(isset($_GET['refid'])){ echo "readonly"; }  ?> value="<?php if(isset($_GET['refid'])){ echo $_GET['refid']; }  ?>" class="form-control">
+              <?php 
+               if(!empty($executive_emailid) && $executive_emailid != null){ 
+               ?>
+             <input type="hidden" name="executive_id"  value="<?php echo $executive_id; ?>">
+               <input class="form-control" type="text" name="myInput" value="<?php echo $executive_emailid; ?>" readonly >
+              <?php   }else{    ?>
+             <select class="form-control" name="executive_id" required>
+                 <option value="">-- Select--</option>
                 <?php 
-                    if(!empty($executive)){
-                        foreach ($executive as $key => $value) {
-                           ?><option value="<?php echo $value['id'];?>" ><?php echo $value['email'];?></option><?php
-                        }
-                    }
-
-
-                ?>
-            </select> -->
-        </div>
-         
-         <!-- <div class="col-md-6 col-12 mb-2">
-            <label>Training Mode<span style="color: Red;">*</span></label>
-            <select class="form-control" id="mode" name="mode">
-                <option>---SELECT---</option>
-                <option value="ragular">Regular</option>
-                <option value="online">Online</option>
-                <option value="correspondence">Correspondence</option>
-            </select>
-        </div> -->
+                if(!empty($executive)){
+                foreach ($executive as $key => $value) { ?>
+                 <option value="<?php echo $value['id'];?>"><?php echo $value['email'];?></option>  
+                <?php  } }  ?>
+             </select>
+          <?php  }  ?>
+        </div> 
+ 
         <div class="col-md-6 col-12 mb-5">
-            <label>Password<span style="color: Red;">*</span></label>
-            <input type="text" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
-  title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="Enter Password" class="form-control" required>
+        <label>Password<span style="color: Red;">*</span></label>
+        <input type="text" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="Enter Password" class="form-control" required>
         </div>
         <div class="col-md-4 col-4"></div>
-        <div class="col-md-4 col-4"><input type="button" name="student_reg" id="student_reg" class="btn btn-sm btn-success form-control" value="Submit"></div>
+        <div class="col-md-4 col-4"><input type="submit" name="student_reg" id="student_reg" class="btn btn-sm btn-success form-control" value="Submit"></div>
         <div class="col-md-4 col-4"></div>
 
       </div> 
    </form>
+
+
+
     </div>
 </section>
- <?php include 'footer.php';?>
-<?php include 'footer-links.php';?>
+ <?php include 'footer.php'; ?>
+<?php include 'footer-links.php'; ?>
+
 <script type="text/javascript">
     $(document).ready(function(e) {
-        $('.aa').hide();
-    $('body').on('click','#student_reg',function(){
+     $('.aa').hide();
+     $('body').on('click','#student_',function(){
      // $('.student_reg').click(function(e){
-            // debugger;
+     // debugger;   
+         var refid=$('#referalid').val();
          var name=$('#name').val();
          var mobile=$('#mobile').val();
          var email=$('#email').val();
@@ -200,20 +230,18 @@ while ($data=mysqli_fetch_assoc($run)) {
         $.ajax({
                 type:'POST',
                 url:'action.php',
-                data:{name:name,mobile:mobile,email:email,ac_qualify:ac_qualify,course:course,executive_id:executive_id,password:password,dob:dob,fathername:fathername,bankname:bankname,bankaccount:bankaccount,ifsc:ifsc,address:address,student_reg:'student_reg'},
+                data:{refid:refid,name:name,mobile:mobile,email:email,ac_qualify:ac_qualify,course:course,password:password,dob:dob,fathername:fathername,bankname:bankname,bankaccount:bankaccount,ifsc:ifsc,address:address,student_reg:'student_reg'},
                 success: function(result){
                     // alert(result);
                     // console.log(result);
                     if(result == 1){
                         swal("Good job!", "Registered Successfully!", "success");
+                         alert("Registered Successfully!");
                         window.location = "studentlogin.php";
-                    }
-                    else{
-                        swal("Opps!", "Something Error!", "error");
-                        window.location = "student_reg.php";
-                      
-                    }
-                      
+                    }else if(result == 0){
+                        swal("Opps!", "Something Error, Try Again !", "error");
+                        // window.location = "student_reg.php";
+                    }    
                     },
                     error: function(){ 
                        alert("email already used");
@@ -234,9 +262,10 @@ while ($data=mysqli_fetch_assoc($run)) {
 
    });
 </script>
-<script type="text/javascript">
 
-    function myFunction() {
+
+<script type="text/javascript">
+    function myFunction(){
     var input, filter, ul, li, a, i, txtValue;
     input = document.getElementById("myInput");
     filter = input.value.toUpperCase();
@@ -252,4 +281,4 @@ while ($data=mysqli_fetch_assoc($run)) {
         }
     }
 }
-</script>
+</script> 
