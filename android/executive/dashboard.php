@@ -26,7 +26,7 @@ function url(){
   if(isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST']=='localhost'){
      $myurl =   $protocol . "://" . $_SERVER['HTTP_HOST']."/education_pratibha/android/student_reg.php?refid=EXC_".$exe_id;
   }else{
-     $myurl = "https://educollectionpratibhadarpan.com/android/student_reg.php?refid=STD_".$exe_id; 
+     $myurl = "https://educollectionpratibhadarpan.com/android/student_reg.php?refid=EXC_".$exe_id; 
   }
   return $myurl;
 }

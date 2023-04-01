@@ -27,7 +27,7 @@ function url(){
   if(isset($_SERVER['HTTP_HOST']) && $_SERVER['HTTP_HOST']=='localhost'){
      $myurl =   $protocol . "://" . $_SERVER['HTTP_HOST']."/education_pratibha/android/student_reg.php?refid=EXC_".$exe_id;
   }else{
-     $myurl = "https://educollectionpratibhadarpan.com/android/student_reg.php?refid=STD_".$exe_id; 
+     $myurl = "https://educollectionpratibhadarpan.com/android/student_reg.php?refid=EXC_".$exe_id; 
   }
   return $myurl;
 }
@@ -106,13 +106,11 @@ font-weight: 500;font-size: 14px;
 
               <div class="col-4 mar"><a href="logout.php"><img src="../../images/app/06.png" width="80px;">
               </a></div>
-   <div class="col-4 mt-3">
+      <div class="col-4 mt-3">
        <span  class="btn  share_button_des " id="sub40"> <i  class="fa fa-share" style="color:white;"> </i> </span> <br>
        <span class="botton_text"> Share </span> 
       </div>
-
-
-
+      
     </div>
 
 
