@@ -270,7 +270,7 @@ if(isset($_POST['payment'])){
 
 
 if(isset($_POST['studentlogin'])){
-	
+
 	$email=$_POST['email'];
 	$pass=$_POST['pass'];
 	$query="SELECT * FROM `student` WHERE `email`='$email' and `password`='$pass'";
@@ -287,8 +287,7 @@ if(isset($_POST['studentlogin'])){
 		$_SESSION['executive_id'] = $data['executive_id'];
 
 		header('location:dashboard.php?statuss=1');		
-	}
-	else{
+	}else{
 		// $_SESSION['msg']='Invalid details !!!';
 		header("Location:../index.php?status=0");
 	}

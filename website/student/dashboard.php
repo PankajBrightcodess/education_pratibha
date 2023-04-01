@@ -45,7 +45,6 @@ $base = url();
           while($data = mysqli_fetch_assoc($res)){
            $homework[] = $data;
           }
-
          ?>
 <style type="text/css">
   .banner-bottom i{
@@ -64,10 +63,47 @@ $base = url();
  .botton_text{
 font-weight: 500;font-size: 14px;
  }
+
+.notice{
+  background-color: #f43131;
+    /* padding: -5px 3px 3px 3px; */
+    /* margin: 3px 3px 3px 3px; */
+    border-radius: 31px;
+    position: relative;
+    top: -20px;
+    color: black;
+}
+
+
 </style>
 
  <!-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+<?php 
 
+$date = date('Y-m-d');
+$id =  $_SESSION['enroll_id']; 
+$noti_query =  "SELECT * FROM `add_notice` ORDER BY `id` DESC LIMIT 1";
+$noti_run = mysqli_query($conn,$noti_query);
+$notification = mysqli_fetch_assoc($noti_run);
+$last_notification_id = $notification['id'];
+
+$view_noti_query =  "select * from `view_notification` where `sid` = '$id'";
+$view_noti_run = mysqli_query($conn,$view_noti_query);
+$is_ok = mysqli_num_rows($view_noti_run); 
+
+
+if($is_ok == 0 ){
+ $view_insert_query = "INSERT INTO `view_notification` (`sid`, `viewed`, `viewed_at`) VALUES ('$id', '0', '$date')"; 
+ $view_insert_run  = mysqli_query($conn,$view_insert_query);
+ $total_viwed = 0;
+}else{
+  $view_notice = mysqli_fetch_assoc($view_noti_run);
+  $total_viwed = $view_notice['viewed'];
+}
+
+$not_viewed_notice = $last_notification_id - $total_viwed;
+
+?>
 
 <section class=" banner-bottom" >
   <div class="container">
@@ -98,6 +134,15 @@ font-weight: 500;font-size: 14px;
        <div class="col-4">
        <span  class="btn  share_button_des " id="sub40"> <i  class="fa fa-share" style="color:white;"> </i> </span> <br>
        <span class="botton_text"> Share </span> 
+      </div>
+
+      <div class="col-4">
+      <a href="all_notificaton.php"> <span  class="btn  share_button_des " >  <i  class="fa fa-bell" style="color:white;"> </i>
+      <?php if($not_viewed_notice != 0){ ?>
+       <span class="notice"> <?php echo $not_viewed_notice; ?> </span>
+       <?php } ?>
+      </span> </a>  <br>
+       <span class="botton_text"> Notification </span> 
       </div>
 
     <!--   <div class="col-6">

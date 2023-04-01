@@ -141,8 +141,8 @@ $msg = "";
                              <a href="action.php?testactivate=<?php echo $value['id']; ?>" class="btn btn-sm btn-warning" >Unactivate</a>
                           <?php   }
                           else{ ?>
-                                 <a href="action.php?testdeactive=<?php echo $value['id']; ?>" class="btn btn-sm btn-success">Active</a>
-                      <?php    } ?>
+                             <a href="action.php?testdeactive=<?php echo $value['id']; ?>" class="btn btn-sm btn-success">Active</a>
+                          <?php  }  ?>
                           </td>
                         </tr>
                       <?php

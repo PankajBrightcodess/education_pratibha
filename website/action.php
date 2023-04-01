@@ -689,13 +689,12 @@ if(isset($_POST['del_result_admin'])){
 	    $run=mysqli_query($conn,$query);
 	    $num=mysqli_num_rows($run);
 	    if($num==0){
-	    		$query="INSERT INTO `student`(`name`,`mobile`,`email`,`school_name`,`fathername`,`bankname`,`bankaccount`,`ifsc`,`ac_qualify`,`executive_id`,`password`,`dob`,`address`,`added_on`) VALUES ('$name','$mobile','$email','$school_name','$fathername','$bankname','$bankaccount','$ifsc','$ac_qualify','$executive_id','$password','$dob','$address',
-	    			'$added_on')";
+	    		$query="INSERT INTO `student`(`ref_id`,`name`,`mobile`,`email`,`school_name`,`fathername`,`bankname`,`bankaccount`,`ifsc`,`ac_qualify`,`executive_id`,`password`,`dob`,`address`,`added_on`) VALUES ('$refid','$name','$mobile','$email','$school_name','$fathername','$bankname','$bankaccount','$ifsc','$ac_qualify','$executive_id','$password','$dob','$address','$added_on')";
 	    	    $sql=mysqli_query($conn,$query);
 	    	    $last_id = $conn->insert_id;
-	    	    $query1= "INSERT INTO `wallet`(`user_id`,`type`,`amount`,`name`,`email`,`date`) VALUES ('$last_id','student','0','$name','$email','$added_on')";
+	    	     $query1= "INSERT INTO `wallet`(`user_id`,`refer_user_id`,`type`,`amount`,`email`,`date`) VALUES ('$last_id','$executive_id','student','0','$email','$added_on')";
 	    	     $sql1=mysqli_query($conn,$query1);
-	    	    if($sql ){
+	    	    if($sql && $sql1){
 		    echo '<script>alert("Register successfully!!");window.location.assign("studentlogin.php");</script>'; 
 				}else{
 			echo '<script>alert("Not Register!!");window.location.assign("student_reg.php");</script>'; 

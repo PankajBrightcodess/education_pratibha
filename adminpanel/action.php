@@ -695,12 +695,20 @@ if(isset($_GET['deletemaster'])){
 	}
 	header("location:$_SERVER[HTTP_REFERER]");
 }
+
 if(isset($_GET['testactivate'])){
 	$id=$_GET['testactivate'];	
 	$query="UPDATE `test_master` SET `status`= 1 WHERE `id` = $id";
 	
 	$run=mysqli_query($conn,$query);
 	if($run===true){
+       $examquery = "select * from `test_master` where `id`='$id'";
+       $runexam = mysqli_query($conn,$examquery);
+       $examdetails = mysqli_fetch_assoc($runexam);
+       $date = date("Y-m-d");  
+       $emssg = $examdetails['test_name']." Exam is Activated!!";
+        $noticeinsquery = "INSERT INTO `add_notice` ( `notice`, `added_on`, `status`) VALUES ( '$emssg', '$date', '1')";
+        $examqueryru =  mysqli_query($conn,$noticeinsquery);
 		header('Location:testmaster.php');
 		$_SESSION['msg']="Test Master list Deleted Successfully !!!";
 	}
@@ -710,6 +718,8 @@ if(isset($_GET['testactivate'])){
 	}
 	header("location:$_SERVER[HTTP_REFERER]");
 }
+
+
 if(isset($_GET['testdeactive'])){
 	$id=$_GET['testdeactive'];	
 	$query="UPDATE `test_master` SET `status`= 0 WHERE `id` = $id";
@@ -725,6 +735,8 @@ if(isset($_GET['testdeactive'])){
 	}
 	header("location:$_SERVER[HTTP_REFERER]");
 }
+
+
 if(isset($_GET['deletestudentwallet'])){
 	$id=$_GET['deletestudentwallet'];	
 	$query="DELETE FROM `wallet` WHERE `id` = $id,`type` = 'student'";
