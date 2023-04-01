@@ -62,22 +62,20 @@ $msg = "";
               <div class="card-body">
                 <div class="row">
                   <form method="post" action="action.php" enctype="multipart/form-data">
-                  <div class="col-md-12">
-                        
-                <div class="col-md-12 mb-3">
-                    <label>Homework Name<!-- <span style="color: Red;">*</span> --></label>
-                  <input type="text" name="name" id="name" class="form-control">
-                </div>
-                  <div class="col-md-12 mb-3">
-                    <label>Youtube link<!-- <span style="color: Red;">*</span> --></label>
-                  <input type="text" name="youtubelink"  class="form-control">
-                </div>
-                <div class="col-md-12 mb-3">
-                    <label>Upload Homework<!-- <span style="color: Red;">*</span> --></label>
-                  <input type="file" name="assessement" accept="pdf" class="form-control">
-                </div>
+                  <div class="col-md-12">    
+                 <div class="col-md-12 mb-3">
+                     <label>Homework Name<!-- <span style="color: Red;">*</span> --></label>
+                     <input type="text" name="name" id="name" class="form-control">
+                 </div>
+                 <div class="col-md-12 mb-3">
+                     <label>Youtube link<!-- <span style="color: Red;">*</span> --></label>
+                     <input type="text" name="youtubelink"  class="form-control">
+                 </div>
+                 <div class="col-md-12 mb-3">
+                     <label> Upload Homework <!-- <span style="color: Red;">*</span>--> </label>
+                     <input type="file" name="assessement" accept="pdf" class="form-control">
+                 </div>
               
-
                   </div>
                   <div class="col-md-12"><input type="submit" name="add_homework" class="btn btn-sm btn-success"></div>
                   </form>
