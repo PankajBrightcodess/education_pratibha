@@ -188,7 +188,7 @@ $not_viewed_notice = $last_notification_id - $total_viwed;
                     <div class="card-body">
                       <div class="row">
                        <div class="col-md-9 col-9 mb-5">
-                          <h6>Homework Name: <?php echo $value['name'];?> <br>(<?php echo $value['date'];?>)</h6>
+                          <h6>Homework Name: <?php echo $value['name'];?> <br>(<?php echo $value['date'];?>)   <br>   <a href='<?php echo $value['link'];?>' target="_blank">Youtube Link </a>  </h6>
                        </div>
                        
                        <div class="col-md-3 col-3"> 
