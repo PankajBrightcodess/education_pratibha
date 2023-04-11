@@ -142,8 +142,9 @@ $not_viewed_notice = $last_notification_id - $total_viwed;
 
            
        <div class="col-4 mt-3">
-       <span  class="btn  share_button_des" id="sub40"> <i  class="fa fa-share" style="color:white;font-size: 30px;"> </i> </span> <br>
-       <span class="botton_text"> Share </span> 
+          <a href="<?php echo $base; ?>">    <span  class="btn  share_button_des">
+             <i  class="fa fa-share" style="color:white;font-size: 30px;"> </i> </span>  </a>  <br>
+          <span class="botton_text"> Share </span> 
       </div>
 
 
@@ -188,18 +189,17 @@ $not_viewed_notice = $last_notification_id - $total_viwed;
                     <div class="card-body">
                       <div class="row">
                        <div class="col-md-9 col-9 mb-5">
-                          <h6>Homework Name: <?php echo $value['name'];?> <br>(<?php echo $value['date'];?>)   <br>   <a href='<?php echo $value['link'];?>' target="_blank">Youtube Link </a>  </h6>
+                          <h6> Homework Name: <?php echo $value['name'];?> <br> (<?php echo $value['date'];?>)   <br>   <a href='<?php echo $value['link']; ?>'> Youtube Link </a> </h6>
                        </div>
-                       
                        <div class="col-md-3 col-3"> 
-                    	<a href="../../adminpanel/uploads/homework/<?php echo $value['assessment']; ?>" target="_blank">
+                    	   <a href="../../adminpanel/uploads/homework/<?php echo $value['assessment']; ?>" target="_blank">
                     		<i class="fa fa-file-pdf-o" style="font-size:48px;color:red"></i></a>
-                      <!--  <iframe src="../executive/uploads/homework/<?php echo $value['assessment']; ?>"><i class="fa fa-file-pdf-o" style="font-size:48px;color:red"></i></iframe> -->
-                          
+                          <!--  <iframe src="../executive/uploads/homework/<?php echo $value['assessment']; ?>"><i class="fa fa-file-pdf-o" style="font-size:48px;color:red"></i></iframe> -->  
                       </div>
                           <div class="col-3" style="font-size: 10px;"><strong></strong></div>
-                          <div class="col-6" style="font-size: 10px; margin-bottom: -50px;"><strong >Student Name: <?= $_SESSION['name']; ?></strong></div>
-                          <div class="col-2" style="font-size: 10px;"><strong></strong></div>
+                          <div class="col-6" style="font-size: 10px; margin-bottom: -50px;">
+                              <strong >Student Name: <?= $_SESSION['name']; ?></strong>  </div>
+                          <div class="col-2" style="font-size: 10px;"> <strong> </strong> </div>
                     </div>
                   </div>
 
